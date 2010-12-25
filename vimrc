@@ -184,7 +184,7 @@ map <leader>ff :LustyFilesystemExplorer<CR>
 map <leader>b :LustyBufferExplorer<CR>
 map <leader>bb :BufExplorer<CR>
 map <leader>g :YRShow<CR>
-nmap <silent> <Leader>j :LustyJuggler<CR>
+" nmap <silent> <Leader>j :LustyJuggler<CR>
 
 " matchit settings
 " let b:match_words = '<%=:%>,<%:%>'
@@ -211,4 +211,4 @@ let g:CommandTDeleteMap='<C-d>'
 
 set wildignore+=*.o,*.obj,.git,*.log,*.gif,*.jpg,*.png,*.gz,*.db
 
-let g:LustyJugglerShowKeys='alpha'
+" let g:LustyJugglerShowKeys='alpha'
