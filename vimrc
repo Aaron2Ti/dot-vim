@@ -93,6 +93,15 @@ set directory=~/.vim_swap
 " bufexplorer config
 let g:bufExplorerShowRelativePath=1
 
+"
+nnoremap - ;
+nnoremap _ ,
+
+" user ; for invoking command
+nnoremap ; :
+vnoremap ; :
+" nnoremap <SPACE> :
+
 " use , as leader character
 let mapleader = ','
 
@@ -100,14 +109,15 @@ nnoremap ' `
 nnoremap ` '
 
 " [<Space> by default is like l, <BkSpc> like h, and - like k.]
-noremap <BS> <PageUp>
-noremap - <PageUp>
-noremap <Space> <C-d>
+noremap <BS> <C-U>
+noremap <Space> <C-D>
 
 noremap <C-A> <C-T>
 noremap <C-S> <C-]>
 
-noremap <C-e> :Explore<CR>
+" noremap <C-D> <C-Y>
+" noremap <C-U> <C-E>
+noremap <C-E> :Explore<CR>
 
 " use <F6> to cycle through split windows
 " and <Shift>+<F6> to cycle backwards, where possible:
@@ -169,11 +179,6 @@ noremap <leader>ri  :Rinitializer<Space>
 noremap <leader>rf  :Redit app/coffeescripts/
 noremap <leader>rs  :Redit app/stylesheets/
 
-" user ; for invoking command
-nnoremap ; :
-vnoremap ; :
-" nnoremap <SPACE> :
-
 " clears the search buffer, nohl
 " nmap <silent> <leader>/ :let @/=""<CR>
 nmap <silent> <ESC><ESC> :nohlsearch<CR>
@@ -185,6 +190,7 @@ map <leader>b :LustyBufferExplorer<CR>
 map <leader>bb :BufExplorer<CR>
 map <leader>g :YRShow<CR>
 " nmap <silent> <Leader>j :LustyJuggler<CR>
+" map <D-R> :YRShow<CR>
 
 " matchit settings
 " let b:match_words = '<%=:%>,<%:%>'
@@ -209,6 +215,6 @@ let g:CommandTCursorLeftMap='<C-b>'
 let g:CommandTBackspaceMap='<C-h>'
 let g:CommandTDeleteMap='<C-d>'
 
-set wildignore+=*.o,*.obj,.git,*.log,*.gif,*.jpg,*.png,*.gz,*.db
+set wildignore+=*.o,*.obj,.git,*.log,*.gif,*.jpg,*.png,*.gz,*.db,*.swf,*.mp3
 
 " let g:LustyJugglerShowKeys='alpha'
