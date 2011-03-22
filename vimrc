@@ -53,6 +53,16 @@ set hlsearch incsearch ignorecase showmatch shortmess+=r infercase smartcase
 
 set magic hidden
 
+" Move around lines
+nnoremap <up> <nop>
+nnoremap <down> <nop>
+nnoremap <left> <nop>
+nnoremap <right> <nop>
+" inoremap <up> <nop>
+" inoremap <down> <nop>
+" inoremap <left> <nop>
+" inoremap <right> <nop>
+
 set wrap
 set whichwrap=<,>,h,l,~,[,]
 
