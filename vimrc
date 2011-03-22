@@ -165,7 +165,7 @@ vnoremap j gj
 vnoremap k gk
 
 nmap <leader>w :w<CR>
-nmap <leader>q :wqa!<CR>
+" nmap <leader>q :wqa!<CR>
 nmap <leader><Esc> :q!<CR>
 
 vmap <leader>as :Align! p0P0 \S\+\s<CR>
@@ -242,3 +242,10 @@ set wildignore+=*.o,*.obj,.git,*.log,*.gif,*.jpg,*.png,*.gz,*.db,*.swf,*.mp3
 " AutoClose
 let g:AutoClosePairs = {'(': ')', '{': '}', '[': ']', '"': '"', "'": "'", '<%': '%>'}
 let g:AutoCloseProtectedRegions = ["Character"]
+
+" Ack
+nmap <leader>a :Ack<Space>
+let g:ackhighlight=1
+
+" AutoClose
+nmap <Leader>x <Plug>ToggleAutoCloseMappings
