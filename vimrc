@@ -26,6 +26,8 @@ filetype indent on
 " * Keystrokes -- Insert Mode
 set backspace=start,indent,eol
 
+set ttyfast
+
 " have % bounce between angled brackets, as well as t'other kinds:
 set matchpairs+=<:>
 
@@ -70,6 +72,8 @@ set ruler showmode showcmd nolazyredraw
 " set number
 set relativenumber
 
+set scrolloff=3
+
 set titlestring=%<%f%m
 " title titleold=OSX
 
@@ -105,7 +109,9 @@ let g:bufExplorerShowRelativePath=1
 
 "
 nnoremap - ;
+vnoremap - ;
 nnoremap _ ,
+vnoremap _ ,
 
 " user ; for invoking command
 nnoremap ; :
@@ -157,6 +163,10 @@ nnoremap j gj
 nnoremap k gk
 vnoremap j gj
 vnoremap k gk
+
+nmap <leader>w :w<CR>
+nmap <leader>q :wqa!<CR>
+nmap <leader><Esc> :q!<CR>
 
 vmap <leader>as :Align! p0P0 \S\+\s<CR>
 vmap <leader>aa :Align
@@ -228,3 +238,7 @@ let g:CommandTDeleteMap='<C-d>'
 set wildignore+=*.o,*.obj,.git,*.log,*.gif,*.jpg,*.png,*.gz,*.db,*.swf,*.mp3
 
 " let g:LustyJugglerShowKeys='alpha'
+
+" AutoClose
+let g:AutoClosePairs = {'(': ')', '{': '}', '[': ']', '"': '"', "'": "'", '<%': '%>'}
+let g:AutoCloseProtectedRegions = ["Character"]
