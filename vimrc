@@ -16,12 +16,15 @@ Bundle 'msanders/snipmate.vim'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'sjbach/lusty'
 Bundle 'tpope/vim-endwise'
+Bundle 'Lokaltog/vim-easymotion'
+" Bundle 'rstacruz/sparkup' " HTML haml editing
 
 Bundle 'bufexplorer.zip'
 Bundle 'Align'
 Bundle 'AutoClose'
 
-" call pathogen#runtime_append_all_bundles()
+" EasyMotion configs
+let g:EasyMotion_leader_key = '<Leader>g'
 
 " Source the vimrc file after saving it
 autocmd bufwritepost .vimrc source $MYVIMRC
