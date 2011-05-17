@@ -6,7 +6,19 @@ set nocompatible
 filetype off " !!!!
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
-Bundle 'rails.vim'
+Bundle 'wincent/Command-T.git'
+Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-haml'
+Bundle 'tpope/vim-rails'
+Bundle 'vim-ruby/vim-ruby'
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'msanders/snipmate.vim'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'sjbach/lusty'
+
+Bundle 'bufexplorer.zip'
+Bundle 'Align'
+Bundle 'AutoClose'
 
 " call pathogen#runtime_append_all_bundles()
 
@@ -212,8 +224,12 @@ map <leader>f :LustyFilesystemExplorerFromHere<CR>
 map <leader>ff :LustyFilesystemExplorer<CR>
 map <leader>b :LustyBufferExplorer<CR>
 map <leader>bb :BufExplorer<CR>
-map <leader>g :YRShow<CR>
-" nmap <silent> <Leader>j :LustyJuggler<CR>
+
+let g:LustyJugglerShowKeys = 'a'
+nmap <silent> <Leader>j :LustyJuggler<CR>
+let g:LustyJugglerSuppressRubyWarning = 1
+
+" map <leader>g :YRShow<CR>
 " map <D-R> :YRShow<CR>
 
 " matchit settings
