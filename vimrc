@@ -15,6 +15,7 @@ Bundle 'scrooloose/nerdcommenter'
 Bundle 'msanders/snipmate.vim'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'sjbach/lusty'
+Bundle 'tpope/vim-endwise'
 
 Bundle 'bufexplorer.zip'
 Bundle 'Align'
