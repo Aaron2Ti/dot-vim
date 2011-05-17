@@ -1,9 +1,14 @@
 ﻿colorscheme drama
 
 autocmd!
-set nocompatible
 
-call pathogen#runtime_append_all_bundles()
+set nocompatible
+filetype off " !!!!
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+Bundle 'rails.vim'
+
+" call pathogen#runtime_append_all_bundles()
 
 " Source the vimrc file after saving it
 autocmd bufwritepost .vimrc source $MYVIMRC
@@ -19,7 +24,6 @@ autocmd BufReadPost *
   \ endif
 
 " indent code by syntax
-filetype on
 filetype plugin on
 filetype indent on
 
