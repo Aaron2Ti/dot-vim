@@ -16,10 +16,12 @@ end
 " color 8-15 corresponds to high-intensity
 " bold = bright foreground, blink = bright background
 
-hi Normal        cterm=none guifg=#d1eabc guibg=grey15
 hi Cursor        guibg=khaki guifg=slategrey
 hi CursorColumn  term=reverse ctermbg=Black guibg=grey20
 hi CursorLine    term=underline cterm=underline guibg=grey20
+hi LineNr        guifg=grey70 guibg=grey20 gui=italic,bold
+
+hi Normal        cterm=none guifg=#d1eabc guibg=grey13
 
 hi Pmenu      ctermfg=4 ctermbg=7 guibg=grey20
 hi PmenuSel   ctermfg=1 ctermbg=4 guifg=red  guibg=grey60  gui=bold
@@ -30,14 +32,15 @@ hi rubySymbol ctermfg=1  guifg=#63b5d4 ":aa
 hi Identifier cterm=bold ctermfg=1 guifg=#e6a029 gui=bold "@@var,@var,|var|
 hi Special    cterm=bold ctermfg=1 guifg=#f65020 gui=bold
 
-hi Include              cterm=bold ctermfg=2 guifg=#a5efc9 cterm=bold ctermfg=2    "include require
+"include require
+hi Include              cterm=bold ctermfg=2 cterm=bold guifg=#a5efc9
 hi rubyInterpolation    cterm=bold ctermfg=2 guifg=#9ce590 " "#{asdfasd}"
 
-hi Constant             ctermfg=3 guifg=#ffd005   "1,true
+hi Constant             ctermfg=3 guifg=#ffd005 gui=italic   "1,true
 hi rubyPseudoVariable   cterm=bold ctermfg=3 guifg=#f0f045 gui=bold   "self
 hi Type                 cterm=bold ctermfg=1 guifg=#ffe799   "Mod::Deffed, Classdeffed
 
-hi Define               ctermfg=3 guifg=#6786ff    "module,class,def,end
+hi Define               ctermfg=3 guifg=#6786ff gui=italic   "module,class,def,end
 
 hi rubyConstant         ctermfg=5 cterm=bold guifg=#b1d3ff gui=bold      "SomeClass,SomeModule
 
@@ -49,7 +52,7 @@ hi PreProc              cterm=reverse ctermbg=1 guifg=#bb4182 gui=bold guibg=gre
 hi Function             ctermfg=4 guifg=#e784b6 gui=bold       "method define
 
 hi IncSearch            guifg=#749940 guibg=black
-hi Search               cterm=bold ctermfg=0  ctermbg=3 guibg=#749940 guifg=#ef3769 gui=bold
+hi Search               cterm=bold ctermfg=0  ctermbg=3 guibg=#b58900 guifg=#002b36 gui=bold
 hi Error                ctermfg=7   ctermbg=1 guifg=White guibg=#f44490 gui=bold
 hi ErrorMsg             term=standout ctermfg=7   ctermbg=1 guifg=White guibg=#f44490
 hi SpellErrors          guifg=#101010  guibg=#f44490
@@ -73,16 +76,18 @@ hi VisualNOS cterm=bold,underline
 
 hi Operator guifg=Red ctermfg=Red
 hi Structure guifg=green ctermfg=green
-hi LineNr guifg=grey50
 hi Ignore ctermfg=DarkGrey guifg=grey40
-hi Todo guifg=orangered guibg=yellow2
 hi Directory ctermfg=darkcyan
 hi WildMenu ctermfg=0 ctermbg=3
 hi DiffAdd ctermbg=4
 hi DiffChange ctermbg=5
 hi DiffDelete cterm=bold ctermfg=4 ctermbg=6
 hi DiffText cterm=bold ctermbg=1
-hi Underlined cterm=underline ctermfg=5
+
+hi Underlined cterm=underline ctermfg=5 gui=underline
+
+" TODO
+hi Todo guifg=orangered guibg=yellow3 gui=bold
 
 "hi TabLine              ctermfg=15  ctermbg=0
 "hi TabLineFill          ctermfg=15  ctermbg=0   cterm=underline
