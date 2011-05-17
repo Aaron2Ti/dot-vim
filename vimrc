@@ -159,14 +159,14 @@ imap <C-a> <C-o>0
 imap <C-e> <C-o>$
 
 " sane movement with wrap turned on
-nnoremap j gj
-nnoremap k gk
+" nnoremap j gj
+" nnoremap k gk
 vnoremap j gj
 vnoremap k gk
 
 nmap <leader>w :w<CR>
 " nmap <leader>q :wqa!<CR>
-nmap <leader><Esc> :q!<CR>
+" nmap <leader><Esc> :q!<CR>
 
 vmap <leader>as :Align! p0P0 \S\+\s<CR>
 vmap <leader>aa :Align
