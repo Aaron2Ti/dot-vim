@@ -17,6 +17,7 @@ Bundle 'kchmck/vim-coffee-script'
 Bundle 'sjbach/lusty'
 Bundle 'tpope/vim-endwise'
 Bundle 'Lokaltog/vim-easymotion'
+Bundle 'mileszs/ack.vim'
 " Bundle 'rstacruz/sparkup' " HTML haml editing
 
 Bundle 'bufexplorer.zip'
