@@ -6,6 +6,7 @@ set nocompatible
 filetype off " !!!!
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
+Bundle 'gmarik/vundle'
 Bundle 'wincent/Command-T.git'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-haml'
@@ -20,6 +21,7 @@ Bundle 'mileszs/ack.vim'
 " Bundle 'Lokaltog/vim-easymotion'
 " Bundle 'rstacruz/sparkup' " HTML haml editing
 
+Bundle 'matchit.zip'
 Bundle 'bufexplorer.zip'
 Bundle 'Align'
 Bundle 'AutoClose'
