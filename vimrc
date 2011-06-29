@@ -1,8 +1,9 @@
-﻿colorscheme drama
+﻿set nocompatible
+
+colorscheme drama
 
 autocmd!
 
-set nocompatible
 filetype off " !!!!
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
@@ -11,12 +12,12 @@ Bundle 'wincent/Command-T.git'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-haml'
 Bundle 'tpope/vim-rails'
+Bundle 'tpope/vim-endwise'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'msanders/snipmate.vim'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'sjbach/lusty'
-Bundle 'tpope/vim-endwise'
 Bundle 'mileszs/ack.vim'
 " Bundle 'Lokaltog/vim-easymotion'
 " Bundle 'rstacruz/sparkup' " HTML haml editing
