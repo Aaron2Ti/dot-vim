@@ -273,7 +273,7 @@ let g:CommandTCursorLeftMap='<C-b>'
 let g:CommandTBackspaceMap='<C-h>'
 let g:CommandTDeleteMap='<C-d>'
 
-set wildignore+=*.o,*.obj,.git,*.log,*.gif,*.jpg,*.png,*.gz,*.db,*.swf,*.mp3
+set wildignore+=*.o,*.obj,.git,*.log,*.gif,*.jpg,*.png,*.gz,*.db,*.swf,*.mp3,coverage
 
 " let g:LustyJugglerShowKeys='alpha'
 
