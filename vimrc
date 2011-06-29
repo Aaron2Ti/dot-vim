@@ -13,6 +13,7 @@ Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-haml'
 Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-endwise'
+Bundle 'tpope/vim-unimpaired'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'msanders/snipmate.vim'
@@ -174,8 +175,12 @@ nnoremap <C-N> :next<CR>
 nnoremap <C-P> :prev<CR>
 
 " move current line up or down
-nnoremap <C-j> ddp
-nnoremap <C-k> ddkP
+nmap <C-k> [e
+nmap <C-j> ]e
+
+" Bubble multiple lines
+vmap <C-k> [egv
+vmap <C-j> ]egv
 
 
 "complement
