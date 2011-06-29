@@ -243,8 +243,8 @@ map <leader>ff :LustyFilesystemExplorer<CR>
 map <leader>b :LustyBufferExplorer<CR>
 map <leader>bb :BufExplorer<CR>
 
+" nmap <silent> <Leader>j :LustyJuggler<CR>
 let g:LustyJugglerShowKeys = 'a'
-nmap <silent> <Leader>j :LustyJuggler<CR>
 let g:LustyJugglerSuppressRubyWarning = 1
 
 " map <leader>g :YRShow<CR>
