@@ -182,6 +182,8 @@ nmap <C-j> ]e
 vmap <C-k> [egv
 vmap <C-j> ]egv
 
+" Visually select the text that was last edited/pasted
+nmap gV `[v`]
 
 "complement
 imap <C-c> <C-x><C-u>
