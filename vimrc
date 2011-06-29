@@ -19,13 +19,14 @@ Bundle 'msanders/snipmate.vim'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'sjbach/lusty'
 Bundle 'mileszs/ack.vim'
+Bundle 'Raimondi/delimitMate'
 " Bundle 'Lokaltog/vim-easymotion'
 " Bundle 'rstacruz/sparkup' " HTML haml editing
 
+Bundle 'Align'
 Bundle 'matchit.zip'
 Bundle 'bufexplorer.zip'
-Bundle 'Align'
-Bundle 'AutoClose'
+" Bundle 'AutoClose'
 
 " EasyMotion configs
 " let g:EasyMotion_leader_key = '<Leader>g'
@@ -36,6 +37,8 @@ autocmd bufwritepost .vimrc source $MYVIMRC
 " set *.ru to ruby files
 autocmd BufRead,BufNewFile *.ru set ft=ruby
 autocmd BufRead,BufNewFile *.treetop set ft=treetop
+
+au FileType ruby let b:delimitMate_matchpairs = "(:),[:],{:}"
 
 " Restore cursor position
 autocmd BufReadPost *
