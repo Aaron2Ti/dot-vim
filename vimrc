@@ -21,16 +21,68 @@ Bundle 'kchmck/vim-coffee-script'
 Bundle 'sjbach/lusty'
 Bundle 'mileszs/ack.vim'
 Bundle 'Raimondi/delimitMate'
+" Bundle 'Shougo/neocomplcache'
+" Bundle 'scrooloose/syntastic'
+" Bundle 'ervandew/supertab'
+" Bundle 'godlygeek/tabular'
+" Bundle 'sjl/gundo.vim'
+" Bundle 'kana/vim-textobj-user'
+" Bundle 'nelstrom/vim-textobj-rubyblock'
 " Bundle 'Lokaltog/vim-easymotion'
 " Bundle 'rstacruz/sparkup' " HTML haml editing
 
 Bundle 'Align'
 Bundle 'matchit.zip'
 Bundle 'bufexplorer.zip'
+Bundle 'nginx.vim'
+Bundle 'ShowMarks'
+Bundle 'taglist.vim'
+Bundle 'SearchComplete'
+" Bundle 'SQLComplete.vim'
+" Bundle 'multiselect'
 " Bundle 'AutoClose'
+" Bundle 'genutils'
+" Bundle 'foldutil.vim'
+"
+
+" ShowMarks
+let g:showmarks_ignore_type="hpq"
+let g:showmarks_textlower="\t"
+let g:showmarks_textupper="\t"
+let g:showmarks_include="fdghashjkertywquiopzxcvbnml;FDGHASHJKERTYWQUIOPZXCVBNML"
+nmap <Leader>mf :ShowMarksClearMark<CR>
 
 " EasyMotion configs
 " let g:EasyMotion_leader_key = '<Leader>g'
+
+" neocomplcache
+" let g:neocomplcache_enable_at_startup = 1
+" let g:acp_enableAtStartup = 1
+" let g:neocomplcache_disable_auto_complete = 1
+" let g:neocomplcache_max_list = 8
+" let g:neocomplcache_enable_smart_case = 1
+" let g:neocomplcache_enable_quick_match = 1
+" let g:neocomplcache_auto_completion_start_length = 4
+" let g:neocomplcache_enable_auto_select = 1
+" let g:neocomplcache_ctags_program = '~/.homebrew/bin/ctags'
+" let g:neocomplcache_dictionary_filetype_lists = {
+      " \ 'default' : '~/.vim/neocomplcache'
+      " \ }
+
+" imap <C-k> <Plug>(neocomplcache_snippets_expand)
+" smap <C-k> <Plug>(neocomplcache_snippets_expand)
+" inoremap <expr><C-g>     neocomplcache#undo_completion()
+" inoremap <expr><C-l> neocomplcache#complete_common_string()
+
+" <CR>: close popup and save indent.
+" inoremap <expr><CR>  neocomplcache#smart_close_popup() . "\<CR>"
+" <TAB>: completion.
+" inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+
+" <C-h>, <BS>: close popup and delete backword char.
+" inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
+" inoremap <expr><C-y>  neocomplcache#close_popup()
+" inoremap <expr><C-e>  neocomplcache#cancel_popup()
 
 " Source the vimrc file after saving it
 autocmd bufwritepost .vimrc source $MYVIMRC
@@ -50,6 +102,11 @@ autocmd BufReadPost *
 " indent code by syntax
 filetype plugin on
 filetype indent on
+
+set dictionary+=~/.vim/dict
+
+" <C-x><C-u>
+" let g:neocomplcache_ctags_program = '~/.homebrew/bin/ctags'
 
 " * Keystrokes -- Insert Mode
 set backspace=start,indent,eol
@@ -123,7 +180,7 @@ if has('gui')
   set guioptions=egmRLtc
   " set guifont=Courier:h16 guifontwide=Kai:h16
   " set guifont=Monaco:h14 guifontwide=Kai:h14
-  set guifont=Menlo:h16 guifontwide=Hei:h15
+  set guifont=Menlo:h15 guifontwide=Hei:h14
   set formatprg=par\ r
 end
 

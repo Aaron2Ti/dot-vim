@@ -16,6 +16,12 @@ end
 " color 8-15 corresponds to high-intensity
 " bold = bright foreground, blink = bright background
 
+" ShowMarks highlight
+highlight ShowMarksHLl guibg=grey25 guifg=#f65020 gui=bold
+highlight ShowMarksHLu guibg=grey25 guifg=#f65020 gui=bold
+highlight ShowMarksHLm guibg=grey25 guifg=#f65020 gui=bold
+
+
 hi Cursor        guibg=khaki guifg=slategrey
 hi CursorColumn  term=reverse ctermbg=Black guibg=grey20
 hi CursorLine    term=underline cterm=underline guibg=grey20
