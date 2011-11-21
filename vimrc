@@ -8,6 +8,7 @@ filetype off " !!!!
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 Bundle 'gmarik/vundle'
+Bundle 'ajf/puppet-vim'
 Bundle 'wincent/Command-T.git'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-haml'
@@ -21,6 +22,9 @@ Bundle 'kchmck/vim-coffee-script'
 Bundle 'sjbach/lusty'
 Bundle 'mileszs/ack.vim'
 Bundle 'Raimondi/delimitMate'
+Bundle 'the-isz/MinYankRing.vim'
+Bundle 'bbommarito/vim-slim'
+
 " Bundle 'Shougo/neocomplcache'
 " Bundle 'scrooloose/syntastic'
 " Bundle 'ervandew/supertab'
@@ -87,9 +91,24 @@ nmap <Leader>mf :ShowMarksClearMark<CR>
 " Source the vimrc file after saving it
 autocmd bufwritepost .vimrc source $MYVIMRC
 
-" set *.ru to ruby files
-autocmd BufRead,BufNewFile *.ru set ft=ruby
+" set ruby filetypes
+autocmd BufRead,BufNewFile *.ru,*.watchr set ft=ruby
 autocmd BufRead,BufNewFile *.treetop set ft=treetop
+
+" store and restore folds
+au BufWinLeave *.rb,*.haml,*.erb mkview
+au BufWinEnter *.rb,*.haml,*.erb silent loadview
+
+" '^\\s*$' && getline(v:lnum+1) =~ '\\S' ? '<1' : 1
+
+" fold ruby methods only
+" function! RubyMethodFold(line)
+"   let line_is_method_or_end = synIDattr(synID(a:line,1,0), 'name') == 'rubyMethodBlock'
+"   let line_is_def = getline(a:line) =~ '\s*def '
+"   return line_is_method_or_end || line_is_def
+" endfunction
+" au FileType ruby set foldexpr=RubyMethodFold(v:lnum)
+" au FileType ruby set foldmethod=expr
 
 au FileType ruby let b:delimitMate_matchpairs = "(:),[:],{:}"
 
@@ -271,7 +290,11 @@ noremap <leader>dd :%s/\s\+$//e<CR>
 noremap <leader>sq :%s/"/'/gc<CR>
 
 " Delete all the buffers
-noremap <leader>bd  :1, 1000 bd<CR>
+noremap <leader>bd :bufdo bd<CR>
+" Switch to last buffer
+nnoremap <leader><leader> <C-^>
+" noremap <tab> :bn<CR>
+" noremap <S-tab> :bp<CR>
 
 noremap <leader>r   :Redit<Space>
 noremap <leader>ra  :Redit config/application.rb<CR>
@@ -287,8 +310,7 @@ noremap <leader>rv  :Rview<Space>
 noremap <leader>rh  :Rhelper<Space>
 noremap <leader>rha :Rhelper application<CR>
 noremap <leader>ri  :Rinitializer<Space>
-noremap <leader>rf  :Redit app/coffeescripts/
-noremap <leader>rs  :Redit app/stylesheets/
+noremap <leader>rs  :Rstylesheet<Space>
 
 " clears the search buffer, nohl
 " nmap <silent> <leader>/ :let @/=""<CR>
@@ -344,3 +366,4 @@ let g:ackhighlight=1
 
 " AutoClose
 nmap <Leader>x <Plug>ToggleAutoCloseMappings
+
