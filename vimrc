@@ -25,6 +25,8 @@ Bundle 'Raimondi/delimitMate'
 Bundle 'the-isz/MinYankRing.vim'
 Bundle 'bbommarito/vim-slim'
 
+" Bundle 'kien/ctrlp.vim.git'
+
 " Bundle 'Shougo/neocomplcache'
 " Bundle 'scrooloose/syntastic'
 " Bundle 'ervandew/supertab'
@@ -96,8 +98,8 @@ autocmd BufRead,BufNewFile *.ru,*.watchr set ft=ruby
 autocmd BufRead,BufNewFile *.treetop set ft=treetop
 
 " store and restore folds
-au BufWinLeave *.rb,*.haml,*.erb mkview
-au BufWinEnter *.rb,*.haml,*.erb silent loadview
+" au BufWinLeave *.rb,*.haml,*.erb mkview
+" au BufWinEnter *.rb,*.haml,*.erb silent loadview
 
 " '^\\s*$' && getline(v:lnum+1) =~ '\\S' ? '<1' : 1
 
@@ -296,10 +298,10 @@ nnoremap <leader><leader> <C-^>
 " noremap <tab> :bn<CR>
 " noremap <S-tab> :bp<CR>
 
-noremap <leader>r   :Redit<Space>
-noremap <leader>ra  :Redit config/application.rb<CR>
-noremap <leader>rr  :Redit config/routes.rb<CR>
-noremap <leader>rg  :Redit Gemfile<CR>
+noremap <leader>r   :R<Space>
+noremap <leader>ra  :R config/application.rb<CR>
+noremap <leader>rr  :R config/routes.rb<CR>
+noremap <leader>rg  :R Gemfile<CR>
 noremap <leader>rj  :Rjavascript<Space>
 noremap <leader>rm  :Rmodel<Space>
 noremap <leader>rc  :Rcontroller<Space>
@@ -366,4 +368,3 @@ let g:ackhighlight=1
 
 " AutoClose
 nmap <Leader>x <Plug>ToggleAutoCloseMappings
-
