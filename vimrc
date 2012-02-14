@@ -5,8 +5,10 @@ colorscheme drama
 autocmd!
 
 filetype off " !!!!
+
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
+
 Bundle 'gmarik/vundle'
 Bundle 'ajf/puppet-vim'
 Bundle 'wincent/Command-T.git'
@@ -55,7 +57,7 @@ Bundle 'SearchComplete'
 let g:showmarks_ignore_type="hpq"
 let g:showmarks_textlower="\t"
 let g:showmarks_textupper="\t"
-let g:showmarks_include="fdghashjkertywquiopzxcvbnml;FDGHASHJKERTYWQUIOPZXCVBNML"
+let g:showmarks_include="fdghashjkertywquiopzxcvbnmlFDGHASHJKERTYWQUIOPZXCVBNML"
 nmap <Leader>mf :ShowMarksClearMark<CR>
 
 " EasyMotion configs
@@ -151,7 +153,8 @@ set virtualedit=all
 set autoread
 
 set cursorline mouse=nv
-set nomodeline
+
+set modeline
 
 set grepformat=%f:%l:%m
 
@@ -166,10 +169,10 @@ nnoremap <up> <nop>
 nnoremap <down> <nop>
 nnoremap <left> <nop>
 nnoremap <right> <nop>
-" inoremap <up> <nop>
-" inoremap <down> <nop>
-" inoremap <left> <nop>
-" inoremap <right> <nop>
+inoremap <up> <nop>
+inoremap <down> <nop>
+inoremap <left> <nop>
+inoremap <right> <nop>
 
 set wrap
 set whichwrap=<,>,h,l,~,[,]
@@ -179,11 +182,13 @@ set ruler showmode showcmd nolazyredraw
 set relativenumber
 
 set scrolloff=3
+set sidescrolloff=8
 
 set titlestring=%<%f%m
 " title titleold=OSX
 
 set shiftround shortmess=atI
+set wildmode=list:longest
 set wildmenu wildmode=list:longest,full
 
 set visualbell t_vb=
@@ -196,6 +201,7 @@ set ttyfast
 syntax on
 
 if has('gui')
+  set colorcolumn=80
   set lines=45 columns=122
   set fuoptions=maxvert,maxhorz
   set guioptions=egmRLtc
@@ -204,6 +210,11 @@ if has('gui')
   set guifont=Menlo:h15 guifontwide=Hei:h14
   set formatprg=par\ r
 end
+
+if has('gui_running')
+  set undodir=~/.vim_backup
+  set undofile
+endif
 
 set backupdir=~/.vim_backup
 set directory=~/.vim_swap
@@ -234,8 +245,8 @@ nnoremap ` '
 noremap <BS> <C-U>
 noremap <Space> <C-D>
 
-noremap <C-A> <C-T>
-noremap <C-S> <C-]>
+" noremap <C-A> <C-T>
+" noremap <C-S> <C-]>
 
 " noremap <C-D> <C-Y>
 " noremap <C-U> <C-E>
@@ -266,9 +277,9 @@ nmap gV `[v`]
 "complement
 imap <C-c> <C-x><C-u>
 
-" emacs movement keybindings in insert mode
-imap <C-a> <C-o>0
-imap <C-e> <C-o>$
+" movement keybindings in insert mode
+imap <C-b> <C-O>b
+imap <C-e> <C-O>$
 
 " sane movement with wrap turned on
 " nnoremap j gj
