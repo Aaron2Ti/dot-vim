@@ -9,6 +9,10 @@ let colors_name = "drama"
 if has('gui')
   hi CurrentWord guibg=grey10
   match CurrentWord /\k*\%#\k*/
+
+  " %s/[-ÿ]/ /gc
+  hi NonAsciiChars guibg=#f44490
+  match NonAsciiChars /[\x7f-\xff]/
 end
 
 " color 0-7 corresponds to low-intensity (normal) colours
@@ -44,8 +48,8 @@ hi Include              cterm=bold ctermfg=2 cterm=bold guifg=#a5efc9
 hi rubyInterpolation    cterm=bold ctermfg=2 guifg=#9ce590 " "#{asdfasd}"
 
 hi Constant             ctermfg=3 guifg=#ffd005 gui=italic   "1,true
-hi rubyPseudoVariable   cterm=bold ctermfg=3 guifg=#f0f045 gui=bold   "self
 hi Type                 cterm=bold ctermfg=1 guifg=#ffe799   "Mod::Deffed, Classdeffed
+hi rubyPseudoVariable   cterm=bold ctermfg=3 guifg=#f0f045 gui=bold   "self
 
 hi Define               ctermfg=3 guifg=#6786ff gui=italic   "module,class,def,end
 
