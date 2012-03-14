@@ -60,38 +60,6 @@ let g:showmarks_textupper="\t"
 let g:showmarks_include="fdghashjkertywquiopzxcvbnmlFDGHASHJKERTYWQUIOPZXCVBNML"
 nmap <Leader>mf :ShowMarksClearMark<CR>
 
-" EasyMotion configs
-" let g:EasyMotion_leader_key = '<Leader>g'
-
-" neocomplcache
-" let g:neocomplcache_enable_at_startup = 1
-" let g:acp_enableAtStartup = 1
-" let g:neocomplcache_disable_auto_complete = 1
-" let g:neocomplcache_max_list = 8
-" let g:neocomplcache_enable_smart_case = 1
-" let g:neocomplcache_enable_quick_match = 1
-" let g:neocomplcache_auto_completion_start_length = 4
-" let g:neocomplcache_enable_auto_select = 1
-" let g:neocomplcache_ctags_program = '~/.homebrew/bin/ctags'
-" let g:neocomplcache_dictionary_filetype_lists = {
-      " \ 'default' : '~/.vim/neocomplcache'
-      " \ }
-
-" imap <C-k> <Plug>(neocomplcache_snippets_expand)
-" smap <C-k> <Plug>(neocomplcache_snippets_expand)
-" inoremap <expr><C-g>     neocomplcache#undo_completion()
-" inoremap <expr><C-l> neocomplcache#complete_common_string()
-
-" <CR>: close popup and save indent.
-" inoremap <expr><CR>  neocomplcache#smart_close_popup() . "\<CR>"
-" <TAB>: completion.
-" inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-
-" <C-h>, <BS>: close popup and delete backword char.
-" inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
-" inoremap <expr><C-y>  neocomplcache#close_popup()
-" inoremap <expr><C-e>  neocomplcache#cancel_popup()
-
 " Source the vimrc file after saving it
 autocmd bufwritepost .vimrc source $MYVIMRC
 
@@ -101,6 +69,7 @@ autocmd BufRead,BufNewFile *.treetop set ft=treetop
 
 " store and restore folds
 " au BufWinLeave *.rb,*.haml,*.erb mkview
+" au BufWinEnter *.rb,*.haml,*.erb silent loadview
 " au BufWinEnter *.rb,*.haml,*.erb silent loadview
 
 " '^\\s*$' && getline(v:lnum+1) =~ '\\S' ? '<1' : 1
@@ -114,6 +83,7 @@ autocmd BufRead,BufNewFile *.treetop set ft=treetop
 " au FileType ruby set foldexpr=RubyMethodFold(v:lnum)
 " au FileType ruby set foldmethod=expr
 
+" au FileType ruby set foldmethod=indent
 au FileType ruby let b:delimitMate_matchpairs = "(:),[:],{:}"
 
 " Restore cursor position
@@ -127,9 +97,6 @@ filetype plugin on
 filetype indent on
 
 set dictionary+=~/.vim/dict
-
-" <C-x><C-u>
-" let g:neocomplcache_ctags_program = '~/.homebrew/bin/ctags'
 
 " * Keystrokes -- Insert Mode
 set backspace=start,indent,eol
@@ -365,7 +332,10 @@ let g:CommandTCursorLeftMap='<C-b>'
 let g:CommandTBackspaceMap='<C-h>'
 let g:CommandTDeleteMap='<C-d>'
 
-set wildignore+=*.o,*.obj,.git,*.log,*.gif,*.jpg,*.png,*.gz,*.db,*.swf,*.mp3,coverage
+set wildignore+=*.o,*.obj,.git,*.log,*.gif,*.jpg,*.png,*.gz,*.db,*.swf,*.mp3
+set wildignore+=coverage,.gem
+set wildignore+=tmp/cache
+set wildignore+=CVS
 
 " let g:LustyJugglerShowKeys='alpha'
 
