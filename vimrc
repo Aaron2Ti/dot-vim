@@ -26,7 +26,13 @@ Bundle 'mileszs/ack.vim'
 Bundle 'Raimondi/delimitMate'
 Bundle 'the-isz/MinYankRing.vim'
 Bundle 'bbommarito/vim-slim'
+Bundle 'vim-scripts/DrawIt'
+Bundle 'tpope/vim-fugitive'
 
+" kana/vim-smartinput # auto close " ' ( [ etc
+
+
+" Bundle 'vim-scripts/Obvious-Mode'
 " Bundle 'kien/ctrlp.vim.git'
 
 " Bundle 'Shougo/neocomplcache'
@@ -61,7 +67,7 @@ let g:showmarks_include="fdghashjkertywquiopzxcvbnmlFDGHASHJKERTYWQUIOPZXCVBNML"
 nmap <Leader>mf :ShowMarksClearMark<CR>
 
 " Source the vimrc file after saving it
-autocmd bufwritepost .vimrc source $MYVIMRC
+" autocmd bufwritepost .vimrc source $MYVIMRC
 
 " set ruby filetypes
 autocmd BufRead,BufNewFile *.ru,*.watchr set ft=ruby
@@ -119,7 +125,7 @@ set virtualedit=all
 
 set autoread
 
-set cursorline mouse=nv
+set cursorcolumn cursorline mouse=nv
 
 set modeline
 
@@ -176,6 +182,8 @@ if has('gui')
   " set guifont=Monaco:h14 guifontwide=Kai:h14
   set guifont=Menlo:h15 guifontwide=Hei:h14
   set formatprg=par\ r
+
+  set guicursor=a:blinkwait700-blinkon800-blinkoff500
 end
 
 if has('gui_running')
