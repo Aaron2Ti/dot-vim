@@ -7,6 +7,10 @@ alias_method
 alias
 module
 
+attr_accessor
+attr_reader
+attr_writer
+
 spec_helper
 describe
 
@@ -58,3 +62,7 @@ ingredient
 material
 telephone
 provider
+
+dependancy
+
+criteria
