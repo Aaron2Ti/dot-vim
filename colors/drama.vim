@@ -25,10 +25,10 @@ highlight ShowMarksHLl guibg=grey25 guifg=#f65020 gui=bold
 highlight ShowMarksHLu guibg=grey25 guifg=#f65020 gui=bold
 highlight ShowMarksHLm guibg=grey25 guifg=#f65020 gui=bold
 
-hi ColorColumn guibg=grey7
+hi ColorColumn guibg=black
 
 hi Cursor        guibg=khaki guifg=slategrey
-hi CursorColumn  term=reverse ctermbg=Black guibg=grey20
+hi CursorColumn  term=reverse ctermbg=Black guibg=grey30
 hi CursorLine    term=underline cterm=underline guibg=grey20
 hi LineNr        guifg=grey70 guibg=grey20 gui=italic,bold
 
