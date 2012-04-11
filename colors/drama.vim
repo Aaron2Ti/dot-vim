@@ -27,7 +27,7 @@ highlight ShowMarksHLm guibg=grey25 guifg=#f65020 gui=bold
 
 hi ColorColumn guibg=black
 
-hi Cursor        guibg=khaki guifg=slategrey
+hi Cursor        guibg=khaki guifg=grey5
 hi CursorColumn  term=reverse ctermbg=Black guibg=grey30
 hi CursorLine    term=underline cterm=underline guibg=grey20
 hi LineNr        guifg=grey70 guibg=grey20 gui=italic,bold
@@ -76,6 +76,7 @@ hi FoldColumn guibg=black guifg=grey20
 
 hi ModeMsg term=bold cterm=bold gui=bold guifg=goldenrod
 hi MoreMsg term=bold ctermfg=LightGreen gui=bold guifg=SeaGreen
+
 hi Question guifg=springgreen
 hi SpecialKey term=bold ctermfg=LightBlue guifg=yellowgreen
 hi StatusLine term=reverse,bold cterm=reverse,bold gui=reverse,bold guibg=#c2bfa5 guifg=black
@@ -89,7 +90,6 @@ hi Operator guifg=Red ctermfg=Red
 hi Structure guifg=green ctermfg=green
 hi Ignore ctermfg=DarkGrey guifg=grey40
 hi Directory ctermfg=darkcyan
-hi WildMenu ctermfg=0 ctermbg=3
 hi DiffAdd ctermbg=4
 hi DiffChange ctermbg=5
 hi DiffDelete cterm=bold ctermfg=4 ctermbg=6
