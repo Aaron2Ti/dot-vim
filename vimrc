@@ -152,7 +152,7 @@ set autoread
 
 set cursorcolumn cursorline mouse=nv
 
-set modelines=0
+set modeline
 
 set grepformat=%f:%l:%m
 
