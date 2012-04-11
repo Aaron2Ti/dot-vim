@@ -1,17 +1,24 @@
 ﻿set nocompatible
+filetype off " !!!!
 
 colorscheme drama
 
 autocmd!
 
-filetype off " !!!!
+" {{{ Basic
+
+set laststatus=2
+set encoding=utf-8 fileencodings=utf-8,ucs-bom,cp936 fileencoding=utf-8 termencoding=utf-8
+
+" }}}
+
+" plugins {{{
 
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 Bundle 'gmarik/vundle'
 Bundle 'ajf/puppet-vim'
-Bundle 'wincent/Command-T.git'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-haml'
 Bundle 'tpope/vim-rails'
@@ -29,8 +36,18 @@ Bundle 'bbommarito/vim-slim'
 Bundle 'vim-scripts/DrawIt'
 Bundle 'tpope/vim-fugitive'
 
-" kana/vim-smartinput # auto close " ' ( [ etc
+" {{{ command-t
+Bundle 'wincent/Command-T.git'
+" let g:CommandTMatchWindowAtTop=1
+let g:CommandTMatchWindowReverse=1
+let g:CommandTCursorRightMap='<C-f>'
+let g:CommandTCursorLeftMap='<C-b>'
+let g:CommandTBackspaceMap='<C-h>'
+let g:CommandTDeleteMap='<C-d>'
+" }}}
 
+
+" kana/vim-smartinput # auto close " ' ( [ etc
 
 " Bundle 'vim-scripts/Obvious-Mode'
 " Bundle 'kien/ctrlp.vim.git'
@@ -49,7 +66,6 @@ Bundle 'Align'
 Bundle 'matchit.zip'
 Bundle 'bufexplorer.zip'
 Bundle 'nginx.vim'
-Bundle 'ShowMarks'
 Bundle 'taglist.vim'
 Bundle 'SearchComplete'
 " Bundle 'SQLComplete.vim'
@@ -58,16 +74,27 @@ Bundle 'SearchComplete'
 " Bundle 'genutils'
 " Bundle 'foldutil.vim'
 "
+" Bundle 'vim-scripts/Conque-Shell'
 
-" ShowMarks
+Bundle 'sjl/clam.vim'
+
+" {{{ ShowMarks
+Bundle 'ShowMarks'
 let g:showmarks_ignore_type="hpq"
 let g:showmarks_textlower="\t"
 let g:showmarks_textupper="\t"
 let g:showmarks_include="fdghashjkertywquiopzxcvbnmlFDGHASHJKERTYWQUIOPZXCVBNML"
-nmap <Leader>mf :ShowMarksClearMark<CR>
+" }}}
+
+" {{{ powerline
+Bundle 'Lokaltog/vim-powerline'
+let g:Powerline_symbol='fancy'
+" }}}
+
+" }}}
 
 " Source the vimrc file after saving it
-" autocmd bufwritepost .vimrc source $MYVIMRC
+autocmd bufwritepost .vimrc source $MYVIMRC
 
 " set ruby filetypes
 autocmd BufRead,BufNewFile *.ru,*.watchr set ft=ruby
@@ -117,8 +144,6 @@ set list
 set listchars=tab:▸\ ,eol:¬
 		" #add8e6"
 
-set encoding=utf-8 fileencodings=utf-8,ucs-bom,cp936 fileencoding=utf-8 termencoding=utf-8
-
 set autoindent smartindent
 set expandtab smarttab shiftwidth=2 softtabstop=2 tabstop=2
 set virtualedit=all
@@ -127,7 +152,7 @@ set autoread
 
 set cursorcolumn cursorline mouse=nv
 
-set modeline
+set modelines=0
 
 set grepformat=%f:%l:%m
 
@@ -173,7 +198,8 @@ set ttyfast
 
 syntax on
 
-if has('gui')
+" gui_macvim {{{
+if has('gui_macvim')
   set colorcolumn=80
   set lines=45 columns=122
   set fuoptions=maxvert,maxhorz
@@ -184,12 +210,11 @@ if has('gui')
   set formatprg=par\ r
 
   set guicursor=a:blinkwait700-blinkon800-blinkoff500
-end
 
-if has('gui_running')
   set undodir=~/.vim_backup
   set undofile
-endif
+end
+" }}}
 
 set backupdir=~/.vim_backup
 set directory=~/.vim_swap
@@ -200,21 +225,22 @@ set directory=~/.vim_swap
 let g:bufExplorerShowRelativePath=1
 
 "
+" user ; for invoking command
 nnoremap - ;
 vnoremap - ;
-nnoremap _ ,
-vnoremap _ ,
-
-" user ; for invoking command
 nnoremap ; :
 vnoremap ; :
 " nnoremap <SPACE> :
 
 " use , as leader character
+nnoremap _ ,
+vnoremap _ ,
 let mapleader = ','
+
 
 nnoremap ' `
 nnoremap ` '
+
 
 " [<Space> by default is like l, <BkSpc> like h, and - like k.]
 noremap <BS> <C-U>
@@ -285,19 +311,14 @@ nnoremap <leader><leader> <C-^>
 " noremap <S-tab> :bp<CR>
 
 noremap <leader>r   :R<Space>
-noremap <leader>ra  :R config/application.rb<CR>
 noremap <leader>rr  :R config/routes.rb<CR>
-noremap <leader>rg  :R Gemfile<CR>
-noremap <leader>rj  :Rjavascript<Space>
 noremap <leader>rm  :Rmodel<Space>
 noremap <leader>rc  :Rcontroller<Space>
-noremap <leader>rca :Rcontroller application<CR>
 noremap <leader>rl  :Rlayout<Space>
-noremap <leader>rla :Rlayout application<CR>
 noremap <leader>rv  :Rview<Space>
 noremap <leader>rh  :Rhelper<Space>
-noremap <leader>rha :Rhelper application<CR>
 noremap <leader>ri  :Rinitializer<Space>
+noremap <leader>rj  :Rjavascript<Space>
 noremap <leader>rs  :Rstylesheet<Space>
 
 " clears the search buffer, nohl
@@ -333,13 +354,6 @@ let NERDCompactSexyComs=1
 let g:yankring_history_file = '.yankring_history'
 let s:yr_has_voperator=0
 
-" command-t
-let g:CommandTMatchWindowAtTop=1
-let g:CommandTCursorRightMap='<C-f>'
-let g:CommandTCursorLeftMap='<C-b>'
-let g:CommandTBackspaceMap='<C-h>'
-let g:CommandTDeleteMap='<C-d>'
-
 set wildignore+=*.o,*.obj,.git,*.log,*.gif,*.jpg,*.png,*.gz,*.db,*.swf,*.mp3
 set wildignore+=coverage,.gem
 set wildignore+=tmp/cache
@@ -357,3 +371,5 @@ let g:ackhighlight=1
 
 " AutoClose
 nmap <Leader>x <Plug>ToggleAutoCloseMappings
+
+" vim: foldmethod=marker
