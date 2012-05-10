@@ -327,8 +327,8 @@ noremap <leader>rs  :Rstylesheet<Space>
 
 " map <leader>f :FuzzyFinderFile <C-r>=expand('%:~:.')[:-1-len(expand('%:~:.:t'))]<CR><CR>
 map <leader>f :LustyFilesystemExplorerFromHere<CR>
-map <leader>ff :LustyFilesystemExplorer<CR>
-map <leader>b :LustyBufferExplorer<CR>
+map <leader>b :CommandTBuffer<CR>
+map <leader>g :CommandTTag<CR>
 map <leader>bb :BufExplorer<CR>
 
 " nmap <silent> <Leader>j :LustyJuggler<CR>
