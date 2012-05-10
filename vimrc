@@ -5,7 +5,7 @@
 
 set nocompatible
 
-filetype off " !!!!
+filetype on " !!!!
 
 colorscheme drama
 
@@ -107,6 +107,7 @@ if has('gui_macvim')
   " set guifont=Courier:h16 guifontwide=Kai:h16
   " set guifont=Monaco:h14 guifontwide=Kai:h14
   set guifont=Menlo:h15 guifontwide=Hei:h14
+
   set formatprg=par\ r
 
   set guicursor=a:blinkwait700-blinkon800-blinkoff500
@@ -119,6 +120,8 @@ end
 " {{{ filetypes
 autocmd BufRead,BufNewFile *.ru,*.watchr set ft=ruby
 autocmd BufRead,BufNewFile *.treetop set ft=treetop
+autocmd BufRead,BufNewFile *.coffee set ft=coffee
+autocmd BufRead,BufNewFile *.slim set ft=slim
 
 autocmd FileType ruby let b:delimitMate_matchpairs = "(:),[:],{:}"
 
@@ -132,6 +135,7 @@ autocmd BufReadPost *
 " {{{ wildignore
 set wildignore+=*.o,*.obj,.git,*.log,*.gif,*.jpg,*.png,*.gz,*.db,*.swf,*.mp3
 set wildignore+=coverage,.gem
+set wildignore+=*.xls,*.xlsx,*.doc,*.docx,*.pdf
 set wildignore+=tmp/cache
 set wildignore+=CVS
 " }}} wildignore
@@ -200,7 +204,6 @@ nmap <leader>w :w<CR>
 " nmap <silent> <leader>/ :let @/=""<CR>
 nmap <silent> <ESC><ESC> :nohlsearch<CR>
 
-
 " }}}
 "
 " plugins {{{
@@ -224,8 +227,8 @@ Bundle 'mileszs/ack.vim'
 Bundle 'Raimondi/delimitMate'
 Bundle 'the-isz/MinYankRing.vim'
 Bundle 'bbommarito/vim-slim'
-Bundle 'vim-scripts/DrawIt'
-Bundle 'tpope/vim-fugitive'
+" Bundle 'vim-scripts/DrawIt'
+" Bundle 'tpope/vim-fugitive'
 
 " {{{ command-t
 Bundle 'wincent/Command-T.git'
@@ -267,7 +270,7 @@ Bundle 'SearchComplete'
 "
 " Bundle 'vim-scripts/Conque-Shell'
 
-Bundle 'sjl/clam.vim'
+" Bundle 'sjl/clam.vim'
 
 " {{{ ShowMarks
 Bundle 'ShowMarks'
@@ -279,7 +282,7 @@ let g:showmarks_include="fdghashjkertywquiopzxcvbnmlFDGHASHJKERTYWQUIOPZXCVBNML"
 
 " {{{ powerline
 Bundle 'Lokaltog/vim-powerline'
-let g:Powerline_symbol='fancy'
+let g:Powerline_symbols='fancy'
 " }}}
 
 " }}}
@@ -304,6 +307,12 @@ noremap <leader>bd :bufdo bd<CR>
 nnoremap <leader><leader> <C-^>
 " noremap <tab> :bn<CR>
 " noremap <S-tab> :bp<CR>
+
+" autocmd BufWinLeave *.* mkview
+" autocmd BufWinEnter *.* silent loadview
+noremap <leader>ej  :mkview<CR>
+noremap <leader>je  :loadview<CR>
+" noremap <leader>ej  :loadview<CR>
 
 noremap <leader>r   :R<Space>
 noremap <leader>rr  :R config/routes.rb<CR>
