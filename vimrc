@@ -163,10 +163,7 @@ noremap <Space> <C-D>
 
 noremap <C-E> :Explore<CR>
 
-" use <F6> to cycle through split windows
-" and <Shift>+<F6> to cycle backwards, where possible:
-nnoremap <F6> <C-W>w
-nnoremap <S-F6> <C-W>W
+" run current file with ruby
 nnoremap <F8> :w !ruby<CR>
 
 " use <Ctrl>+N/<Ctrl>+P to cycle through files:
@@ -232,12 +229,18 @@ Bundle 'bbommarito/vim-slim'
 
 " {{{ command-t
 Bundle 'wincent/Command-T.git'
-" let g:CommandTMatchWindowAtTop=1
 let g:CommandTMatchWindowReverse=1
+
+let g:CommandTMaxHeight=20
+
 let g:CommandTCursorRightMap='<C-f>'
 let g:CommandTCursorLeftMap='<C-b>'
 let g:CommandTBackspaceMap='<C-h>'
 let g:CommandTDeleteMap='<C-d>'
+
+map <leader>b :CommandTBuffer<CR>
+map <leader>g :CommandTTag<CR>
+map <leader>s :CommandTJump<CR>
 " }}}
 
 
@@ -327,8 +330,6 @@ noremap <leader>rs  :Rstylesheet<Space>
 
 " map <leader>f :FuzzyFinderFile <C-r>=expand('%:~:.')[:-1-len(expand('%:~:.:t'))]<CR><CR>
 map <leader>f :LustyFilesystemExplorerFromHere<CR>
-map <leader>b :CommandTBuffer<CR>
-map <leader>g :CommandTTag<CR>
 map <leader>bb :BufExplorer<CR>
 
 " nmap <silent> <Leader>j :LustyJuggler<CR>
