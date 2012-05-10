@@ -142,6 +142,8 @@ set wildignore+=CVS
 
 " {{{ Core Maps
 
+abbreviate teh the
+
 " user ; for invoking command
 nnoremap - ;
 vnoremap - ;
@@ -201,6 +203,32 @@ nmap <leader>w :w<CR>
 " nmap <silent> <leader>/ :let @/=""<CR>
 nmap <silent> <ESC><ESC> :nohlsearch<CR>
 
+" Delete whitespace at the line ending
+" noremap <leader>dd :%s/\s\+$//e<CR>
+" Delete empty lines
+" :%s/^[\ \t]*\n//g<CR>
+
+" replace " with '
+noremap <leader>sq :%s/"/'/gc<CR>
+
+" Delete all the buffers
+noremap <leader>bd :bufdo bd<CR>
+
+" Switch to last buffer
+nnoremap <leader><leader> <C-^>
+
+" noremap <tab> :bn<CR>
+" noremap <S-tab> :bp<CR>
+
+" mkview & loadview
+" autocmd BufWinLeave *.* mkview
+" autocmd BufWinEnter *.* silent loadview
+noremap <leader>ej  :mkview<CR>
+noremap <leader>je  :loadview<CR>
+
+" save sudo permission
+cmap ws w !sudo tee >/dev/null %
+
 " }}}
 "
 " plugins {{{
@@ -212,20 +240,59 @@ Bundle 'gmarik/vundle'
 Bundle 'ajf/puppet-vim'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-haml'
+
+" {{{ vim-rails
 Bundle 'tpope/vim-rails'
+noremap <leader>r   :R<Space>
+noremap <leader>rr  :R config/routes.rb<CR>
+noremap <leader>rm  :Rmodel<Space>
+noremap <leader>rc  :Rcontroller<Space>
+noremap <leader>rl  :Rlayout<Space>
+noremap <leader>rv  :Rview<Space>
+noremap <leader>rh  :Rhelper<Space>
+noremap <leader>ri  :Rinitializer<Space>
+noremap <leader>rj  :Rjavascript<Space>
+noremap <leader>rs  :Rstylesheet<Space>
+" }}}
+
 Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'vim-ruby/vim-ruby'
+
+" {{{ nerdcommenter
 Bundle 'scrooloose/nerdcommenter'
+let NERDSpaceDelims=1
+let NERDCompactSexyComs=1
+" }}}
+
 Bundle 'msanders/snipmate.vim'
 Bundle 'kchmck/vim-coffee-script'
-Bundle 'sjbach/lusty'
+
+" Ack {{{
 Bundle 'mileszs/ack.vim'
+" Ack
+nmap <leader>a :Ack<Space>
+let g:ackhighlight=1
+" }}}
+
 Bundle 'Raimondi/delimitMate'
+
 Bundle 'the-isz/MinYankRing.vim'
+
 Bundle 'bbommarito/vim-slim'
 " Bundle 'vim-scripts/DrawIt'
 " Bundle 'tpope/vim-fugitive'
+
+" {{{ lusty
+Bundle 'sjbach/lusty'
+
+" let g:LustyJugglerShowKeys='alpha'
+let g:LustyJugglerShowKeys = 'a'
+let g:LustyJugglerSuppressRubyWarning = 1
+
+map <leader>f :LustyFilesystemExplorerFromHere<CR>
+" nmap <silent> <Leader>j :LustyJuggler<CR>
+" }}}
 
 " {{{ command-t
 Bundle 'wincent/Command-T.git'
@@ -259,15 +326,13 @@ map <leader>s :CommandTJump<CR>
 " Bundle 'Lokaltog/vim-easymotion'
 " Bundle 'rstacruz/sparkup' " HTML haml editing
 
-Bundle 'Align'
-Bundle 'matchit.zip'
-Bundle 'bufexplorer.zip'
 Bundle 'nginx.vim'
 Bundle 'taglist.vim'
 Bundle 'SearchComplete'
 " Bundle 'SQLComplete.vim'
+"
 " Bundle 'multiselect'
-" Bundle 'AutoClose'
+
 " Bundle 'genutils'
 " Bundle 'foldutil.vim'
 "
@@ -288,84 +353,30 @@ Bundle 'Lokaltog/vim-powerline'
 let g:Powerline_symbols='fancy'
 " }}}
 
+" bufexplorer {{{
+Bundle 'bufexplorer.zip'
+let g:bufExplorerShowRelativePath=1
+map <leader>bb :BufExplorer<CR>
 " }}}
 
-" bufexplorer config
-let g:bufExplorerShowRelativePath=1
-
+" Align {{{
+Bundle 'Align'
 vmap <leader>as :Align! p0P0 \S\+\s<CR>
 vmap <leader>aa :Align
 vmap <leader>ah :Align =><CR>
+" }}}
 
-" Delete whitespace at the line ending
-noremap <leader>dd :%s/\s\+$//e<CR>
-" Delete empty lines
-" :%s/^[\ \t]*\n//g<CR>
+" AutoClose {{{
+" Bundle 'AutoClose'
+" AutoClose
+" let g:AutoClosePairs = {'(': ')', '{': '}', '[': ']', '"': '"', "'": "'", '<%': '%>'}
+" let g:AutoCloseProtectedRegions = ["Character"]
+" nmap <Leader>x <Plug>ToggleAutoCloseMappings
+" }}}
 
-noremap <leader>sq :%s/"/'/gc<CR>
-
-" Delete all the buffers
-noremap <leader>bd :bufdo bd<CR>
-" Switch to last buffer
-nnoremap <leader><leader> <C-^>
-" noremap <tab> :bn<CR>
-" noremap <S-tab> :bp<CR>
-
-" autocmd BufWinLeave *.* mkview
-" autocmd BufWinEnter *.* silent loadview
-noremap <leader>ej  :mkview<CR>
-noremap <leader>je  :loadview<CR>
-" noremap <leader>ej  :loadview<CR>
-
-noremap <leader>r   :R<Space>
-noremap <leader>rr  :R config/routes.rb<CR>
-noremap <leader>rm  :Rmodel<Space>
-noremap <leader>rc  :Rcontroller<Space>
-noremap <leader>rl  :Rlayout<Space>
-noremap <leader>rv  :Rview<Space>
-noremap <leader>rh  :Rhelper<Space>
-noremap <leader>ri  :Rinitializer<Space>
-noremap <leader>rj  :Rjavascript<Space>
-noremap <leader>rs  :Rstylesheet<Space>
-
-" map <leader>f :FuzzyFinderFile <C-r>=expand('%:~:.')[:-1-len(expand('%:~:.:t'))]<CR><CR>
-map <leader>f :LustyFilesystemExplorerFromHere<CR>
-map <leader>bb :BufExplorer<CR>
-
-" nmap <silent> <Leader>j :LustyJuggler<CR>
-let g:LustyJugglerShowKeys = 'a'
-let g:LustyJugglerSuppressRubyWarning = 1
-
-" map <leader>g :YRShow<CR>
-" map <D-R> :YRShow<CR>
-
-" matchit settings
+Bundle 'matchit.zip'
 " let b:match_words = '<%=:%>,<%:%>'
 
-" save with permission
-cmap ws w !sudo tee >/dev/null %
-
-ab teh the
-
-" The NERD commenter configs
-let NERDSpaceDelims=1
-let NERDCompactSexyComs=1
-
-" yankring
-let g:yankring_history_file = '.yankring_history'
-let s:yr_has_voperator=0
-
-" let g:LustyJugglerShowKeys='alpha'
-
-" AutoClose
-let g:AutoClosePairs = {'(': ')', '{': '}', '[': ']', '"': '"', "'": "'", '<%': '%>'}
-let g:AutoCloseProtectedRegions = ["Character"]
-
-" Ack
-nmap <leader>a :Ack<Space>
-let g:ackhighlight=1
-
-" AutoClose
-nmap <Leader>x <Plug>ToggleAutoCloseMappings
+" }}}
 
 " vim: foldmethod=marker
