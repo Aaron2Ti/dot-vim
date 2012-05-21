@@ -2,19 +2,13 @@ let g:Powerline#Themes#simple#theme = Pl#Theme#Create(
 	\ Pl#Theme#Buffer(''
 		\ , 'paste_indicator'
 		\ , 'mode_indicator'
-		\ , 'fugitive:branch'
-		\ , 'hgrev:branch'
 		\ , 'fileinfo'
 		\ , 'aurum:status'
 		\ , 'syntastic:errors'
 		\ , Pl#Segment#Truncate()
 		\ , 'cfi:current_function'
 		\ , Pl#Segment#Split()
-		\ , 'rvm:string'
 		\ , 'virtualenv:statusline'
-		\ , 'fileformat'
-		\ , 'fileencoding'
-		\ , 'filetype'
 		\ , 'scrollpercent'
 		\ , 'lineinfo'
 	\ ),
