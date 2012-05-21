@@ -11,8 +11,8 @@ if has('gui')
   match CurrentWord /\k*\%#\k*/
 
   " %s/[-ÿ]/ /gc
-  hi NonAsciiChars guibg=#f44490
-  match NonAsciiChars /[\x7f-\xff]/
+  " hi NonAsciiChars guibg=#f44490
+  " match NonAsciiChars /[\x7f-\xff]/
 end
 
 " color 0-7 corresponds to low-intensity (normal) colours

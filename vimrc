@@ -43,7 +43,9 @@ set grepformat=%f:%l:%m
 
 set helplang=En history=500
 
-set hlsearch incsearch ignorecase showmatch shortmess+=r infercase smartcase
+set hlsearch incsearch ignorecase showmatch infercase smartcase
+
+set shortmess+=r
 
 set magic hidden
 
@@ -55,7 +57,8 @@ set ruler showmode showcmd nolazyredraw
 set relativenumber
 
 set scrolloff=3
-set sidescrolloff=8
+set sidescrolloff=5
+set sidescroll=1
 
 set titlestring=%<%f%m
 " title titleold=OSX
@@ -351,6 +354,7 @@ let g:showmarks_include="fdghashjkertywquiopzxcvbnmlFDGHASHJKERTYWQUIOPZXCVBNML"
 " {{{ powerline
 Bundle 'Lokaltog/vim-powerline'
 let g:Powerline_symbols='fancy'
+let g:Powerline_theme='simple'
 " }}}
 
 " bufexplorer {{{
