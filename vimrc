@@ -101,25 +101,6 @@ inoremap <right> <nop>
 
 " }}}
 
-" gui_macvim {{{
-if has('gui_macvim')
-  set colorcolumn=80
-  set lines=45 columns=122
-  set fuoptions=maxvert,maxhorz
-  set guioptions=egmRLtc
-  " set guifont=Courier:h16 guifontwide=Kai:h16
-  " set guifont=Monaco:h14 guifontwide=Kai:h14
-  set guifont=Menlo:h15 guifontwide=Hei:h14
-
-  set formatprg=par\ r
-
-  set guicursor=a:blinkwait700-blinkon800-blinkoff500
-
-  set undodir=~/.vim_backup
-  set undofile
-end
-" }}}
-
 " {{{ filetypes
 autocmd BufRead,BufNewFile *.ru,*.watchr set ft=ruby
 autocmd BufRead,BufNewFile *.treetop set ft=treetop
@@ -244,6 +225,8 @@ Bundle 'ajf/puppet-vim'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-haml'
 
+" Bundle 'godlygeek/tabular'
+
 " {{{ vim-rails
 Bundle 'tpope/vim-rails'
 noremap <leader>r   :R<Space>
@@ -286,6 +269,11 @@ Bundle 'bbommarito/vim-slim'
 " Bundle 'vim-scripts/DrawIt'
 " Bundle 'tpope/vim-fugitive'
 
+
+Bundle 'vim-scripts/VimClojure'
+let vimclojure#NailgunClient = '$HOME/.rubies/jruby17/tool/nailgun/ng'
+
+
 " {{{ lusty
 Bundle 'sjbach/lusty'
 
@@ -322,7 +310,6 @@ map <leader>s :CommandTJump<CR>
 " Bundle 'Shougo/neocomplcache'
 " Bundle 'scrooloose/syntastic'
 " Bundle 'ervandew/supertab'
-" Bundle 'godlygeek/tabular'
 " Bundle 'sjl/gundo.vim'
 " Bundle 'kana/vim-textobj-user'
 " Bundle 'nelstrom/vim-textobj-rubyblock'
@@ -381,6 +368,29 @@ vmap <leader>ah :Align =><CR>
 Bundle 'matchit.zip'
 " let b:match_words = '<%=:%>,<%:%>'
 
+" }}}
+
+" gui_macvim {{{
+if has('gui_macvim')
+  " remove all the menu
+  " aunmenu DrChip.
+  " aunmenu *
+
+  set colorcolumn=80
+  set lines=45 columns=122
+  set fuoptions=maxvert,maxhorz
+  set guioptions=egmRLtc
+  " set guifont=Courier:h16 guifontwide=Kai:h16
+  " set guifont=Monaco:h14 guifontwide=Kai:h14
+  set guifont=Menlo:h15 guifontwide=Hei:h14
+
+  set formatprg=par\ r
+
+  set guicursor=a:blinkwait700-blinkon800-blinkoff500
+
+  set undodir=~/.vim_backup
+  set undofile
+end
 " }}}
 
 " vim: foldmethod=marker
