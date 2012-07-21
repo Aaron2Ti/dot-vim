@@ -51,7 +51,7 @@ hi Constant             ctermfg=3 guifg=#ffd005 gui=italic   "1,true
 hi Type                 cterm=bold ctermfg=1 guifg=#ffe799   "Mod::Deffed, Classdeffed
 hi rubyPseudoVariable   cterm=bold ctermfg=3 guifg=#f0f045 gui=bold   "self
 
-hi Define               ctermfg=3 guifg=#6786ff gui=italic   "module,class,def,end
+hi Define               ctermfg=3 guifg=#7796ff gui=bold,italic   "module,class,def,end
 
 hi rubyConstant         ctermfg=5 cterm=bold guifg=#b1d3ff gui=bold      "SomeClass,SomeModule
 
@@ -116,3 +116,7 @@ hi Title term=bold ctermfg=LightMagenta gui=bold guifg=Magenta
 hi VisualNOS term=underline,bold cterm=underline,bold gui=underline,bold
 hi WildMenu term=standout ctermbg=Yellow ctermfg=Black guibg=Yellow guifg=Black
 hi NonText term=bold ctermfg=LightBlue guifg=grey30 guibg=grey15 gui=bold
+
+" Clojure colors
+hi clojureKeyword ctermfg=blue guifg=#63b5fe gui=italic
+hi clojureCharacter ctermfg=blue guifg=#2aa198 gui=bold

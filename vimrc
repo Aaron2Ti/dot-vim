@@ -11,11 +11,11 @@ colorscheme drama
 
 autocmd!
 
+syntax on
+
 " indent code by syntax
 filetype plugin on
 filetype indent on
-
-syntax on
 
 set laststatus=2
 
@@ -41,7 +41,7 @@ set modeline
 
 set grepformat=%f:%l:%m
 
-set helplang=En history=500
+set helplang=En history=100
 
 set hlsearch incsearch ignorecase showmatch infercase smartcase
 
@@ -262,6 +262,7 @@ let g:ackhighlight=1
 " }}}
 
 Bundle 'Raimondi/delimitMate'
+autocmd FileType clojure let b:delimitMate_quotes = "\""
 
 Bundle 'the-isz/MinYankRing.vim'
 
@@ -269,10 +270,19 @@ Bundle 'bbommarito/vim-slim'
 " Bundle 'vim-scripts/DrawIt'
 " Bundle 'tpope/vim-fugitive'
 
-
+" {{{ VimClojure
 Bundle 'vim-scripts/VimClojure'
-let vimclojure#NailgunClient = '$HOME/.rubies/jruby17/tool/nailgun/ng'
-
+let vimclojure#FuzzyIndent=1
+let vimclojure#HighlightBuiltins=1
+let vimclojure#HighlightContrib=1
+let vimclojure#DynamicHighlighting=1
+let vimclojure#ParenRainbow=1
+let vimclojure#WantNailgun = 1
+let vimclojure#NailgunClient = '/Volumes/Data/Users/aaron/.lein/ng'
+" let vimclojure#SetupKeyMap = 0
+" let vimclojure#SetupKeyMapEvalToplevel = 1
+autocmd BufRead,BufNewFile *.clj set ft=clojure
+" }}}
 
 " {{{ lusty
 Bundle 'sjbach/lusty'
@@ -282,6 +292,7 @@ let g:LustyJugglerShowKeys = 'a'
 let g:LustyJugglerSuppressRubyWarning = 1
 
 map <leader>f :LustyFilesystemExplorerFromHere<CR>
+map <leader>b :LustyBufferExplorer<CR>
 " nmap <silent> <Leader>j :LustyJuggler<CR>
 " }}}
 
@@ -296,9 +307,8 @@ let g:CommandTCursorLeftMap='<C-b>'
 let g:CommandTBackspaceMap='<C-h>'
 let g:CommandTDeleteMap='<C-d>'
 
-map <leader>b :CommandTBuffer<CR>
-map <leader>g :CommandTTag<CR>
-map <leader>s :CommandTJump<CR>
+" map <leader>g :CommandTTag<CR>
+" map <leader>s :CommandTJump<CR>
 " }}}
 
 
