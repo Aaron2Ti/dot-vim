@@ -117,11 +117,12 @@ autocmd BufReadPost *
 " }}}
 
 " {{{ wildignore
-set wildignore+=*.o,*.obj,.git,*.log,*.gif,*.jpg,*.png,*.gz,*.db,*.swf,*.mp3
+set wildignore+=*.o,*.obj,*.log,*.gif,*.jpg,*.png,*.gz,*.db,*.swf,*.mp3
 set wildignore+=coverage,.gem
 set wildignore+=*.xls,*.xlsx,*.doc,*.docx,*.pdf
 set wildignore+=tmp/cache
-set wildignore+=CVS
+set wildignore+=CVS,.git
+set wildignore+=*.eot,*.svg,*.ttf,*.woff
 " }}} wildignore
 
 " {{{ Core Maps
@@ -263,6 +264,7 @@ let g:ackhighlight=1
 
 Bundle 'Raimondi/delimitMate'
 autocmd FileType clojure let b:delimitMate_quotes = "\""
+autocmd FileType clojure let b:delimitMate_matchpairs = "(:),[:],{:}"
 
 Bundle 'the-isz/MinYankRing.vim'
 
