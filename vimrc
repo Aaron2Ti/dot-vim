@@ -222,9 +222,12 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 Bundle 'gmarik/vundle'
+
 Bundle 'ajf/puppet-vim'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-haml'
+
+Bundle 'coderifous/textobj-word-column.vim'
 
 " Bundle 'godlygeek/tabular'
 
