@@ -24,9 +24,9 @@ set encoding=utf-8 fileencodings=utf-8,ucs-bom,cp936 fileencoding=utf-8 termenco
 " have % bounce between angled brackets, as well as t'other kinds:
 set matchpairs+=<:>
 
-" highlight whitespaces
+" highlight invisible characters
 set list
-set listchars=tab:▸\ ,eol:¬
+set listchars=tab:▸\ ,eol:¬,nbsp:_,trail:·
 		" #add8e6"
 
 set autoindent smartindent
@@ -405,6 +405,8 @@ if has('gui_macvim')
 
   set undodir=~/.vim_backup
   set undofile
+
+  set clipboard=unnamed
 end
 " }}}
 
