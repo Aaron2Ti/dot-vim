@@ -227,8 +227,6 @@ Bundle 'ajf/puppet-vim'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-haml'
 
-Bundle 'coderifous/textobj-word-column.vim'
-
 " Bundle 'godlygeek/tabular'
 
 " {{{ vim-rails
