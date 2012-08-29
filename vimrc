@@ -134,7 +134,6 @@ nnoremap - ;
 vnoremap - ;
 nnoremap ; :
 vnoremap ; :
-" nnoremap <SPACE> :
 
 " use , as leader character
 nnoremap _ ,
@@ -144,14 +143,14 @@ let mapleader = ','
 nnoremap ' `
 nnoremap ` '
 
-" [<Space> by default is like l, <BkSpc> like h, and - like k.]
-noremap <BS> <C-U>
-noremap <Space> <C-D>
+" [<Space> by default is like l]
+noremap <Space>   10<C-E>
+noremap <S-Space> 10<C-Y>
 
 noremap <C-E> :Explore<CR>
 
 " run current file with ruby
-nnoremap <F8> :w !ruby<CR>
+" nnoremap <F8> :w !ruby<CR>
 
 " use <Ctrl>+N/<Ctrl>+P to cycle through files:
 " [<Ctrl>+N by default is like j, and <Ctrl>+P like k.]
@@ -404,7 +403,7 @@ if has('gui_macvim')
   set undodir=~/.vim_backup
   set undofile
 
-  set clipboard=unnamed
+  " set clipboard=unnamed
 end
 " }}}
 
