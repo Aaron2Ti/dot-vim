@@ -187,11 +187,6 @@ nmap <leader>w :w<CR>
 " nmap <silent> <leader>/ :let @/=""<CR>
 nmap <silent> <ESC><ESC> :nohlsearch<CR>
 
-" Delete whitespace at the line ending
-" noremap <leader>dd :%s/\s\+$//e<CR>
-" Delete empty lines
-" :%s/^[\ \t]*\n//g<CR>
-
 " replace " with '
 noremap <leader>sq :%s/"/'/gc<CR>
 
@@ -201,8 +196,6 @@ noremap <leader>bd :bufdo bd<CR>
 " Switch to last buffer
 nnoremap <leader><leader> <C-^>
 
-" noremap <tab> :bn<CR>
-" noremap <S-tab> :bp<CR>
 
 " mkview & loadview
 " autocmd BufWinLeave *.* mkview
@@ -212,9 +205,8 @@ noremap <leader>je  :loadview<CR>
 
 " save sudo permission
 cmap ws w !sudo tee >/dev/null %
-
 " }}}
-"
+
 " plugins {{{
 
 set rtp+=~/.vim/bundle/vundle/
@@ -379,6 +371,16 @@ vmap <leader>ah :Align =><CR>
 
 Bundle 'matchit.zip'
 " let b:match_words = '<%=:%>,<%:%>'
+
+" Indent-Guides {{{
+Bundle 'Indent-Guides'
+let g:indent_guides_auto_colors = 0
+let g:indent_guides_start_level = 2
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=grey13 ctermbg=3
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=grey8  ctermbg=4
+
+autocmd FileType ruby,coffee,javascript,html IndentGuidesEnable
+" }}}
 
 " }}}
 
