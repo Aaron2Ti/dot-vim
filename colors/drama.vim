@@ -30,7 +30,9 @@ hi ColorColumn guibg=black
 hi Cursor        guibg=khaki guifg=grey5
 hi CursorColumn  term=reverse ctermbg=Black guibg=grey30
 hi CursorLine    term=underline cterm=underline guibg=grey20
+
 hi LineNr        guifg=grey70 guibg=grey20 gui=italic,bold
+hi CursorLineNr  guifg=black  guibg=grey20 gui=italic,bold
 
 hi Normal        cterm=none guifg=#d1eabc guibg=grey13
 
