@@ -34,3 +34,40 @@ function ToggleLineNumber()
   endif
 endfunction
 nnoremap <leader>n :call ToggleLineNumber()<CR>
+
+
+function RemoveUselessMenus()
+  aunmenu File.Open\.\.\.
+  aunmenu File.Split-Open\.\.\.
+  aunmenu File.Open\ Tab\.\.\.
+  aunmenu File.Open\ Recent
+  aunmenu File.Close\ Window
+  aunmenu File.Close
+  aunmenu File.Save
+  aunmenu File.Save\ All
+  aunmenu File.Save\ As\.\.\.
+  aunmenu File.Split\ Diff\ with\.\.\.
+  aunmenu File.Split\ Patched\ By\.\.\.
+
+  aunmenu Edit.Undo
+  aunmenu Edit.Redo
+  aunmenu Edit.Repeat
+  aunmenu Edit.Cut
+  aunmenu Edit.Put\ Before
+  aunmenu Edit.Put\ After
+  aunmenu Edit.Select\ All
+  aunmenu Edit.Find
+
+  aunmenu Buffers.Refresh\ menu
+  aunmenu Buffers.Delete
+  aunmenu Buffers.Alternate
+  aunmenu Buffers.Next
+  aunmenu Buffers.Previous
+
+  aunmenu Tools.
+  aunmenu Syntax.
+  aunmenu Plugin.
+  aunmenu DrChip.
+  aunmenu Window.
+  aunmenu Help.
+endfunction

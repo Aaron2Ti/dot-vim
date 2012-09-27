@@ -386,10 +386,6 @@ autocmd FileType ruby,coffee,javascript,html IndentGuidesEnable
 
 " gui_macvim {{{
 if has('gui_macvim')
-  " remove all the menu
-  " aunmenu DrChip.
-  " aunmenu *
-
   set colorcolumn=80
   set lines=45 columns=122
   set fuoptions=maxvert,maxhorz
@@ -406,7 +402,8 @@ if has('gui_macvim')
   set undofile
 
   " set clipboard=unnamed
+
+  autocmd GUIEnter * call RemoveUselessMenus()
 end
-" }}}
 
 " vim: foldmethod=marker
