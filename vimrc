@@ -82,10 +82,10 @@ set backspace=start,indent,eol
 
 set ttyfast
 
-set backupdir=~/.vim_backup
+" set backupdir=~/.vim_backup
 set directory=~/.vim_swap
 
-" set nobackup
+set nobackup
 " set noswapfile
 
 " {{{ no arrow keys
@@ -123,9 +123,12 @@ set wildignore+=*.xls,*.xlsx,*.doc,*.docx,*.pdf
 set wildignore+=tmp/cache
 set wildignore+=CVS,.git
 set wildignore+=*.eot,*.svg,*.ttf,*.woff
+set wildignore+=*.jar
 " }}} wildignore
 
 " {{{ Core Maps
+" inoremap ' "
+" inoremap " '
 
 abbreviate teh the
 
@@ -266,16 +269,16 @@ Bundle 'bbommarito/vim-slim'
 
 " {{{ VimClojure
 Bundle 'vim-scripts/VimClojure'
-let vimclojure#FuzzyIndent=1
-let vimclojure#HighlightBuiltins=1
-let vimclojure#HighlightContrib=1
-let vimclojure#DynamicHighlighting=1
-let vimclojure#ParenRainbow=1
-let vimclojure#WantNailgun = 1
-let vimclojure#NailgunClient = '/Volumes/Data/Users/aaron/.lein/ng'
+let vimclojure#FuzzyIndent         = 1
+let vimclojure#HighlightBuiltins   = 1
+let vimclojure#HighlightContrib    = 1
+let vimclojure#DynamicHighlighting = 1
+let vimclojure#ParenRainbow        = 1
+let vimclojure#WantNailgun         = 1
+let vimclojure#NailgunClient       = '/Volumes/Data/Users/aaron/.lein/ng'
 " let vimclojure#SetupKeyMap = 0
 " let vimclojure#SetupKeyMapEvalToplevel = 1
-autocmd BufRead,BufNewFile *.clj set ft=clojure
+autocmd BufRead,BufNewFile *.clj,*.cljs set ft=clojure
 " }}}
 
 " {{{ lusty
@@ -390,9 +393,11 @@ if has('gui_macvim')
   set lines=45 columns=122
   set fuoptions=maxvert,maxhorz
   set guioptions=egmRLtc
-  " set guifont=Courier:h16 guifontwide=Kai:h16
-  " set guifont=Monaco:h14 guifontwide=Kai:h14
-  set guifont=Menlo:h15 guifontwide=Hei:h14
+  " set guifont=Courier:h16
+  " set guifont=Monaco:h14
+  " set guifont=Source\ Code\ Pro:h15
+  set guifont=Menlo:h15
+  set guifontwide=Hei:h14
 
   set formatprg=par\ r
 
