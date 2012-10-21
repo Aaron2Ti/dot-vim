@@ -133,10 +133,10 @@ set wildignore+=*.jar
 abbreviate teh the
 
 " user ; for invoking command
-nnoremap - ;
-vnoremap - ;
-nnoremap ; :
-vnoremap ; :
+" nnoremap - ;
+" vnoremap - ;
+" nnoremap ; :
+" vnoremap ; :
 
 " use , as leader character
 nnoremap _ ,
@@ -157,8 +157,8 @@ noremap <C-E> :Explore<CR>
 
 " use <Ctrl>+N/<Ctrl>+P to cycle through files:
 " [<Ctrl>+N by default is like j, and <Ctrl>+P like k.]
-nnoremap <C-N> :next<CR>
-nnoremap <C-P> :prev<CR>
+" nnoremap <C-N> :next<CR>
+" nnoremap <C-P> :prev<CR>
 
 " move current line up or down
 nmap <C-k> [e
