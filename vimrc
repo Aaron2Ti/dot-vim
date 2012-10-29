@@ -35,6 +35,8 @@ set virtualedit=all
 
 set autoread
 
+set complete=.,w,b,u,t,k,i,d
+
 set cursorcolumn cursorline mouse=nv
 
 set modeline
@@ -139,8 +141,8 @@ abbreviate teh the
 " vnoremap ; :
 
 " use , as leader character
-nnoremap _ ,
-vnoremap _ ,
+nnoremap - ,
+vnoremap - ,
 let mapleader = ','
 
 nnoremap ' `
@@ -175,8 +177,8 @@ nmap gV `[v`]
 imap <C-c> <C-x><C-u>
 
 " movement keybindings in insert mode
-imap <C-b> <C-O>b
-imap <C-e> <C-O>$
+" imap <C-b> <C-O>b
+" imap <C-e> <C-O>$
 
 " sane movement with wrap turned on
 " nnoremap j gj
@@ -185,6 +187,9 @@ vnoremap j gj
 vnoremap k gk
 
 nmap <leader>w :w<CR>
+
+" Paste and select
+noremap <leader>p p'[v']$
 
 " clears the search buffer, nohl
 " nmap <silent> <leader>/ :let @/=""<CR>
@@ -392,12 +397,12 @@ if has('gui_macvim')
   set colorcolumn=80
   set lines=45 columns=122
   set fuoptions=maxvert,maxhorz
-  set guioptions=egmRLtc
+  set guioptions=egmtc
   " set guifont=Courier:h16
   " set guifont=Monaco:h14
   " set guifont=Source\ Code\ Pro:h15
-  set guifont=Menlo:h15
-  set guifontwide=Hei:h14
+  set guifont=Menlo:h18
+  set guifontwide=Hei:h17
 
   set formatprg=par\ r
 
