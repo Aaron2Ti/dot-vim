@@ -1,4 +1,11 @@
-function <SID>SaveResotreCursor()
+" Restore cursor position
+autocmd BufReadPost *
+  \ if line("'\"") > 1 && line("'\"") <= line("$") |
+  \   exe "normal! g`\"" |
+  \ endif
+
+
+function <SID>SaveLastSearch()
   " Preparation: save last search, and cursor position.
   let _s=@/
   let l = line(".")
@@ -8,7 +15,7 @@ function <SID>SaveResotreCursor()
   let @/=_s
   call cursor(l, c)
 endfunction
-autocmd BufWritePre * :call <SID>SaveResotreCursor()
+autocmd BufWritePre * :call <SID>SaveLastSearch()
 
 
 function <SID>StripTrailingWhitespace()
@@ -57,6 +64,7 @@ function RemoveUselessMenus()
   aunmenu Edit.Put\ After
   aunmenu Edit.Select\ All
   aunmenu Edit.Find
+  aunmenu Edit.Keymap
 
   aunmenu Buffers.Refresh\ menu
   aunmenu Buffers.Delete

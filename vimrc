@@ -91,31 +91,23 @@ set nobackup
 " set noswapfile
 
 " {{{ no arrow keys
-nnoremap <up> <nop>
-nnoremap <down> <nop>
-nnoremap <left> <nop>
-nnoremap <right> <nop>
-inoremap <up> <nop>
-inoremap <down> <nop>
-inoremap <left> <nop>
-inoremap <right> <nop>
+nnoremap <Up>    <Nop>
+nnoremap <Down>  <Nop>
+nnoremap <Left>  <Nop>
+nnoremap <Right> <Nop>
+inoremap <Up>    <Nop>
+inoremap <Down>  <Nop>
+inoremap <Left>  <Nop>
+inoremap <Right> <Nop>
 " }}}
 
 " }}}
 
 " {{{ filetypes
 autocmd BufRead,BufNewFile *.ru,*.watchr set ft=ruby
-autocmd BufRead,BufNewFile *.treetop set ft=treetop
-autocmd BufRead,BufNewFile *.coffee set ft=coffee
-autocmd BufRead,BufNewFile *.slim set ft=slim
-
-autocmd FileType ruby let b:delimitMate_matchpairs = "(:),[:],{:}"
-
-" Restore cursor position
-autocmd BufReadPost *
-  \ if line("'\"") > 1 && line("'\"") <= line("$") |
-  \   exe "normal! g`\"" |
-  \ endif
+autocmd BufRead,BufNewFile *.treetop     set ft=treetop
+autocmd BufRead,BufNewFile *.coffee      set ft=coffee
+autocmd BufRead,BufNewFile *.slim        set ft=slim
 " }}}
 
 " {{{ wildignore
@@ -223,10 +215,15 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 Bundle 'ajf/puppet-vim'
+
+
+Bundle 'tpope/vim-eunuch'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-haml'
-
-" Bundle 'godlygeek/tabular'
+Bundle 'tpope/vim-endwise'
+Bundle 'tpope/vim-unimpaired'
+Bundle 'vim-ruby/vim-ruby'
+" Bundle 'tpope/vim-fugitive'
 
 " {{{ vim-rails
 Bundle 'tpope/vim-rails'
@@ -242,10 +239,6 @@ noremap <leader>rj  :Rjavascript<Space>
 noremap <leader>rs  :Rstylesheet<Space>
 " }}}
 
-Bundle 'tpope/vim-endwise'
-Bundle 'tpope/vim-unimpaired'
-Bundle 'vim-ruby/vim-ruby'
-
 " {{{ nerdcommenter
 Bundle 'scrooloose/nerdcommenter'
 let NERDSpaceDelims=1
@@ -257,20 +250,21 @@ Bundle 'kchmck/vim-coffee-script'
 
 " Ack {{{
 Bundle 'mileszs/ack.vim'
-" Ack
 nmap <leader>a :Ack<Space>
 let g:ackhighlight=1
 " }}}
 
+" delimitMate {{{
 Bundle 'Raimondi/delimitMate'
 autocmd FileType clojure let b:delimitMate_quotes = "\""
 autocmd FileType clojure let b:delimitMate_matchpairs = "(:),[:],{:}"
+autocmd FileType ruby    let b:delimitMate_matchpairs = "(:),[:],{:}"
+" }}}
 
 Bundle 'the-isz/MinYankRing.vim'
 
 Bundle 'bbommarito/vim-slim'
 " Bundle 'vim-scripts/DrawIt'
-" Bundle 'tpope/vim-fugitive'
 
 " {{{ VimClojure
 Bundle 'vim-scripts/VimClojure'
@@ -343,12 +337,23 @@ Bundle 'SearchComplete'
 " Bundle 'sjl/clam.vim'
 
 " {{{ ShowMarks
-Bundle 'ShowMarks'
-let g:showmarks_ignore_type="hpq"
-let g:showmarks_textlower="\t"
-let g:showmarks_textupper="\t"
-let g:showmarks_include="fdghashjkertywquiopzxcvbnmlFDGHASHJKERTYWQUIOPZXCVBNML"
+" Bundle 'ShowMarks'
+" let g:showmarks_ignore_type="hpq"
+" let g:showmarks_textlower="\t"
+" let g:showmarks_textupper="\t"
+" let g:showmarks_include="fdghashjkertywquiopzxcvbnmlFDGHASHJKERTYWQUIOPZXCVBNML"
 " }}}
+
+" {{{ vim-signature
+Bundle 'kshenoy/vim-signature'
+let g:SignatureDisableMenu=1
+" let g:SignatureDefaultMappings=0
+
+" noremap m<Space> :call signature#PurgeMarks()<CR>
+" noremap m<Space> <Plug>SIG_PurgeMarks
+" nmap <Leader>x <Plug>ToggleAutoCloseMappings
+" }}}
+
 
 " {{{ powerline
 Bundle 'Lokaltog/vim-powerline'
@@ -362,10 +367,12 @@ let g:bufExplorerShowRelativePath=1
 map <leader>bb :BufExplorer<CR>
 " }}}
 
+" Bundle 'godlygeek/tabular'
+
 " Align {{{
 Bundle 'Align'
 vmap <leader>as :Align! p0P0 \S\+\s<CR>
-vmap <leader>aa :Align
+vmap <leader>aa :Align<Space>
 vmap <leader>ah :Align =><CR>
 " }}}
 
