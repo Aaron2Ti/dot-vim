@@ -217,11 +217,14 @@ Bundle 'gmarik/vundle'
 Bundle 'ajf/puppet-vim'
 
 
+Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-eunuch'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-haml'
 Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-unimpaired'
+Bundle 'tpope/vim-abolish'
+Bundle 'tpope/vim-liquid'
 Bundle 'vim-ruby/vim-ruby'
 " Bundle 'tpope/vim-fugitive'
 
@@ -248,9 +251,13 @@ let NERDCompactSexyComs=1
 Bundle 'msanders/snipmate.vim'
 Bundle 'kchmck/vim-coffee-script'
 
+" Bundle 'henrik/vim-qargs'
+Bundle 'Peeja/vim-cdo'
+
 " Ack {{{
 Bundle 'mileszs/ack.vim'
-nmap <leader>a :Ack<Space>
+nmap <leader>a :Ack!<Space>
+
 let g:ackhighlight=1
 " }}}
 
@@ -353,7 +360,6 @@ let g:SignatureDisableMenu=1
 " noremap m<Space> <Plug>SIG_PurgeMarks
 " nmap <Leader>x <Plug>ToggleAutoCloseMappings
 " }}}
-
 
 " {{{ powerline
 Bundle 'Lokaltog/vim-powerline'
