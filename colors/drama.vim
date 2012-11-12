@@ -41,7 +41,7 @@ function <SID>hi(group, guifg, guibg, attr, ctermfg, ctermbg)
 endfunction
 
 if has('gui')
-  hi CurrentWord guibg=grey10
+  hi CurrentWord gui=undercurl
   match CurrentWord /\k*\%#\k*/
 
   " %s/[-ÿ]/ /gc
