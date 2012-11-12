@@ -79,3 +79,7 @@ function RemoveUselessMenus()
   aunmenu Window.
   aunmenu Help.
 endfunction
+
+
+" Make dir for current file
+command MkCurrentDir !mkdir -p %:h
