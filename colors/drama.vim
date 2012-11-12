@@ -50,15 +50,19 @@ if has('gui')
 end
 
 
-let s:gui_fg = '#d1eabc'
-let s:gui_bg = 'grey11'
+let s:gui_fg        = '#d1eabc'
+let s:gui_bg        = 'grey11'
+let s:gui_string_fg = '#de7e7e'
 
-call <SID>hi('Normal', s:gui_fg, s:gui_bg, '', '', '')
+"    <SID>hi('Group',  gui_fg,          gui_bg,   gui, fg,  bg)
+call <SID>hi('Normal', s:gui_fg,        s:gui_bg, '',  '',  '')
+call <SID>hi('String', s:gui_string_fg, '',       '',  '1', '')
 
 delfunction <SID>hi
 
 unlet s:gui_fg
 unlet s:gui_bg
+unlet s:gui_string_fg
 
 
 " color 0-7 corresponds to low-intensity (normal) colours
@@ -84,7 +88,6 @@ hi Pmenu      ctermfg=4 ctermbg=7 guibg=grey20
 hi PmenuSel   ctermfg=1 ctermbg=4 guifg=red  guibg=grey60  gui=bold
 hi PmenuThumb ctermfg=0
 
-hi String     ctermfg=1  guifg=#de7e7e "'aaaa'
 hi rubySymbol ctermfg=1  guifg=#63b5d4 ":aa
 hi Identifier cterm=bold ctermfg=1 guifg=#e6a029 gui=bold "@@var,@var,|var|
 hi Special    cterm=bold ctermfg=1 guifg=#f65020 gui=bold
