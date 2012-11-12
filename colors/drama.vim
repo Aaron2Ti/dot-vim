@@ -2,11 +2,43 @@ set background=dark
 
 hi clear
 
-if exists("syntax_on")
+if exists('syntax_on')
   syntax reset
 endif
 
-let g:colors_name = "drama"
+let g:colors_name = 'drama'
+
+" Highlighting function
+"
+"   attr-list
+"     bold
+"     underline
+"     reverse
+"     italic
+"     standout
+"     NONE
+"
+function <SID>hi(group, guifg, guibg, attr, ctermfg, ctermbg)
+  if a:guifg != ''
+    exec 'hi ' . a:group . ' guifg=' . a:guifg
+  endif
+
+  if a:guibg != ''
+    exec 'hi ' . a:group . ' guibg=' . a:guibg
+  endif
+
+  if a:ctermfg != ''
+    exec 'hi ' . a:group . ' ctermfg=' . a:ctermfg
+  endif
+
+  if a:ctermbg != ''
+    exec 'hi ' . a:group . ' ctermbg=' . a:ctermbg
+  endif
+
+  if a:attr != ''
+    exec 'hi ' . a:group . ' gui=' . a:attr . ' cterm=' . a:attr
+  endif
+endfunction
 
 if has('gui')
   hi CurrentWord guibg=grey10
@@ -16,6 +48,18 @@ if has('gui')
   " hi NonAsciiChars guibg=#f44490
   " match NonAsciiChars /[\x7f-\xff]/
 end
+
+
+let s:gui_fg = '#d1eabc'
+let s:gui_bg = 'grey11'
+
+call <SID>hi('Normal', s:gui_fg, s:gui_bg, '', '', '')
+
+delfunction <SID>hi
+
+unlet s:gui_fg
+unlet s:gui_bg
+
 
 " color 0-7 corresponds to low-intensity (normal) colours
 " 0=black, 1=red, 2=green, 3=yellow, 4=blue, 5=magenta, 6=cyan, 7=white
@@ -35,8 +79,6 @@ hi CursorLine    term=underline cterm=underline guibg=grey20
 
 hi LineNr        guifg=grey70 guibg=grey20 gui=italic,bold
 hi CursorLineNr  guifg=grey20 guibg=grey20 gui=italic,bold
-
-hi Normal        cterm=none guifg=#d1eabc guibg=grey13
 
 hi Pmenu      ctermfg=4 ctermbg=7 guibg=grey20
 hi PmenuSel   ctermfg=1 ctermbg=4 guifg=red  guibg=grey60  gui=bold
