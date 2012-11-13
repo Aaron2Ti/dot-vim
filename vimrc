@@ -216,6 +216,7 @@ Bundle 'gmarik/vundle'
 
 Bundle 'ajf/puppet-vim'
 
+Bundle 'AndrewRadev/multichange.vim'
 
 Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-eunuch'
