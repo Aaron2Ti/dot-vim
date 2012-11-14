@@ -80,6 +80,11 @@ function RemoveUselessMenus()
   aunmenu Help.
 endfunction
 
+function <SID>MkSave()
+  !mkdir -p %:h
 
-" Make dir for current file
-command MkCurrentDir !mkdir -p %:h
+  w
+endfunction
+
+" mkdir and wirte
+command MkWrite :call <SID>MkSave()

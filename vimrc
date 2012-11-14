@@ -409,7 +409,7 @@ autocmd FileType ruby,coffee,javascript,html IndentGuidesEnable
 " gui_macvim {{{
 if has('gui_macvim')
   set colorcolumn=80
-  set lines=45 columns=122
+  set lines=46 columns=122
   set fuoptions=maxvert,maxhorz
   set guioptions=egmtc
   " set guifont=Courier:h16
