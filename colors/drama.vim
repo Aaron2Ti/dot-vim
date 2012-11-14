@@ -50,23 +50,31 @@ let s:comment_fg  = 'grey55'
 let s:cursor_line = 'grey20'
 let s:_b          = 'bold'
 let s:_b_i        = 'bold,italic'
+let s:error_bg = '#f44490'
+let s:error_fg = 'white'
 
-"    <SID>hi('Group',        gui_fg,        gui_bg,        gui)
-call <SID>hi('CurrentWord',  '',            s:black,       '')
-call <SID>hi('Normal',       s:fg,          s:bg,          '')
-call <SID>hi('String',       s:string_fg,   '',            '')
+"    <SID>hi('Group',         gui_fg,        gui_bg,        gui)
+call <SID>hi('CurrentWord',   '',            s:black,       '')
+call <SID>hi('Normal',        s:fg,          s:bg,          '')
+call <SID>hi('String',        s:string_fg,   '',            '')
 
-call <SID>hi('ColorColumn',  '',            s:black,       '')
-call <SID>hi('Cursor',       'grey5',       'khaki',       '')
-call <SID>hi('CursorColumn', '',            s:cursor_line, '')
-call <SID>hi('CursorLine',   '',            s:cursor_line, '')
-call <SID>hi('CursorLineNr', s:cursor_line, s:cursor_line, '')
-call <SID>hi('LineNr',       s:comment_fg,  s:cursor_line, s:_b_i)
-call <SID>hi('Comment',      s:comment_fg,  '',            s:_b)
+call <SID>hi('ColorColumn',   '',            s:black,       '')
+call <SID>hi('Cursor',        'grey5',       'khaki',       '')
+call <SID>hi('CursorColumn',  '',            s:cursor_line, '')
+call <SID>hi('CursorLine',    '',            s:cursor_line, '')
+call <SID>hi('CursorLineNr',  s:cursor_line, s:cursor_line, '')
+call <SID>hi('LineNr',        s:comment_fg,  s:cursor_line, s:_b_i)
+call <SID>hi('Comment',       s:comment_fg,  '',            s:_b)
+call <SID>hi('Error',         s:error_fg,    s:error_bg,    s:_b)
+call <SID>hi('ErrorMsg',      s:error_fg,    s:error_bg,    s:_b)
+call <SID>hi('NonAsciiChars', s:error_fg,    s:error_bg,    s:_b)
 
 delfunction <SID>hi
 
 hi Comment cterm=bold ctermfg=0
+hi Error                ctermfg=7   ctermbg=1
+hi ErrorMsg             term=standout ctermfg=7   ctermbg=1
+hi SpellErrors          guifg=#101010  guibg=#f44490
 
 
 " color 0-7 corresponds to low-intensity (normal) colours
@@ -107,9 +115,6 @@ hi Function             ctermfg=4 guifg=#e784b6 gui=bold       "method define
 
 hi IncSearch            guifg=#749940 guibg=black
 hi Search               cterm=bold ctermfg=0  ctermbg=3 guibg=#b58900 guifg=#002b36 gui=bold
-hi Error                ctermfg=7   ctermbg=1 guifg=White guibg=#f44490 gui=bold
-hi ErrorMsg             term=standout ctermfg=7   ctermbg=1 guifg=White guibg=#f44490
-hi SpellErrors          guifg=#101010  guibg=#f44490
 hi WarningMsg           term=standout ctermfg=LightRed guifg=White guibg=#f44490 gui=bold
 
 hi VertSplit            term=reverse cterm=reverse gui=reverse guibg=#c2bfa5 guifg=grey30
