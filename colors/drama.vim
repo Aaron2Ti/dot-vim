@@ -69,9 +69,10 @@ call <SID>hi('LineNr',        s:comment_fg,  s:cursor_line, s:_b_i)
 call <SID>hi('Comment',       s:comment_fg,  '',            s:_b)
 call <SID>hi('Error',         s:error_fg,    s:error_bg,    s:_b)
 call <SID>hi('ErrorMsg',      s:error_fg,    s:error_bg,    s:_b)
-call <SID>hi('NonAsciiChars', s:error_fg,    s:error_bg,    s:_b)
 call <SID>hi('NonText',       s:non_text_fg, s:non_text_bg, '')
 call <SID>hi('SpecialKey',    s:non_text_fg, s:non_text_bg, '')
+
+" call <SID>hi('NonAsciiChars', s:error_fg,    s:error_bg,    s:_b)
 
 delfunction <SID>hi
 
