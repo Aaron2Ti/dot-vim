@@ -52,6 +52,8 @@ let s:_b          = 'bold'
 let s:_b_i        = 'bold,italic'
 let s:error_bg = '#f44490'
 let s:error_fg = 'white'
+let s:non_text_fg = 'grey35'
+let s:non_text_bg = 'grey15'
 
 "    <SID>hi('Group',         gui_fg,        gui_bg,        gui)
 call <SID>hi('CurrentWord',   '',            s:black,       '')
@@ -68,6 +70,8 @@ call <SID>hi('Comment',       s:comment_fg,  '',            s:_b)
 call <SID>hi('Error',         s:error_fg,    s:error_bg,    s:_b)
 call <SID>hi('ErrorMsg',      s:error_fg,    s:error_bg,    s:_b)
 call <SID>hi('NonAsciiChars', s:error_fg,    s:error_bg,    s:_b)
+call <SID>hi('NonText',       s:non_text_fg, s:non_text_bg, '')
+call <SID>hi('SpecialKey',    s:non_text_fg, s:non_text_bg, '')
 
 delfunction <SID>hi
 
@@ -75,6 +79,8 @@ hi Comment cterm=bold ctermfg=0
 hi Error                ctermfg=7   ctermbg=1
 hi ErrorMsg             term=standout ctermfg=7   ctermbg=1
 hi SpellErrors          guifg=#101010  guibg=#f44490
+hi NonText    term=bold ctermfg=LightBlue
+hi SpecialKey term=bold ctermfg=LightBlue
 
 
 " color 0-7 corresponds to low-intensity (normal) colours
@@ -126,7 +132,6 @@ hi ModeMsg term=bold cterm=bold gui=bold guifg=goldenrod
 hi MoreMsg term=bold ctermfg=LightGreen gui=bold guifg=SeaGreen
 
 hi Question guifg=springgreen
-hi SpecialKey term=bold ctermfg=LightBlue guifg=yellowgreen
 hi StatusLine term=reverse,bold cterm=reverse,bold gui=reverse,bold guibg=#c2bfa5 guifg=black
 hi StatusLineNC term=reverse cterm=reverse gui=reverse guibg=#c2bfa5 guifg=grey40
 
@@ -163,7 +168,6 @@ hi Question term=standout ctermfg=LightGreen gui=bold guifg=Green
 hi Title term=bold ctermfg=LightMagenta gui=bold guifg=Magenta
 hi VisualNOS term=underline,bold cterm=underline,bold gui=underline,bold
 hi WildMenu term=standout ctermbg=Yellow ctermfg=Black guibg=Yellow guifg=Black
-hi NonText term=bold ctermfg=LightBlue guifg=grey30 guibg=grey15 gui=bold
 
 " Clojure colors
 hi clojureKeyword ctermfg=blue guifg=#63b5fe gui=italic
