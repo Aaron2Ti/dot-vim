@@ -11,14 +11,14 @@ let g:colors_name = 'drama'
 " Highlighting function
 "
 "   attr-list
-"     bold
-"     underline
-"     reverse
-"     italic
-"     standout
 "     NONE
+"     bold
+"     italic
+"     reverse
+"     standout
+"     underline
 "
-function <SID>hi(group, guifg, guibg, attr, ctermfg, ctermbg)
+function <SID>hi(group, guifg, guibg, attr)
   if a:guifg != ''
     exec 'hi ' . a:group . ' guifg=' . a:guifg
   endif
@@ -27,42 +27,46 @@ function <SID>hi(group, guifg, guibg, attr, ctermfg, ctermbg)
     exec 'hi ' . a:group . ' guibg=' . a:guibg
   endif
 
-  if a:ctermfg != ''
-    exec 'hi ' . a:group . ' ctermfg=' . a:ctermfg
-  endif
-
-  if a:ctermbg != ''
-    exec 'hi ' . a:group . ' ctermbg=' . a:ctermbg
-  endif
-
   if a:attr != ''
-    exec 'hi ' . a:group . ' gui=' . a:attr . ' cterm=' . a:attr
+    exec 'hi ' . a:group . ' gui=' . a:attr
   endif
 endfunction
 
 if has('gui')
-  hi CurrentWord gui=undercurl
+  hi CurrentWord gui=none
   match CurrentWord /\k*\%#\k*/
 
   " %s/[-ÿ]/ /gc
-  " hi NonAsciiChars guibg=#f44490
-  " match NonAsciiChars /[\x7f-\xff]/
+  hi NonAsciiChars gui=none
+  match NonAsciiChars /[\x7f-\xff]/
 end
 
 
-let s:gui_fg        = '#d1eabc'
-let s:gui_bg        = 'grey11'
-let s:gui_string_fg = '#de7e7e'
+let s:black       = 'black'
+let s:fg          = '#d1eabc'
+let s:bg          = 'grey9'
+let s:string_fg   = '#de7e7e'
+let s:comment_fg  = 'grey55'
+let s:cursor_line = 'grey20'
+let s:_b          = 'bold'
+let s:_b_i        = 'bold,italic'
 
-"    <SID>hi('Group',  gui_fg,          gui_bg,   gui, fg,  bg)
-call <SID>hi('Normal', s:gui_fg,        s:gui_bg, '',  '',  '')
-call <SID>hi('String', s:gui_string_fg, '',       '',  '1', '')
+"    <SID>hi('Group',        gui_fg,        gui_bg,        gui)
+call <SID>hi('CurrentWord',  '',            s:black,       '')
+call <SID>hi('Normal',       s:fg,          s:bg,          '')
+call <SID>hi('String',       s:string_fg,   '',            '')
+
+call <SID>hi('ColorColumn',  '',            s:black,       '')
+call <SID>hi('Cursor',       'grey5',       'khaki',       '')
+call <SID>hi('CursorColumn', '',            s:cursor_line, '')
+call <SID>hi('CursorLine',   '',            s:cursor_line, '')
+call <SID>hi('CursorLineNr', s:cursor_line, s:cursor_line, '')
+call <SID>hi('LineNr',       s:comment_fg,  s:cursor_line, s:_b_i)
+call <SID>hi('Comment',      s:comment_fg,  '',            s:_b)
 
 delfunction <SID>hi
 
-unlet s:gui_fg
-unlet s:gui_bg
-unlet s:gui_string_fg
+hi Comment cterm=bold ctermfg=0
 
 
 " color 0-7 corresponds to low-intensity (normal) colours
@@ -70,19 +74,10 @@ unlet s:gui_string_fg
 " color 8-15 corresponds to high-intensity
 " bold = bright foreground, blink = bright background
 
-" ShowMarks highlight
-highlight ShowMarksHLl guibg=grey25 guifg=#f65020 gui=bold
-highlight ShowMarksHLu guibg=grey25 guifg=#f65020 gui=bold
-highlight ShowMarksHLm guibg=grey25 guifg=#f65020 gui=bold
-
-hi ColorColumn guibg=black
-
-hi Cursor        guibg=khaki guifg=grey5
-hi CursorColumn  term=reverse ctermbg=Black guibg=grey30
-hi CursorLine    term=underline cterm=underline guibg=grey20
-
-hi LineNr        guifg=grey70 guibg=grey20 gui=italic,bold
-hi CursorLineNr  guifg=grey20 guibg=grey20 gui=italic,bold
+" ShowMarks
+hi ShowMarksHLl guibg=grey25 guifg=#f65020 gui=bold
+hi ShowMarksHLu guibg=grey25 guifg=#f65020 gui=bold
+hi ShowMarksHLm guibg=grey25 guifg=#f65020 gui=bold
 
 hi Pmenu      ctermfg=4 ctermbg=7 guibg=grey20
 hi PmenuSel   ctermfg=1 ctermbg=4 guifg=red  guibg=grey60  gui=bold
@@ -105,7 +100,6 @@ hi Define               ctermfg=3 guifg=#7796ff gui=bold,italic   "module,class,
 hi rubyConstant         ctermfg=5 cterm=bold guifg=#b1d3ff gui=bold      "SomeClass,SomeModule
 
 hi Statement            term=bold cterm=bold ctermfg=3 guifg=#52cea8 gui=bold  "do-end,if,private
-hi Comment              cterm=bold ctermfg=0 guifg=grey55 gui=bold
 
 hi PreProc              cterm=reverse ctermbg=1 guifg=#bb4182 gui=bold guibg=grey25  "#!/bin/sh
 
@@ -135,14 +129,14 @@ hi Title guifg=gold gui=bold
 hi Visual term=reverse ctermbg=black guibg=grey20 guifg=pink
 hi VisualNOS cterm=bold,underline
 
-hi Operator guifg=Red ctermfg=Red
-hi Structure guifg=green ctermfg=green
-hi Ignore ctermfg=DarkGrey guifg=grey40
-hi Directory ctermfg=darkcyan
-hi DiffAdd ctermbg=4
+hi Operator  guifg=Red    ctermfg=Red
+hi Structure guifg=green  ctermfg=green
+hi Ignore    guifg=grey40 ctermfg=DarkGrey
+hi Directory  ctermfg=darkcyan
+hi DiffAdd    ctermbg=4
 hi DiffChange ctermbg=5
-hi DiffDelete cterm=bold ctermfg=4 ctermbg=6
-hi DiffText cterm=bold ctermbg=1
+hi DiffDelete cterm=bold          ctermfg=4 ctermbg=6
+hi DiffText   cterm=bold ctermbg=1
 
 hi Underlined cterm=underline ctermfg=5 gui=underline
 
