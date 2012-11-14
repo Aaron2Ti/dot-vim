@@ -25,8 +25,8 @@ set encoding=utf-8 fileencodings=utf-8,ucs-bom,cp936 fileencoding=utf-8 termenco
 set matchpairs+=<:>
 
 " highlight invisible characters
-set list
 set listchars=tab:▸\ ,eol:¬,nbsp:_,trail:·
+set list
 		" #add8e6"
 
 set autoindent smartindent
