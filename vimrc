@@ -378,7 +378,7 @@ map <leader>bb :BufExplorer<CR>
 
 " Align {{{
 Bundle 'Align'
-vmap <leader>as :Align! p0P0 \S\+\s<CR>
+vmap <leader>a<Space> :Align! p0P0 \S\+\s<CR>
 vmap <leader>aa :Align<Space>
 vmap <leader>ah :Align =><CR>
 " }}}
