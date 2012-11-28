@@ -30,7 +30,14 @@ set list
 		" #add8e6"
 
 set autoindent smartindent
-set expandtab smarttab shiftwidth=2 softtabstop=2 tabstop=2
+set expandtab
+set smarttab
+set shiftwidth=2
+set softtabstop=2
+set tabstop=2
+set shiftround
+set nojoinspaces
+
 set virtualedit=all
 
 set autoread
@@ -65,7 +72,7 @@ set sidescroll=1
 set titlestring=%<%f%m
 " title titleold=OSX
 
-set shiftround shortmess=atI
+set shortmess=atI
 set wildmode=list:longest
 set wildmenu wildmode=list:longest,full
 
