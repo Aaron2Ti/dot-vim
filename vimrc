@@ -219,7 +219,7 @@ Bundle 'ajf/puppet-vim'
 Bundle 'AndrewRadev/multichange.vim'
 
 Bundle 'tpope/vim-repeat'
-Bundle 'tpope/vim-eunuch'
+" Bundle 'tpope/vim-eunuch'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-haml'
 Bundle 'tpope/vim-endwise'
