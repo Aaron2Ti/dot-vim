@@ -351,14 +351,6 @@ Bundle 'SearchComplete'
 
 " Bundle 'sjl/clam.vim'
 
-" {{{ ShowMarks
-" Bundle 'ShowMarks'
-" let g:showmarks_ignore_type="hpq"
-" let g:showmarks_textlower="\t"
-" let g:showmarks_textupper="\t"
-" let g:showmarks_include="fdghashjkertywquiopzxcvbnmlFDGHASHJKERTYWQUIOPZXCVBNML"
-" }}}
-
 " {{{ vim-signature
 Bundle 'kshenoy/vim-signature'
 let g:SignatureDisableMenu=1
