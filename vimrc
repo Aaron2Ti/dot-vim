@@ -233,6 +233,7 @@ Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'tpope/vim-abolish'
 Bundle 'tpope/vim-liquid'
+Bundle 'tpope/vim-rsi'
 Bundle 'vim-ruby/vim-ruby'
 " Bundle 'tpope/vim-fugitive'
 

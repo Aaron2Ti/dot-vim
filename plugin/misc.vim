@@ -55,6 +55,7 @@ function RemoveUselessMenus()
   aunmenu File.Save\ As\.\.\.
   aunmenu File.Split\ Diff\ with\.\.\.
   aunmenu File.Split\ Patched\ By\.\.\.
+  aunmenu File.Print
 
   aunmenu Edit.Undo
   aunmenu Edit.Redo
@@ -80,6 +81,7 @@ function RemoveUselessMenus()
   aunmenu Help.
 endfunction
 
+" mkdir and wirte
 function <SID>MkSave()
   !mkdir -p %:h
 
