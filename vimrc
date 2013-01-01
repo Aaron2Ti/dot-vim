@@ -334,7 +334,11 @@ let g:CommandTDeleteMap='<C-d>'
 " Bundle 'vim-scripts/Obvious-Mode'
 " Bundle 'kien/ctrlp.vim.git'
 
+Bundle 'Shougo/unite.vim'
+Bundle 'Shougo/vimfiler'
+
 " Bundle 'Shougo/neocomplcache'
+
 " Bundle 'scrooloose/syntastic'
 " Bundle 'ervandew/supertab'
 " Bundle 'sjl/gundo.vim'
