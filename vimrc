@@ -29,13 +29,18 @@ set listchars=tab:▸\ ,eol:¬,nbsp:_,trail:·
 set list
 		" #add8e6"
 
-set autoindent smartindent
+set autoindent
+set smartindent
+set copyindent
+
+set switchbuf=useopen
+
+set shiftround
 set expandtab
 set smarttab
 set shiftwidth=2
 set softtabstop=2
 set tabstop=2
-set shiftround
 set nojoinspaces
 
 set virtualedit=all
@@ -424,6 +429,8 @@ if has('gui_macvim')
 
   set undodir=~/.vim_backup
   set undofile
+
+  set antialias
 
   " set clipboard=unnamed
 
