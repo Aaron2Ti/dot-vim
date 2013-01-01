@@ -14,7 +14,6 @@ autocmd!
 syntax on
 
 " indent code by syntax
-filetype plugin on
 filetype indent on
 
 set laststatus=2
@@ -221,29 +220,32 @@ cmap ws w !sudo tee >/dev/null %
 
 " plugins {{{
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+if has('vim_starting')
+  set runtimepath+=~/.vim/bundle/neobundle.vim/
+endif
 
-Bundle 'gmarik/vundle'
+call neobundle#rc(expand('~/.vim/bundle/'))
 
-Bundle 'ajf/puppet-vim'
+NeoBundle 'Shougo/neobundle.vim'
 
-Bundle 'AndrewRadev/multichange.vim'
+NeoBundle 'ajf/puppet-vim'
 
-Bundle 'tpope/vim-repeat'
-" Bundle 'tpope/vim-eunuch'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-haml'
-Bundle 'tpope/vim-endwise'
-Bundle 'tpope/vim-unimpaired'
-Bundle 'tpope/vim-abolish'
-Bundle 'tpope/vim-liquid'
-Bundle 'tpope/vim-rsi'
-Bundle 'vim-ruby/vim-ruby'
-" Bundle 'tpope/vim-fugitive'
+NeoBundle 'AndrewRadev/multichange.vim'
+
+NeoBundle 'tpope/vim-repeat'
+" NeoBundle 'tpope/vim-eunuch'
+NeoBundle 'tpope/vim-surround'
+NeoBundle 'tpope/vim-haml'
+NeoBundle 'tpope/vim-endwise'
+NeoBundle 'tpope/vim-unimpaired'
+NeoBundle 'tpope/vim-abolish'
+NeoBundle 'tpope/vim-liquid'
+NeoBundle 'tpope/vim-rsi'
+NeoBundle 'vim-ruby/vim-ruby'
+" NeoBundle 'tpope/vim-fugitive'
 
 " {{{ vim-rails
-Bundle 'tpope/vim-rails'
+NeoBundle 'tpope/vim-rails'
 noremap <leader>r   :R<Space>
 noremap <leader>rr  :R config/routes.rb<CR>
 noremap <leader>rm  :Rmodel<Space>
@@ -257,38 +259,38 @@ noremap <leader>rs  :Rstylesheet<Space>
 " }}}
 
 " {{{ nerdcommenter
-Bundle 'scrooloose/nerdcommenter'
+NeoBundle 'scrooloose/nerdcommenter'
 let NERDSpaceDelims=1
 let NERDCompactSexyComs=1
 " }}}
 
-Bundle 'msanders/snipmate.vim'
-Bundle 'kchmck/vim-coffee-script'
+NeoBundle 'msanders/snipmate.vim'
+NeoBundle 'kchmck/vim-coffee-script'
 
-" Bundle 'henrik/vim-qargs'
-Bundle 'Peeja/vim-cdo'
+" NeoBundle 'henrik/vim-qargs'
+NeoBundle 'Peeja/vim-cdo'
 
 " Ack {{{
-Bundle 'mileszs/ack.vim'
+NeoBundle 'mileszs/ack.vim'
 nmap <leader>a :Ack!<Space>
 
 let g:ackhighlight=1
 " }}}
 
 " delimitMate {{{
-Bundle 'Raimondi/delimitMate'
+NeoBundle 'Raimondi/delimitMate'
 autocmd FileType clojure let b:delimitMate_quotes = "\""
 autocmd FileType clojure let b:delimitMate_matchpairs = "(:),[:],{:}"
 autocmd FileType ruby    let b:delimitMate_matchpairs = "(:),[:],{:}"
 " }}}
 
-Bundle 'the-isz/MinYankRing.vim'
+NeoBundle 'the-isz/MinYankRing.vim'
 
-Bundle 'bbommarito/vim-slim'
-" Bundle 'vim-scripts/DrawIt'
+NeoBundle 'bbommarito/vim-slim'
+" NeoBundle 'vim-scripts/DrawIt'
 
 " {{{ VimClojure
-Bundle 'vim-scripts/VimClojure'
+NeoBundle 'vim-scripts/VimClojure'
 let vimclojure#FuzzyIndent         = 1
 let vimclojure#HighlightBuiltins   = 1
 let vimclojure#HighlightContrib    = 1
@@ -302,7 +304,7 @@ autocmd BufRead,BufNewFile *.clj,*.cljs set ft=clojure
 " }}}
 
 " {{{ lusty
-Bundle 'sjbach/lusty'
+NeoBundle 'sjbach/lusty'
 
 " let g:LustyJugglerShowKeys='alpha'
 let g:LustyJugglerShowKeys = 'a'
@@ -314,7 +316,7 @@ map <leader>b :LustyBufferExplorer<CR>
 " }}}
 
 " {{{ command-t
-Bundle 'wincent/Command-T.git'
+NeoBundle 'wincent/Command-T.git'
 let g:CommandTMatchWindowReverse=1
 
 let g:CommandTMaxHeight=20
@@ -331,38 +333,38 @@ let g:CommandTDeleteMap='<C-d>'
 
 " kana/vim-smartinput # auto close " ' ( [ etc
 
-" Bundle 'vim-scripts/Obvious-Mode'
-" Bundle 'kien/ctrlp.vim.git'
+" NeoBundle 'vim-scripts/Obvious-Mode'
+" NeoBundle 'kien/ctrlp.vim.git'
 
-Bundle 'Shougo/unite.vim'
-Bundle 'Shougo/vimfiler'
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/vimfiler'
 
-" Bundle 'Shougo/neocomplcache'
+" NeoBundle 'Shougo/neocomplcache'
 
-" Bundle 'scrooloose/syntastic'
-" Bundle 'ervandew/supertab'
-" Bundle 'sjl/gundo.vim'
-" Bundle 'kana/vim-textobj-user'
-" Bundle 'nelstrom/vim-textobj-rubyblock'
-" Bundle 'Lokaltog/vim-easymotion'
-" Bundle 'rstacruz/sparkup' " HTML haml editing
+" NeoBundle 'scrooloose/syntastic'
+" NeoBundle 'ervandew/supertab'
+" NeoBundle 'sjl/gundo.vim'
+" NeoBundle 'kana/vim-textobj-user'
+" NeoBundle 'nelstrom/vim-textobj-rubyblock'
+" NeoBundle 'Lokaltog/vim-easymotion'
+" NeoBundle 'rstacruz/sparkup' " HTML haml editing
 
-Bundle 'nginx.vim'
-Bundle 'taglist.vim'
-Bundle 'SearchComplete'
-" Bundle 'SQLComplete.vim'
+NeoBundle 'nginx.vim'
+NeoBundle 'taglist.vim'
+NeoBundle 'SearchComplete'
+" NeoBundle 'SQLComplete.vim'
 "
-" Bundle 'multiselect'
+" NeoBundle 'multiselect'
 
-" Bundle 'genutils'
-" Bundle 'foldutil.vim'
+" NeoBundle 'genutils'
+" NeoBundle 'foldutil.vim'
 "
-" Bundle 'vim-scripts/Conque-Shell'
+" NeoBundle 'vim-scripts/Conque-Shell'
 
-" Bundle 'sjl/clam.vim'
+" NeoBundle 'sjl/clam.vim'
 
 " {{{ vim-signature
-Bundle 'kshenoy/vim-signature'
+NeoBundle 'kshenoy/vim-signature'
 let g:SignatureDisableMenu=1
 " let g:SignatureDefaultMappings=0
 
@@ -372,39 +374,39 @@ let g:SignatureDisableMenu=1
 " }}}
 
 " {{{ powerline
-Bundle 'Lokaltog/vim-powerline'
+NeoBundle 'Lokaltog/vim-powerline'
 let g:Powerline_symbols='fancy'
 let g:Powerline_theme='simple'
 " }}}
 
 " bufexplorer {{{
-Bundle 'bufexplorer.zip'
+NeoBundle 'bufexplorer.zip'
 let g:bufExplorerShowRelativePath=1
 map <leader>bb :BufExplorer<CR>
 " }}}
 
-" Bundle 'godlygeek/tabular'
+" NeoBundle 'godlygeek/tabular'
 
 " Align {{{
-Bundle 'Align'
+NeoBundle 'Align'
 vmap <leader>a<Space> :Align! p0P0 \S\+\s<CR>
 vmap <leader>aa :Align<Space>
 vmap <leader>ah :Align =><CR>
 " }}}
 
 " AutoClose {{{
-" Bundle 'AutoClose'
+" NeoBundle 'AutoClose'
 " AutoClose
 " let g:AutoClosePairs = {'(': ')', '{': '}', '[': ']', '"': '"', "'": "'", '<%': '%>'}
 " let g:AutoCloseProtectedRegions = ["Character"]
 " nmap <Leader>x <Plug>ToggleAutoCloseMappings
 " }}}
 
-Bundle 'matchit.zip'
+NeoBundle 'matchit.zip'
 " let b:match_words = '<%=:%>,<%:%>'
 
 " Indent-Guides {{{
-Bundle 'Indent-Guides'
+NeoBundle 'Indent-Guides'
 let g:indent_guides_auto_colors = 0
 let g:indent_guides_start_level = 2
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=grey13 ctermbg=3
@@ -413,6 +415,15 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=grey8  ctermbg=4
 autocmd FileType ruby,coffee,javascript,html IndentGuidesEnable
 " }}}
 
+filetype plugin on
+
+" Installation check.
+if neobundle#exists_not_installed_bundles()
+  echomsg 'Not installed bundles : ' .
+    \ string(neobundle#get_not_installed_bundle_names())
+  echomsg 'Please execute ":NeoBundleInstall" command.'
+  "finish
+endif
 " }}}
 
 " gui_macvim {{{
