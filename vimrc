@@ -264,7 +264,7 @@ let NERDSpaceDelims=1
 let NERDCompactSexyComs=1
 " }}}
 
-NeoBundle 'msanders/snipmate.vim'
+" NeoBundle 'msanders/snipmate.vim'
 NeoBundle 'kchmck/vim-coffee-script'
 
 " NeoBundle 'henrik/vim-qargs'
@@ -338,6 +338,25 @@ let g:CommandTDeleteMap='<C-d>'
 
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/vimfiler'
+
+" {{{ neocomplcache
+let g:neocomplcache_enable_at_startup = 1
+NeoBundle 'Shougo/neocomplcache'
+
+NeoBundle 'Shougo/neosnippet'
+
+" imap <C-k> <Plug>(neosnippet_expand_or_jump)
+" smap <C-k> <Plug>(neosnippet_expand_or_jump)
+
+imap <expr><TAB> neosnippet#expandable() ? "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<C-n>" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
+if has('conceal')
+  set conceallevel=2 concealcursor=i
+endif
+" }}}
+
+
 
 " NeoBundle 'Shougo/neocomplcache'
 
