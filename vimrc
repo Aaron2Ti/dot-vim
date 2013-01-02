@@ -226,7 +226,7 @@ endif
 
 call neobundle#rc(expand('~/.vim/bundle/'))
 
-NeoBundle 'Shougo/neobundle.vim'
+NeoBundleFetch 'Shougo/neobundle.vim'
 
 NeoBundle 'ajf/puppet-vim'
 
@@ -234,7 +234,6 @@ NeoBundle 'AndrewRadev/multichange.vim'
 
 NeoBundle 'tpope/vim-repeat'
 " NeoBundle 'tpope/vim-eunuch'
-NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-haml'
 NeoBundle 'tpope/vim-endwise'
 NeoBundle 'tpope/vim-unimpaired'
@@ -243,6 +242,30 @@ NeoBundle 'tpope/vim-liquid'
 NeoBundle 'tpope/vim-rsi'
 NeoBundle 'vim-ruby/vim-ruby'
 " NeoBundle 'tpope/vim-fugitive'
+"
+
+" {{{ surround
+NeoBundle 'tpope/vim-surround'
+
+NeoBundle 't9md/vim-surround_custom_mapping'
+let g:surround_custom_mapping = {}
+let g:surround_custom_mapping.ruby = {
+    \ '-':  "<% \r %>",
+    \ '=':  "<%= \r %>",
+    \ '9':  "(\r)",
+    \ '5':  "%(\r)",
+    \ 'w':  "%w(\r)",
+    \ '3':  "#{\r}",
+    \ 'E':  "<<EOS \r EOS",
+    \ 'i':  "if \1if\1 \r end",
+    \ 'u':  "unless \1unless\1 \r end",
+    \ 'c':  "class \1class\1 \r end",
+    \ 'm':  "module \1module\1 \r end",
+    \ 'd':  "def \1def\1\2args\r..*\r(&)\2 \r end",
+    \ 'p':  "\1method\1 do \2args\r..*\r|&| \2\r end",
+    \ 'P':  "\1method\1 {\2args\r..*\r|&|\2 \r }",
+    \ }
+" }}}
 
 " {{{ vim-rails
 NeoBundle 'tpope/vim-rails'
@@ -332,6 +355,18 @@ let g:CommandTDeleteMap='<C-d>'
 
 
 " kana/vim-smartinput # auto close " ' ( [ etc
+" NeoBundle 'kana/vim-textobj-user'
+"
+" {{{ kana
+NeoBundle 'kana/vim-smartword'
+map w  <Plug>(smartword-w)
+map b  <Plug>(smartword-b)
+map e  <Plug>(smartword-e)
+map ge <Plug>(smartword-ge)
+
+" NeoBundle 'kana/vim-smarttill'
+" }}}
+"
 
 " NeoBundle 'vim-scripts/Obvious-Mode'
 " NeoBundle 'kien/ctrlp.vim.git'
@@ -348,7 +383,6 @@ let g:neocomplcache_min_keyword_length = 4
 let g:neocomplcache_enable_caching_message = 0
 let g:neocomplcache_enable_fuzzy_completion = 1
 
-let g:neocomplcache_same_filetype_lists.ruby = '_'
 NeoBundle 'Shougo/neocomplcache'
 
 NeoBundle 'Shougo/neosnippet'
@@ -364,7 +398,6 @@ endif
 " NeoBundle 'scrooloose/syntastic'
 " NeoBundle 'ervandew/supertab'
 " NeoBundle 'sjl/gundo.vim'
-" NeoBundle 'kana/vim-textobj-user'
 " NeoBundle 'nelstrom/vim-textobj-rubyblock'
 " NeoBundle 'Lokaltog/vim-easymotion'
 " NeoBundle 'rstacruz/sparkup' " HTML haml editing
