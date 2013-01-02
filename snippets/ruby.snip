@@ -1,3 +1,6 @@
+snippet encoding
+  # encoding: UTF-8
+
 snippet init
 	def initialize(${1:args})
 		${2}
@@ -7,6 +10,7 @@ snippet cla
 	class ${1:`substitute(Filename(), '^.', '\u&', '')`}
 		${2}
 	end
+
 snippet clas
 	class << self
 		${1}
@@ -24,8 +28,10 @@ snippet method_missing
 
 snippet delegator
 	def_delegator ${1:@target_obj}, :${2:delegate_mtd}, :${3:new_mtd_name}
+
 snippet delegators
 	def_delegators ${1:@target_obj}, :${2:delegate_mtds}
+
 snippet alias
 	alias_method :${1:new_name}, :${2:old_name}
 
@@ -33,12 +39,13 @@ snippet file File.open()
 	File.open(${1:'path/to/file'}) do |f|
 		${2}
 	end
+
 snippet file File.foreach() { |line| .. }
 	File.foreach(${1:'path/to/file'}) do |line|
 		${2}
 	end
 
-snippet epath
+snippet expand_path
 	File.expand_path(${1:__FILE__}, ${2})
 
 snippet task
@@ -49,76 +56,103 @@ snippet task
 
 snippet f
 	flash[:${1:notice}]${2}
+
 snippet p
 	params[:${1:id}]${2}
+
 snippet B
 	{ |${1:args}| ${2} }
+
 snippet each
 	each { |${1:e}| ${2} }
+
 snippet eachd
 	each do |${1:e}|
 		${2}
 	end
-snippet inject
-	reduce(${1:init}) { |${2:r, e}| ${3} }
-snippet injecT
-	reduce(${1:init}) do |${2:r, e}|
+
+snippet reduce
+	reduce(${1:init}) { |${2:memo, i}| ${3} }
+
+snippet reduceT
+	reduce(${1:init}) do |${2:memo, i}|
 		${3}
 	end
 
 snippet bt
 	belongs_to :${1:items}
+
 snippet hm
 	has_many :${1:items}
+
 snippet ho
 	has_one :${1:items}
+
 snippet hma
 	has_many_and_belongs_to :${1:items}
 
 snippet vd validates_presence_of
 	validates_presence_of :${1:attribute}
+
 snippet vd validates_size_of
 	validates_size_of :${1:attribute}
+
 snippet vd validates_uniqueness_of
 	validates_uniqueness_of :${1:attribute}
+
 snippet vd validates_exclusion_of
 	validates_exclusion_of :${1:attribute}
+
 snippet vd validates_format_of
 	validates_format_of :${1:attribute}
+
 snippet vd validates_inclusion_of
 	validates_inclusion_of :${1:attribute}
+
 snippet vd validates_length_of
 	validates_length_of :${1:attribute}
+
 snippet vd validates_numericality_of
 	validates_numericality_of :${1:attribute}
+
 snippet vd validates_confirmation_of
 	validates_confirmation_of :${1:attribute}
+
 snippet vd validates_acceptance_of
 	validates_acceptance_of :${1:attribute}
+
 snippet vd validates_associated
 	validates_associated :${1:attribute}
+
 snippet vd validates_each
 	validates_each :${1:attribute}
 
 snippet cb after_destroy
 	after_destroy :${1:callback}
+
 snippet cb before_destroy
 	before_destroy :${1:callback}
 
 snippet cb before_validation
 	before_validation :${1:callback}
+
 snippet cb after_validation
 	after_validation :${1:callback}
 
 snippet cb before_save
 	before_save :${1:callback}
+
 snippet cb before_update
 	before_update :${1:callback}
+
 snippet cb before_create
 	before_create :${1:callback}
+
 snippet cb after_create
 	after_create :${1:callback}
+
 snippet cb after_update
 	after_update :${1:callback}
+
 snippet cb after_save
 	after_save :${1:callback}
