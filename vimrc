@@ -341,12 +341,17 @@ NeoBundle 'Shougo/vimfiler'
 
 " {{{ neocomplcache
 let g:neocomplcache_enable_at_startup = 1
+let g:neocomplcache_enable_smart_case = 1
+let g:neocomplcache_enable_underbar_completion = 1
+let g:neocomplcache_min_syntax_length = 2
+let g:neocomplcache_min_keyword_length = 4
+let g:neocomplcache_enable_caching_message = 0
+let g:neocomplcache_enable_fuzzy_completion = 1
+
+let g:neocomplcache_same_filetype_lists.ruby = '_'
 NeoBundle 'Shougo/neocomplcache'
 
 NeoBundle 'Shougo/neosnippet'
-
-" imap <C-k> <Plug>(neosnippet_expand_or_jump)
-" smap <C-k> <Plug>(neosnippet_expand_or_jump)
 
 imap <expr><TAB> neosnippet#expandable() ? "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<C-n>" : "\<TAB>"
 smap <expr><TAB> neosnippet#expandable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
@@ -355,10 +360,6 @@ if has('conceal')
   set conceallevel=2 concealcursor=i
 endif
 " }}}
-
-
-
-" NeoBundle 'Shougo/neocomplcache'
 
 " NeoBundle 'scrooloose/syntastic'
 " NeoBundle 'ervandew/supertab'
