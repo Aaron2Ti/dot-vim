@@ -87,8 +87,9 @@ set formatoptions+=n
 
 set ttyfast
 
+set dictionary+=~/.vim/dict/default
 
-set dictionary+=~/.vim/dict
+set thesaurus+=~/.vim/thesaurus/default
 
 " * Keystrokes -- Insert Mode
 set backspace=start,indent,eol
@@ -160,10 +161,6 @@ noremap <C-E> :Explore<CR>
 " run current file with ruby
 " nnoremap <F8> :w !ruby<CR>
 
-" use <Ctrl>+N/<Ctrl>+P to cycle through files:
-" [<Ctrl>+N by default is like j, and <Ctrl>+P like k.]
-" nnoremap <C-N> :next<CR>
-" nnoremap <C-P> :prev<CR>
 
 " move current line up or down
 nmap <C-k> [e
@@ -175,9 +172,6 @@ vmap <C-j> ]egv
 
 " Visually select the text that was last edited/pasted
 nmap gV `[v`]
-
-"complement
-imap <C-c> <C-x><C-u>
 
 " movement keybindings in insert mode
 " imap <C-b> <C-O>b
@@ -326,6 +320,12 @@ let vimclojure#NailgunClient       = '/Volumes/Data/Users/aaron/.lein/ng'
 autocmd BufRead,BufNewFile *.clj,*.cljs set ft=clojure
 " }}}
 
+" {{{ for clojure
+" NeoBundle 'tpope/vim-foreplay'
+" NeoBundle 'guns/vim-clojure-static'
+" NeoBundle 'kien/rainbow_parentheses.vim'
+" }}}
+
 " {{{ lusty
 NeoBundle 'sjbach/lusty'
 
@@ -354,15 +354,17 @@ let g:CommandTDeleteMap='<C-d>'
 " }}}
 
 
+NeoBundle 'derekwyatt/vim-scala'
+
 " kana/vim-smartinput # auto close " ' ( [ etc
 " NeoBundle 'kana/vim-textobj-user'
 "
 " {{{ kana
-NeoBundle 'kana/vim-smartword'
-map w  <Plug>(smartword-w)
-map b  <Plug>(smartword-b)
-map e  <Plug>(smartword-e)
-map ge <Plug>(smartword-ge)
+" NeoBundle 'kana/vim-smartword'
+" map w  <Plug>(smartword-w)
+" map b  <Plug>(smartword-b)
+" map e  <Plug>(smartword-e)
+" map ge <Plug>(smartword-ge)
 
 " NeoBundle 'kana/vim-smarttill'
 " }}}
@@ -371,28 +373,53 @@ map ge <Plug>(smartword-ge)
 " NeoBundle 'vim-scripts/Obvious-Mode'
 " NeoBundle 'kien/ctrlp.vim.git'
 
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/vimfiler'
+" NeoBundle 'Shougo/unite.vim'
+" NeoBundle 'Shougo/vimfiler'
 
 " {{{ neocomplcache
-let g:neocomplcache_enable_at_startup = 1
-let g:neocomplcache_enable_smart_case = 1
-let g:neocomplcache_enable_underbar_completion = 1
-let g:neocomplcache_min_syntax_length = 2
-let g:neocomplcache_min_keyword_length = 4
-let g:neocomplcache_enable_caching_message = 0
-let g:neocomplcache_enable_fuzzy_completion = 1
-
-NeoBundle 'Shougo/neocomplcache'
-
-NeoBundle 'Shougo/neosnippet'
-
-imap <expr><TAB> neosnippet#expandable() ? "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<C-n>" : "\<TAB>"
-smap <expr><TAB> neosnippet#expandable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-
-if has('conceal')
-  set conceallevel=2 concealcursor=i
-endif
+" let g:neocomplcache_enable_caching_message         = 0
+" let g:neocomplcache_enable_at_startup              = 1
+" let g:neocomplcache_enable_ignore_case             = 1
+" let g:neocomplcache_enable_underbar_completion     = 1
+" let g:neocomplcache_auto_completion_start_length   = 2
+" let g:neocomplcache_manual_completion_start_length = 1
+" let g:neocomplcache_min_syntax_length              = 3
+" let g:neocomplcache_min_keyword_length             = 3
+" let g:neocomplcache_enable_insert_char_pre         = 1
+" let g:neocomplcache_enable_fuzzy_completion        = 1
+" let g:neocomplcache_fuzzy_completion_start_length  = 3
+"
+" let g:neocomplcache_source_rank = {
+"     \ 'buffer_complete'     : 400,
+"     \ 'dictionary_complete' : 350,
+"     \ 'vim_complete'        : 300,
+"     \ 'include_complete'    : 200,
+"     \ 'snippets_complete'   : 100,
+"     \ 'abbrev_complete'     : 50,
+"     \ 'filename_complete'   : 5,
+"     \ 'syntax_complete'     : 7,
+"     \ }
+"
+" if !exists('g:neocomplcache_same_filetype_lists')
+"   let g:neocomplcache_same_filetype_lists = {}
+" endif
+" let g:neocomplcache_same_filetype_lists.ruby = '_'
+"
+" let g:neocomplcache_dictionary_filetype_lists = {
+"     \ 'default' : $HOME.'/.vim/dict/default',
+"     \ 'ruby' : $HOME.'/.vim/dict/ruby',
+"     \ }
+"
+" NeoBundle 'Shougo/neocomplcache'
+"
+" NeoBundle 'Shougo/neosnippet'
+"
+" imap <expr><TAB> neosnippet#expandable() ? "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<C-n>" : "\<TAB>"
+" smap <expr><TAB> neosnippet#expandable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+"
+" if has('conceal')
+"   set conceallevel=2 concealcursor=i
+" endif
 " }}}
 
 " NeoBundle 'scrooloose/syntastic'
