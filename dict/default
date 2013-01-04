@@ -1,6 +1,8 @@
 year
 month
 
+thesaurus
+
 reduce
 refactor
 refactoring
@@ -9,8 +11,6 @@ decimal
 Struct
 class
 initialize
-method_missing
-alias_method
 alias
 module
 
@@ -47,6 +47,9 @@ before_destroy
 before_save
 before_update
 before_validation
+
+method_missing
+alias_method
 
 rename_column
 
