@@ -221,6 +221,10 @@ call neobundle#rc(expand('~/.vim/bundle/'))
 
 NeoBundleFetch 'Shougo/neobundle.vim'
 
+" {{{ ultisnips
+NeoBundle 'SirVer/ultisnips'
+" }}}
+
 NeoBundle 'ajf/puppet-vim'
 
 NeoBundle 'AndrewRadev/multichange.vim'
