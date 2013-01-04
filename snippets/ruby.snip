@@ -48,12 +48,6 @@ snippet file File.foreach() { |line| .. }
 snippet expand_path
 	File.expand_path(${1:__FILE__}, ${2})
 
-snippet task
-	desc '${1:Task description}'
-	task :${2:task_name => [:dependent, :tasks]} do
-		${3}
-	end${4}
-
 snippet f
 	flash[:${1:notice}]${2}
 

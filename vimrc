@@ -2,7 +2,6 @@
 " autocmd bufwritepost .vimrc source $MYVIMRC
 
 " {{{ Basic Setting
-
 set nocompatible
 
 filetype on " !!!!
