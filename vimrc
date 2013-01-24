@@ -223,6 +223,17 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 " {{{ ultisnips
 NeoBundle 'SirVer/ultisnips'
+
+let g:UltiSnipsUsePythonVersion    = 2
+let g:UltiSnipsExpandTrigger       = '<tab>'
+let g:UltiSnipsJumpForwardTrigger  = '<tab>'
+let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
+" }}}
+
+" {{{ powerline
+NeoBundle 'Lokaltog/vim-powerline'
+let g:Powerline_symbols='fancy'
+let g:Powerline_theme='simple'
 " }}}
 
 NeoBundle 'ajf/puppet-vim'
@@ -230,7 +241,6 @@ NeoBundle 'ajf/puppet-vim'
 NeoBundle 'AndrewRadev/multichange.vim'
 
 NeoBundle 'tpope/vim-repeat'
-" NeoBundle 'tpope/vim-eunuch'
 NeoBundle 'tpope/vim-haml'
 NeoBundle 'tpope/vim-endwise'
 NeoBundle 'tpope/vim-unimpaired'
@@ -238,6 +248,8 @@ NeoBundle 'tpope/vim-abolish'
 NeoBundle 'tpope/vim-liquid'
 NeoBundle 'tpope/vim-rsi'
 NeoBundle 'vim-ruby/vim-ruby'
+
+" NeoBundle 'tpope/vim-eunuch'
 " NeoBundle 'tpope/vim-fugitive'
 "
 
@@ -356,7 +368,6 @@ let g:CommandTDeleteMap='<C-d>'
 " map <leader>s :CommandTJump<CR>
 " }}}
 
-
 NeoBundle 'derekwyatt/vim-scala'
 
 " kana/vim-smartinput # auto close " ' ( [ etc
@@ -435,6 +446,7 @@ NeoBundle 'derekwyatt/vim-scala'
 NeoBundle 'nginx.vim'
 NeoBundle 'taglist.vim'
 NeoBundle 'SearchComplete'
+
 " NeoBundle 'SQLComplete.vim'
 "
 " NeoBundle 'multiselect'
@@ -454,12 +466,6 @@ let g:SignatureDisableMenu=1
 " noremap m<Space> :call signature#PurgeMarks()<CR>
 " noremap m<Space> <Plug>SIG_PurgeMarks
 " nmap <Leader>x <Plug>ToggleAutoCloseMappings
-" }}}
-
-" {{{ powerline
-NeoBundle 'Lokaltog/vim-powerline'
-let g:Powerline_symbols='fancy'
-let g:Powerline_theme='simple'
 " }}}
 
 " bufexplorer {{{
