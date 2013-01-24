@@ -221,6 +221,9 @@ call neobundle#rc(expand('~/.vim/bundle/'))
 
 NeoBundleFetch 'Shougo/neobundle.vim'
 
+
+NeoBundle 'yeti.vim'
+
 " {{{ ultisnips
 NeoBundle 'SirVer/ultisnips'
 
@@ -307,6 +310,7 @@ NeoBundle 'mileszs/ack.vim'
 nmap <leader>a :Ack!<Space>
 
 let g:ackhighlight=1
+let g:ackprg = 'ag --nogroup --nocolor --column'
 " }}}
 
 " delimitMate {{{
