@@ -221,6 +221,20 @@ call neobundle#rc(expand('~/.vim/bundle/'))
 
 NeoBundleFetch 'Shougo/neobundle.vim'
 
+" {{{ smartgf
+NeoBundle 'gorkunov/smartgf.vim'
+let g:smartgf_key = '<leader>g'
+" }}}
+
+" {{{ accelerated-jk
+NeoBundle 'rhysd/accelerated-jk'
+nmap j <Plug>(accelerated_jk_gj)
+nmap k <Plug>(accelerated_jk_gk)
+" }}}
+
+NeoBundle 'goldfeld/vim-seek'
+
+NeoBundle 'gorkunov/smartpairs.vim'
 
 NeoBundle 'yeti.vim'
 
