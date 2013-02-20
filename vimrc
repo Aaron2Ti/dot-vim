@@ -198,14 +198,14 @@ noremap <leader>sq :%s/"/'/gc<CR>
 noremap <leader>bd :bufdo bd<CR>
 
 " Switch to last buffer
-nnoremap <leader><leader> <C-^>
+" nnoremap <leader><leader> <C-^>
 
 
 " mkview & loadview
 " autocmd BufWinLeave *.* mkview
 " autocmd BufWinEnter *.* silent loadview
-noremap <leader>ej  :mkview<CR>
-noremap <leader>je  :loadview<CR>
+" noremap <leader>ej  :mkview<CR>
+" noremap <leader>je  :loadview<CR>
 
 " save sudo permission
 cmap ws w !sudo tee >/dev/null %
@@ -220,6 +220,8 @@ endif
 call neobundle#rc(expand('~/.vim/bundle/'))
 
 NeoBundleFetch 'Shougo/neobundle.vim'
+
+NeoBundle 'Valloric/YouCompleteMe'
 
 " {{{ smartgf
 NeoBundle 'gorkunov/smartgf.vim'
@@ -320,6 +322,7 @@ NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'Peeja/vim-cdo'
 
 " Ack {{{
+" NeoBundle 'mihaifm/bck'
 NeoBundle 'mileszs/ack.vim'
 nmap <leader>a :Ack!<Space>
 
@@ -458,8 +461,9 @@ NeoBundle 'derekwyatt/vim-scala'
 " NeoBundle 'ervandew/supertab'
 " NeoBundle 'sjl/gundo.vim'
 " NeoBundle 'nelstrom/vim-textobj-rubyblock'
-" NeoBundle 'Lokaltog/vim-easymotion'
 " NeoBundle 'rstacruz/sparkup' " HTML haml editing
+
+NeoBundle 'Lokaltog/vim-easymotion'
 
 NeoBundle 'nginx.vim'
 NeoBundle 'taglist.vim'
@@ -532,6 +536,9 @@ if neobundle#exists_not_installed_bundles()
   "finish
 endif
 " }}}
+
+set lines=39
+set columns=93
 
 " gui_macvim {{{
 if has('gui_macvim')
