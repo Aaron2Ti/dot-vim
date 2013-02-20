@@ -505,14 +505,6 @@ vmap <leader>aa :Align<Space>
 vmap <leader>ah :Align =><CR>
 " }}}
 
-" AutoClose {{{
-" NeoBundle 'AutoClose'
-" AutoClose
-" let g:AutoClosePairs = {'(': ')', '{': '}', '[': ']', '"': '"', "'": "'", '<%': '%>'}
-" let g:AutoCloseProtectedRegions = ["Character"]
-" nmap <Leader>x <Plug>ToggleAutoCloseMappings
-" }}}
-
 NeoBundle 'matchit.zip'
 " let b:match_words = '<%=:%>,<%:%>'
 
