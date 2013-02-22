@@ -221,7 +221,14 @@ call neobundle#rc(expand('~/.vim/bundle/'))
 
 NeoBundleFetch 'Shougo/neobundle.vim'
 
+" YouCompleteMe {{{
 NeoBundle 'Valloric/YouCompleteMe'
+
+let g:ycm_key_list_select_completion = ['<Down>']
+let g:ycm_key_list_previous_completion = ['<Up>']
+let g:ycm_allow_changing_updatetime = 1
+let g:ycm_complete_in_comments_and_strings = 1
+" }}}
 
 " {{{ smartgf
 NeoBundle 'gorkunov/smartgf.vim'
@@ -241,12 +248,14 @@ NeoBundle 'gorkunov/smartpairs.vim'
 NeoBundle 'yeti.vim'
 
 " {{{ ultisnips
-NeoBundle 'SirVer/ultisnips'
+if has('python')
+  NeoBundle 'SirVer/ultisnips'
 
-let g:UltiSnipsUsePythonVersion    = 2
-let g:UltiSnipsExpandTrigger       = '<tab>'
-let g:UltiSnipsJumpForwardTrigger  = '<tab>'
-let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
+  let g:UltiSnipsUsePythonVersion    = 2
+  let g:UltiSnipsExpandTrigger       = '<tab>'
+  let g:UltiSnipsJumpForwardTrigger  = '<tab>'
+  let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
+endif
 " }}}
 
 " {{{ powerline
