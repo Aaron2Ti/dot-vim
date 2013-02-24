@@ -231,7 +231,7 @@ NeoBundle 'goldfeld/vim-seek'
 
 NeoBundle 'gorkunov/smartpairs.vim'
 
-NeoBundle 'yeti.vim'
+" NeoBundle 'yeti.vim'
 
 NeoBundle 'vim-scripts/indent-motion'
 
@@ -355,17 +355,16 @@ NeoBundle 'slim-template/vim-slim'
 " NeoBundle 'vim-scripts/DrawIt'
 
 " {{{ VimClojure
-NeoBundle 'vim-scripts/VimClojure'
-let vimclojure#FuzzyIndent         = 1
-let vimclojure#HighlightBuiltins   = 1
-let vimclojure#HighlightContrib    = 1
-let vimclojure#DynamicHighlighting = 1
-let vimclojure#ParenRainbow        = 1
-let vimclojure#WantNailgun         = 1
-let vimclojure#NailgunClient       = '/Volumes/Data/Users/aaron/.lein/ng'
-" let vimclojure#SetupKeyMap = 0
-" let vimclojure#SetupKeyMapEvalToplevel = 1
-autocmd BufRead,BufNewFile *.clj,*.cljs set ft=clojure
+" NeoBundle 'vim-scripts/VimClojure'
+" let vimclojure#FuzzyIndent         = 1
+" let vimclojure#HighlightBuiltins   = 1
+" let vimclojure#HighlightContrib    = 1
+" let vimclojure#DynamicHighlighting = 1
+" let vimclojure#ParenRainbow        = 1
+" let vimclojure#WantNailgun         = 1
+" let vimclojure#NailgunClient       = '/Volumes/Data/Users/aaron/.lein/ng'
+
+" autocmd BufRead,BufNewFile *.clj,*.cljs set ft=clojure
 " }}}
 
 " {{{ for clojure
