@@ -221,15 +221,6 @@ call neobundle#rc(expand('~/.vim/bundle/'))
 
 NeoBundleFetch 'Shougo/neobundle.vim'
 
-" YouCompleteMe {{{
-NeoBundle 'Valloric/YouCompleteMe'
-
-let g:ycm_key_list_select_completion = ['<Down>']
-let g:ycm_key_list_previous_completion = ['<Up>']
-let g:ycm_allow_changing_updatetime = 1
-let g:ycm_complete_in_comments_and_strings = 1
-" }}}
-
 " {{{ smartgf
 NeoBundle 'gorkunov/smartgf.vim'
 let g:smartgf_key = '<leader>g'
@@ -252,10 +243,21 @@ if has('python')
   NeoBundle 'SirVer/ultisnips'
 
   let g:UltiSnipsUsePythonVersion    = 2
-  let g:UltiSnipsExpandTrigger       = '<tab>'
-  let g:UltiSnipsJumpForwardTrigger  = '<tab>'
-  let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
+
+  let g:UltiSnipsExpandTrigger       = '<C-TAB>'
+  let g:UltiSnipsListSnippets        = '<C-S-TAB>'
+  let g:UltiSnipsJumpForwardTrigger  = '<C-J>'
+  let g:UltiSnipsJumpBackwardTrigger = '<C-K>'
 endif
+" }}}
+
+" YouCompleteMe {{{
+NeoBundle 'Valloric/YouCompleteMe'
+
+let g:ycm_key_list_select_completion = ['<TAB>']
+let g:ycm_key_list_previous_completion = ['<S-TAB>']
+let g:ycm_allow_changing_updatetime = 1
+let g:ycm_complete_in_comments_and_strings = 1
 " }}}
 
 " {{{ powerline
@@ -276,6 +278,9 @@ NeoBundle 'tpope/vim-abolish'
 NeoBundle 'tpope/vim-liquid'
 NeoBundle 'tpope/vim-rsi'
 NeoBundle 'vim-ruby/vim-ruby'
+
+NeoBundle 'vim-scripts/CountJump'
+NeoBundle 'vim-scripts/ConflictMotions'
 
 " NeoBundle 'tpope/vim-eunuch'
 " NeoBundle 'tpope/vim-fugitive'
