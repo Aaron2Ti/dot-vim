@@ -221,11 +221,6 @@ call neobundle#rc(expand('~/.vim/bundle/'))
 
 NeoBundleFetch 'Shougo/neobundle.vim'
 
-" {{{ smartgf
-NeoBundle 'gorkunov/smartgf.vim'
-let g:smartgf_key = '<leader>g'
-" }}}
-
 " {{{ accelerated-jk
 NeoBundle 'rhysd/accelerated-jk'
 nmap j <Plug>(accelerated_jk_gj)
@@ -355,7 +350,8 @@ autocmd FileType ruby    let b:delimitMate_matchpairs = "(:),[:],{:}"
 
 NeoBundle 'the-isz/MinYankRing.vim'
 
-NeoBundle 'bbommarito/vim-slim'
+NeoBundle 'slim-template/vim-slim'
+
 " NeoBundle 'vim-scripts/DrawIt'
 
 " {{{ VimClojure
@@ -381,7 +377,7 @@ autocmd BufRead,BufNewFile *.clj,*.cljs set ft=clojure
 " {{{ lusty
 NeoBundle 'sjbach/lusty'
 
-" let g:LustyJugglerShowKeys='alpha'
+let g:LustyJugglerShowKeys='alpha'
 let g:LustyJugglerShowKeys = 'a'
 let g:LustyJugglerSuppressRubyWarning = 1
 
@@ -408,7 +404,9 @@ let g:CommandTDeleteMap='<C-d>'
 NeoBundle 'derekwyatt/vim-scala'
 
 " kana/vim-smartinput # auto close " ' ( [ etc
+
 " NeoBundle 'kana/vim-textobj-user'
+" NeoBundle 'nelstrom/vim-textobj-rubyblock'
 "
 " {{{ kana
 " NeoBundle 'kana/vim-smartword'
@@ -476,7 +474,6 @@ NeoBundle 'derekwyatt/vim-scala'
 " NeoBundle 'scrooloose/syntastic'
 " NeoBundle 'ervandew/supertab'
 " NeoBundle 'sjl/gundo.vim'
-" NeoBundle 'nelstrom/vim-textobj-rubyblock'
 " NeoBundle 'rstacruz/sparkup' " HTML haml editing
 
 NeoBundle 'Lokaltog/vim-easymotion'
