@@ -238,6 +238,8 @@ NeoBundle 'gorkunov/smartpairs.vim'
 
 NeoBundle 'yeti.vim'
 
+NeoBundle 'vim-scripts/indent-motion'
+
 " {{{ ultisnips
 if has('python')
   NeoBundle 'SirVer/ultisnips'
