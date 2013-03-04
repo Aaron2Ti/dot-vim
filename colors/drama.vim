@@ -8,6 +8,7 @@ endif
 
 let g:colors_name = 'drama'
 
+
 " Highlighting function
 "
 "   attr-list

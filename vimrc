@@ -235,6 +235,12 @@ NeoBundle 'gorkunov/smartpairs.vim'
 
 NeoBundle 'vim-scripts/indent-motion'
 
+" {{{ psearch
+noremap <leader>rp  :PSearchw<CR>
+NeoBundle 'gcmt/psearch.vim'
+" }}}
+
+
 " {{{ ultisnips
 if has('python')
   NeoBundle 'SirVer/ultisnips'
@@ -253,7 +259,7 @@ NeoBundle 'Valloric/YouCompleteMe'
 
 let g:ycm_key_list_select_completion = ['<TAB>']
 let g:ycm_key_list_previous_completion = ['<S-TAB>']
-let g:ycm_allow_changing_updatetime = 1
+let g:ycm_allow_changing_updatetime = 0
 let g:ycm_complete_in_comments_and_strings = 1
 " }}}
 
@@ -475,7 +481,11 @@ NeoBundle 'derekwyatt/vim-scala'
 " NeoBundle 'sjl/gundo.vim'
 " NeoBundle 'rstacruz/sparkup' " HTML haml editing
 
+" {{{ easymotion
 NeoBundle 'Lokaltog/vim-easymotion'
+let g:EasyMotion_mapping_F = '<leader>h'
+let g:EasyMotion_mapping_f = '<leader>l'
+" }}}
 
 NeoBundle 'nginx.vim'
 NeoBundle 'taglist.vim'
