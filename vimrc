@@ -487,6 +487,7 @@ NeoBundle 'derekwyatt/vim-scala'
 NeoBundle 'Lokaltog/vim-easymotion'
 let g:EasyMotion_mapping_F = '<C-h>'
 let g:EasyMotion_mapping_f = '<C-l>'
+let g:EasyMotion_keys = 'abcdefghijklmnopqrstuvwxyz'
 " }}}
 
 NeoBundle 'nginx.vim'
