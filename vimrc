@@ -229,6 +229,8 @@ nmap k <Plug>(accelerated_jk_gk)
 
 NeoBundle 'goldfeld/vim-seek'
 
+NeoBundle 'AndrewRadev/switch.vim'
+
 NeoBundle 'gorkunov/smartpairs.vim'
 
 " NeoBundle 'yeti.vim'
@@ -483,8 +485,8 @@ NeoBundle 'derekwyatt/vim-scala'
 
 " {{{ easymotion
 NeoBundle 'Lokaltog/vim-easymotion'
-let g:EasyMotion_mapping_F = '<leader>h'
-let g:EasyMotion_mapping_f = '<leader>l'
+let g:EasyMotion_mapping_F = '<C-h>'
+let g:EasyMotion_mapping_f = '<C-l>'
 " }}}
 
 NeoBundle 'nginx.vim'
