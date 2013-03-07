@@ -87,6 +87,4 @@ function <SID>MkSave()
 
   w
 endfunction
-
-" mkdir and wirte
 command MkWrite :call <SID>MkSave()

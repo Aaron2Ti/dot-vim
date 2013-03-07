@@ -187,9 +187,18 @@ nmap <leader>w :w<CR>
 " Paste and select
 noremap <leader>p p'[v']$
 
-" clears the search buffer, nohl
+
+" by default the K would run the "man" command
+" Run a program to lookup the keyword under the
+" cursor.  The name of the program is given with the
+" 'keywordprg' (kp) option (default is "man").  The
+noremap K k
+
 " nmap <silent> <leader>/ :let @/=""<CR>
-nmap <silent> <ESC><ESC> :nohlsearch<CR>
+" clears the search buffer, nohl
+
+" clean the search highlighting and reset the multiple mark
+nmap <silent> <ESC><ESC>  :nohlsearch <bar> call MarkMultipleClean() <CR>
 
 " replace " with '
 noremap <leader>sq :%s/"/'/gc<CR>
@@ -273,7 +282,8 @@ let g:Powerline_theme='simple'
 
 NeoBundle 'ajf/puppet-vim'
 
-NeoBundle 'AndrewRadev/multichange.vim'
+" NeoBundle 'AndrewRadev/multichange.vim'
+NeoBundle 'adinapoli/vim-markmultiple'
 
 NeoBundle 'tpope/vim-repeat'
 NeoBundle 'tpope/vim-haml'
@@ -429,7 +439,7 @@ NeoBundle 'derekwyatt/vim-scala'
 " NeoBundle 'vim-scripts/Obvious-Mode'
 " NeoBundle 'kien/ctrlp.vim.git'
 
-" NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/unite.vim'
 " NeoBundle 'Shougo/vimfiler'
 
 " {{{ neocomplcache
@@ -495,8 +505,6 @@ NeoBundle 'taglist.vim'
 NeoBundle 'SearchComplete'
 
 " NeoBundle 'SQLComplete.vim'
-"
-" NeoBundle 'multiselect'
 
 " NeoBundle 'genutils'
 " NeoBundle 'foldutil.vim'
