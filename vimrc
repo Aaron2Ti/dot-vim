@@ -197,8 +197,8 @@ noremap K k
 " nmap <silent> <leader>/ :let @/=""<CR>
 " clears the search buffer, nohl
 
-" clean the search highlighting and reset the multiple mark
-nmap <silent> <ESC><ESC>  :nohlsearch <bar> call MarkMultipleClean() <CR>
+" clean the search highlighting
+nmap <silent> <ESC><ESC>  :nohlsearch <CR>
 
 " replace " with '
 noremap <leader>sq :%s/"/'/gc<CR>
@@ -282,8 +282,8 @@ let g:Powerline_theme='simple'
 
 NeoBundle 'ajf/puppet-vim'
 
-" NeoBundle 'AndrewRadev/multichange.vim'
-NeoBundle 'adinapoli/vim-markmultiple'
+NeoBundle 'AndrewRadev/multichange.vim'
+" NeoBundle 'adinapoli/vim-markmultiple'
 
 NeoBundle 'tpope/vim-repeat'
 NeoBundle 'tpope/vim-haml'
@@ -439,7 +439,7 @@ NeoBundle 'derekwyatt/vim-scala'
 " NeoBundle 'vim-scripts/Obvious-Mode'
 " NeoBundle 'kien/ctrlp.vim.git'
 
-NeoBundle 'Shougo/unite.vim'
+" NeoBundle 'Shougo/unite.vim'
 " NeoBundle 'Shougo/vimfiler'
 
 " {{{ neocomplcache
