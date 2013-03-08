@@ -99,7 +99,7 @@ set ttyfast
 set directory=~/.vim_swap
 
 set nobackup
-" set noswapfile
+set noswapfile
 
 " {{{ no arrow keys
 nnoremap <Up>    <Nop>
