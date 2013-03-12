@@ -265,6 +265,7 @@ if has('python')
 endif
 " }}}
 
+" 'ervandew/supertab'
 " YouCompleteMe {{{
 NeoBundle 'Valloric/YouCompleteMe'
 
@@ -394,12 +395,12 @@ NeoBundle 'slim-template/vim-slim'
 " {{{ lusty
 NeoBundle 'sjbach/lusty'
 
-let g:LustyJugglerShowKeys='alpha'
-let g:LustyJugglerShowKeys = 'a'
-let g:LustyJugglerSuppressRubyWarning = 1
+" let g:LustyJugglerShowKeys='alpha'
+" let g:LustyJugglerShowKeys = 'a'
+" let g:LustyJugglerSuppressRubyWarning = 1
 
 map <leader>f :LustyFilesystemExplorerFromHere<CR>
-map <leader>b :LustyBufferExplorer<CR>
+" map <leader>b :LustyBufferExplorer<CR>
 " nmap <silent> <Leader>j :LustyJuggler<CR>
 " }}}
 
@@ -409,10 +410,11 @@ let g:CommandTMatchWindowReverse=1
 
 let g:CommandTMaxHeight=20
 
-let g:CommandTCursorRightMap='<C-f>'
 let g:CommandTCursorLeftMap='<C-b>'
 let g:CommandTBackspaceMap='<C-h>'
 let g:CommandTDeleteMap='<C-d>'
+
+noremap <leader>b :CommandTBuffer<CR>
 
 " map <leader>g :CommandTTag<CR>
 " map <leader>s :CommandTJump<CR>
@@ -489,7 +491,6 @@ NeoBundle 'derekwyatt/vim-scala'
 " }}}
 
 " NeoBundle 'scrooloose/syntastic'
-" NeoBundle 'ervandew/supertab'
 " NeoBundle 'sjl/gundo.vim'
 " NeoBundle 'rstacruz/sparkup' " HTML haml editing
 

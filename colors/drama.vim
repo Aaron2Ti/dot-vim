@@ -73,7 +73,9 @@ call <SID>hi('ErrorMsg',      s:error_fg,    s:error_bg,    s:_b)
 call <SID>hi('NonText',       s:non_text_fg, s:non_text_bg, '')
 call <SID>hi('SpecialKey',    s:non_text_fg, s:non_text_bg, '')
 
-" call <SID>hi('NonAsciiChars', s:error_fg,    s:error_bg,    s:_b)
+call <SID>hi('Pmenu',      '',       s:non_text_bg, '')
+call <SID>hi('PmenuSel',   'orange', s:black,       'bold')
+call <SID>hi('PmenuThumb', '',       '',            '')
 
 delfunction <SID>hi
 
@@ -94,10 +96,6 @@ hi SpecialKey term=bold ctermfg=LightBlue
 hi ShowMarksHLl guibg=grey25 guifg=#f65020 gui=bold
 hi ShowMarksHLu guibg=grey25 guifg=#f65020 gui=bold
 hi ShowMarksHLm guibg=grey25 guifg=#f65020 gui=bold
-
-hi Pmenu      ctermfg=4 ctermbg=7 guibg=grey20
-hi PmenuSel   ctermfg=1 ctermbg=4 guifg=red  guibg=grey60  gui=bold
-hi PmenuThumb ctermfg=0
 
 hi rubySymbol ctermfg=1  guifg=#63b5d4 ":aa
 hi Identifier cterm=bold ctermfg=1 guifg=#e6a029 gui=bold "@@var,@var,|var|
