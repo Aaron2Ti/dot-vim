@@ -143,6 +143,8 @@ abbreviate teh the
 " nnoremap ; :
 " vnoremap ; :
 
+vnoremap Q gq
+
 " use , as leader character
 nnoremap - ,
 vnoremap - ,
@@ -578,7 +580,7 @@ if has('gui_macvim')
   set guifont=Menlo:h18
   set guifontwide=Hei:h17
 
-  set formatprg=par\ r
+  set formatprg=par\ -w70p0s0r
 
   set guicursor=a:blinkwait700-blinkon800-blinkoff500
 
