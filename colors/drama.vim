@@ -73,9 +73,15 @@ call <SID>hi('ErrorMsg',      s:error_fg,    s:error_bg,    s:_b)
 call <SID>hi('NonText',       s:non_text_fg, s:non_text_bg, '')
 call <SID>hi('SpecialKey',    s:non_text_fg, s:non_text_bg, '')
 
+"    <SID>hi('Group',      gui_fg,   gui_bg,        gui)
 call <SID>hi('Pmenu',      '',       s:non_text_bg, '')
 call <SID>hi('PmenuSel',   'orange', s:black,       'bold')
 call <SID>hi('PmenuThumb', '',       '',            '')
+
+"    <SID>hi('Group',      gui_fg,   gui_bg,   gui)
+call <SID>hi('Folded',     'grey15', 'grey30', 'bold')
+call <SID>hi('FoldColumn', 'grey15', 'grey30', 'bold')
+
 
 delfunction <SID>hi
 
@@ -125,7 +131,6 @@ hi WarningMsg           term=standout ctermfg=LightRed guifg=White guibg=#f44490
 
 hi VertSplit            term=reverse cterm=reverse gui=reverse guibg=#c2bfa5 guifg=grey30
 
-hi Folded guibg=black guifg=grey40
 hi FoldColumn guibg=black guifg=grey20
 
 hi ModeMsg term=bold cterm=bold gui=bold guifg=goldenrod
@@ -162,8 +167,6 @@ hi DiffChange term=bold ctermbg=DarkMagenta guibg=DarkMagenta
 hi DiffDelete term=bold ctermfg=Blue ctermbg=DarkCyan gui=bold guifg=Blue guibg=DarkCyan
 hi DiffText term=reverse cterm=bold ctermbg=Red gui=bold guibg=Red
 hi Directory term=bold ctermfg=LightCyan guifg=Cyan
-hi Folded term=standout ctermbg=LightGrey ctermfg=DarkBlue guibg=LightGrey guifg=DarkBlue
-hi FoldColumn term=standout ctermbg=LightGrey ctermfg=DarkBlue guibg=Grey guifg=DarkBlue
 hi Question term=standout ctermfg=LightGreen gui=bold guifg=Green
 hi Title term=bold ctermfg=LightMagenta gui=bold guifg=Magenta
 hi VisualNOS term=underline,bold cterm=underline,bold gui=underline,bold
