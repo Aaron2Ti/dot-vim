@@ -286,6 +286,7 @@ let g:Powerline_theme='simple'
 NeoBundle 'ajf/puppet-vim'
 
 NeoBundle 'AndrewRadev/multichange.vim'
+" NeoBundle 'hlissner/vim-multiedit'
 " NeoBundle 'adinapoli/vim-markmultiple'
 
 NeoBundle 'tpope/vim-repeat'
@@ -359,7 +360,7 @@ NeoBundle 'mileszs/ack.vim'
 nmap <leader>a :Ack!<Space>
 
 let g:ackhighlight=1
-" let g:ackprg = 'ag --nogroup --nocolor --column'
+let g:ackprg = 'ag --nogroup --nocolor --column'
 " }}}
 
 " delimitMate {{{
