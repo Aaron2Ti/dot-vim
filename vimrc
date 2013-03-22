@@ -240,7 +240,15 @@ nmap k <Plug>(accelerated_jk_gk)
 
 NeoBundle 'goldfeld/vim-seek'
 
+" {{{
 NeoBundle 'AndrewRadev/switch.vim'
+" autocmd FileType ruby let b:switch_definitions =
+"   \ [
+"   \   g:switch_builtins.ruby_hash_style,
+"   \   g:switch_builtins.rspec_should,
+"   \   { 'my_own_pattern': 'my_own_replacement' },
+"   \ ]
+" }}}
 
 NeoBundle 'gorkunov/smartpairs.vim'
 
@@ -300,9 +308,6 @@ NeoBundle 'tpope/vim-abolish'
 NeoBundle 'tpope/vim-liquid'
 NeoBundle 'tpope/vim-rsi'
 NeoBundle 'vim-ruby/vim-ruby'
-
-NeoBundle 'vim-scripts/CountJump'
-NeoBundle 'vim-scripts/ConflictMotions'
 
 " NeoBundle 'tpope/vim-eunuch'
 " NeoBundle 'tpope/vim-fugitive'
@@ -528,12 +533,6 @@ let g:SignatureDisableMenu=1
 " noremap m<Space> :call signature#PurgeMarks()<CR>
 " noremap m<Space> <Plug>SIG_PurgeMarks
 " nmap <Leader>x <Plug>ToggleAutoCloseMappings
-" }}}
-
-" bufexplorer {{{
-NeoBundle 'bufexplorer.zip'
-let g:bufExplorerShowRelativePath=1
-map <leader>bb :BufExplorer<CR>
 " }}}
 
 " NeoBundle 'godlygeek/tabular'
