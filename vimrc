@@ -248,11 +248,22 @@ NeoBundle 'gorkunov/smartpairs.vim'
 
 NeoBundle 'vim-scripts/indent-motion'
 
+if has('gui_macvim')
 " {{{ psearch
-noremap <leader>rp  :PSearchw<CR>
+noremap <leader>rp :PSearch<CR>
+
 NeoBundle 'gcmt/psearch.vim'
 " }}}
 
+" YouCompleteMe {{{
+NeoBundle 'Valloric/YouCompleteMe'
+
+let g:ycm_key_list_select_completion = ['<TAB>']
+let g:ycm_key_list_previous_completion = ['<S-TAB>']
+let g:ycm_allow_changing_updatetime = 0
+let g:ycm_complete_in_comments_and_strings = 1
+" }}}
+endif
 
 " {{{ ultisnips
 if has('python')
@@ -268,14 +279,6 @@ endif
 " }}}
 
 " 'ervandew/supertab'
-" YouCompleteMe {{{
-NeoBundle 'Valloric/YouCompleteMe'
-
-let g:ycm_key_list_select_completion = ['<TAB>']
-let g:ycm_key_list_previous_completion = ['<S-TAB>']
-let g:ycm_allow_changing_updatetime = 0
-let g:ycm_complete_in_comments_and_strings = 1
-" }}}
 
 " {{{ powerline
 NeoBundle 'Lokaltog/vim-powerline'

@@ -79,8 +79,8 @@ call <SID>hi('PmenuSel',   'orange', s:black,       'bold')
 call <SID>hi('PmenuThumb', '',       '',            '')
 
 "    <SID>hi('Group',      gui_fg,   gui_bg,   gui)
-call <SID>hi('Folded',     'grey15', 'grey30', 'bold')
-call <SID>hi('FoldColumn', 'grey15', 'grey30', 'bold')
+call <SID>hi('Folded',     'grey15', 'grey40', 'bold')
+call <SID>hi('FoldColumn', 'grey15', 'grey40', 'bold')
 
 
 delfunction <SID>hi
