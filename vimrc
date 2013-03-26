@@ -273,8 +273,8 @@ let g:ycm_complete_in_comments_and_strings = 1
 " }}}
 endif
 
-" {{{ ultisnips
 if has('python')
+  " {{{ ultisnips
   NeoBundle 'SirVer/ultisnips'
 
   let g:UltiSnipsUsePythonVersion    = 2
@@ -283,16 +283,16 @@ if has('python')
   let g:UltiSnipsListSnippets        = '<C-S-TAB>'
   let g:UltiSnipsJumpForwardTrigger  = '<C-J>'
   let g:UltiSnipsJumpBackwardTrigger = '<C-K>'
+  " }}}
+
+  " {{{ powerline
+  NeoBundle 'Lokaltog/vim-powerline'
+  let g:Powerline_symbols='fancy'
+  let g:Powerline_theme='simple'
+  " }}}
 endif
-" }}}
 
 " 'ervandew/supertab'
-
-" {{{ powerline
-NeoBundle 'Lokaltog/vim-powerline'
-let g:Powerline_symbols='fancy'
-let g:Powerline_theme='simple'
-" }}}
 
 NeoBundle 'ajf/puppet-vim'
 
@@ -568,9 +568,6 @@ if neobundle#exists_not_installed_bundles()
 endif
 " }}}
 
-set lines=39
-set columns=93
-
 " gui_macvim {{{
 if has('gui_macvim')
   set colorcolumn=80
@@ -580,7 +577,9 @@ if has('gui_macvim')
   " set guifont=Courier:h16
   " set guifont=Monaco:h14
   " set guifont=Source\ Code\ Pro:h15
-  set guifont=Menlo:h18
+  " set guifont=Menlo:h18
+
+  set guifont=PragmataPro:h19
   set guifontwide=Hei:h17
 
   set formatprg=par\ -w70p0s0r
