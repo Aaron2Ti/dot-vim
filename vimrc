@@ -418,6 +418,7 @@ map <leader>f :LustyFilesystemExplorerFromHere<CR>
 
 " {{{ command-t
 NeoBundle 'wincent/Command-T.git'
+
 let g:CommandTMatchWindowReverse=1
 
 let g:CommandTMaxHeight=20
@@ -431,6 +432,18 @@ noremap <leader>b :CommandTBuffer<CR>
 " map <leader>g :CommandTTag<CR>
 " map <leader>s :CommandTJump<CR>
 " }}}
+
+
+" {{{
+" NeoBundle 'nfd/filepirate'
+"
+" noremap <C-t> :python filepirate_open()<CR>
+"
+" let g:filepirate_up='<C-p>'
+" let g:filepirate_down='<C-n>'
+" let g:filepirate_bs='<C-h>'
+" }}}
+
 
 NeoBundle 'derekwyatt/vim-scala'
 
