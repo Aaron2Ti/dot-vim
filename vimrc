@@ -310,7 +310,8 @@ NeoBundle 'tpope/vim-rsi'
 NeoBundle 'vim-ruby/vim-ruby'
 
 " NeoBundle 'tpope/vim-eunuch'
-" NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'kablamo/vim-git-log'
 "
 
 " {{{ surround
@@ -571,7 +572,7 @@ endif
 " gui_macvim {{{
 if has('gui_macvim')
   set colorcolumn=80
-  set lines=46 columns=122
+  set lines=46 columns=127
   set fuoptions=maxvert,maxhorz
   set guioptions=egmtc
   " set guifont=Courier:h16
