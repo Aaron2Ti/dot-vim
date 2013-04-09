@@ -240,6 +240,8 @@ nmap k <Plug>(accelerated_jk_gk)
 
 NeoBundle 'goldfeld/vim-seek'
 
+NeoBundle 'justincampbell/vim-eighties'
+
 " {{{
 NeoBundle 'AndrewRadev/switch.vim'
 " autocmd FileType ruby let b:switch_definitions =
@@ -310,9 +312,9 @@ NeoBundle 'tpope/vim-rsi'
 NeoBundle 'vim-ruby/vim-ruby'
 
 " NeoBundle 'tpope/vim-eunuch'
+
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'kablamo/vim-git-log'
-"
 
 " {{{ surround
 NeoBundle 'tpope/vim-surround'
