@@ -92,9 +92,13 @@ set backspace=start,indent,eol
 
 set ttyfast
 
-" set backupdir=~/.vim_backup
+set backupdir=~/.vim_backup
 set directory=~/.vim_swap
 
+set undodir=~/.vim_backup
+" set undofile
+
+set nowritebackup
 set nobackup
 set noswapfile
 
@@ -599,9 +603,6 @@ if has('gui_macvim')
   set formatprg=par\ -w70p0s0r
 
   set guicursor=a:blinkwait700-blinkon800-blinkoff500
-
-  set undodir=~/.vim_backup
-  set undofile
 
   set antialias
 
