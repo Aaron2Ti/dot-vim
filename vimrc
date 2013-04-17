@@ -92,8 +92,9 @@ set backspace=start,indent,eol
 
 set ttyfast
 
-set backupdir=~/.vim_backup
-set directory=~/.vim_swap
+set backupdir=~/.vim_tmp
+set viewdir=~/.vim_tmp
+set directory=~/.vim_tmp
 
 set undodir=~/.vim_backup
 " set undofile
@@ -300,6 +301,7 @@ endif
 NeoBundle 'ajf/puppet-vim'
 
 NeoBundle 'AndrewRadev/multichange.vim'
+" NeoBundle 'terryma/vim-multiple-cursors'
 " NeoBundle 'hlissner/vim-multiedit'
 " NeoBundle 'adinapoli/vim-markmultiple'
 
