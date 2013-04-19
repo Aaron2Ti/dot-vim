@@ -12,6 +12,8 @@ autocmd!
 
 syntax on
 
+set synmaxcol=200
+
 " indent code by syntax
 filetype indent on
 
@@ -64,7 +66,7 @@ set magic hidden
 set wrap
 set whichwrap=<,>,h,l,~,[,]
 
-set ruler showmode showcmd nolazyredraw
+set ruler showmode showcmd
 " set number
 set relativenumber
 
@@ -82,6 +84,10 @@ set wildmenu wildmode=list:longest,full
 set visualbell t_vb=
 
 set ttyfast
+set ttyscroll=3
+
+" not redraw while executing macros, registers and other commands
+set lazyredraw
 
 set dictionary+=~/.vim/dict/default
 
@@ -89,8 +95,6 @@ set thesaurus+=~/.vim/thesaurus/default
 
 " * Keystrokes -- Insert Mode
 set backspace=start,indent,eol
-
-set ttyfast
 
 set backupdir=~/.vim_tmp
 set viewdir=~/.vim_tmp
@@ -416,8 +420,8 @@ NeoBundle 'sjbach/lusty'
 " let g:LustyJugglerShowKeys = 'a'
 " let g:LustyJugglerSuppressRubyWarning = 1
 
-map <leader>f :LustyFilesystemExplorerFromHere<CR>
-" map <leader>b :LustyBufferExplorer<CR>
+noremap <leader>f :LustyFilesystemExplorerFromHere<CR>
+noremap <leader>b :LustyBufferExplorer<CR>
 " nmap <silent> <Leader>j :LustyJuggler<CR>
 " }}}
 
@@ -432,7 +436,7 @@ let g:CommandTCursorLeftMap='<C-b>'
 let g:CommandTBackspaceMap='<C-h>'
 let g:CommandTDeleteMap='<C-d>'
 
-noremap <leader>b :CommandTBuffer<CR>
+" noremap <leader>b :CommandTBuffer<CR>
 
 " map <leader>g :CommandTTag<CR>
 " map <leader>s :CommandTJump<CR>
