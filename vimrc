@@ -83,6 +83,9 @@ set wildmenu wildmode=list:longest,full
 
 set visualbell t_vb=
 
+set formatoptions-=t
+set formatoptions+=n
+
 set ttyfast
 set ttyscroll=3
 
@@ -605,7 +608,6 @@ if has('gui_macvim')
   set guifont=PragmataPro:h19
   set guifontwide=Hei:h17
 
-  set formatoptions=nacroqlj
   set formatprg=par\ -w70p0s0r
 
   set guicursor=a:blinkwait700-blinkon800-blinkoff500
