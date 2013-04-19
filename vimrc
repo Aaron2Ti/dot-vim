@@ -242,7 +242,7 @@ nmap k <Plug>(accelerated_jk_gk)
 
 NeoBundle 'goldfeld/vim-seek'
 
-NeoBundle 'justincampbell/vim-eighties'
+" NeoBundle 'justincampbell/vim-eighties'
 
 " {{{
 NeoBundle 'AndrewRadev/switch.vim'
