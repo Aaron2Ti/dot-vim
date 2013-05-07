@@ -152,6 +152,10 @@ abbreviate teh the
 " nnoremap ; :
 " vnoremap ; :
 
+
+vnoremap zy "*y
+nnoremap zp "*p
+
 vnoremap Q gq
 
 " use , as leader character
