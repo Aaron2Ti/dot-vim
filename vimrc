@@ -255,7 +255,7 @@ NeoBundle 'goldfeld/vim-seek'
 
 " NeoBundle 'justincampbell/vim-eighties'
 
-" {{{
+" {{{ switch.vim
 NeoBundle 'AndrewRadev/switch.vim'
 " autocmd FileType ruby let b:switch_definitions =
 "   \ [
@@ -272,20 +272,6 @@ NeoBundle 'gorkunov/smartpairs.vim'
 NeoBundle 'vim-scripts/indent-motion'
 
 if has('gui_macvim')
-" {{{ psearch
-noremap <leader>rp :PSearch<CR>
-
-NeoBundle 'gcmt/psearch.vim'
-" }}}
-
-" YouCompleteMe {{{
-NeoBundle 'Valloric/YouCompleteMe'
-
-let g:ycm_key_list_select_completion = ['<TAB>']
-let g:ycm_key_list_previous_completion = ['<S-TAB>']
-let g:ycm_allow_changing_updatetime = 0
-let g:ycm_complete_in_comments_and_strings = 1
-" }}}
 endif
 
 if has('python')
@@ -305,11 +291,29 @@ if has('python')
   let g:Powerline_symbols='fancy'
   let g:Powerline_theme='simple'
   " }}}
+
+
+  " {{{ psearch
+  noremap <leader>rp :PSearch<CR>
+
+  NeoBundle 'gcmt/psearch.vim'
+  " }}}
+
+  " YouCompleteMe {{{
+  NeoBundle 'Valloric/YouCompleteMe'
+
+  let g:ycm_key_list_select_completion = ['<TAB>']
+  let g:ycm_key_list_previous_completion = ['<S-TAB>']
+  let g:ycm_allow_changing_updatetime = 0
+  let g:ycm_complete_in_comments_and_strings = 1
+  " }}}
 endif
 
 " 'ervandew/supertab'
 
 NeoBundle 'ajf/puppet-vim'
+
+NeoBundle 'thinca/vim-visualstar'
 
 NeoBundle 'AndrewRadev/multichange.vim'
 " NeoBundle 'terryma/vim-multiple-cursors'
@@ -385,7 +389,7 @@ NeoBundle 'mileszs/ack.vim'
 nmap <leader>a :Ack!<Space>
 
 let g:ackhighlight=1
-let g:ackprg = 'ag --nogroup --nocolor --column'
+let g:ackprg = 'ag --nogroup --nocolor --column --smart-case'
 " }}}
 
 " delimitMate {{{
@@ -398,6 +402,19 @@ autocmd FileType ruby    let b:delimitMate_matchpairs = "(:),[:],{:}"
 NeoBundle 'the-isz/MinYankRing.vim'
 
 NeoBundle 'slim-template/vim-slim'
+
+NeoBundle 'Keithbsmiley/rspec.vim'
+
+NeoBundle 'sk1418/Join'
+
+" {{{ vim-easy-align
+NeoBundle 'junegunn/vim-easy-align'
+vnoremap <silent> <leader>ae :EasyAlign<cr>
+
+let g:easy_align_delimiters = {
+\ 'B': { 'pattern': '{\|}' }
+\ }
+" }}}
 
 " NeoBundle 'vim-scripts/DrawIt'
 
@@ -428,7 +445,7 @@ NeoBundle 'sjbach/lusty'
 " let g:LustyJugglerSuppressRubyWarning = 1
 
 noremap <leader>f :LustyFilesystemExplorerFromHere<CR>
-noremap <leader>b :LustyBufferExplorer<CR>
+" noremap <leader>b :LustyBufferExplorer<CR>
 " nmap <silent> <Leader>j :LustyJuggler<CR>
 " }}}
 
@@ -443,14 +460,14 @@ let g:CommandTCursorLeftMap='<C-b>'
 let g:CommandTBackspaceMap='<C-h>'
 let g:CommandTDeleteMap='<C-d>'
 
-" noremap <leader>b :CommandTBuffer<CR>
+noremap <leader>b :CommandTBuffer<CR>
 
 " map <leader>g :CommandTTag<CR>
 " map <leader>s :CommandTJump<CR>
 " }}}
 
 
-" {{{
+" {{{ filepirate
 " NeoBundle 'nfd/filepirate'
 "
 " noremap <C-t> :python filepirate_open()<CR>
@@ -465,7 +482,10 @@ NeoBundle 'derekwyatt/vim-scala'
 
 " kana/vim-smartinput # auto close " ' ( [ etc
 
-" NeoBundle 'kana/vim-textobj-user'
+NeoBundle 'kana/vim-textobj-user'
+NeoBundle 'kana/vim-textobj-line'
+NeoBundle 'rhysd/vim-textobj-ruby'
+
 " NeoBundle 'nelstrom/vim-textobj-rubyblock'
 "
 " {{{ kana
@@ -539,7 +559,7 @@ NeoBundle 'derekwyatt/vim-scala'
 NeoBundle 'Lokaltog/vim-easymotion'
 let g:EasyMotion_mapping_F = '<C-h>'
 let g:EasyMotion_mapping_f = '<C-l>'
-let g:EasyMotion_keys = 'abcdefghijklmnopqrstuvwxyz'
+let g:EasyMotion_keys = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
 " }}}
 
 NeoBundle 'nginx.vim'
