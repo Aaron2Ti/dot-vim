@@ -82,15 +82,12 @@ call <SID>hi('PmenuThumb', '',       '',            '')
 call <SID>hi('Folded',     'grey15', 'grey40', 'bold')
 call <SID>hi('FoldColumn', 'grey15', 'grey40', 'bold')
 
+call <SID>hi('EasyMotionTarget',     'red', '', s:_b)
+
 
 delfunction <SID>hi
 
-hi Comment cterm=bold ctermfg=0
-hi Error                ctermfg=7   ctermbg=1
-hi ErrorMsg             term=standout ctermfg=7   ctermbg=1
 hi SpellErrors          guifg=#101010  guibg=#f44490
-hi NonText    term=bold ctermfg=LightBlue
-hi SpecialKey term=bold ctermfg=LightBlue
 
 
 " color 0-7 corresponds to low-intensity (normal) colours
