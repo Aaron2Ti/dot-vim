@@ -141,7 +141,7 @@ hi StatusLine term=reverse,bold cterm=reverse,bold gui=reverse,bold guibg=#c2bfa
 hi StatusLineNC term=reverse cterm=reverse gui=reverse guibg=#c2bfa5 guifg=grey40
 
 hi Title guifg=gold gui=bold
-hi Visual term=reverse ctermbg=black guibg=grey20 guifg=pink
+hi Visual term=reverse ctermbg=239 guibg=grey20 guifg=pink
 hi VisualNOS cterm=bold,underline
 
 hi Operator  guifg=Red    ctermfg=Red

@@ -6,7 +6,8 @@ set nocompatible
 
 filetype on " !!!!
 
-colorscheme drama
+set background=dark
+colorscheme beijing_opera
 
 autocmd!
 
@@ -28,6 +29,8 @@ set matchpairs+=<:>
 set listchars=tab:▸\ ,eol:¬,nbsp:_,trail:·
 set list
 		" #add8e6"
+
+set colorcolumn=80
 
 set autoindent
 set smartindent
@@ -288,7 +291,6 @@ if has('python')
 
   " {{{ powerline
   NeoBundle 'Lokaltog/vim-powerline'
-  let g:Powerline_symbols='fancy'
   let g:Powerline_theme='simple'
   " }}}
 
@@ -459,6 +461,7 @@ let g:CommandTMaxHeight=20
 let g:CommandTCursorLeftMap='<C-b>'
 let g:CommandTBackspaceMap='<C-h>'
 let g:CommandTDeleteMap='<C-d>'
+let g:CommandTCancelMap='<Esc>'
 
 noremap <leader>b :CommandTBuffer<CR>
 
@@ -559,7 +562,7 @@ NeoBundle 'rhysd/vim-textobj-ruby'
 NeoBundle 'Lokaltog/vim-easymotion'
 let g:EasyMotion_mapping_F = '<C-h>'
 let g:EasyMotion_mapping_f = '<C-l>'
-let g:EasyMotion_keys = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+let g:EasyMotion_keys = 'abcdefghijklmnopqrstuvwxyZABCDEFGHIJKLMNOPQRSTUVWXYz'
 " }}}
 
 NeoBundle 'nginx.vim'
@@ -599,12 +602,12 @@ NeoBundle 'matchit.zip'
 
 " Indent-Guides {{{
 NeoBundle 'Indent-Guides'
-let g:indent_guides_auto_colors = 0
-let g:indent_guides_start_level = 2
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=grey13 ctermbg=3
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=grey8  ctermbg=4
+" let g:indent_guides_auto_colors = 0
+" let g:indent_guides_start_level = 2
+" autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=grey13 ctermbg=3
+" autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=grey8  ctermbg=4
 
-autocmd FileType ruby,coffee,javascript,html IndentGuidesEnable
+" autocmd FileType ruby,coffee,javascript,html IndentGuidesEnable
 " }}}
 
 filetype plugin on
@@ -618,9 +621,9 @@ if neobundle#exists_not_installed_bundles()
 endif
 " }}}
 
+
 " gui_macvim {{{
 if has('gui_macvim')
-  set colorcolumn=80
   set lines=46 columns=127
   set fuoptions=maxvert,maxhorz
   set guioptions=egmtc
@@ -641,6 +644,9 @@ if has('gui_macvim')
   " set clipboard=unnamed
 
   autocmd GUIEnter * call RemoveUselessMenus()
+
+  colorscheme drama
+  let g:Powerline_symbols='fancy'
 end
 
 " vim: foldmethod=marker
