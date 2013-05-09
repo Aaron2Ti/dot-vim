@@ -147,7 +147,8 @@ set wildignore+=*.jar
 " inoremap ' "
 " inoremap " '
 
-abbreviate teh the
+iabbrev teh the
+iabbrev accross across
 
 " user ; for invoking command
 " nnoremap - ;
@@ -274,8 +275,7 @@ NeoBundle 'gorkunov/smartpairs.vim'
 
 NeoBundle 'vim-scripts/indent-motion'
 
-if has('gui_macvim')
-endif
+NeoBundle 'b4winckler/vim-angry'
 
 if has('python')
   " {{{ ultisnips
@@ -620,7 +620,6 @@ if neobundle#exists_not_installed_bundles()
   "finish
 endif
 " }}}
-
 
 " gui_macvim {{{
 if has('gui_macvim')
