@@ -45,6 +45,7 @@ let s:White        = '15'
 let s:CursorLineBG = s:Grey4
 
 let s:Golden = '208'
+let s:NormalFG = '194'
 
 " Theme Setup
 hi clear
@@ -73,7 +74,8 @@ call <SID>hi("Bold",          "", "", "bold")
 
 " call <SID>hi("Debug",         s:gui08, "", s:cterm08, "", "")
 " call <SID>hi("Directory",     s:gui0D, "", s:cterm0D, "", "")
-call <SID>hi("ErrorMsg", "196", s:Black, 'bold')
+
+call <SID>hi('ErrorMsg', '196', s:Black, 'bold')
 
 " call <SID>hi("Exception",     s:gui08, "", s:cterm08, "", "")
 " call <SID>hi("FoldColumn",    "", s:gui01, "", s:cterm01, "")
@@ -98,7 +100,7 @@ call <SID>hi("Visual",        "219", s:Grey7, '')
 
 if &background == "dark"
   " call <SID>hi("Cursor",        s:gui00, s:gui05, s:cterm00, s:cterm05, "")
-  call <SID>hi('Normal',  '194', '', '')
+  call <SID>hi('Normal', s:NormalFG, '', '')
   call <SID>hi('NonText', '237', '', '')
   " call <SID>hi("SignColumn",    s:gui03, s:gui01, s:cterm03, s:cterm01, "")
   " call <SID>hi("SpecialKey",    s:gui03, "", s:cterm03, "", "")
@@ -114,8 +116,9 @@ if &background == "dark"
 
   call <SID>hi('LineNr',       s:Grey9, s:CursorLineBG, 'bold')
 
-  " call <SID>hi("PMenu",         s:gui04, s:gui01, s:cterm04, s:cterm01, "none")
-  call <SID>hi('PMenuSel',        s:Golden, '', 'bold')
+  call <SID>hi('PMenu',    s:NormalFG, s:Grey6, 'bold')
+  call <SID>hi('PMenuSel', s:Golden,   '',      'bold')
+
   " call <SID>hi("TabLine",       s:gui03, s:gui01, s:cterm03, s:cterm01, "none")
   " call <SID>hi("TabLineFill",   s:gui03, s:gui01, s:cterm03, s:cterm01, "none")
   " call <SID>hi("TabLineSel",    s:gui0B, s:gui01, s:cterm0B, s:cterm01, "none")

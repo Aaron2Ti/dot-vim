@@ -294,13 +294,6 @@ if has('python')
   let g:Powerline_theme='simple'
   " }}}
 
-
-  " {{{ psearch
-  noremap <leader>rp :PSearch<CR>
-
-  NeoBundle 'gcmt/psearch.vim'
-  " }}}
-
   " YouCompleteMe {{{
   NeoBundle 'Valloric/YouCompleteMe'
 
@@ -308,6 +301,13 @@ if has('python')
   let g:ycm_key_list_previous_completion = ['<S-TAB>']
   let g:ycm_allow_changing_updatetime = 0
   let g:ycm_complete_in_comments_and_strings = 1
+  " }}}
+
+  " {{{ psearch
+  NeoBundle 'gcmt/psearch.vim'
+
+  noremap <leader>d :PSearch<CR>
+  let g:pse_max_height=30
   " }}}
 endif
 
