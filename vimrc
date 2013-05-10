@@ -303,6 +303,8 @@ if has('python')
   let g:ycm_complete_in_comments_and_strings = 1
   " }}}
 
+  NeoBundle 'gcmt/breeze.vim'
+
   " {{{ psearch
   NeoBundle 'Aaron2Ti/psearch.vim'
 
