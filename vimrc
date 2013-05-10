@@ -304,7 +304,7 @@ if has('python')
   " }}}
 
   " {{{ psearch
-  NeoBundle 'gcmt/psearch.vim'
+  NeoBundle 'Aaron2Ti/psearch.vim'
 
   noremap <leader>d :PSearch<CR>
   let g:pse_max_height=30
@@ -408,15 +408,6 @@ NeoBundle 'slim-template/vim-slim'
 NeoBundle 'Keithbsmiley/rspec.vim'
 
 NeoBundle 'sk1418/Join'
-
-" {{{ vim-easy-align
-NeoBundle 'junegunn/vim-easy-align'
-vnoremap <silent> <leader>ae :EasyAlign<cr>
-
-let g:easy_align_delimiters = {
-\ 'B': { 'pattern': '{\|}' }
-\ }
-" }}}
 
 " NeoBundle 'vim-scripts/DrawIt'
 
@@ -566,8 +557,13 @@ let g:EasyMotion_keys = 'abcdefghijklmnopqrstuvwxyZABCDEFGHIJKLMNOPQRSTUVWXYz'
 " }}}
 
 NeoBundle 'nginx.vim'
-NeoBundle 'taglist.vim'
 NeoBundle 'SearchComplete'
+
+NeoBundle 'taglist.vim'
+
+NeoBundle 'majutsushi/tagbar'
+nnoremap <silent> <F9> :TagbarToggle<CR>
+let g:tagbar_width = 30
 
 " NeoBundle 'SQLComplete.vim'
 
@@ -589,6 +585,16 @@ let g:SignatureDisableMenu=1
 " }}}
 
 " NeoBundle 'godlygeek/tabular'
+
+" {{{ vim-easy-align
+NeoBundle 'junegunn/vim-easy-align'
+vnoremap <silent> <leader>ae :EasyAlign<cr>
+
+let g:easy_align_delimiters = {
+\ 'B': { 'pattern': '{\|}' }
+\ }
+" }}}
+
 
 " Align {{{
 NeoBundle 'Align'
