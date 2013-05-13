@@ -26,8 +26,10 @@ set encoding=utf-8 fileencodings=utf-8,ucs-bom,cp936 fileencoding=utf-8 termenco
 set matchpairs+=<:>
 
 " highlight invisible characters
-set listchars=tab:▸\ ,eol:¬,nbsp:_,trail:·
 set list
+set listchars=tab:▸\ ,eol:¬,nbsp:_,trail:·
+set showbreak=↳
+set linebreak
 		" #add8e6"
 
 set colorcolumn=80
@@ -109,9 +111,11 @@ set directory=~/.vim_tmp
 set undodir=~/.vim_backup
 " set undofile
 
-set nowritebackup
 set nobackup
 set noswapfile
+set nowritebackup
+set noautowrite
+set noerrorbells vb t_vb=
 
 " {{{ no arrow keys
 nnoremap <Up>    <Nop>
@@ -141,6 +145,9 @@ set wildignore+=tmp/cache
 set wildignore+=CVS,.git
 set wildignore+=*.eot,*.svg,*.ttf,*.woff
 set wildignore+=*.jar
+set wildignore+=*.dll,*.o,*.pyc,*.bak,*.exe,*$py.class,*.class,*.fasl
+set wildignore+=*.jpg,*.jpeg,*.png,*.gif,.DS_Store,.gitignore,.git,tags
+set wildignore+=*.swp,*.dex,*.apk,*.d,*.cache,*.ap_,.env
 " }}} wildignore
 
 " {{{ Core Maps
@@ -309,6 +316,7 @@ if has('python')
   NeoBundle 'Aaron2Ti/psearch.vim'
 
   noremap <leader>d :PSearch<CR>
+  noremap <leader>dd :PSearchw<CR>
   let g:pse_max_height=30
   " }}}
 endif
@@ -555,6 +563,8 @@ NeoBundle 'rhysd/vim-textobj-ruby'
 NeoBundle 'Lokaltog/vim-easymotion'
 let g:EasyMotion_mapping_F = '<C-h>'
 let g:EasyMotion_mapping_f = '<C-l>'
+let g:EasyMotion_mapping_j = '<C-l><C-l>'
+let g:EasyMotion_mapping_k = '<C-h><C-h>'
 let g:EasyMotion_keys = 'abcdefghijklmnopqrstuvwxyZABCDEFGHIJKLMNOPQRSTUVWXYz'
 " }}}
 
@@ -562,6 +572,7 @@ NeoBundle 'nginx.vim'
 NeoBundle 'SearchComplete'
 
 NeoBundle 'taglist.vim'
+let g:Tlist_Ctags_Cmd = '/usr/local/bin/ctags'
 
 NeoBundle 'majutsushi/tagbar'
 nnoremap <silent> <F9> :TagbarToggle<CR>
