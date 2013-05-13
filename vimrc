@@ -43,10 +43,12 @@ set switchbuf=useopen
 set shiftround
 set expandtab
 set smarttab
+set nojoinspaces
 set shiftwidth=2
 set softtabstop=2
 set tabstop=2
-set nojoinspaces
+
+autocmd FileType python set shiftwidth=4 softtabstop=4 tabstop=4
 
 set virtualedit=all
 
