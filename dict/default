@@ -75,3 +75,9 @@ belongs_to
 has_one
 has_many
 has_many_and_belongs_to
+
+recipient
+
+collection
+
+polymorphic

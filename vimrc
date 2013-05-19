@@ -258,6 +258,8 @@ call neobundle#rc(expand('~/.vim/bundle/'))
 
 NeoBundleFetch 'Shougo/neobundle.vim'
 
+NeoBundle 'vim-scripts/DrawIt'
+
 " {{{ accelerated-jk
 NeoBundle 'rhysd/accelerated-jk'
 nmap j <Plug>(accelerated_jk_gj)
@@ -270,6 +272,8 @@ NeoBundle 'goldfeld/vim-seek'
 
 " {{{ switch.vim
 NeoBundle 'AndrewRadev/switch.vim'
+noremap <leader>sw :Switch<CR>
+
 " autocmd FileType ruby let b:switch_definitions =
 "   \ [
 "   \   g:switch_builtins.ruby_hash_style,
@@ -421,8 +425,6 @@ NeoBundle 'Keithbsmiley/rspec.vim'
 
 NeoBundle 'sk1418/Join'
 
-" NeoBundle 'vim-scripts/DrawIt'
-
 " {{{ VimClojure
 " NeoBundle 'vim-scripts/VimClojure'
 " let vimclojure#FuzzyIndent         = 1
@@ -570,6 +572,7 @@ let g:EasyMotion_mapping_k = '<C-h><C-h>'
 let g:EasyMotion_keys = 'abcdefghijklmnopqrstuvwxyZABCDEFGHIJKLMNOPQRSTUVWXYz'
 " }}}
 
+NeoBundle 'aliva/vim-fish'
 NeoBundle 'nginx.vim'
 NeoBundle 'SearchComplete'
 
