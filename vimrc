@@ -310,10 +310,17 @@ if has('python')
   " YouCompleteMe {{{
   NeoBundle 'Valloric/YouCompleteMe'
 
-  let g:ycm_key_list_select_completion = ['<TAB>']
-  let g:ycm_key_list_previous_completion = ['<S-TAB>']
-  let g:ycm_allow_changing_updatetime = 0
-  let g:ycm_complete_in_comments_and_strings = 1
+  let g:ycm_key_list_select_completion                    = ['<TAB>']
+  let g:ycm_key_list_previous_completion                  = ['<S-TAB>']
+  let g:ycm_allow_changing_updatetime                     = 0
+  let g:ycm_complete_in_comments_and_strings              = 1
+  let g:ycm_collect_identifiers_from_comments_and_strings = 1
+  let g:ycm_add_preview_to_completeopt                    = 0
+
+  let g:ycm_filetype_specific_completion_to_disable = {
+      \ 'ruby' : 1,
+      \ 'javascript' : 1,
+      \}
   " }}}
 
   NeoBundle 'gcmt/breeze.vim'
