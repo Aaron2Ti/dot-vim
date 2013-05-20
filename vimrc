@@ -258,6 +258,8 @@ call neobundle#rc(expand('~/.vim/bundle/'))
 
 NeoBundleFetch 'Shougo/neobundle.vim'
 
+NeoBundle 'godlygeek/csapprox'
+
 NeoBundle 'vim-scripts/DrawIt'
 
 " {{{ accelerated-jk

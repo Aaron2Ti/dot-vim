@@ -100,75 +100,66 @@ hi ShowMarksHLl guibg=grey25 guifg=#f65020 gui=bold
 hi ShowMarksHLu guibg=grey25 guifg=#f65020 gui=bold
 hi ShowMarksHLm guibg=grey25 guifg=#f65020 gui=bold
 
-hi rubySymbol ctermfg=1  guifg=#63b5d4 ":aa
-hi Identifier cterm=bold ctermfg=1 guifg=#e6a029 gui=bold "@@var,@var,|var|
-hi Special    cterm=bold ctermfg=1 guifg=#f65020 gui=bold
+hi rubySymbol guifg=#63b5d4 ":aa
+hi Identifier guifg=#e6a029 gui=bold "@@var,@var,|var|
+hi Special    guifg=#f65020 gui=bold
 
 "include require
-hi Include              cterm=bold ctermfg=2 cterm=bold guifg=#a5efc9
-hi rubyInterpolation    cterm=bold ctermfg=2 guifg=#9ce590 " "#{asdfasd}"
+hi Include              guifg=#a5efc9 gui=bold
+hi rubyInterpolation    guifg=#9ce590 " "#{asdfasd}"
 
-hi Constant             ctermfg=3 guifg=#ffd005 gui=italic   "1,true
-hi Type                 cterm=bold ctermfg=1 guifg=#ffe799   "Mod::Deffed, Classdeffed
-hi rubyPseudoVariable   cterm=bold ctermfg=3 guifg=#f0f045 gui=bold   "self
+hi Constant             guifg=#ffd005 gui=italic   "1,true
+hi Type                 guifg=#ffe799   "Mod::Deffed, Classdeffed
+hi rubyPseudoVariable   guifg=#f0f045 gui=bold   "self
 
-hi Define               ctermfg=3 guifg=#7796ff gui=bold,italic   "module,class,def,end
+hi Define               guifg=#7796ff gui=bold,italic   "module,class,def,end
 
-hi rubyConstant         ctermfg=5 cterm=bold guifg=#b1d3ff gui=bold      "SomeClass,SomeModule
+hi rubyConstant         guifg=#b1d3ff gui=bold      "SomeClass,SomeModule
 
-hi Statement            term=bold cterm=bold ctermfg=3 guifg=#52cea8 gui=bold  "do-end,if,private
+hi Statement            guifg=#52cea8 gui=bold  "do-end,if,private
 
-hi PreProc              cterm=reverse ctermbg=1 guifg=#bb4182 gui=bold guibg=grey25  "#!/bin/sh
+hi PreProc              guifg=#bb4182 gui=bold guibg=grey25  "#!/bin/sh
 
-hi Function             ctermfg=4 guifg=#e784b6 gui=bold       "method define
+hi Function             guifg=#e784b6 gui=bold       "method define
 
 hi IncSearch            guifg=#749940 guibg=black
-hi Search               cterm=bold ctermfg=0  ctermbg=3 guibg=#b58900 guifg=#002b36 gui=bold
-hi WarningMsg           term=standout ctermfg=LightRed guifg=White guibg=#f44490 gui=bold
+hi Search               guibg=#b58900 guifg=#002b36 gui=bold
+hi WarningMsg           guifg=White guibg=#f44490 gui=bold
 
-hi VertSplit            term=reverse cterm=reverse gui=reverse guibg=#c2bfa5 guifg=grey30
+hi VertSplit            gui=reverse guibg=#c2bfa5 guifg=grey30
 
 hi FoldColumn guibg=black guifg=grey20
 
-hi ModeMsg term=bold cterm=bold gui=bold guifg=goldenrod
-hi MoreMsg term=bold ctermfg=LightGreen gui=bold guifg=SeaGreen
+hi ModeMsg gui=bold guifg=goldenrod
+hi MoreMsg gui=bold guifg=SeaGreen
 
 hi Question guifg=springgreen
-hi StatusLine term=reverse,bold cterm=reverse,bold gui=reverse,bold guibg=#c2bfa5 guifg=black
-hi StatusLineNC term=reverse cterm=reverse gui=reverse guibg=#c2bfa5 guifg=grey40
+hi StatusLine gui=reverse,bold guibg=#c2bfa5 guifg=black
+hi StatusLineNC gui=reverse guibg=#c2bfa5 guifg=grey40
 
 hi Title guifg=gold gui=bold
-hi Visual term=reverse ctermbg=239 guibg=grey20 guifg=pink
-hi VisualNOS cterm=bold,underline
+hi Visual guibg=grey20 guifg=pink
+hi VisualNOS gui=bold,italic
 
-hi Operator  guifg=Red    ctermfg=Red
-hi Structure guifg=green  ctermfg=green
-hi Ignore    guifg=grey40 ctermfg=DarkGrey
-hi Directory  ctermfg=darkcyan
-hi DiffAdd    ctermbg=4
-hi DiffChange ctermbg=5
-hi DiffDelete cterm=bold          ctermfg=4 ctermbg=6
-hi DiffText   cterm=bold ctermbg=1
+hi Operator  guifg=Red
+hi Structure guifg=green
+hi Ignore    guifg=grey40
 
-hi Underlined cterm=underline ctermfg=5 gui=underline
+hi Underlined gui=underline
 
 " TODO
 hi Todo guifg=orangered guibg=yellow3 gui=bold
 
-"hi TabLine              ctermfg=15  ctermbg=0
-"hi TabLineFill          ctermfg=15  ctermbg=0   cterm=underline
-"hi TabLineSel           ctermfg=0   ctermbg=86
-
-hi DiffAdd term=bold ctermbg=DarkBlue guibg=DarkBlue
-hi DiffChange term=bold ctermbg=DarkMagenta guibg=DarkMagenta
-hi DiffDelete term=bold ctermfg=Blue ctermbg=DarkCyan gui=bold guifg=Blue guibg=DarkCyan
-hi DiffText term=reverse cterm=bold ctermbg=Red gui=bold guibg=Red
-hi Directory term=bold ctermfg=LightCyan guifg=Cyan
-hi Question term=standout ctermfg=LightGreen gui=bold guifg=Green
-hi Title term=bold ctermfg=LightMagenta gui=bold guifg=Magenta
-hi VisualNOS term=underline,bold cterm=underline,bold gui=underline,bold
-hi WildMenu term=standout ctermbg=Yellow ctermfg=Black guibg=Yellow guifg=Black
+hi DiffAdd guibg=DarkBlue
+hi DiffChange guibg=DarkMagenta
+hi DiffDelete gui=bold guifg=Blue guibg=DarkCyan
+hi DiffText gui=bold guibg=Red
+hi Directory guifg=Cyan
+hi Question gui=bold guifg=Green
+hi Title gui=bold guifg=Magenta
+hi VisualNOS gui=underline,bold
+hi WildMenu guibg=Yellow guifg=Black
 
 " Clojure colors
-hi clojureKeyword ctermfg=blue guifg=#63b5fe gui=italic
-hi clojureCharacter ctermfg=blue guifg=#2aa198 gui=bold
+hi clojureKeyword guifg=#63b5fe gui=italic
+hi clojureCharacter guifg=#2aa198 gui=bold
