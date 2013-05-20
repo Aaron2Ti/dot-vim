@@ -611,7 +611,7 @@ let g:SignatureDisableMenu=1
 " nmap <Leader>x <Plug>ToggleAutoCloseMappings
 " }}}
 
-" NeoBundle 'godlygeek/tabular'
+NeoBundle 'godlygeek/tabular'
 
 " {{{ vim-easy-align
 NeoBundle 'junegunn/vim-easy-align'
@@ -621,7 +621,6 @@ let g:easy_align_delimiters = {
 \ 'B': { 'pattern': '{\|}' }
 \ }
 " }}}
-
 
 " Align {{{
 NeoBundle 'Align'
