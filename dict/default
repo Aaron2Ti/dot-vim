@@ -74,7 +74,7 @@ javascript_include_tag
 belongs_to
 has_one
 has_many
-has_many_and_belongs_to
+has_and_belongs_to_many
 
 recipient
 

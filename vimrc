@@ -258,9 +258,14 @@ call neobundle#rc(expand('~/.vim/bundle/'))
 
 NeoBundleFetch 'Shougo/neobundle.vim'
 
+
 NeoBundle 'godlygeek/csapprox'
 
+" a color scheme
+" NeoBundle 'junegunn/seoul256.vim'
+
 NeoBundle 'vim-scripts/DrawIt'
+NeoBundle 'vim-scripts/VisIncr'
 
 " {{{ accelerated-jk
 NeoBundle 'rhysd/accelerated-jk'
@@ -276,6 +281,9 @@ NeoBundle 'goldfeld/vim-seek'
 NeoBundle 'AndrewRadev/switch.vim'
 noremap <leader>sw :Switch<CR>
 
+" convert :foo => 'bar' to foo: 'bar'
+noremap <leader>st f:xepldf>
+
 " autocmd FileType ruby let b:switch_definitions =
 "   \ [
 "   \   g:switch_builtins.ruby_hash_style,
@@ -287,6 +295,8 @@ noremap <leader>sw :Switch<CR>
 NeoBundle 'gorkunov/smartpairs.vim'
 
 " NeoBundle 'yeti.vim'
+
+NeoBundle 'jceb/vim-shootingstar'
 
 NeoBundle 'vim-scripts/indent-motion'
 
@@ -498,6 +508,9 @@ noremap <leader>b :CommandTBuffer<CR>
 NeoBundle 'derekwyatt/vim-scala'
 
 " kana/vim-smartinput # auto close " ' ( [ etc
+
+NeoBundle 'vim-scripts/scratch.vim'
+noremap <leader>so :Scratch<CR>
 
 NeoBundle 'kana/vim-textobj-user'
 NeoBundle 'kana/vim-textobj-line'
