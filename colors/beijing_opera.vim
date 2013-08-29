@@ -119,6 +119,8 @@ if &background == "dark"
   call <SID>hi('PMenu',    s:NormalFG, s:Grey6, 'bold')
   call <SID>hi('PMenuSel', s:Golden,   '',      'bold')
 
+  call <SID>hi('CommandTCharMatched', s:Golden,   '',      'bold')
+
   " call <SID>hi("TabLine",       s:gui03, s:gui01, s:cterm03, s:cterm01, "none")
   " call <SID>hi("TabLineFill",   s:gui03, s:gui01, s:cterm03, s:cterm01, "none")
   " call <SID>hi("TabLineSel",    s:gui0B, s:gui01, s:cterm0B, s:cterm01, "none")
