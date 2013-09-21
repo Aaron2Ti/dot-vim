@@ -56,7 +56,8 @@ set autoread
 
 set complete=.,w,b,u,t,k,i,d
 
-set cursorcolumn cursorline mouse=nv
+set cursorcolumn cursorline
+set mouse=nv
 
 set modeline
 
@@ -608,7 +609,7 @@ if has('gui_macvim')
   autocmd GUIEnter * call RemoveUselessMenus()
 
   colorscheme drama
-  let g:Powerline_symbols='fancy'
+  " let g:Powerline_symbols='fancy'
 end
 
 " vim: foldmethod=marker
