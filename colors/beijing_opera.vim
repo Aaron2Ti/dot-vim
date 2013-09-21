@@ -45,7 +45,7 @@ let s:White        = '15'
 let s:CursorLineBG = s:Grey4
 
 let s:Golden = '208'
-let s:NormalFG = '194'
+let s:NormalFG = '187'
 
 " Theme Setup
 hi clear
@@ -116,8 +116,8 @@ if &background == "dark"
 
   call <SID>hi('LineNr',       s:Grey9, s:CursorLineBG, 'bold')
 
-  call <SID>hi('PMenu',    s:NormalFG, s:Grey6, 'bold')
-  call <SID>hi('PMenuSel', s:Golden,   '',      'bold')
+  call <SID>hi('PMenu',    '122',    s:Grey6, 'none')
+  call <SID>hi('PMenuSel', s:Golden, s:Grey6, 'bold')
 
   call <SID>hi('CommandTCharMatched', s:Golden,   '',      'bold')
 
@@ -180,6 +180,7 @@ call <SID>hi('Statement', '35', '', 'bold')
 " call <SID>hi("Tag",          s:gui0A, "", s:cterm0A, "", "")
 " call <SID>hi("Todo",         s:gui0A, s:gui01, s:cterm0A, s:cterm01, "")
 call <SID>hi('Type', s:LightYellow, '', 'bold')
+call <SID>hi('Todo', '124', '11', '')
 " call <SID>hi("Type",         s:gui09, "", s:cterm09, "", "none")
 " call <SID>hi("Typedef",      s:gui0A, "", s:cterm0A, "", "")
 
