@@ -260,6 +260,7 @@ call neobundle#rc(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 
+" Make gvim-only colorschemes work transparently in terminal vim
 NeoBundle 'godlygeek/csapprox'
 
 " a color scheme
@@ -267,12 +268,6 @@ NeoBundle 'godlygeek/csapprox'
 
 NeoBundle 'vim-scripts/DrawIt'
 NeoBundle 'vim-scripts/VisIncr'
-
-" {{{ accelerated-jk
-NeoBundle 'rhysd/accelerated-jk'
-nmap j <Plug>(accelerated_jk_gj)
-nmap k <Plug>(accelerated_jk_gk)
-" }}}
 
 NeoBundle 'goldfeld/vim-seek'
 
