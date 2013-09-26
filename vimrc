@@ -432,7 +432,12 @@ autocmd FileType clojure let b:delimitMate_matchpairs = "(:),[:],{:}"
 autocmd FileType ruby    let b:delimitMate_matchpairs = "(:),[:],{:}"
 " }}}
 
-NeoBundle 'the-isz/MinYankRing.vim'
+" {{{ YankRing.vim
+NeoBundle 'YankRing.vim'
+let g:yankring_replace_n_pkey = '<m-p>'
+let g:yankring_replace_n_nkey = '<m-n>'
+nnoremap <silent> <C-p> :YRShow<CR>
+" }}}
 
 NeoBundle 'slim-template/vim-slim'
 
