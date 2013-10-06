@@ -245,8 +245,6 @@ noremap <leader>bd :bufdo bd<CR>
 " noremap <leader>ej  :mkview<CR>
 " noremap <leader>je  :loadview<CR>
 
-" save sudo permission
-cmap ws w !sudo tee >/dev/null %
 " }}}
 
 " plugins {{{
@@ -273,8 +271,14 @@ NeoBundle 'goldfeld/vim-seek'
 
 " NeoBundle 'justincampbell/vim-eighties'
 
+NeoBundle 'AndrewRadev/multichange.vim'
+" NeoBundle 'terryma/vim-multiple-cursors'
+" NeoBundle 'hlissner/vim-multiedit'
+" NeoBundle 'adinapoli/vim-markmultiple'
+
 " {{{ switch.vim
 NeoBundle 'AndrewRadev/switch.vim'
+
 noremap <leader>sw :Switch<CR>
 
 " convert :foo => 'bar' to foo: 'bar'
@@ -348,11 +352,6 @@ NeoBundle 'ajf/puppet-vim'
 
 NeoBundle 'thinca/vim-visualstar'
 
-NeoBundle 'AndrewRadev/multichange.vim'
-" NeoBundle 'terryma/vim-multiple-cursors'
-" NeoBundle 'hlissner/vim-multiedit'
-" NeoBundle 'adinapoli/vim-markmultiple'
-
 NeoBundle 'tpope/vim-repeat'
 NeoBundle 'tpope/vim-haml'
 NeoBundle 'tpope/vim-endwise'
@@ -362,7 +361,7 @@ NeoBundle 'tpope/vim-liquid'
 NeoBundle 'tpope/vim-rsi'
 NeoBundle 'vim-ruby/vim-ruby'
 
-" NeoBundle 'tpope/vim-eunuch'
+NeoBundle 'tpope/vim-eunuch'
 
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'kablamo/vim-git-log'
