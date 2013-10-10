@@ -445,7 +445,7 @@ NeoBundle 'Keithbsmiley/rspec.vim'
 NeoBundle 'sk1418/Join'
 
 " {{{ for clojure
-" NeoBundle 'tpope/vim-foreplay'
+" NeoBundle 'tpope/vim-fireplace'
 " NeoBundle 'guns/vim-clojure-static'
 " NeoBundle 'kien/rainbow_parentheses.vim'
 " }}}
