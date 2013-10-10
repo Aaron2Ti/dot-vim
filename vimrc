@@ -476,6 +476,9 @@ let g:CommandTCancelMap='<Esc>'
 
 noremap <leader>b :CommandTBuffer<CR>
 
+" <D-...>   command-key (Macintosh only)
+noremap <D-b> :CommandTBuffer<CR>
+
 " map <leader>g :CommandTTag<CR>
 " map <leader>s :CommandTJump<CR>
 " }}}
