@@ -177,8 +177,14 @@ nnoremap - ,
 vnoremap - ,
 let mapleader = ','
 
+
 nnoremap ' `
 nnoremap ` '
+
+
+vnoremap g_ $
+vnoremap $  g_
+
 
 " [<Space> by default is like l]
 noremap <Space>   10<C-E>
