@@ -267,7 +267,9 @@ NeoBundle 'godlygeek/csapprox'
 NeoBundle 'vim-scripts/DrawIt'
 NeoBundle 'vim-scripts/VisIncr'
 
-NeoBundle 'goldfeld/vim-seek'
+NeoBundle 'justinmk/vim-sneak'
+nmap - <Plug>SneakPrevious
+xmap - <Plug>VSneakPrevious
 
 " NeoBundle 'justincampbell/vim-eighties'
 
