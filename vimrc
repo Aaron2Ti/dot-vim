@@ -553,9 +553,11 @@ let g:SignatureDisableMenu=1
 NeoBundle 'godlygeek/tabular'
 
 NeoBundle 'junegunn/vim-emoji'
+
 " {{{ vim-easy-align
 NeoBundle 'junegunn/vim-easy-align'
-vnoremap <silent> <leader>ae :EasyAlign<cr>
+
+vnoremap <silent> <cr> :EasyAlign<cr>
 
 let g:easy_align_delimiters = {
 \ 'B': { 'pattern': '{\|}' }
