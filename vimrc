@@ -261,9 +261,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " Make gvim-only colorschemes work transparently in terminal vim
 NeoBundle 'godlygeek/csapprox'
 
-" a color scheme
-" NeoBundle 'junegunn/seoul256.vim'
-
 NeoBundle 'vim-scripts/DrawIt'
 NeoBundle 'vim-scripts/VisIncr'
 
