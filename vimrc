@@ -267,6 +267,8 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " Make gvim-only colorschemes work transparently in terminal vim
 NeoBundle 'godlygeek/csapprox'
 
+NeoBundle 'bruno-/vim-vertical-move'
+
 NeoBundle 'vim-scripts/DrawIt'
 NeoBundle 'vim-scripts/VisIncr'
 
@@ -427,7 +429,7 @@ NeoBundle 'mileszs/ack.vim'
 nmap <leader>a :Ack!<Space>
 
 let g:ackhighlight=1
-let g:ackprg = 'ag --nogroup --nocolor --column --smart-case'
+let g:ackprg = 'ag --nogroup --nocolor --column'
 " }}}
 
 " delimitMate {{{
