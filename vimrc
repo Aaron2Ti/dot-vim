@@ -608,7 +608,7 @@ if has('gui_macvim')
   " set guifont=Source\ Code\ Pro:h15
   " set guifont=Menlo:h18
 
-  set guifont=PragmataPro:h19
+  set guifont=PragmataPro\ for\ Powerline:h19
   set guifontwide=Hei:h17
 
   set formatprg=par\ -w70p0s0r
@@ -622,7 +622,7 @@ if has('gui_macvim')
   autocmd GUIEnter * call RemoveUselessMenus()
 
   colorscheme drama
-  " let g:Powerline_symbols='fancy'
+  let g:Powerline_symbols='fancy'
 end
 
 " vim: foldmethod=marker
