@@ -563,7 +563,8 @@ NeoBundle 'junegunn/vim-easy-align'
 vnoremap <silent> <cr> :EasyAlign<cr>
 
 let g:easy_align_delimiters = {
-\ 'B': { 'pattern': '{\|}' }
+\ 'B': { 'pattern': '{\|}' },
+\ ']': { 'pattern': '[\|]' }
 \ }
 " }}}
 
