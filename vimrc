@@ -270,7 +270,6 @@ NeoBundle 'bruno-/vim-vertical-move'
 NeoBundle 'vim-scripts/DrawIt'
 NeoBundle 'vim-scripts/VisIncr'
 
-NeoBundle 'justinmk/vim-gtfo'
 NeoBundle 'justinmk/vim-sneak'
 nmap - <Plug>SneakPrevious
 xmap - <Plug>VSneakPrevious
@@ -383,13 +382,6 @@ let g:surround_custom_mapping.ruby = {
     \ 'w':  "%w(\r)",
     \ '3':  "#{\r}",
     \ 'E':  "<<EOS \r EOS",
-    \ 'i':  "if \1if\1 \r end",
-    \ 'u':  "unless \1unless\1 \r end",
-    \ 'c':  "class \1class\1 \r end",
-    \ 'm':  "module \1module\1 \r end",
-    \ 'd':  "def \1def\1\2args\r..*\r(&)\2 \r end",
-    \ 'p':  "\1method\1 do \2args\r..*\r|&| \2\r end",
-    \ 'P':  "\1method\1 {\2args\r..*\r|&|\2 \r }",
     \ }
 " }}}
 
