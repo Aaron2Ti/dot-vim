@@ -67,8 +67,6 @@ set helplang=En history=100
 
 set hlsearch incsearch ignorecase showmatch infercase smartcase
 
-set shortmess+=r
-
 set magic hidden
 
 set wrap
@@ -299,8 +297,6 @@ noremap <leader>st f:xepldf>
 "   \   { 'my_own_pattern': 'my_own_replacement' },
 "   \ ]
 " }}}
-
-NeoBundle 'gorkunov/smartpairs.vim'
 
 " NeoBundle 'yeti.vim'
 
