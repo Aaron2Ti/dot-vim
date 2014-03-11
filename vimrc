@@ -270,10 +270,6 @@ NeoBundle 'bruno-/vim-vertical-move'
 NeoBundle 'vim-scripts/DrawIt'
 NeoBundle 'vim-scripts/VisIncr'
 
-NeoBundle 'justinmk/vim-sneak'
-nmap - <Plug>SneakPrevious
-xmap - <Plug>VSneakPrevious
-
 " NeoBundle 'justincampbell/vim-eighties'
 
 NeoBundle 'AndrewRadev/multichange.vim'
@@ -502,12 +498,27 @@ NeoBundle 'rhysd/vim-textobj-ruby'
 " NeoBundle 'kana/vim-smarttill'
 " }}}
 
+" NeoBundle 'justinmk/vim-sneak'
+" nmap - <Plug>SneakPrevious
+" xmap - <Plug>VSneakPrevious
+
+
+" {{{ vim-smalls cursor movement
+NeoBundle 't9md/vim-smalls'
+
+nmap s <Plug>(smalls)
+omap s <Plug>(smalls)
+xmap s <Plug>(smalls)
+
+" call smalls#keyboard#excursion#extend_table({";": '__UNMAP__'})
+" }}}
+
 " {{{ easymotion
 NeoBundle 'Lokaltog/vim-easymotion'
-let g:EasyMotion_mapping_F = '<C-h>'
-let g:EasyMotion_mapping_f = '<C-l>'
-let g:EasyMotion_mapping_j = '<C-l><C-l>'
-let g:EasyMotion_mapping_k = '<C-h><C-h>'
+" let g:EasyMotion_mapping_F = '<C-h>'
+" let g:EasyMotion_mapping_f = '<C-l>'
+let g:EasyMotion_mapping_j = '<C-l>'
+let g:EasyMotion_mapping_k = '<C-h>'
 let g:EasyMotion_keys = 'abcdefghijklmnopqrstuvwxyZABCDEFGHIJKLMNOPQRSTUVWXYz'
 " }}}
 
