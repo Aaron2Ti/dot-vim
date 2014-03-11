@@ -598,31 +598,5 @@ if neobundle#exists_not_installed_bundles()
 endif
 " }}}
 
-" gui_macvim {{{
-if has('gui_macvim')
-  set lines=46 columns=127
-  set fuoptions=maxvert,maxhorz
-  set guioptions=egmtc
-  " set guifont=Courier:h16
-  " set guifont=Monaco:h14
-  " set guifont=Source\ Code\ Pro:h15
-  " set guifont=Menlo:h18
-
-  set guifont=PragmataPro\ for\ Powerline:h19
-  set guifontwide=Hei:h17
-
-  set formatprg=par\ -w70p0s0r
-
-  set guicursor=a:blinkwait700-blinkon800-blinkoff500
-
-  set antialias
-
-  " set clipboard=unnamed
-
-  autocmd GUIEnter * call RemoveUselessMenus()
-
-  colorscheme drama
-  let g:Powerline_symbols='fancy'
-end
-
+let g:Powerline_symbols='fancy'
 " vim: foldmethod=marker
