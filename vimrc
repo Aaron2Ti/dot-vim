@@ -261,6 +261,14 @@ call neobundle#rc(expand('~/.vim/bundle/'))
 
 NeoBundleFetch 'Shougo/neobundle.vim'
 
+NeoBundle 'Shougo/vimproc.vim', {
+      \ 'build' : {
+      \     'windows': 'make -f make_mingw32.mak',
+      \     'cygwin':  'make -f make_cygwin.mak',
+      \     'mac':     'make -f make_mac.mak',
+      \     'unix':    'make -f make_unix.mak',
+      \    },
+      \ }
 
 " Make gvim-only colorschemes work transparently in terminal vim
 NeoBundle 'godlygeek/csapprox'
