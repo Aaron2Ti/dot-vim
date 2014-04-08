@@ -270,6 +270,7 @@ NeoBundle 'Shougo/vimproc.vim', {
       \    },
       \ }
 
+NeoBundle 'leafgarland/typescript-vim'
 NeoBundle 'clausreinke/typescript-tools', {¬
         \ 'build' : {¬
         \     'windows': 'npm install -g',¬
