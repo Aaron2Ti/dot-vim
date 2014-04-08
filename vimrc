@@ -270,16 +270,16 @@ NeoBundle 'Shougo/vimproc.vim', {
       \    },
       \ }
 
-NeoBundle 'leafgarland/typescript-vim'¬
-¬
-NeoBundle 'clausreinke/typescript-tools', {¬
-      \ 'build' : {¬
-      \     'windows': 'npm install -g',¬
-      \     'cygwin':  'npm install -g',¬
-      \     'mac':     'npm install -g',¬
-      \     'unix':    'npm install -g',¬
-      \    },¬
-      \ }¬
+NeoBundle 'leafgarland/typescript-vim'
+
+NeoBundle 'clausreinke/typescript-tools', {
+      \ 'build' : {
+      \     'windows': 'npm install -g',
+      \     'cygwin':  'npm install -g',
+      \     'mac':     'npm install -g',
+      \     'unix':    'npm install -g',
+      \    },
+      \ }
 
 " Make gvim-only colorschemes work transparently in terminal vim
 NeoBundle 'godlygeek/csapprox'
