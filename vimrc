@@ -281,6 +281,8 @@ NeoBundle 'clausreinke/typescript-tools', {
       \    },
       \ }
 
+NeoBundle 'idris-hackers/idris-vim'
+
 " Make gvim-only colorschemes work transparently in terminal vim
 NeoBundle 'godlygeek/csapprox'
 
@@ -556,8 +558,6 @@ let g:tagbar_width = 30
 
 " NeoBundle 'genutils'
 " NeoBundle 'foldutil.vim'
-"
-" NeoBundle 'vim-scripts/Conque-Shell'
 
 " NeoBundle 'sjl/clam.vim'
 
