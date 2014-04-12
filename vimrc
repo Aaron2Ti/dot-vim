@@ -283,6 +283,8 @@ NeoBundle 'clausreinke/typescript-tools', {
 
 NeoBundle 'idris-hackers/idris-vim'
 
+NeoBundle 'kongo2002/fsharp-vim'
+
 " Make gvim-only colorschemes work transparently in terminal vim
 NeoBundle 'godlygeek/csapprox'
 
@@ -379,12 +381,8 @@ NeoBundle 'tpope/vim-unimpaired'
 NeoBundle 'tpope/vim-abolish'
 NeoBundle 'tpope/vim-liquid'
 NeoBundle 'tpope/vim-rsi'
-NeoBundle 'vim-ruby/vim-ruby'
-
 NeoBundle 'tpope/vim-eunuch'
-
 NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'kablamo/vim-git-log'
 
 " {{{ surround
 NeoBundle 'tpope/vim-surround'
@@ -402,6 +400,8 @@ let g:surround_custom_mapping.ruby = {
     \ }
 " }}}
 
+NeoBundle 'vim-ruby/vim-ruby'
+
 " {{{ vim-rails
 NeoBundle 'tpope/vim-rails'
 noremap <leader>r   :R<Space>
@@ -415,6 +415,8 @@ noremap <leader>ri  :Rinitializer<Space>
 noremap <leader>rj  :Rjavascript<Space>
 noremap <leader>rs  :Rstylesheet<Space>
 " }}}
+
+NeoBundle 'kablamo/vim-git-log'
 
 " {{{ nerdcommenter
 NeoBundle 'scrooloose/nerdcommenter'
