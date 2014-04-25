@@ -49,6 +49,7 @@ set softtabstop=2
 set tabstop=2
 
 autocmd FileType python set shiftwidth=4 softtabstop=4 tabstop=4
+autocmd FileType fsharp set shiftwidth=4 softtabstop=4 tabstop=4
 
 set virtualedit=all
 
@@ -422,6 +423,10 @@ NeoBundle 'kablamo/vim-git-log'
 NeoBundle 'scrooloose/nerdcommenter'
 let NERDSpaceDelims=1
 let NERDCompactSexyComs=1
+
+let g:NERDCustomDelimiters = {
+  \ 'fsharp': { 'left': '//' }
+\ }
 " }}}
 
 " NeoBundle 'msanders/snipmate.vim'
