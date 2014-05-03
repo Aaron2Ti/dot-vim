@@ -122,8 +122,9 @@ hi PreProc              guifg=#bb4182 gui=bold guibg=grey25  "#!/bin/sh
 
 hi Function             guifg=#e784b6 gui=bold       "method define
 
-hi IncSearch            guifg=#749940 guibg=black
-hi Search               guibg=#b58900 guifg=#002b36 gui=bold
+hi IncSearch            guibg=black   guifg=#749940
+hi Search               guibg=#755900 guifg=#ff2b00 gui=none
+
 hi WarningMsg           guifg=White guibg=#f44490 gui=bold
 
 hi VertSplit            gui=reverse guibg=#c2bfa5 guifg=grey30
