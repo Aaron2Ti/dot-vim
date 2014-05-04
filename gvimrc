@@ -21,7 +21,7 @@ if has('gui_macvim')
   autocmd GUIEnter * call RemoveUselessMenus()
 
   colorscheme drama
-end
+endif
 
 let g:Powerline_symbols='compatible'
 

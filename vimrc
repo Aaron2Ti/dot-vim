@@ -551,6 +551,8 @@ hi SmallsPos     ctermfg=160 ctermbg=3 cterm=reverse
 hi SmallsShade   ctermfg=241
 " }}}
 "
+
+if !has('gui_macvim')
 let g:smalls_highlight = {
 \ 'SmallsCandidate':  [['none',      'none', '33',   ], [ 'bold',           '#403d3d',   '#66d9ef']],
 \ 'SmallsJumpTarget': [['none',      'none', '160',  ], [ 'bold',           'none',      '#f92672']],
@@ -560,6 +562,7 @@ let g:smalls_highlight = {
 \ 'SmallsCli':        [['none',      'none', 'grey', ], [ 'none',           'none',      '#a6e22e']],
 \ 'SmallsCliCursor':  [['none',      'none', 'grey', ], [ 'underline',      'none',      '#a6e22e']],
 \ }
+endif
 "
 " }}}
 
