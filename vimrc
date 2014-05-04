@@ -540,30 +540,20 @@ nmap s <Plug>(smalls)
 omap s <Plug>(smalls)
 xmap s <Plug>(smalls)
 
-" call smalls#keyboard#excursion#extend_table({";": '__UNMAP__'})
+let g:smalls_auto_jump = 1
+let g:smalls_auto_jump_min_input_length = 2
 
-" {{{1
-
-hi SmallsJumpTarget ctermfg=160
-hi SmallsCandidate ctermfg=33
-hi SmallsCurrent ctermfg=160 ctermbg=3 cterm=reverse
-hi SmallsPos     ctermfg=160 ctermbg=3 cterm=reverse
-hi SmallsShade   ctermfg=241
-" }}}
-"
-
-if !has('gui_macvim')
-let g:smalls_highlight = {
-\ 'SmallsCandidate':  [['none',      'none', '33',   ], [ 'bold',           '#403d3d',   '#66d9ef']],
-\ 'SmallsJumpTarget': [['none',      'none', '160',  ], [ 'bold',           'none',      '#f92672']],
-\ 'SmallsCurrent':    [['reverse',   '3',    '160',  ], [ 'none',           '#f92672',   '#ffffff']],
-\ 'SmallsPos':        [['underline', '3',    '160',  ], [ 'bold,underline', 'lawngreen', 'black']],
-\ 'SmallsShade':      [['none',      'none', '241',  ], [ 'none',           'none',      '#777777']],
-\ 'SmallsCli':        [['none',      'none', 'grey', ], [ 'none',           'none',      '#a6e22e']],
-\ 'SmallsCliCursor':  [['none',      'none', 'grey', ], [ 'underline',      'none',      '#a6e22e']],
-\ }
+if !has('gui')
+  let g:smalls_highlight = {
+  \ 'SmallsCandidate':  [['none',      'none', '33',   ], [ 'bold', '', '']],
+  \ 'SmallsJumpTarget': [['none',      'none', '160',  ], [ 'bold', '', '']],
+  \ 'SmallsCurrent':    [['reverse',   '3',    '160',  ], [ 'none', '', '']],
+  \ 'SmallsPos':        [['underline', '3',    '160',  ], [ 'bold', '', '']],
+  \ 'SmallsShade':      [['none',      'none', '241',  ], [ 'none', '', '']],
+  \ 'SmallsCli':        [['none',      'none', 'grey', ], [ 'none', '', '']],
+  \ 'SmallsCliCursor':  [['none',      'none', 'grey', ], [ 'none', '', '']],
+  \ }
 endif
-"
 " }}}
 
 " {{{ easymotion
