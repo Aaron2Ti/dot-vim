@@ -80,7 +80,6 @@ call <SID>hi('ErrorMsg', '196', s:Black, 'bold')
 " call <SID>hi("Exception",     s:gui08, "", s:cterm08, "", "")
 " call <SID>hi("FoldColumn",    "", s:gui01, "", s:cterm01, "")
 " call <SID>hi("Folded",        s:gui03, s:gui01, s:cterm03, s:cterm01, "")
-" call <SID>hi("IncSearch",     s:gui0A, "", s:cterm0A, "", "")
 " call <SID>hi("Italic",        "", "", "", "", "none")
 " call <SID>hi("Macro",         s:gui08, "", s:cterm08, "", "")
 " call <SID>hi("MatchParen",    s:gui03, s:gui00, s:cterm03, s:cterm00,  "reverse")
@@ -88,7 +87,9 @@ call <SID>hi('ErrorMsg', '196', s:Black, 'bold')
 " call <SID>hi("MoreMsg",       s:gui0B, "", s:cterm0B, "", "")
 " call <SID>hi("Question",      s:gui0A, "", s:cterm0A, "", "")
 " call <SID>hi("Search",        s:gui0A, s:gui01, s:cterm0A, s:cterm01,  "reverse")
-call <SID>hi('Search',        '160', s:Yellow, '')
+call <SID>hi('Search',           '160', s:Yellow, '')
+call <SID>hi('IncSearch',        '160', s:Yellow, 'reverse')
+
 " call <SID>hi("SpecialKey",    s:gui03, "", s:cterm03, "", "")
 " call <SID>hi("TooLong",       s:gui08, "", s:cterm08, "", "")
 " call <SID>hi("Underlined",    s:gui08, "", s:cterm08, "", "")
@@ -281,3 +282,7 @@ delf <sid>hi
 " Remove Colour Variables
 " unlet s:gui00 s:gui01 s:gui02 s:gui03  s:gui04  s:gui05  s:gui06  s:gui07  s:gui08  s:gui09 s:gui0A  s:gui0B  s:gui0C  s:gui0D  s:gui0E  s:gui0F
 " unlet s:cterm00 s:cterm01 s:cterm02 s:cterm03 s:cterm04 s:cterm05 s:cterm06 s:cterm07 s:cterm08 s:cterm09 s:cterm0A s:cterm0B s:cterm0C s:cterm0D s:cterm0E s:cterm0F
+
+
+" {{{1
+" vim: foldmethod=marker
