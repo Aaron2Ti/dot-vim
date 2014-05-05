@@ -60,7 +60,7 @@ set autoread
 set complete=.,w,b,u,t,k,i,d
 
 set cursorcolumn cursorline
-set mouse=nv
+set mouse=
 
 set modeline
 
