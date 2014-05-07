@@ -541,7 +541,7 @@ omap s <Plug>(smalls)
 xmap s <Plug>(smalls)
 
 let g:smalls_auto_jump = 1
-let g:smalls_auto_jump_min_input_length = 2
+let g:smalls_auto_jump_min_input_length = 1
 
 if !has('gui')
   let g:smalls_highlight = {
