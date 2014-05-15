@@ -322,7 +322,7 @@ noremap <leader>st f:xepldf>
 
 " NeoBundle 'yeti.vim'
 
-NeoBundle 'jceb/vim-shootingstar'
+NeoBundle 'thinca/vim-visualstar'
 
 NeoBundle 'vim-scripts/indent-motion'
 
@@ -375,8 +375,6 @@ endif
 " 'ervandew/supertab'
 
 NeoBundle 'ajf/puppet-vim'
-
-NeoBundle 'thinca/vim-visualstar'
 
 NeoBundle 'tpope/vim-repeat'
 NeoBundle 'tpope/vim-haml'
