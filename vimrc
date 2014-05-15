@@ -332,11 +332,11 @@ if has('python')
   NeoBundle 'SirVer/ultisnips'
 
   let g:UltiSnipsUsePythonVersion    = 2
-
-  let g:UltiSnipsExpandTrigger       = '<C-TAB>'
-  let g:UltiSnipsListSnippets        = '<C-S-TAB>'
+  let g:UltiSnipsExpandTrigger       = '<C-s>'
+  let g:UltiSnipsListSnippets        = '<C-S-s>'
   let g:UltiSnipsJumpForwardTrigger  = '<C-J>'
   let g:UltiSnipsJumpBackwardTrigger = '<C-K>'
+
   " }}}
 
   " {{{ powerline
