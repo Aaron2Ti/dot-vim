@@ -3,7 +3,6 @@
 
 " {{{ Basic Setting
 set nocompatible
-
 filetype on " !!!!
 
 set shell=/bin/sh
@@ -285,6 +284,8 @@ NeoBundle 'clausreinke/typescript-tools', {
       \ }
 
 NeoBundle 'idris-hackers/idris-vim'
+
+NeoBundle 'chrisbra/unicode.vim'
 
 NeoBundle 'kongo2002/fsharp-vim'
 
