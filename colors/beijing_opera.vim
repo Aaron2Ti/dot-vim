@@ -152,6 +152,8 @@ endif
 
 call <SID>hi('Boolean', s:Golden, '', '')
 
+call <SID>hi('SpecialKey', s:Grey9, '', '')
+
 call <SID>hi('Comment', s:Grey9, '', '')
 call <SID>hi('String', s:LightRed, '', '')
 " call <SID>hi("String",       s:gui0B, "", s:cterm0B, "", "")
@@ -282,7 +284,6 @@ delf <sid>hi
 " Remove Colour Variables
 " unlet s:gui00 s:gui01 s:gui02 s:gui03  s:gui04  s:gui05  s:gui06  s:gui07  s:gui08  s:gui09 s:gui0A  s:gui0B  s:gui0C  s:gui0D  s:gui0E  s:gui0F
 " unlet s:cterm00 s:cterm01 s:cterm02 s:cterm03 s:cterm04 s:cterm05 s:cterm06 s:cterm07 s:cterm08 s:cterm09 s:cterm0A s:cterm0B s:cterm0C s:cterm0D s:cterm0E s:cterm0F
-
 
 " {{{1
 " vim: foldmethod=marker
