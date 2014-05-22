@@ -334,7 +334,7 @@ if has('python')
 
   let g:UltiSnipsUsePythonVersion    = 2
   let g:UltiSnipsExpandTrigger       = '<C-s>'
-  let g:UltiSnipsListSnippets        = '<C-S-s>'
+  " let g:UltiSnipsListSnippets        = '<C-S-s>'
   let g:UltiSnipsJumpForwardTrigger  = '<C-J>'
   let g:UltiSnipsJumpBackwardTrigger = '<C-K>'
 
@@ -359,6 +359,8 @@ if has('python')
       \ 'ruby' : 1,
       \ 'javascript' : 1,
       \}
+
+  let g:yankring_history_dir = '~/.tmp'
   " }}}
 
   NeoBundle 'gcmt/breeze.vim'
