@@ -2,6 +2,10 @@ snippet h "hash"
 ${1:k}: ${2:v}
 endsnippet
 
+snippet pry "binding.pry" !
+binding.pry
+endsnippet
+
 snippet r "require" !
 require '${1:spec_helper}'
 endsnippet
@@ -11,7 +15,7 @@ alias_method :${2:new}, :${1:old}
 endsnippet
 
 snippet d "debugger" !
-binding.pry
+debugger
 endsnippet
 
 # snippet date
