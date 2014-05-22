@@ -640,5 +640,6 @@ if neobundle#exists_not_installed_bundles()
 endif
 " }}}
 
-" let g:Powerline_symbols='fancy'
+" {{{
 " vim: foldmethod=marker
+" }}}
