@@ -30,7 +30,8 @@ function <SID>StripTrailingWhitespace()
   %s/\($\n\s*\)\+\%$//e
 endfunction
 autocmd BufWritePre * :call <SID>StripTrailingWhitespace()
-autocmd FileType markdown let b:noStripTrailingWhitespace=1
+
+" autocmd FileType markdown let b:noStripTrailingWhitespace=1
 
 
 function ToggleLineNumber()
