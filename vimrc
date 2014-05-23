@@ -616,7 +616,8 @@ vnoremap <silent> <cr> :EasyAlign<cr>
 
 let g:easy_align_delimiters = {
 \ 'B': { 'pattern': '{\|}' },
-\ ']': { 'pattern': '[\|]' }
+\ ']': { 'pattern': '[\|]' },
+\ 'o': { 'pattern': '||' }
 \ }
 " }}}
 
