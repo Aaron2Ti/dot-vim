@@ -289,6 +289,10 @@ NeoBundle 'chrisbra/unicode.vim'
 
 NeoBundle 'kongo2002/fsharp-vim'
 
+" XtermColorTable
+NeoBundle 'guns/xterm-color-table.vim'
+
+
 " Make gvim-only colorschemes work transparently in terminal vim
 NeoBundle 'godlygeek/csapprox'
 
@@ -481,6 +485,7 @@ NeoBundle 'sk1418/Join'
 " {{{ for clojure
 " NeoBundle 'tpope/vim-fireplace'
 " NeoBundle 'guns/vim-clojure-static'
+" NeoBundle 'typedclojure/vim-typedclojure'
 " NeoBundle 'kien/rainbow_parentheses.vim'
 " }}}
 
