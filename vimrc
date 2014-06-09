@@ -263,6 +263,10 @@ call neobundle#rc(expand('~/.vim/bundle/'))
 
 NeoBundleFetch 'Shougo/neobundle.vim'
 
+" A collection of language packs for Vim
+" NeoBundle 'sheerun/vim-polyglot'
+
+" Shougo/vimproc.vim {{{
 NeoBundle 'Shougo/vimproc.vim', {
       \ 'build' : {
       \     'windows': 'make -f make_mingw32.mak',
@@ -271,9 +275,11 @@ NeoBundle 'Shougo/vimproc.vim', {
       \     'unix':    'make -f make_unix.mak',
       \    },
       \ }
+"}}}
 
 NeoBundle 'leafgarland/typescript-vim'
 
+" clausreinke/typescript-tools {{{
 NeoBundle 'clausreinke/typescript-tools', {
       \ 'build' : {
       \     'windows': 'npm install -g',
@@ -282,6 +288,7 @@ NeoBundle 'clausreinke/typescript-tools', {
       \     'unix':    'npm install -g',
       \    },
       \ }
+"}}}
 
 NeoBundle 'idris-hackers/idris-vim'
 
@@ -638,23 +645,25 @@ NeoBundle 'matchit.zip'
 
 " Indent-Guides {{{
 NeoBundle 'Indent-Guides'
-" let g:indent_guides_auto_colors = 0
-" let g:indent_guides_start_level = 2
+  let g:indent_guides_auto_colors = 0
+  let g:indent_guides_start_level = 2
 " autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=grey13 ctermbg=3
-" autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=grey8  ctermbg=4
+  autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=grey8  ctermbg=235
 
-" autocmd FileType ruby,coffee,javascript,html IndentGuidesEnable
+          autocmd FileType ruby,coffee,javascript,html IndentGuidesEnable
 " }}}
 
 filetype plugin on
 
-" Installation check.
+" Installation check. {{{
 if neobundle#exists_not_installed_bundles()
   echomsg 'Not installed bundles : ' .
     \ string(neobundle#get_not_installed_bundle_names())
   echomsg 'Please execute ":NeoBundleInstall" command.'
   "finish
 endif
+"}}}
+
 " }}}
 
 " {{{
