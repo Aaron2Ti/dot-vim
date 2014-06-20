@@ -41,16 +41,17 @@ set copyindent
 
 set switchbuf=useopen
 
-set shiftround
 set expandtab
-set smarttab
 set nojoinspaces
+set shiftround
 set shiftwidth=2
+set smarttab
 set softtabstop=2
 set tabstop=2
 
-autocmd FileType python set shiftwidth=4 softtabstop=4 tabstop=4
-autocmd FileType fsharp set shiftwidth=4 softtabstop=4 tabstop=4
+autocmd FileType python  set shiftwidth=4 softtabstop=4 tabstop=8
+autocmd FileType fsharp  set shiftwidth=4 softtabstop=4 tabstop=8
+autocmd FileType haskell set shiftwidth=4 softtabstop=4 tabstop=8
 
 set virtualedit=all
 
@@ -450,6 +451,7 @@ let NERDSpaceDelims=1
 let NERDCompactSexyComs=1
 
 let g:NERDCustomDelimiters = {
+  \ 'idris': { 'left': '---' },
   \ 'fsharp': { 'left': '//' }
 \ }
 " }}}
