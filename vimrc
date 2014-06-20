@@ -464,8 +464,9 @@ let NERDSpaceDelims=1
 let NERDCompactSexyComs=1
 
 let g:NERDCustomDelimiters = {
-  \ 'idris': { 'left': '---' },
-  \ 'fsharp': { 'left': '//' }
+  \ 'idris':   { 'left': '---' },
+  \ 'haskell': { 'left': '--' },
+  \ 'fsharp':  { 'left': '//' }
 \ }
 " }}}
 
