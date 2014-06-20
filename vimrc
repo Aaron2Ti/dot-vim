@@ -52,6 +52,7 @@ set tabstop=2
 autocmd FileType python  set shiftwidth=4 softtabstop=4 tabstop=8
 autocmd FileType fsharp  set shiftwidth=4 softtabstop=4 tabstop=8
 autocmd FileType haskell set shiftwidth=4 softtabstop=4 tabstop=8
+autocmd FileType idris   set shiftwidth=4 softtabstop=4 tabstop=8
 
 set virtualedit=all
 
