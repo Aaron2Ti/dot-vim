@@ -51,7 +51,6 @@ set tabstop=2
 
 autocmd FileType python  set shiftwidth=4 softtabstop=4 tabstop=8
 autocmd FileType fsharp  set shiftwidth=4 softtabstop=4 tabstop=8
-autocmd FileType haskell set shiftwidth=4 softtabstop=4 tabstop=8
 autocmd FileType idris   set shiftwidth=4 softtabstop=4 tabstop=8
 
 set virtualedit=all
@@ -298,6 +297,15 @@ NeoBundle 'chrisbra/unicode.vim'
 
 NeoBundle 'kongo2002/fsharp-vim'
 
+"{{{ Haskell
+NeoBundle 'pbrisbin/vim-syntax-shakespeare'
+
+NeoBundle 'eagletmt/ghcmod-vim'
+NeoBundle 'eagletmt/neco-ghc'
+
+autocmd FileType haskell set shiftwidth=4 softtabstop=4 tabstop=8 omnifunc=necoghc#omnifunc
+"}}}
+
 " XtermColorTable
 NeoBundle 'guns/xterm-color-table.vim'
 
@@ -367,6 +375,8 @@ if has('python')
   let g:ycm_complete_in_comments_and_strings              = 1
   let g:ycm_collect_identifiers_from_comments_and_strings = 1
   let g:ycm_add_preview_to_completeopt                    = 0
+
+  let g:ycm_semantic_triggers = { 'haskell' : ['.'] }
 
   let g:ycm_filetype_specific_completion_to_disable = {
       \ 'ruby' : 1,
@@ -653,7 +663,7 @@ NeoBundle 'Indent-Guides'
 " autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=grey13 ctermbg=3
   autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=grey8  ctermbg=235
 
-          autocmd FileType ruby,coffee,javascript,html IndentGuidesEnable
+  autocmd FileType ruby,coffee,javascript,html IndentGuidesEnable
 " }}}
 
 filetype plugin on
