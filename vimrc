@@ -305,6 +305,8 @@ NeoBundle 'travitch/hasksyn'
 NeoBundle 'eagletmt/ghcmod-vim'
 NeoBundle 'eagletmt/neco-ghc'
 
+NeoBundle 'Twinside/vim-haskellFold'
+
 autocmd FileType haskell set shiftwidth=4 softtabstop=4 tabstop=8 omnifunc=necoghc#omnifunc
 "}}}
 
