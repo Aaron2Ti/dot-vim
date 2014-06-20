@@ -300,6 +300,8 @@ NeoBundle 'kongo2002/fsharp-vim'
 "{{{ Haskell
 NeoBundle 'pbrisbin/vim-syntax-shakespeare'
 
+NeoBundle 'travitch/hasksyn'
+
 NeoBundle 'eagletmt/ghcmod-vim'
 NeoBundle 'eagletmt/neco-ghc'
 
