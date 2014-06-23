@@ -293,6 +293,13 @@ NeoBundle 'clausreinke/typescript-tools', {
 
 NeoBundle 'idris-hackers/idris-vim'
 
+"{{{ erlang
+NeoBundle 'jimenezrick/vimerl'
+
+let erlang_show_errors = 0
+"}}}
+
+
 NeoBundle 'chrisbra/unicode.vim'
 
 NeoBundle 'kongo2002/fsharp-vim'
@@ -380,7 +387,20 @@ if has('python')
   let g:ycm_collect_identifiers_from_comments_and_strings = 1
   let g:ycm_add_preview_to_completeopt                    = 0
 
-  let g:ycm_semantic_triggers = { 'haskell' : ['.'] }
+  let g:ycm_semantic_triggers =  {
+      \  'c':          ['->', '.'],
+      \  'objc':       ['->', '.'],
+      \  'ocaml':      ['.', '#'],
+      \  'cpp,objcpp': ['->', '.', '::'],
+      \  'perl':       ['->'],
+      \  'php':        ['->', '::'],
+      \  'cs,java':    ['.'],
+      \  'ruby':       ['.', '::'],
+      \  'lua':        ['.', ':'],
+      \  'erlang':     [':'],
+      \  'haskell':    ['.'],
+      \}
+
 
   let g:ycm_filetype_specific_completion_to_disable = {
       \ 'ruby' : 1,
