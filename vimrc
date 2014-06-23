@@ -297,6 +297,8 @@ NeoBundle 'idris-hackers/idris-vim'
 NeoBundle 'jimenezrick/vimerl'
 
 let erlang_show_errors = 0
+
+autocmd FileType erlang set shiftwidth=4 softtabstop=4 tabstop=8
 "}}}
 
 
