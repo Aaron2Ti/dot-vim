@@ -278,93 +278,7 @@ NeoBundle 'Shougo/vimproc.vim', {
       \ }
 "}}}
 
-NeoBundle 'leafgarland/typescript-vim'
-
-" clausreinke/typescript-tools {{{
-NeoBundle 'clausreinke/typescript-tools', {
-      \ 'build' : {
-      \     'windows': 'npm install -g',
-      \     'cygwin':  'npm install -g',
-      \     'mac':     'npm install -g',
-      \     'unix':    'npm install -g',
-      \    },
-      \ }
-"}}}
-
-NeoBundle 'idris-hackers/idris-vim'
-
-"{{{ erlang
-NeoBundle 'jimenezrick/vimerl'
-
-
-let erlang_show_errors = 0
-let erlang_completion_cache = 1
-
-autocmd FileType erlang set shiftwidth=4 softtabstop=4 tabstop=8
-autocmd FileType erlang let g:ycm_cache_omnifunc=0
-"}}}
-
-
-NeoBundle 'chrisbra/unicode.vim'
-
-NeoBundle 'kongo2002/fsharp-vim'
-
-"{{{ Haskell
-NeoBundle 'pbrisbin/vim-syntax-shakespeare'
-
-NeoBundle 'travitch/hasksyn'
-
-NeoBundle 'eagletmt/ghcmod-vim'
-NeoBundle 'eagletmt/neco-ghc'
-
-NeoBundle 'Twinside/vim-haskellFold'
-
-autocmd FileType haskell set shiftwidth=4 softtabstop=4 tabstop=8 omnifunc=necoghc#omnifunc
-"}}}
-
-" XtermColorTable
-NeoBundle 'guns/xterm-color-table.vim'
-
-
-" Make gvim-only colorschemes work transparently in terminal vim
-NeoBundle 'godlygeek/csapprox'
-
-NeoBundle 'bruno-/vim-vertical-move'
-
-NeoBundle 'vim-scripts/DrawIt'
-NeoBundle 'vim-scripts/VisIncr'
-
-" NeoBundle 'justincampbell/vim-eighties'
-
-NeoBundle 'AndrewRadev/multichange.vim'
-" NeoBundle 'terryma/vim-multiple-cursors'
-" NeoBundle 'hlissner/vim-multiedit'
-" NeoBundle 'adinapoli/vim-markmultiple'
-
-" {{{ switch.vim
-NeoBundle 'AndrewRadev/switch.vim'
-
-noremap <leader>sw :Switch<CR>
-
-" convert :foo => 'bar' to foo: 'bar'
-noremap <leader>st f:xepldf>
-
-" autocmd FileType ruby let b:switch_definitions =
-"   \ [
-"   \   g:switch_builtins.ruby_hash_style,
-"   \   g:switch_builtins.rspec_should,
-"   \   { 'my_own_pattern': 'my_own_replacement' },
-"   \ ]
-" }}}
-
-" NeoBundle 'yeti.vim'
-
-NeoBundle 'thinca/vim-visualstar'
-
-NeoBundle 'vim-scripts/indent-motion'
-
-NeoBundle 'b4winckler/vim-angry'
-
+"{{{
 if has('python')
   " {{{ ultisnips
   NeoBundle 'SirVer/ultisnips'
@@ -436,10 +350,7 @@ if has('python')
   let g:pse_max_height=30
   " }}}
 endif
-
-" 'ervandew/supertab'
-
-NeoBundle 'ajf/puppet-vim'
+"}}}
 
 NeoBundle 'tpope/vim-repeat'
 NeoBundle 'tpope/vim-haml'
@@ -450,6 +361,8 @@ NeoBundle 'tpope/vim-liquid'
 NeoBundle 'tpope/vim-rsi'
 NeoBundle 'tpope/vim-eunuch'
 NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'tpope/vim-projectionist'
+NeoBundle 'tpope/vim-dispatch'
 
 " {{{ surround
 NeoBundle 'tpope/vim-surround'
@@ -466,6 +379,93 @@ let g:surround_custom_mapping.ruby = {
     \ 'E':  "<<EOS \r EOS",
     \ }
 " }}}
+
+NeoBundle 'leafgarland/typescript-vim'
+
+" clausreinke/typescript-tools {{{
+NeoBundle 'clausreinke/typescript-tools', {
+      \ 'build' : {
+      \     'windows': 'npm install -g',
+      \     'cygwin':  'npm install -g',
+      \     'mac':     'npm install -g',
+      \     'unix':    'npm install -g',
+      \    },
+      \ }
+"}}}
+
+NeoBundle 'idris-hackers/idris-vim'
+
+"{{{ erlang
+NeoBundle 'jimenezrick/vimerl'
+
+
+let erlang_show_errors = 0
+let erlang_completion_cache = 1
+
+autocmd FileType erlang set shiftwidth=4 softtabstop=4 tabstop=8
+autocmd FileType erlang let g:ycm_cache_omnifunc=0
+"}}}
+
+NeoBundle 'chrisbra/unicode.vim'
+
+NeoBundle 'kongo2002/fsharp-vim'
+
+"{{{ Haskell
+NeoBundle 'pbrisbin/vim-syntax-shakespeare'
+
+NeoBundle 'travitch/hasksyn'
+
+NeoBundle 'eagletmt/ghcmod-vim'
+NeoBundle 'eagletmt/neco-ghc'
+
+NeoBundle 'Twinside/vim-haskellFold'
+
+autocmd FileType haskell set shiftwidth=4 softtabstop=4 tabstop=8 omnifunc=necoghc#omnifunc
+"}}}
+
+" XtermColorTable
+NeoBundle 'guns/xterm-color-table.vim'
+
+" Make gvim-only colorschemes work transparently in terminal vim
+NeoBundle 'godlygeek/csapprox'
+
+NeoBundle 'bruno-/vim-vertical-move'
+
+NeoBundle 'vim-scripts/DrawIt'
+NeoBundle 'vim-scripts/VisIncr'
+
+" NeoBundle 'justincampbell/vim-eighties'
+
+NeoBundle 'AndrewRadev/multichange.vim'
+" NeoBundle 'terryma/vim-multiple-cursors'
+" NeoBundle 'hlissner/vim-multiedit'
+" NeoBundle 'adinapoli/vim-markmultiple'
+
+" {{{ switch.vim
+NeoBundle 'AndrewRadev/switch.vim'
+
+noremap <leader>sw :Switch<CR>
+
+" convert :foo => 'bar' to foo: 'bar'
+noremap <leader>st f:xepldf>
+
+" autocmd FileType ruby let b:switch_definitions =
+"   \ [
+"   \   g:switch_builtins.ruby_hash_style,
+"   \   g:switch_builtins.rspec_should,
+"   \   { 'my_own_pattern': 'my_own_replacement' },
+"   \ ]
+" }}}
+
+" NeoBundle 'yeti.vim'
+
+NeoBundle 'thinca/vim-visualstar'
+
+NeoBundle 'vim-scripts/indent-motion'
+
+NeoBundle 'b4winckler/vim-angry'
+
+NeoBundle 'ajf/puppet-vim'
 
 NeoBundle 'vim-ruby/vim-ruby'
 
@@ -533,8 +533,12 @@ NeoBundle 'Keithbsmiley/rspec.vim'
 NeoBundle 'sk1418/Join'
 
 " {{{ for clojure
-" NeoBundle 'tpope/vim-fireplace'
-" NeoBundle 'guns/vim-clojure-static'
+NeoBundle 'tpope/vim-leiningen'
+" https://github.com/clojure-emacs/cider-nrepl
+NeoBundle 'tpope/vim-fireplace'
+
+NeoBundle 'guns/vim-clojure-static'
+NeoBundle 'guns/vim-clojure-highlight'
 " NeoBundle 'typedclojure/vim-typedclojure'
 " NeoBundle 'kien/rainbow_parentheses.vim'
 " }}}
