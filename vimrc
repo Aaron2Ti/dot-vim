@@ -180,8 +180,8 @@ vnoremap $  g_
 
 
 " [<Space> by default is like l]
-noremap <Space>   10<C-E>
-noremap <S-Space> 10<C-Y>
+noremap <Space>   15<C-E>
+noremap <S-Space> 15<C-Y>
 
 noremap <C-E> :Explore<CR>
 
