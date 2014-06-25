@@ -296,9 +296,12 @@ NeoBundle 'idris-hackers/idris-vim'
 "{{{ erlang
 NeoBundle 'jimenezrick/vimerl'
 
+
 let erlang_show_errors = 0
+let erlang_completion_cache = 1
 
 autocmd FileType erlang set shiftwidth=4 softtabstop=4 tabstop=8
+autocmd FileType erlang let g:ycm_cache_omnifunc=0
 "}}}
 
 
