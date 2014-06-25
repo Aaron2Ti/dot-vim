@@ -278,6 +278,7 @@ NeoBundle 'Shougo/vimproc.vim', {
 "}}}
 
 " Auto detect CJK and Unicode file encodings
+" Install https://github.com/adah1972/tellenc
 NeoBundle 'mbbill/fencview'
 
 "{{{
