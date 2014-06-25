@@ -74,8 +74,9 @@ set wrap
 set whichwrap=<,>,h,l,~,[,]
 
 set ruler showmode showcmd
-" set number
-set relativenumber
+
+set norelativenumber
+set nonumber
 
 set scrolloff=3
 set sidescrolloff=5
