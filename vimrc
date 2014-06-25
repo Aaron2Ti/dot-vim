@@ -50,8 +50,6 @@ set softtabstop=2
 set tabstop=2
 
 autocmd FileType python  set shiftwidth=4 softtabstop=4 tabstop=8
-autocmd FileType fsharp  set shiftwidth=4 softtabstop=4 tabstop=8
-autocmd FileType idris   set shiftwidth=4 softtabstop=4 tabstop=8
 
 set virtualedit=all
 
@@ -393,7 +391,10 @@ NeoBundle 'clausreinke/typescript-tools', {
       \ }
 "}}}
 
+"{{{
 NeoBundle 'idris-hackers/idris-vim'
+autocmd FileType idris set shiftwidth=4 softtabstop=4 tabstop=8
+"}}}
 
 "{{{ erlang
 NeoBundle 'jimenezrick/vimerl'
@@ -408,7 +409,11 @@ autocmd FileType erlang let g:ycm_cache_omnifunc=0
 
 NeoBundle 'chrisbra/unicode.vim'
 
+"{{{
+autocmd FileType fsharp set shiftwidth=4 softtabstop=4 tabstop=8
+
 NeoBundle 'kongo2002/fsharp-vim'
+"}}}
 
 "{{{ Haskell
 NeoBundle 'pbrisbin/vim-syntax-shakespeare'
@@ -537,7 +542,7 @@ NeoBundle 'tpope/vim-leiningen'
 " https://github.com/clojure-emacs/cider-nrepl
 NeoBundle 'tpope/vim-fireplace'
 
-NeoBundle 'bitbucket:kovisoft/slimv'
+" NeoBundle 'bitbucket:kovisoft/slimv'
 
 NeoBundle 'guns/vim-clojure-static'
 NeoBundle 'guns/vim-clojure-highlight'
