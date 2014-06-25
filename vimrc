@@ -185,10 +185,6 @@ noremap <S-Space> 10<C-Y>
 
 noremap <C-E> :Explore<CR>
 
-" run current file with ruby
-" nnoremap <F8> :w !ruby<CR>
-
-
 " move current line up or down
 nmap <C-k> [e
 nmap <C-j> ]e
@@ -199,10 +195,6 @@ vmap <C-j> ]egv
 
 " Visually select the text that was last edited/pasted
 nmap gV `[v`]
-
-" movement keybindings in insert mode
-" imap <C-b> <C-O>b
-" imap <C-e> <C-O>$
 
 " sane movement with wrap turned on
 " nnoremap j gj
@@ -275,7 +267,7 @@ NeoBundle 'Shougo/vimproc.vim', {
 " FencView
 NeoBundle 'mbbill/fencview'
 
-"{{{
+"{{{ ultisnips, YouCompleteMe, Powerline etc
 if has('python')
   " {{{ ultisnips
   NeoBundle 'SirVer/ultisnips'
@@ -390,7 +382,7 @@ NeoBundle 'clausreinke/typescript-tools', {
       \ }
 "}}}
 
-"{{{
+"{{{ idris
 NeoBundle 'idris-hackers/idris-vim'
 autocmd FileType idris set shiftwidth=4 softtabstop=4 tabstop=8
 "}}}
@@ -408,7 +400,7 @@ autocmd FileType erlang let g:ycm_cache_omnifunc=0
 
 NeoBundle 'chrisbra/unicode.vim'
 
-"{{{
+"{{{ fsharp
 autocmd FileType fsharp set shiftwidth=4 softtabstop=4 tabstop=8
 
 NeoBundle 'kongo2002/fsharp-vim'
