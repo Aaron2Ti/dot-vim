@@ -1,7 +1,4 @@
-﻿" Source the vimrc file after saving it
-" autocmd bufwritepost .vimrc source $MYVIMRC
-
-" {{{ Basic Setting
+﻿" {{{ Basic Setting
 set nocompatible
 filetype on " !!!!
 
@@ -10,6 +7,7 @@ set shell=/bin/sh
 set background=dark
 colorscheme beijing_opera
 
+" Remove ALL autocommands for the current group.
 autocmd!
 
 syntax on
@@ -21,7 +19,11 @@ filetype indent on
 
 set laststatus=2
 
-set encoding=utf-8 fileencodings=utf-8,ucs-bom,cp936 fileencoding=utf-8 termencoding=utf-8
+set encoding=utf-8 fileencoding=utf-8 termencoding=utf-8
+set fileencodings==ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
+
+set helplang=En
+set history=100
 
 " have % bounce between angled brackets, as well as t'other kinds:
 set matchpairs+=<:>
@@ -63,8 +65,6 @@ set mouse=
 set modeline
 
 set grepformat=%f:%l:%m
-
-set helplang=En history=100
 
 set hlsearch incsearch ignorecase showmatch infercase smartcase
 
@@ -276,6 +276,9 @@ NeoBundle 'Shougo/vimproc.vim', {
       \    },
       \ }
 "}}}
+
+" Auto detect CJK and Unicode file encodings
+NeoBundle 'mbbill/fencview'
 
 "{{{
 if has('python')
