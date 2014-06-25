@@ -160,15 +160,8 @@ set wildignore+=*.swp,*.dex,*.apk,*.d,*.cache,*.ap_,.env
 iabbrev teh the
 iabbrev accross across
 
-" user ; for invoking command
-" nnoremap - ;
-" vnoremap - ;
-" nnoremap ; :
-" vnoremap ; :
-
-
-vnoremap zy "*y
-nnoremap zp "*p
+vnoremap zy :w !pbcopy<CR><CR>
+nnoremap zp :r !pbpaste<CR>
 
 vnoremap Q gq
 
@@ -279,6 +272,7 @@ NeoBundle 'Shougo/vimproc.vim', {
 
 " Auto detect CJK and Unicode file encodings
 " Install https://github.com/adah1972/tellenc
+" FencView
 NeoBundle 'mbbill/fencview'
 
 "{{{
