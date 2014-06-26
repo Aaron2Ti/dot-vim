@@ -151,6 +151,7 @@ set wildignore+=*.jar
 set wildignore+=*.dll,*.o,*.pyc,*.bak,*.exe,*$py.class,*.class,*.fasl
 set wildignore+=*.jpg,*.jpeg,*.png,*.gif,.DS_Store,.gitignore,.git,tags
 set wildignore+=*.swp,*.dex,*.apk,*.d,*.cache,*.ap_,.env
+set wildignore+=target/*
 " }}} wildignore
 
 " {{{ Core Maps
