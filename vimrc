@@ -160,8 +160,8 @@ set wildignore+=*.swp,*.dex,*.apk,*.d,*.cache,*.ap_,.env
 iabbrev teh the
 iabbrev accross across
 
-vnoremap zy :w !pbcopy<CR><CR>
-nnoremap zp :r !pbpaste<CR>
+vnoremap zy "+y
+nnoremap zp "+p
 
 vnoremap Q gq
 
@@ -529,6 +529,7 @@ NeoBundle 'Keithbsmiley/rspec.vim'
 NeoBundle 'sk1418/Join'
 
 " {{{ for clojure
+NeoBundle 'tpope/vim-classpath'
 NeoBundle 'tpope/vim-leiningen'
 " https://github.com/clojure-emacs/cider-nrepl
 NeoBundle 'tpope/vim-fireplace'
@@ -537,7 +538,7 @@ NeoBundle 'tpope/vim-fireplace'
 
 NeoBundle 'guns/vim-clojure-static'
 NeoBundle 'guns/vim-clojure-highlight'
-" NeoBundle 'typedclojure/vim-typedclojure'
+NeoBundle 'typedclojure/vim-typedclojure'
 " NeoBundle 'kien/rainbow_parentheses.vim'
 " }}}
 
@@ -584,6 +585,7 @@ noremap <leader>so :Scratch<CR>
 NeoBundle 'kana/vim-textobj-user'
 NeoBundle 'kana/vim-textobj-line'
 NeoBundle 'rhysd/vim-textobj-ruby'
+
 
 " NeoBundle 'nelstrom/vim-textobj-rubyblock'
 "
