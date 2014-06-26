@@ -535,8 +535,6 @@ NeoBundle 'tpope/vim-leiningen'
 " https://github.com/clojure-emacs/cider-nrepl
 NeoBundle 'tpope/vim-fireplace'
 
-" NeoBundle 'bitbucket:kovisoft/slimv'
-
 NeoBundle 'guns/vim-clojure-static'
 NeoBundle 'guns/vim-clojure-highlight'
 NeoBundle 'typedclojure/vim-typedclojure'
@@ -677,7 +675,7 @@ vnoremap <silent> <cr> :EasyAlign<cr>
 let g:easy_align_delimiters = {
 \ 'B': { 'pattern': '{\|}' },
 \ ']': { 'pattern': '[\|]' },
-\ 'o': { 'pattern': '||' }
+\ 'o': { 'pattern': '||'   }
 \ }
 " }}}
 
