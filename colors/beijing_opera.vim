@@ -24,6 +24,7 @@ let s:Grey21 = '253'
 let s:Grey22 = '254'
 let s:Grey23 = '255'
 
+"{{{ default colors
 let s:Black        = '0'
 let s:Red          = '1'
 let s:Green        = '2'
@@ -32,6 +33,7 @@ let s:Blue         = '4'
 let s:Magenta      = '5'
 let s:Cyan         = '6'
 let s:Grey         = '7'
+"}}}
 
 let s:LightBlack   = '8'
 let s:LightRed     = '9'
@@ -52,8 +54,7 @@ hi clear
 syntax reset
 let g:colors_name = "beijing_opera"
 
-" Highlighting function
-fun! <SID>hi(group, ctermfg, ctermbg, attr)
+fun! <SID>hi(group, ctermfg, ctermbg, attr) "{{{
   if a:ctermfg != ""
     exec "hi " . a:group . " ctermfg=" . a:ctermfg
   endif
@@ -68,6 +69,7 @@ exec "hi " . a:group . " term=none"
     exec "hi " . a:group . " term=none" . " cterm=" . a:attr
   endif
 endfun
+"}}}
 
 " Vim Editor Colors
 call <SID>hi("Bold",          "", "", "bold")
@@ -76,6 +78,9 @@ call <SID>hi("Bold",          "", "", "bold")
 " call <SID>hi("Directory",     s:gui0D, "", s:cterm0D, "", "")
 
 call <SID>hi('ErrorMsg', '196', s:Black, 'bold')
+
+call <SID>hi('Folded',     s:Grey11, s:Grey6,        'none')
+call <SID>hi('FoldColumn', s:Grey9,  s:CursorLineBG, 'none')
 
 " call <SID>hi("Exception",     s:gui08, "", s:cterm08, "", "")
 " call <SID>hi("FoldColumn",    "", s:gui01, "", s:cterm01, "")
