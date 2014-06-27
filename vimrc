@@ -268,6 +268,9 @@ NeoBundle 'Shougo/vimproc.vim', {
 " FencView
 NeoBundle 'mbbill/fencview'
 
+NeoBundle 'http://git.code.sf.net/p/vim-latex/vim-latex',
+          \ {'name': 'vim-latex-suite', 'type': 'git'}
+
 "{{{ ultisnips, YouCompleteMe, Powerline etc
 if has('python')
   " {{{ ultisnips
@@ -342,6 +345,11 @@ if has('python')
 endif
 "}}}
 
+NeoBundle 'Shougo/vimshell.vim'
+
+NeoBundle 'vim-scripts/SyntaxRange'
+
+NeoBundle 'tpope/vim-markdown'
 NeoBundle 'tpope/vim-repeat'
 NeoBundle 'tpope/vim-haml'
 NeoBundle 'tpope/vim-endwise'
@@ -419,6 +427,8 @@ NeoBundle 'Twinside/vim-haskellFold'
 
 autocmd FileType haskell set shiftwidth=4 softtabstop=4 tabstop=8 omnifunc=necoghc#omnifunc
 "}}}
+
+NeoBundle 'R.vim'
 
 " XtermColorTable
 NeoBundle 'guns/xterm-color-table.vim'
