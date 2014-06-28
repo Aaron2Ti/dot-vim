@@ -30,7 +30,7 @@ set matchpairs+=<:>
 
 " highlight invisible characters
 set list
-set listchars=tab:⇢\ ,eol:¬,nbsp:_,trail:·
+set listchars=tab:⇢\ ,nbsp:_,trail:·
 set showbreak=↳
 set linebreak
 		" #add8e6"
