@@ -20,7 +20,7 @@ filetype indent on
 set laststatus=2
 
 set encoding=utf-8 fileencoding=utf-8 termencoding=utf-8
-set fileencodings==ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
+set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
 
 set helplang=En
 set history=100
