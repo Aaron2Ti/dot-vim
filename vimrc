@@ -649,9 +649,6 @@ NeoBundle 'aliva/vim-fish'
 NeoBundle 'nginx.vim'
 NeoBundle 'SearchComplete'
 
-NeoBundle 'taglist.vim'
-let g:Tlist_Ctags_Cmd = '/usr/local/bin/ctags'
-
 NeoBundle 'majutsushi/tagbar'
 nnoremap <silent> <F9> :TagbarToggle<CR>
 let g:tagbar_width = 30
