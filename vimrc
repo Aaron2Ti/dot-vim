@@ -673,8 +673,6 @@ let g:SignatureDisableMenu=1
 " nmap <Leader>x <Plug>ToggleAutoCloseMappings
 " }}}
 
-NeoBundle 'godlygeek/tabular'
-
 NeoBundle 'junegunn/vim-emoji'
 
 " {{{ vim-easy-align
