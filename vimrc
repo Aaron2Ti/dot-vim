@@ -537,8 +537,6 @@ NeoBundle 'slim-template/vim-slim'
 
 NeoBundle 'Keithbsmiley/rspec.vim'
 
-NeoBundle 'sk1418/Join'
-
 " {{{ for clojure
 NeoBundle 'tpope/vim-classpath'
 NeoBundle 'tpope/vim-leiningen'
