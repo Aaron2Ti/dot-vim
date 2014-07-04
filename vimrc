@@ -17,8 +17,6 @@ set synmaxcol=200
 " indent code by syntax
 filetype indent on
 
-set laststatus=2
-
 set encoding=utf-8 fileencoding=utf-8 termencoding=utf-8
 set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
 
@@ -292,11 +290,6 @@ if has('python')
   let g:UltiSnipsJumpBackwardTrigger = '<C-K>'
   " }}}
 
-  " {{{ powerline
-  NeoBundle 'Lokaltog/vim-powerline'
-  let g:Powerline_theme='simple'
-  " }}}
-
   " YouCompleteMe {{{
   NeoBundle 'Valloric/YouCompleteMe'
 
@@ -408,7 +401,7 @@ let g:surround_custom_mapping.ruby = {
     \ }
 " }}}
 
-"{{{
+"{{{ typescript
 NeoBundleLazy 'leafgarland/typescript-vim'
 
 " clausreinke/typescript-tools {{{
@@ -468,7 +461,7 @@ autocmd FileType haskell NeoBundleSource neco-ghc
 autocmd FileType haskell NeoBundleSource vim-haskellFold
 "}}}
 
-"{{{
+"{{{ R
 NeoBundleLazy 'R.vim'
 
 autocmd FileType r NeoBundleSource R.vim
@@ -587,7 +580,7 @@ NeoBundleLazy 'slim-template/vim-slim'
 autocmd FileType slim NeoBundleSource vim-slim
 "}}}
 
-" {{{ for clojure
+" {{{ clojure
 NeoBundle 'tpope/vim-classpath'
 NeoBundleLazy 'tpope/vim-leiningen'
 " https://github.com/clojure-emacs/cider-nrepl
