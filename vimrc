@@ -266,15 +266,18 @@ NeoBundle 'Shougo/vimproc.vim', {
 " FencView
 NeoBundle 'mbbill/fencview'
 
+"{{{ latex-suite
 NeoBundleLazy 'http://git.code.sf.net/p/vim-latex/vim-latex',
               \ {'name': 'vim-latex-suite', 'type': 'git'}
 
 autocmd FileType tex,latex,plaintex NeoBundleSource vim-latex-suite
+"}}}
 
 "{{{ Python
-autocmd FileType python set shiftwidth=4 softtabstop=4 tabstop=8
+NeoBundleLazy 'klen/python-mode'
 
-NeoBundle 'klen/python-mode'
+autocmd FileType python set shiftwidth=4 softtabstop=4 tabstop=8
+autocmd FileType python NeoBundleSource python-mode
 "}}}
 
 "{{{ ultisnips, YouCompleteMe, Powerline etc
@@ -350,24 +353,39 @@ if has('python')
 endif
 "}}}
 
-NeoBundle 'pangloss/vim-javascript'
+"{{{ javascript
+NeoBundleLazy 'pangloss/vim-javascript'
+
+autocmd FileType javascript NeoBundleSource vim-javascript
+"}}}
 
 NeoBundle 'Shougo/vimshell.vim'
 
 NeoBundle 'vim-scripts/SyntaxRange'
 
 "{{{ markdown
-NeoBundle 'tpope/vim-markdown'
+NeoBundleLazy 'tpope/vim-markdown'
 
 autocmd FileType markdown set spell
+autocmd FileType markdown NeoBundleSource vim-markdown
+"}}}
+
+"{{{ liquid
+NeoBundleLazy 'tpope/vim-liquid'
+
+autocmd FileType liquid NeoBundleSource vim-liquid
+"}}}
+
+"{{{ haml
+NeoBundleLazy 'tpope/vim-haml'
+
+autocmd FileType haml NeoBundleSource vim-haml
 "}}}
 
 NeoBundle 'tpope/vim-repeat'
-NeoBundle 'tpope/vim-haml'
 NeoBundle 'tpope/vim-endwise'
 NeoBundle 'tpope/vim-unimpaired'
 NeoBundle 'tpope/vim-abolish'
-NeoBundle 'tpope/vim-liquid'
 NeoBundle 'tpope/vim-rsi'
 NeoBundle 'tpope/vim-eunuch'
 NeoBundle 'tpope/vim-fugitive'
@@ -391,10 +409,10 @@ let g:surround_custom_mapping.ruby = {
 " }}}
 
 "{{{
-NeoBundle 'leafgarland/typescript-vim'
+NeoBundleLazy 'leafgarland/typescript-vim'
 
 " clausreinke/typescript-tools {{{
-NeoBundle 'clausreinke/typescript-tools', {
+NeoBundleLazy 'clausreinke/typescript-tools', {
       \ 'build' : {
       \     'windows': 'npm install -g',
       \     'cygwin':  'npm install -g',
@@ -403,6 +421,9 @@ NeoBundle 'clausreinke/typescript-tools', {
       \    },
       \ }
 "}}}
+
+autocmd FileType typescript NeoBundleSource typescript-vim
+autocmd FileType typescript NeoBundleSource typescript-tools
 "}}}
 
 "{{{ idris
@@ -411,13 +432,15 @@ autocmd FileType idris set shiftwidth=4 softtabstop=4 tabstop=8
 "}}}
 
 "{{{ erlang
-NeoBundle 'jimenezrick/vimerl'
+NeoBundleLazy 'jimenezrick/vimerl'
 
 let erlang_show_errors = 0
 let erlang_completion_cache = 1
 
 autocmd FileType erlang set shiftwidth=4 softtabstop=4 tabstop=8
 autocmd FileType erlang let g:ycm_cache_omnifunc=0
+
+autocmd FileType erlang NeoBundleSource vimerl
 "}}}
 
 NeoBundle 'chrisbra/unicode.vim'
@@ -433,15 +456,23 @@ NeoBundle 'pbrisbin/vim-syntax-shakespeare'
 
 NeoBundle 'travitch/hasksyn'
 
-NeoBundle 'eagletmt/ghcmod-vim'
-NeoBundle 'eagletmt/neco-ghc'
+NeoBundleLazy 'eagletmt/ghcmod-vim'
+NeoBundleLazy 'eagletmt/neco-ghc'
 
-NeoBundle 'Twinside/vim-haskellFold'
+NeoBundleLazy 'Twinside/vim-haskellFold'
 
 autocmd FileType haskell set shiftwidth=4 softtabstop=4 tabstop=8 omnifunc=necoghc#omnifunc
+
+autocmd FileType haskell NeoBundleSource ghcmod-vim
+autocmd FileType haskell NeoBundleSource neco-ghc
+autocmd FileType haskell NeoBundleSource vim-haskellFold
 "}}}
 
-NeoBundle 'R.vim'
+"{{{
+NeoBundleLazy 'R.vim'
+
+autocmd FileType r NeoBundleSource R.vim
+"}}}
 
 " XtermColorTable
 NeoBundle 'guns/xterm-color-table.vim'
@@ -517,8 +548,11 @@ let g:NERDCustomDelimiters = {
 \ }
 " }}}
 
-" NeoBundle 'msanders/snipmate.vim'
-NeoBundle 'kchmck/vim-coffee-script'
+"{{{ coffee-script
+NeoBundleLazy 'kchmck/vim-coffee-script'
+
+autocmd FileType coffee NeoBundleSource vim-coffee-script
+"}}}
 
 " NeoBundle 'henrik/vim-qargs'
 NeoBundle 'Peeja/vim-cdo'
@@ -537,6 +571,7 @@ NeoBundle 'Raimondi/delimitMate'
 autocmd FileType clojure let b:delimitMate_quotes = "\""
 autocmd FileType clojure let b:delimitMate_matchpairs = "(:),[:],{:}"
 autocmd FileType ruby    let b:delimitMate_matchpairs = "(:),[:],{:}"
+autocmd FileType r       let b:delimitMate_matchpairs = "(:),[:],{:}"
 " }}}
 
 " {{{ YankRing.vim
@@ -546,20 +581,25 @@ let g:yankring_replace_n_nkey = '<m-n>'
 nnoremap <silent> <C-p> :YRShow<CR>
 " }}}
 
-NeoBundle 'slim-template/vim-slim'
+"{{{ slim
+NeoBundleLazy 'slim-template/vim-slim'
 
-NeoBundle 'Keithbsmiley/rspec.vim'
+autocmd FileType slim NeoBundleSource vim-slim
+"}}}
 
 " {{{ for clojure
 NeoBundle 'tpope/vim-classpath'
-NeoBundle 'tpope/vim-leiningen'
+NeoBundleLazy 'tpope/vim-leiningen'
 " https://github.com/clojure-emacs/cider-nrepl
-NeoBundle 'tpope/vim-fireplace'
+NeoBundleLazy 'tpope/vim-fireplace'
 
 NeoBundle 'guns/vim-clojure-static'
 NeoBundle 'guns/vim-clojure-highlight'
-NeoBundle 'typedclojure/vim-typedclojure'
-" NeoBundle 'kien/rainbow_parentheses.vim'
+NeoBundleLazy 'typedclojure/vim-typedclojure'
+
+autocmd FileType clojure NeoBundleSource vim-leiningen
+autocmd FileType clojure NeoBundleSource vim-fireplace
+autocmd FileType clojure NeoBundleSource vim-typedclojure
 " }}}
 
 " {{{ lusty
@@ -595,7 +635,11 @@ noremap <D-b> :CommandTBuffer<CR>
 " map <leader>s :CommandTJump<CR>
 " }}}
 
-NeoBundle 'derekwyatt/vim-scala'
+"{{{ scala
+NeoBundleLazy 'derekwyatt/vim-scala'
+
+autocmd FileType scala NeoBundleSource vim-scala
+"}}}
 
 " kana/vim-smartinput # auto close " ' ( [ etc
 
@@ -689,6 +733,7 @@ NeoBundle 'junegunn/vim-easy-align'
 vnoremap <silent> <cr> :EasyAlign<cr>
 
 let g:easy_align_delimiters = {
+\ '>': { 'pattern': '=>\|->','left_margin': 1, 'right_margin': 1, 'stick_to_left': 0 },
 \ '}': { 'pattern': '}\|{',  'left_margin': 0, 'right_margin': 0, 'stick_to_left': 0 },
 \ '{': { 'pattern': '}\|{',  'left_margin': 1, 'right_margin': 1, 'stick_to_left': 0 },
 \ ']': { 'pattern': ']\|[',  'left_margin': 0, 'right_margin': 0, 'stick_to_left': 0 },
@@ -696,13 +741,6 @@ let g:easy_align_delimiters = {
 \ '|': { 'pattern': '||\||>\||',  'left_margin': 1, 'right_margin': 1, 'stick_to_left': 0 },
 \ '&': { 'pattern': '&&\|\\\@<!&\|\\\\', 'left_margin': 1, 'right_margin': 1, 'stick_to_left': 0 },
 \ }
-" }}}
-
-" Align {{{
-NeoBundle 'Align'
-vmap <leader>a<Space> :Align! p0P0 \S\+\s<CR>
-vmap <leader>aa :Align<Space>
-vmap <leader>ah :Align =><CR>
 " }}}
 
 NeoBundle 'matchit.zip'
