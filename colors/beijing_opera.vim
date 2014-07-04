@@ -1,4 +1,4 @@
-" colors 232-255 are a grayscale ramp, intentionally leaving out
+" colors 232-255 are a grayscale ramp, intentionally leaving out {{{
 let s:Grey0  = '232'
 let s:Grey1  = '233'
 let s:Grey2  = '234'
@@ -22,7 +22,7 @@ let s:Grey19 = '251'
 let s:Grey20 = '252'
 let s:Grey21 = '253'
 let s:Grey22 = '254'
-let s:Grey23 = '255'
+let s:Grey23 = '255'"}}}
 
 "{{{ default colors
 let s:Black        = '0'
@@ -193,7 +193,8 @@ call <SID>hi('Todo', '124', '11', '')
 " call <SID>hi("Typedef",      s:gui0A, "", s:cterm0A, "", "")
 
 " Spelling Highlighting
-" call <SID>hi("SpellBad",     s:gui05, s:gui00, s:cterm05, s:cterm08, "")
+call <SID>hi('SpellBad', s:NormalFG, 52, '')
+
 " call <SID>hi("SpellLocal",   s:gui05, s:gui00, s:cterm05, s:cterm0D, "")
 "call <SID>hi("SpellCap",    s:gui00, s:gui08, s:cterm00, s:cterm08, "")
 "call <SID>hi("SpellRare",   s:gui00, s:gui08, s:cterm00, s:cterm08, "")
