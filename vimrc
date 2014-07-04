@@ -51,8 +51,6 @@ set smarttab
 set softtabstop=2
 set tabstop=2
 
-autocmd FileType python  set shiftwidth=4 softtabstop=4 tabstop=8
-
 set virtualedit=all
 
 set autoread
@@ -268,8 +266,16 @@ NeoBundle 'Shougo/vimproc.vim', {
 " FencView
 NeoBundle 'mbbill/fencview'
 
-NeoBundle 'http://git.code.sf.net/p/vim-latex/vim-latex',
-          \ {'name': 'vim-latex-suite', 'type': 'git'}
+NeoBundleLazy 'http://git.code.sf.net/p/vim-latex/vim-latex',
+              \ {'name': 'vim-latex-suite', 'type': 'git'}
+
+autocmd FileType tex,latex,plaintex NeoBundleSource vim-latex-suite
+
+"{{{ Python
+autocmd FileType python set shiftwidth=4 softtabstop=4 tabstop=8
+
+NeoBundle 'klen/python-mode'
+"}}}
 
 "{{{ ultisnips, YouCompleteMe, Powerline etc
 if has('python')
@@ -281,7 +287,6 @@ if has('python')
   " let g:UltiSnipsListSnippets        = '<C-S-s>'
   let g:UltiSnipsJumpForwardTrigger  = '<C-J>'
   let g:UltiSnipsJumpBackwardTrigger = '<C-K>'
-
   " }}}
 
   " {{{ powerline
@@ -345,11 +350,18 @@ if has('python')
 endif
 "}}}
 
+NeoBundle 'pangloss/vim-javascript'
+
 NeoBundle 'Shougo/vimshell.vim'
 
 NeoBundle 'vim-scripts/SyntaxRange'
 
+"{{{ markdown
 NeoBundle 'tpope/vim-markdown'
+
+autocmd FileType markdown set spell
+"}}}
+
 NeoBundle 'tpope/vim-repeat'
 NeoBundle 'tpope/vim-haml'
 NeoBundle 'tpope/vim-endwise'
@@ -378,6 +390,7 @@ let g:surround_custom_mapping.ruby = {
     \ }
 " }}}
 
+"{{{
 NeoBundle 'leafgarland/typescript-vim'
 
 " clausreinke/typescript-tools {{{
@@ -390,6 +403,7 @@ NeoBundle 'clausreinke/typescript-tools', {
       \    },
       \ }
 "}}}
+"}}}
 
 "{{{ idris
 NeoBundle 'idris-hackers/idris-vim'
@@ -398,7 +412,6 @@ autocmd FileType idris set shiftwidth=4 softtabstop=4 tabstop=8
 
 "{{{ erlang
 NeoBundle 'jimenezrick/vimerl'
-
 
 let erlang_show_errors = 0
 let erlang_completion_cache = 1
@@ -519,7 +532,7 @@ let g:ackhighlight=1
 let g:ackprg = 'ag --nogroup --nocolor --column'
 " }}}
 
-" delimitMate {{{
+" {{{ delimitMate
 NeoBundle 'Raimondi/delimitMate'
 autocmd FileType clojure let b:delimitMate_quotes = "\""
 autocmd FileType clojure let b:delimitMate_matchpairs = "(:),[:],{:}"
