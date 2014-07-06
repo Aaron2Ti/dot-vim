@@ -433,7 +433,10 @@ let erlang_completion_cache = 1
 autocmd FileType erlang set shiftwidth=4 softtabstop=4 tabstop=8
 autocmd FileType erlang let g:ycm_cache_omnifunc=0
 
+NeoBundleLazy 'edkolev/erlang-motions.vim'
+
 autocmd FileType erlang NeoBundleSource vimerl
+autocmd FileType erlang NeoBundleSource erlang-motions.vim
 "}}}
 
 NeoBundle 'chrisbra/unicode.vim'
