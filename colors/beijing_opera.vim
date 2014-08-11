@@ -71,6 +71,9 @@ exec "hi " . a:group . " term=none"
 endfun
 "}}}
 
+call <SID>hi("clojureParen",        "60", '', '')
+
+
 " Vim Editor Colors
 call <SID>hi("Bold",          "", "", "bold")
 
