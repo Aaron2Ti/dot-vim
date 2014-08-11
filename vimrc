@@ -78,7 +78,9 @@ set scrolloff=3
 set sidescrolloff=5
 set sidescroll=1
 
-set titlestring=%<%f%m
+" set titlestring=%<%f%m
+set titlestring=%f%m
+set title
 " title titleold=OSX
 
 set shortmess=atI
@@ -469,6 +471,13 @@ NeoBundleLazy 'R.vim'
 
 autocmd FileType r NeoBundleSource R.vim
 "}}}
+
+
+" {{{ julia
+NeoBundleLazy 'JuliaLang/julia-vim'
+
+autocmd FileType julia NeoBundleSource julia-vim
+" }}}
 
 " XtermColorTable
 NeoBundle 'guns/xterm-color-table.vim'
