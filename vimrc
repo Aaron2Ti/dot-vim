@@ -553,13 +553,11 @@ autocmd FileType coffee NeoBundleSource vim-coffee-script
 " NeoBundle 'henrik/vim-qargs'
 NeoBundle 'Peeja/vim-cdo'
 
-" Ack {{{
+" Ag {{{
 " NeoBundle 'mihaifm/bck'
-NeoBundle 'mileszs/ack.vim'
-nmap <leader>a :Ack!<Space>
+NeoBundle 'rking/ag.vim'
 
-let g:ackhighlight=1
-let g:ackprg = 'ag --nogroup --nocolor --column'
+nmap <leader>a :Ag!<Space>
 " }}}
 
 " {{{ delimitMate
