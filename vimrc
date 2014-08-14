@@ -422,6 +422,7 @@ autocmd FileType typescript NeoBundleSource typescript-tools
 "{{{ idris
 NeoBundle 'idris-hackers/idris-vim'
 autocmd FileType idris setlocal shiftwidth=4 softtabstop=4 tabstop=8
+autocmd FileType idris setlocal commentstring=--\ %s
 "}}}
 
 "{{{ erlang
@@ -534,20 +535,9 @@ noremap <leader>rs  :Rstylesheet<Space>
 
 NeoBundle 'kablamo/vim-git-log'
 
-
+"{{{
 NeoBundle 'tpope/vim-commentary'
-
-" {{{ nerdcommenter
-" NeoBundle 'scrooloose/nerdcommenter'
-" let NERDSpaceDelims=1
-" let NERDCompactSexyComs=1
-"
-" let g:NERDCustomDelimiters = {
-"   \ 'idris':   { 'left': '---' },
-"   \ 'haskell': { 'left': '--' },
-"   \ 'fsharp':  { 'left': '//' }
-" \ }
-" }}}
+"}}}
 
 "{{{ coffee-script
 NeoBundleLazy 'kchmck/vim-coffee-script'
