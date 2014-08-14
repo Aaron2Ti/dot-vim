@@ -534,16 +534,19 @@ noremap <leader>rs  :Rstylesheet<Space>
 
 NeoBundle 'kablamo/vim-git-log'
 
-" {{{ nerdcommenter
-NeoBundle 'scrooloose/nerdcommenter'
-let NERDSpaceDelims=1
-let NERDCompactSexyComs=1
 
-let g:NERDCustomDelimiters = {
-  \ 'idris':   { 'left': '---' },
-  \ 'haskell': { 'left': '--' },
-  \ 'fsharp':  { 'left': '//' }
-\ }
+NeoBundle 'tpope/vim-commentary'
+
+" {{{ nerdcommenter
+" NeoBundle 'scrooloose/nerdcommenter'
+" let NERDSpaceDelims=1
+" let NERDCompactSexyComs=1
+"
+" let g:NERDCustomDelimiters = {
+"   \ 'idris':   { 'left': '---' },
+"   \ 'haskell': { 'left': '--' },
+"   \ 'fsharp':  { 'left': '//' }
+" \ }
 " }}}
 
 "{{{ coffee-script
