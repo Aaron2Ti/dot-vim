@@ -132,10 +132,10 @@ inoremap <Right> <Nop>
 " }}}
 
 " {{{ filetypes
-autocmd BufRead,BufNewFile *.ru,*.watchr set ft=ruby
-autocmd BufRead,BufNewFile *.treetop     set ft=treetop
-autocmd BufRead,BufNewFile *.coffee      set ft=coffee
-autocmd BufRead,BufNewFile *.slim        set ft=slim
+autocmd BufRead,BufNewFile *.ru,*.watchr setlocal ft=ruby
+autocmd BufRead,BufNewFile *.treetop     setlocal ft=treetop
+autocmd BufRead,BufNewFile *.coffee      setlocal ft=coffee
+autocmd BufRead,BufNewFile *.slim        setlocal ft=slim
 " }}}
 
 " {{{ wildignore
@@ -276,7 +276,7 @@ autocmd FileType tex,latex,plaintex NeoBundleSource vim-latex-suite
 "{{{ Python
 NeoBundleLazy 'klen/python-mode'
 
-autocmd FileType python set shiftwidth=4 softtabstop=4 tabstop=8
+autocmd FileType python setlocal shiftwidth=4 softtabstop=4 tabstop=8
 autocmd FileType python NeoBundleSource python-mode
 "}}}
 
@@ -359,7 +359,7 @@ NeoBundle 'vim-scripts/SyntaxRange'
 "{{{ markdown
 NeoBundleLazy 'tpope/vim-markdown'
 
-autocmd FileType markdown set spell
+autocmd FileType markdown setlocal spell
 autocmd FileType markdown NeoBundleSource vim-markdown
 "}}}
 
@@ -421,7 +421,7 @@ autocmd FileType typescript NeoBundleSource typescript-tools
 
 "{{{ idris
 NeoBundle 'idris-hackers/idris-vim'
-autocmd FileType idris set shiftwidth=4 softtabstop=4 tabstop=8
+autocmd FileType idris setlocal shiftwidth=4 softtabstop=4 tabstop=8
 "}}}
 
 "{{{ erlang
@@ -430,7 +430,7 @@ NeoBundleLazy 'jimenezrick/vimerl'
 let erlang_show_errors = 0
 let erlang_completion_cache = 1
 
-autocmd FileType erlang set shiftwidth=4 softtabstop=4 tabstop=8
+autocmd FileType erlang setlocal shiftwidth=4 softtabstop=4 tabstop=8
 autocmd FileType erlang let g:ycm_cache_omnifunc=0
 
 NeoBundleLazy 'edkolev/erlang-motions.vim'
@@ -442,7 +442,7 @@ autocmd FileType erlang NeoBundleSource erlang-motions.vim
 NeoBundle 'chrisbra/unicode.vim'
 
 "{{{ fsharp
-autocmd FileType fsharp set shiftwidth=4 softtabstop=4 tabstop=8
+autocmd FileType fsharp setlocal shiftwidth=4 softtabstop=4 tabstop=8
 
 NeoBundle 'kongo2002/fsharp-vim'
 "}}}
@@ -457,7 +457,7 @@ NeoBundleLazy 'eagletmt/neco-ghc'
 
 NeoBundleLazy 'Twinside/vim-haskellFold'
 
-autocmd FileType haskell set shiftwidth=4 softtabstop=4 tabstop=8 omnifunc=necoghc#omnifunc
+autocmd FileType haskell setlocal shiftwidth=4 softtabstop=4 tabstop=8 omnifunc=necoghc#omnifunc
 
 autocmd FileType haskell NeoBundleSource ghcmod-vim
 autocmd FileType haskell NeoBundleSource neco-ghc
