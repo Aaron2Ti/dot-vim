@@ -332,8 +332,6 @@ if has('python')
         \ 'pandoc' : 1,
         \ 'mail' : 1
         \}
-
-  let g:yankring_history_dir = '~/.tmp'
   " }}}
 
   NeoBundle 'gcmt/breeze.vim'
@@ -573,10 +571,19 @@ autocmd FileType r       let b:delimitMate_matchpairs = "(:),[:],{:}"
 " }}}
 
 " {{{ YankRing.vim
-NeoBundle 'YankRing.vim'
-let g:yankring_replace_n_pkey = '<m-p>'
-let g:yankring_replace_n_nkey = '<m-n>'
-nnoremap <silent> <C-p> :YRShow<CR>
+let g:yankstack_map_keys = 0
+
+NeoBundle 'maxbrunsfeld/vim-yankstack'
+nmap <C-p> <Plug>yankstack_substitute_older_paste
+nmap <C-n> <Plug>yankstack_substitute_newer_paste
+" }}}
+
+" {{{ YankRing.vim
+" NeoBundle 'YankRing.vim'
+" let g:yankring_replace_n_pkey = '<m-p>'
+" let g:yankring_replace_n_nkey = '<m-n>'
+" nnoremap <silent> <C-p> :YRShow<CR>
+" let g:yankring_history_dir = '~/.tmp'
 " }}}
 
 "{{{ slim
