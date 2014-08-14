@@ -751,7 +751,7 @@ NeoBundle 'Indent-Guides'
 " autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=grey13 ctermbg=3
   autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=grey8  ctermbg=235
 
-  autocmd FileType ruby,coffee,javascript,html IndentGuidesEnable
+  " autocmd FileType ruby,coffee,javascript,html IndentGuidesEnable
 " }}}
 
 filetype plugin on
