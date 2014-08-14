@@ -165,12 +165,14 @@ nnoremap zp "+p
 vnoremap Q gq
 
 " use , as leader character
-" nnoremap - ,
-" vnoremap - ,
-" let mapleader = ','
+nnoremap - ,
+vnoremap - ,
+let mapleader = ','
 
-" use <Space> as leader character
-let mapleader = "\<Space>"
+" [<Space> by default is like l]
+noremap <Space>   15<C-E>
+noremap <S-Space> 15<C-Y>
+
 
 nnoremap ' `
 nnoremap ` '
