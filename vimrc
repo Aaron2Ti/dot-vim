@@ -165,10 +165,12 @@ nnoremap zp "+p
 vnoremap Q gq
 
 " use , as leader character
-nnoremap - ,
-vnoremap - ,
-let mapleader = ','
+" nnoremap - ,
+" vnoremap - ,
+" let mapleader = ','
 
+" use <Space> as leader character
+let mapleader = "\<Space>"
 
 nnoremap ' `
 nnoremap ` '
@@ -177,12 +179,6 @@ nnoremap ` '
 vnoremap g_ $
 vnoremap $  g_
 
-
-" [<Space> by default is like l]
-noremap <Space>   15<C-E>
-noremap <S-Space> 15<C-Y>
-
-noremap <C-E> :Explore<CR>
 
 " move current line up or down
 nmap <C-k> [e
