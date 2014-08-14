@@ -492,11 +492,6 @@ NeoBundle 'vim-scripts/VisIncr'
 
 " NeoBundle 'justincampbell/vim-eighties'
 
-NeoBundle 'AndrewRadev/multichange.vim'
-" NeoBundle 'terryma/vim-multiple-cursors'
-" NeoBundle 'hlissner/vim-multiedit'
-" NeoBundle 'adinapoli/vim-markmultiple'
-
 " {{{ switch.vim
 NeoBundle 'AndrewRadev/switch.vim'
 
