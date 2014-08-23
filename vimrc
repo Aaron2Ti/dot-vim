@@ -150,6 +150,11 @@ set wildignore+=*.dll,*.o,*.pyc,*.bak,*.exe,*$py.class,*.class,*.fasl
 set wildignore+=*.jpg,*.jpeg,*.png,*.gif,.DS_Store,.gitignore,.git,tags
 set wildignore+=*.swp,*.dex,*.apk,*.d,*.cache,*.ap_,.env
 set wildignore+=target/*
+set wildignore+=classes/*
+set wildignore+=.lein-deps-sum,.lein-repl-history,.lein-plugins,.lein-failures
+
+set wildignore+=.eunit,deps,*.o,*.beam,*.plt,erl_crash.dump
+
 " }}} wildignore
 
 " {{{ Core Maps
