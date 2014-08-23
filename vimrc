@@ -269,11 +269,13 @@ NeoBundle 'Shougo/vimproc.vim', {
 " FencView
 NeoBundle 'mbbill/fencview'
 
-"{{{ latex-suite
-NeoBundleLazy 'http://git.code.sf.net/p/vim-latex/vim-latex',
-              \ {'name': 'vim-latex-suite', 'type': 'git'}
+"{{{ latex
+" NeoBundleLazy 'http://git.code.sf.net/p/vim-latex/vim-latex',
+"               \ {'name': 'vim-latex-suite', 'type': 'git'}
+NeoBundleLazy 'LaTeX-Box-Team/LaTeX-Box'
 
-autocmd FileType tex,latex,plaintex NeoBundleSource vim-latex-suite
+autocmd FileType tex,latex,plaintex NeoBundleSource LaTeX-Box
+" autocmd FileType tex,latex,plaintex NeoBundleSource vim-latex-suite
 "}}}
 
 "{{{ Python
