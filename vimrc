@@ -584,7 +584,7 @@ autocmd FileType slim NeoBundleSource vim-slim
 
 " {{{ clojure
 NeoBundle 'tpope/vim-classpath'
-NeoBundleLazy 'tpope/vim-leiningen'
+" NeoBundleLazy 'tpope/vim-leiningen'
 " https://github.com/clojure-emacs/cider-nrepl
 NeoBundleLazy 'tpope/vim-fireplace'
 
@@ -592,7 +592,7 @@ NeoBundle 'guns/vim-clojure-static'
 NeoBundle 'guns/vim-clojure-highlight'
 NeoBundleLazy 'typedclojure/vim-typedclojure'
 
-autocmd FileType clojure NeoBundleSource vim-leiningen
+" autocmd FileType clojure NeoBundleSource vim-leiningen
 autocmd FileType clojure NeoBundleSource vim-fireplace
 autocmd FileType clojure NeoBundleSource vim-typedclojure
 " }}}
