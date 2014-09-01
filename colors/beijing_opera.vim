@@ -163,7 +163,7 @@ call <SID>hi('Boolean', s:Golden, '', '')
 
 call <SID>hi('SpecialKey', s:Grey9, '', '')
 
-call <SID>hi('Comment', s:Grey9, '', '')
+call <SID>hi('Comment', s:Grey9, '', 'italic')
 call <SID>hi('String', s:LightRed, '', '')
 " call <SID>hi("String",       s:gui0B, "", s:cterm0B, "", "")
 
