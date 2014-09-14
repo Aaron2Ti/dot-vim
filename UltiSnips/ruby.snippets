@@ -18,6 +18,21 @@ snippet d "debugger" !
 debugger
 endsnippet
 
+snippet task "a rake task" !
+# {{{ $1
+desc <<-DESC
+DESC
+
+task :$1 do
+  $2
+end
+# }}}
+
+endsnippet
+
+
+
+
 # snippet date
 # Today is `#!/Volumes/Data/Users/aaron/.rubies/ruby193/bin/ruby
 # print snip`
