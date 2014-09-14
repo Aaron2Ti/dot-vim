@@ -359,6 +359,8 @@ autocmd FileType javascript NeoBundleSource vim-javascript
 
 NeoBundle 'Shougo/vimshell.vim'
 
+NeoBundle 'elixir-lang/vim-elixir'
+
 NeoBundle 'vim-scripts/SyntaxRange'
 
 "{{{ markdown
