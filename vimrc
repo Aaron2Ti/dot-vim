@@ -55,7 +55,8 @@ set autoread
 
 set complete=.,w,b,u,t,k,i,d
 
-set cursorcolumn cursorline
+" set cursorcolumn
+set cursorline
 set mouse=
 
 set modeline

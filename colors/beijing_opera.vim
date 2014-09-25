@@ -117,12 +117,11 @@ if &background == "dark"
   " call <SID>hi("StatusLine",    s:gui04, s:gui02, s:cterm04, s:cterm02, "none")
   " call <SID>hi("StatusLineNC",  s:gui03, s:gui01, s:cterm03, s:cterm01, "none")
   " call <SID>hi("VertSplit",     s:gui02, s:gui02, s:cterm02, s:cterm02, "none")
-  " call <SID>hi("ColorColumn",   "", s:gui01, "", s:cterm01, "none")
 
   call <SID>hi('CursorColumn', '',      s:CursorLineBG, 'none')
   call <SID>hi('CursorLine',   '',      s:CursorLineBG, 'none')
   call <SID>hi('CursorLineNr', s:Grey2, s:CursorLineBG, 'none')
-  call <SID>hi('ColorColumn',  '',      s:Grey1,        'none')
+  call <SID>hi('ColorColumn',  '',      s:Black,        'none')
 
   call <SID>hi('LineNr',       s:Grey9, s:CursorLineBG, 'bold')
 
