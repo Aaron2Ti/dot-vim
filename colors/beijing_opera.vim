@@ -121,7 +121,7 @@ if &background == "dark"
   call <SID>hi('CursorColumn', '',      s:CursorLineBG, 'none')
   call <SID>hi('CursorLine',   '',      s:CursorLineBG, 'none')
   call <SID>hi('CursorLineNr', s:Grey2, s:CursorLineBG, 'none')
-  call <SID>hi('ColorColumn',  '',      s:Black,        'none')
+  call <SID>hi('ColorColumn',  '',      '234',        'none')
 
   call <SID>hi('LineNr',       s:Grey9, s:CursorLineBG, 'bold')
 
