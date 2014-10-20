@@ -143,7 +143,7 @@ autocmd BufRead,BufNewFile *.slim        setlocal ft=slim
 set wildignore+=*.o,*.obj,*.log,*.gif,*.jpg,*.png,*.gz,*.db,*.swf,*.mp3
 set wildignore+=coverage,.gem
 set wildignore+=*.xls,*.xlsx,*.doc,*.docx,*.pdf
-set wildignore+=tmp/cache
+set wildignore+=tmp/cache/*
 set wildignore+=CVS,.git
 set wildignore+=*.eot,*.svg,*.ttf,*.woff
 set wildignore+=*.jar
@@ -628,6 +628,8 @@ noremap <leader>b :CommandTBuffer<CR>
 
 " <D-...>   command-key (Macintosh only)
 noremap <D-b> :CommandTBuffer<CR>
+
+let g:CommandTWildIgnore=&wildignore . ",**/tmp/cache/*"
 
 " map <leader>g :CommandTTag<CR>
 " map <leader>s :CommandTJump<CR>

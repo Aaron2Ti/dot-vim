@@ -44,7 +44,7 @@ let s:LightMagenta = '13'
 let s:LightCyan    = '14'
 let s:White        = '15'
 
-let s:CursorLineBG = s:Grey4
+let s:CursorLineBG = s:Grey1
 
 let s:Golden = '208'
 let s:NormalFG = '187'
