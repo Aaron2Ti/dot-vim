@@ -625,9 +625,10 @@ let g:CommandTDeleteMap='<C-d>'
 let g:CommandTCancelMap='<Esc>'
 
 noremap <leader>b :CommandTBuffer<CR>
+noremap <leader>t :CommandT .<CR>
 
 " <D-...>   command-key (Macintosh only)
-noremap <D-b> :CommandTBuffer<CR>
+" noremap <D-b> :CommandTBuffer<CR>
 
 let g:CommandTWildIgnore=&wildignore . ",**/tmp/cache/*"
 
