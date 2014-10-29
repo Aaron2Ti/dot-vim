@@ -247,7 +247,7 @@ if has('vim_starting')
   set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 
-call neobundle#rc(expand('~/.vim/bundle/'))
+call neobundle#begin(expand('~/.vim/bundle/'))
 
 NeoBundleFetch 'Shougo/neobundle.vim'
 
@@ -756,17 +756,11 @@ NeoBundle 'Indent-Guides'
   " autocmd FileType ruby,coffee,javascript,html IndentGuidesEnable
 " }}}
 
-filetype plugin on
+filetype plugin indent on
 
-" Installation check. {{{
-if neobundle#exists_not_installed_bundles()
-  echomsg 'Not installed bundles : ' .
-    \ string(neobundle#get_not_installed_bundle_names())
-  echomsg 'Please execute ":NeoBundleInstall" command.'
-  "finish
-endif
-"}}}
+call neobundle#end()
 
+NeoBundleCheck
 " }}}
 
 " {{{
