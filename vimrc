@@ -481,9 +481,9 @@ autocmd FileType r NeoBundleSource R.vim
 
 
 " {{{ julia
-NeoBundleLazy 'JuliaLang/julia-vim'
+" NeoBundleLazy 'JuliaLang/julia-vim'
 
-autocmd FileType julia NeoBundleSource julia-vim
+" autocmd FileType julia NeoBundleSource julia-vim
 " }}}
 
 " XtermColorTable
