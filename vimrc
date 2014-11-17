@@ -144,6 +144,7 @@ autocmd BufRead,BufNewFile *.slim        setlocal ft=slim
 
 " {{{ wildignore
 set wildignore+=*.o,*.obj,*.log,*.gif,*.jpg,*.png,*.gz,*.db,*.swf,*.mp3
+set wildignore+=*.min.js
 set wildignore+=coverage,.gem
 set wildignore+=*.xls,*.xlsx,*.doc,*.docx,*.pdf
 set wildignore+=tmp/cache/*
@@ -744,6 +745,8 @@ let g:easy_align_delimiters = {
 \ '|': { 'pattern': '||\||>\||',  'left_margin': 1, 'right_margin': 1, 'stick_to_left': 0 },
 \ '&': { 'pattern': '&&\|\\\@<!&\|\\\\', 'left_margin': 1, 'right_margin': 1, 'stick_to_left': 0 },
 \ }
+
+let g:easy_align_ignore_groups = []
 " }}}
 
 NeoBundle 'matchit.zip'
