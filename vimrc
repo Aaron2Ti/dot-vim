@@ -274,6 +274,9 @@ NeoBundle 'Shougo/vimproc.vim', {
 " FencView
 NeoBundle 'mbbill/fencview'
 
+NeoBundle 'haya14busa/incsearch.vim'
+autocmd VimEnter * :map /  <Plug>(incsearch-forward)
+
 "{{{ latex
 " NeoBundleLazy 'http://git.code.sf.net/p/vim-latex/vim-latex',
 "               \ {'name': 'vim-latex-suite', 'type': 'git'}
