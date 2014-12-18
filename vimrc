@@ -1,6 +1,5 @@
 ﻿" {{{ Basic Setting
 set nocompatible
-filetype on " !!!!
 
 set shell=/bin/sh
 
@@ -13,9 +12,6 @@ autocmd!
 syntax on
 
 set synmaxcol=200
-
-" indent code by syntax
-filetype indent on
 
 set encoding=utf-8 fileencoding=utf-8 termencoding=utf-8
 set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
@@ -135,19 +131,13 @@ inoremap <Right> <Nop>
 
 " }}}
 
-" {{{ filetypes
-autocmd BufRead,BufNewFile *.ru,*.watchr setlocal ft=ruby
-autocmd BufRead,BufNewFile *.treetop     setlocal ft=treetop
-autocmd BufRead,BufNewFile *.coffee      setlocal ft=coffee
-autocmd BufRead,BufNewFile *.slim        setlocal ft=slim
-" }}}
-
 " {{{ wildignore
 set wildignore+=*.o,*.obj,*.log,*.gif,*.jpg,*.png,*.gz,*.db,*.swf,*.mp3
 set wildignore+=*.min.js
-set wildignore+=coverage,.gem
+set wildignore+=coverage,*.gem
 set wildignore+=*.xls,*.xlsx,*.doc,*.docx,*.pdf
-set wildignore+=tmp/cache/*
+set wildignore+=tmp/*
+set wildignore+=spec/vcr_cassettes/*
 set wildignore+=CVS,.git
 set wildignore+=*.eot,*.svg,*.ttf,*.woff
 set wildignore+=*.jar
@@ -157,8 +147,8 @@ set wildignore+=*.swp,*.dex,*.apk,*.d,*.cache,*.ap_,.env
 set wildignore+=target/*
 set wildignore+=classes/*
 set wildignore+=.lein-deps-sum,.lein-repl-history,.lein-plugins,.lein-failures
-
 set wildignore+=.eunit,deps,*.o,*.beam,*.plt,erl_crash.dump
+set wildignore+=.keep
 
 " }}} wildignore
 
@@ -770,6 +760,13 @@ filetype plugin indent on
 call neobundle#end()
 
 NeoBundleCheck
+" }}}
+
+" {{{ filetypes
+autocmd BufRead,BufNewFile *.ru,*.watchr setlocal ft=ruby
+autocmd BufRead,BufNewFile *.treetop     setlocal ft=treetop
+autocmd BufRead,BufNewFile *.coffee      setlocal ft=coffee
+autocmd BufRead,BufNewFile *.slim        setlocal ft=slim
 " }}}
 
 " {{{
