@@ -773,9 +773,9 @@ autocmd BufRead,BufNewFile *.slim        setfiletype slim
 " }}}
 
 autocmd FileType ruby  UltiSnipsAddFiletypes ruby
-autocmd FileType eruby UltiSnipsAddFiletypes ruby
-autocmd FileType haml  UltiSnipsAddFiletypes ruby
-autocmd FileType slim  UltiSnipsAddFiletypes ruby
+autocmd FileType eruby UltiSnipsAddFiletypes eruby.ruby
+autocmd FileType haml  UltiSnipsAddFiletypes haml.ruby
+autocmd FileType slim  UltiSnipsAddFiletypes slim.ruby
 
 " {{{
 " vim: foldmethod=marker
