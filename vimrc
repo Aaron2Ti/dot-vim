@@ -293,6 +293,9 @@ if has('python')
   " let g:UltiSnipsListSnippets        = '<C-S-s>'
   let g:UltiSnipsJumpForwardTrigger  = '<C-J>'
   let g:UltiSnipsJumpBackwardTrigger = '<C-K>'
+
+  autocmd BufNewFile,BufRead *.snippets setf snippets
+
   " }}}
 
   " YouCompleteMe {{{
@@ -763,11 +766,16 @@ NeoBundleCheck
 " }}}
 
 " {{{ filetypes
-autocmd BufRead,BufNewFile *.ru,*.watchr setlocal ft=ruby
-autocmd BufRead,BufNewFile *.treetop     setlocal ft=treetop
-autocmd BufRead,BufNewFile *.coffee      setlocal ft=coffee
-autocmd BufRead,BufNewFile *.slim        setlocal ft=slim
+autocmd BufRead,BufNewFile *.ru,*.watchr setfiletype ruby
+autocmd BufRead,BufNewFile *.treetop     setfiletype treetop
+autocmd BufRead,BufNewFile *.coffee      setfiletype coffee
+autocmd BufRead,BufNewFile *.slim        setfiletype slim
 " }}}
+
+autocmd FileType ruby  UltiSnipsAddFiletypes ruby
+autocmd FileType eruby UltiSnipsAddFiletypes ruby
+autocmd FileType haml  UltiSnipsAddFiletypes ruby
+autocmd FileType slim  UltiSnipsAddFiletypes ruby
 
 " {{{
 " vim: foldmethod=marker
