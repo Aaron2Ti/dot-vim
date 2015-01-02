@@ -264,6 +264,10 @@ NeoBundle 'Shougo/vimproc.vim', {
 " FencView
 NeoBundle 'mbbill/fencview'
 
+NeoBundle 'hwartig/vim-seeing-is-believing'
+nmap <buffer> <F6> <Plug>(seeing-is-believing-mark)
+nmap <buffer> <F7> <Plug>(seeing-is-believing-run)
+
 NeoBundle 'haya14busa/incsearch.vim'
 autocmd VimEnter * :map /  <Plug>(incsearch-forward)
 
