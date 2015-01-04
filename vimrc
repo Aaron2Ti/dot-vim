@@ -13,8 +13,10 @@ syntax on
 
 set synmaxcol=200
 
+
 set encoding=utf-8 fileencoding=utf-8 termencoding=utf-8
 set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
+scriptencoding utf-8
 
 set helplang=En
 set history=100
@@ -265,8 +267,9 @@ NeoBundle 'Shougo/vimproc.vim', {
 NeoBundle 'mbbill/fencview'
 
 NeoBundle 'hwartig/vim-seeing-is-believing'
-nmap <buffer> <F6> <Plug>(seeing-is-believing-mark)
-nmap <buffer> <F7> <Plug>(seeing-is-believing-run)
+autocmd FileType ruby nmap <buffer> <F6> <Plug>(seeing-is-believing-mark)
+autocmd FileType ruby nmap <buffer> <F7> <Plug>(seeing-is-believing-run)
+
 
 NeoBundle 'haya14busa/incsearch.vim'
 autocmd VimEnter * :map /  <Plug>(incsearch-forward)
@@ -287,7 +290,7 @@ autocmd FileType python setlocal shiftwidth=4 softtabstop=4 tabstop=8
 autocmd FileType python NeoBundleSource python-mode
 "}}}
 
-"{{{ ultisnips, YouCompleteMe, Powerline etc
+"{{{ ultisnips, YouCompleteMe etc
 if has('python')
   " {{{ ultisnips
   NeoBundle 'SirVer/ultisnips'
