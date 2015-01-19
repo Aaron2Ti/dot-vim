@@ -1,3 +1,55 @@
+snippet shebang "#!/usr/bin/env ruby"
+#!/usr/bin/env ruby
+$0
+endsnippet
+
+snippet utf "# encoding: UTF-8"
+# encoding: UTF-8
+$0
+endsnippet
+
+snippet defi "def initialize ..."
+def initialize${1:(${2:*args})}
+	$3
+end$0
+endsnippet
+
+snippet def "def <name>..."
+def ${1:function_name}${2:(${3:*args})}
+	$4
+end$0
+endsnippet
+
+snippet blk "do |arg1| ... end"
+do |${1:arg1}|
+	$2
+end$0
+endsnippet
+
+snippet blkk "{ |arg1| ... }"
+{ |${1:arg1}| $2 }$0
+endsnippet
+
+snippet rdc "do |acc, i| ... end"
+do |acc, ${1:i}|
+	$2
+end$0
+endsnippet
+
+snippet rdcc "{ |acc, i| ... }"
+{ |acc, ${1:i}| $2 }$0
+endsnippet
+
+snippet lbd "->(arg1) { ... }"
+->${1:(${2:arg1})} { $0 }
+endsnippet
+
+snippet lbdd "->(arg1) do ... end"
+->${1:(${2:arg1})} do
+	$0
+end
+endsnippet
+
 snippet h "hash"
 ${1:k}: ${2:v}
 endsnippet
@@ -24,7 +76,7 @@ desc <<-DESC
 DESC
 
 task :$1 do
-  $2
+	$0
 end
 # }}}
 endsnippet
@@ -36,3 +88,29 @@ endsnippet
 snippet s "flash.notice"
 flash.${1:notice}
 endsnippet
+
+snippet mod "module"
+module ${1:ModuleName}
+	extend self
+
+	$0
+end
+endsnippet
+
+snippet atr "attr_reader"
+attr_reader :${0:attr_name}
+endsnippet
+
+snippet ata "attr_accessor"
+attr_accessor :${0:attr_name}
+endsnippet
+
+snippet atw "attr_writer"
+attr_writer :${0:attr_name}
+endsnippet
+
+snippet @ "@attr = attr"
+@$1 = ${2:$1}$0
+endsnippet
+
+# vim: set ts=2 sw=2 expandtab:
