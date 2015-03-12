@@ -266,6 +266,8 @@ NeoBundle 'Shougo/vimproc.vim', {
 " FencView
 NeoBundle 'mbbill/fencview'
 
+NeoBundle 'idanarye/vim-vebugger'
+
 NeoBundle 'hwartig/vim-seeing-is-believing'
 autocmd FileType ruby nmap <buffer> <F6> <Plug>(seeing-is-believing-mark)
 autocmd FileType ruby nmap <buffer> <F7> <Plug>(seeing-is-believing-run)
@@ -287,7 +289,7 @@ autocmd FileType tex,latex,plaintex NeoBundleSource LaTeX-Box
 NeoBundleLazy 'klen/python-mode'
 
 autocmd FileType python setlocal shiftwidth=4 softtabstop=4 tabstop=8
-autocmd FileType python NeoBundleSource python-mode
+" autocmd FileType python NeoBundleSource python-mode
 "}}}
 
 "{{{ ultisnips, YouCompleteMe etc
