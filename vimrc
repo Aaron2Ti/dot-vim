@@ -203,6 +203,8 @@ vnoremap k gk
 
 nmap <leader>w :w<CR>
 
+nmap <leader>g :Gblame<CR>
+
 " Paste and select
 noremap <leader>p p'[v']$
 
@@ -285,11 +287,31 @@ autocmd FileType tex,latex,plaintex NeoBundleSource LaTeX-Box
 " autocmd FileType tex,latex,plaintex NeoBundleSource vim-latex-suite
 "}}}
 
+NeoBundle 'scrooloose/syntastic'
+let g:syntastic_mode_map = {
+  \ 'mode':              'active',
+  \ 'active_filetypes':  ['ruby', 'javascript', 'json', 'xml', 'xslt', 'html', 'xhtml', 'sh', 'less', 'yaml'],
+  \ 'passive_filetypes': ['python'] }
+
 "{{{ Python
 NeoBundleLazy 'klen/python-mode'
+let g:pymode_options           = 0
+let g:pymode_lint_checkers     = ['pep8']
+let g:pymode_lint_options_pep8 = { 'max_line_length': 119 }
+let g:pymode_breakpoint_bind   = ''
+
+" let g:pymode_lint_ignore       = 'E302'
+
+let g:pymode_rope_complete_on_dot = 0
+
 
 autocmd FileType python setlocal shiftwidth=4 softtabstop=4 tabstop=8
-" autocmd FileType python NeoBundleSource python-mode
+autocmd FileType python setlocal commentstring=#%s
+autocmd FileType python setlocal define=^\s*\\(def\\\\|class\\)
+autocmd FileType python setlocal complete+=t
+autocmd FileType python setlocal formatoptions-=t
+
+autocmd FileType python NeoBundleSource python-mode
 "}}}
 
 "{{{ ultisnips, YouCompleteMe etc
@@ -315,7 +337,11 @@ if has('python')
   let g:ycm_allow_changing_updatetime                     = 0
   let g:ycm_complete_in_comments_and_strings              = 1
   let g:ycm_collect_identifiers_from_comments_and_strings = 1
-  let g:ycm_add_preview_to_completeopt                    = 0
+  " let g:ycm_autoclose_preview_window_after_completion     = 0
+  let g:ycm_autoclose_preview_window_after_insertion      = 1
+  let g:ycm_add_preview_to_completeopt                    = 1
+
+  " nnoremap <leader>o :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
   let g:ycm_semantic_triggers =  {
       \  'c':          ['->', '.'],
@@ -333,19 +359,19 @@ if has('python')
 
 
   let g:ycm_filetype_specific_completion_to_disable = {
-      \ 'ruby' : 1,
-      \ 'javascript' : 1,
+      \ 'ruby':       1,
+      \ 'javascript': 1,
       \}
 
   let g:ycm_filetype_blacklist = {
-        \ 'tagbar' : 1,
-        \ 'qf' : 1,
-        \ 'notes' : 1,
-        \ 'unite' : 1,
-        \ 'text' : 1,
-        \ 'vimwiki' : 1,
-        \ 'pandoc' : 1,
-        \ 'mail' : 1
+        \ 'tagbar':  1,
+        \ 'qf':      1,
+        \ 'notes':   1,
+        \ 'unite':   1,
+        \ 'text':    1,
+        \ 'vimwiki': 1,
+        \ 'pandoc':  1,
+        \ 'mail':    1,
         \}
   " }}}
 
@@ -422,18 +448,18 @@ let g:surround_custom_mapping.ruby = {
 NeoBundleLazy 'leafgarland/typescript-vim'
 
 " clausreinke/typescript-tools {{{
-NeoBundleLazy 'clausreinke/typescript-tools', {
-      \ 'build' : {
-      \     'windows': 'npm install -g',
-      \     'cygwin':  'npm install -g',
-      \     'mac':     'npm install -g',
-      \     'unix':    'npm install -g',
-      \    },
-      \ }
+" NeoBundleLazy 'clausreinke/typescript-tools', {
+"       \ 'build' : {
+"       \     'windows': 'npm install -g',
+"       \     'cygwin':  'npm install -g',
+"       \     'mac':     'npm install -g',
+"       \     'unix':    'npm install -g',
+"       \    },
+"       \ }
 "}}}
 
 autocmd FileType typescript NeoBundleSource typescript-vim
-autocmd FileType typescript NeoBundleSource typescript-tools
+" autocmd FileType typescript NeoBundleSource typescript-tools
 "}}}
 
 "{{{ idris
@@ -457,7 +483,7 @@ autocmd FileType erlang NeoBundleSource vimerl
 autocmd FileType erlang NeoBundleSource erlang-motions.vim
 "}}}
 
-NeoBundle 'chrisbra/unicode.vim'
+" NeoBundle 'chrisbra/unicode.vim'
 
 "{{{ fsharp
 autocmd FileType fsharp setlocal shiftwidth=4 softtabstop=4 tabstop=8
@@ -538,16 +564,16 @@ NeoBundle 'vim-ruby/vim-ruby'
 
 " {{{ vim-rails
 NeoBundle 'tpope/vim-rails'
-noremap <leader>r   :R<Space>
-noremap <leader>rr  :R config/routes.rb<CR>
-noremap <leader>rm  :Rmodel<Space>
-noremap <leader>rc  :Rcontroller<Space>
-noremap <leader>rl  :Rlayout<Space>
-noremap <leader>rv  :Rview<Space>
-noremap <leader>rh  :Rhelper<Space>
-noremap <leader>ri  :Rinitializer<Space>
-noremap <leader>rj  :Rjavascript<Space>
-noremap <leader>rs  :Rstylesheet<Space>
+" noremap <leader>r   :R<Space>
+" noremap <leader>rr  :R config/routes.rb<CR>
+" noremap <leader>rm  :Rmodel<Space>
+" noremap <leader>rc  :Rcontroller<Space>
+" noremap <leader>rl  :Rlayout<Space>
+" noremap <leader>rv  :Rview<Space>
+" noremap <leader>rh  :Rhelper<Space>
+" noremap <leader>ri  :Rinitializer<Space>
+" noremap <leader>rj  :Rjavascript<Space>
+" noremap <leader>rs  :Rstylesheet<Space>
 " }}}
 
 NeoBundle 'kablamo/vim-git-log'
