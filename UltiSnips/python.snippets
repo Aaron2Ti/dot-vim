@@ -1,3 +1,12 @@
 snippet emb "from IPython import embed; embed()" !
 from IPython import embed; embed()
 endsnippet
+
+snippet def "def <name>..."
+def ${1:function_name}(${2:*args}):
+    $0
+endsnippet
+
+snippet d "debugger" !
+import pudb; pudb.set_trace()
+endsnippet

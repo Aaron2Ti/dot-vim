@@ -303,7 +303,7 @@ let g:pymode_breakpoint_bind   = ''
 " let g:pymode_lint_ignore       = 'E302'
 
 let g:pymode_rope_complete_on_dot = 0
-
+let g:pymode_rope_goto_definition_cmd = 'e'
 
 autocmd FileType python setlocal shiftwidth=4 softtabstop=4 tabstop=8
 autocmd FileType python setlocal commentstring=#%s
