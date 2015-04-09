@@ -595,7 +595,8 @@ NeoBundle 'Peeja/vim-cdo'
 " NeoBundle 'mihaifm/bck'
 NeoBundle 'rking/ag.vim'
 
-nmap <leader>a :Ag!<Space>
+nmap <leader>a  :Ag!<Space>
+nmap <leader>ap :Ag! -G '\.py'<Space>
 " }}}
 
 " {{{ delimitMate
