@@ -86,6 +86,7 @@ call <SID>hi('ErrorMsg', '196', s:Black, 'bold')
 call <SID>hi('Folded',     s:Grey11, s:Grey6,        'none')
 call <SID>hi('FoldColumn', s:Grey9,  s:CursorLineBG, 'none')
 
+
 " call <SID>hi("Exception",     s:gui08, "", s:cterm08, "", "")
 " call <SID>hi("FoldColumn",    "", s:gui01, "", s:cterm01, "")
 " call <SID>hi("Folded",        s:gui03, s:gui01, s:cterm03, s:cterm01, "")
@@ -172,6 +173,11 @@ call <SID>hi('String', s:LightRed, '', '')
 call <SID>hi('Define', '33', '', 'bold')
 call <SID>hi('Function', '35', '', 'bold')
 call <SID>hi('Identifier', s:Golden, '', '')
+
+call <SID>hi('Number', s:Yellow, '', '')
+call <SID>hi('Operator', 141, '', '')
+
+
 " call <SID>hi("Delimiter",    s:gui0F, "", s:cterm0F, "", "")
 " call <SID>hi("Float",        s:gui09, "", s:cterm09, "", "")
 " call <SID>hi("Include",      s:gui0D, "", s:cterm0D, "", "")
@@ -197,6 +203,7 @@ call <SID>hi('Todo', '124', '11', '')
 
 " Spelling Highlighting
 call <SID>hi('SpellBad', s:NormalFG, 52, '')
+call <SID>hi('SpellCap', s:NormalFG, 22, '')
 
 " call <SID>hi("SpellLocal",   s:gui05, s:gui00, s:cterm05, s:cterm0D, "")
 "call <SID>hi("SpellCap",    s:gui00, s:gui08, s:cterm00, s:cterm08, "")
