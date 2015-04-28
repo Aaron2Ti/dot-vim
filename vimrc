@@ -753,7 +753,8 @@ let g:tagbar_width = 30
 
 " {{{ vim-signature
 NeoBundle 'kshenoy/vim-signature'
-let g:SignatureDisableMenu=1
+let g:SignatureDisableMenu = 1
+let g:SignatureMarkTextHL  = "'Operator'"
 " let g:SignatureDefaultMappings=0
 
 " noremap m<Space> :call signature#PurgeMarks()<CR>

@@ -5,10 +5,10 @@ if has('gui_macvim')
   set guioptions=egmtc
   " set guifont=Courier:h16
   " set guifont=Monaco:h16
-  set guifont=DejaVu\ Sans\ Mono:h18
+  set guifont=DejaVu\ Sans\ Mono:h14
   " set guifont=Menlo:h18
 
-  set guifontwide=Hei:h16
+  " set guifontwide=Hei:h16
 
   set formatprg=par\ -w70p0s0r
 
