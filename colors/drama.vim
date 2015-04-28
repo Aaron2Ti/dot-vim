@@ -86,6 +86,7 @@ call <SID>hi('String',        s:string_fg,   '',            '')
 
 call <SID>hi('Statement',     '#16A34C',   '',            s:_n)
 call <SID>hi('Include',       '#95afb9',   '',            '')
+call <SID>hi('Title',         s:yellow,   '',            s:_b)
 "include require
 " hi Include              guifg=#a5efc9 gui=bold
 
@@ -172,7 +173,6 @@ hi MoreMsg gui=bold guifg=SeaGreen
 
 hi Question guifg=springgreen
 
-hi Title guifg=gold gui=bold
 hi Visual guibg=grey20 guifg=pink
 hi VisualNOS gui=bold,italic
 
@@ -188,7 +188,6 @@ hi DiffChange guibg=DarkMagenta
 hi DiffDelete gui=bold guifg=Blue guibg=DarkCyan
 hi DiffText gui=bold guibg=Red
 hi Question gui=bold guifg=Green
-hi Title gui=bold guifg=Magenta
 hi VisualNOS gui=underline,bold
 hi WildMenu guibg=Yellow guifg=Black
 
