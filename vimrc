@@ -250,7 +250,7 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 " A collection of language packs for Vim
-" NeoBundle 'sheerun/vim-polyglot'
+" https://github.com/sheerun/vim-polyglot
 
 " Shougo/vimproc.vim {{{
 NeoBundle 'Shougo/vimproc.vim', {
@@ -274,6 +274,11 @@ NeoBundle 'hwartig/vim-seeing-is-believing'
 autocmd FileType ruby nmap <buffer> <F6> <Plug>(seeing-is-believing-mark)
 autocmd FileType ruby nmap <buffer> <F7> <Plug>(seeing-is-believing-run)
 
+" ReactJS
+NeoBundle 'mxw/vim-jsx'
+let g:jsx_ext_required = 1
+
+NeoBundle 'pangloss/vim-javascript'
 
 NeoBundle 'haya14busa/incsearch.vim'
 autocmd VimEnter * :map /  <Plug>(incsearch-forward)
@@ -296,7 +301,9 @@ let g:syntastic_mode_map = {
 "{{{ Python
 NeoBundleLazy 'klen/python-mode'
 let g:pymode_options           = 0
+let g:pymode_lint_signs        = 0
 let g:pymode_lint_checkers     = ['pep8']
+" let g:pymode_lint_checkers   = []
 let g:pymode_lint_options_pep8 = { 'max_line_length': 119 }
 let g:pymode_breakpoint_bind   = ''
 
@@ -711,7 +718,8 @@ nmap s <Plug>(smalls)
 omap s <Plug>(smalls)
 xmap s <Plug>(smalls)
 
-let g:smalls_auto_jump = 1
+let g:smalls_auto_jump                  = 1
+let g:smalls_auto_jump_timeout          = 1
 let g:smalls_auto_jump_min_input_length = 1
 
 if !has('gui')

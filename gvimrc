@@ -1,6 +1,6 @@
 " gui_macvim {{{1
 if has('gui_macvim')
-  set lines=38 columns=127
+  set lines=47 columns=158
   set fuoptions=maxvert,maxhorz
   set guioptions=egmtc
   " set guifont=Courier:h16

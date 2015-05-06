@@ -171,10 +171,8 @@ hi VertSplit            gui=reverse guibg=#c2bfa5 guifg=grey30
 hi ModeMsg gui=bold guifg=goldenrod
 hi MoreMsg gui=bold guifg=SeaGreen
 
-hi Question guifg=springgreen
 
 hi Visual guibg=grey20 guifg=pink
-hi VisualNOS gui=bold,italic
 
 hi Ignore    guifg=grey40
 
@@ -187,6 +185,7 @@ hi DiffAdd guibg=DarkBlue
 hi DiffChange guibg=DarkMagenta
 hi DiffDelete gui=bold guifg=Blue guibg=DarkCyan
 hi DiffText gui=bold guibg=Red
+
 hi Question gui=bold guifg=Green
 hi VisualNOS gui=underline,bold
 hi WildMenu guibg=Yellow guifg=Black
