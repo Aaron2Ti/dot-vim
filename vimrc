@@ -596,7 +596,6 @@ autocmd FileType coffee NeoBundleSource vim-coffee-script
 NeoBundle 'Peeja/vim-cdo'
 
 " Ag {{{
-" NeoBundle 'mihaifm/bck'
 NeoBundle 'rking/ag.vim'
 
 nmap <leader>a  :Ag!<Space>
@@ -640,11 +639,27 @@ autocmd FileType clojure NeoBundleSource vim-fireplace
 autocmd FileType clojure NeoBundleSource vim-typedclojure
 " }}}
 
+" {{{ lusty
+NeoBundle 'sjbach/lusty'
+
+" let g:LustyJugglerShowKeys='alpha'
+" let g:LustyJugglerShowKeys = 'a'
+" let g:LustyJugglerSuppressRubyWarning = 1
+
+noremap <leader>ff :LustyFilesystemExplorerFromHere<CR>
+" noremap <leader>b :LustyBufferExplorer<CR>
+" nmap <silent> <Leader>j :LustyJuggler<CR>
+" }}}
+
+"{{{ fzf
 NeoBundle 'junegunn/fzf'
+
 noremap <leader>t :FZF! --extended --no-mouse .<CR>
-noremap <leader>b :FZFMru<CR>
-noremap <leader>ff :FZF! --extended --no-mouse %:p:h<CR>
+noremap <leader>b :FZFBuff<CR>
+noremap <leader>fu :FZFMru<CR>
+" noremap <leader>ff :FZF! --extended --no-mouse %:p:h<CR>
 noremap <leader>fd :FZFLines<CR>
+"}}}
 
 "{{{ scala
 NeoBundleLazy 'derekwyatt/vim-scala'
