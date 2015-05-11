@@ -31,7 +31,7 @@ set showbreak=↳
 set linebreak
 		" #add8e6"
 
-set colorcolumn=80
+set colorcolumn=119
 
 set autoindent
 set smartindent
@@ -274,11 +274,12 @@ NeoBundle 'hwartig/vim-seeing-is-believing'
 autocmd FileType ruby nmap <buffer> <F6> <Plug>(seeing-is-believing-mark)
 autocmd FileType ruby nmap <buffer> <F7> <Plug>(seeing-is-believing-run)
 
-" ReactJS
-NeoBundle 'mxw/vim-jsx'
-let g:jsx_ext_required = 1
 
 NeoBundle 'pangloss/vim-javascript'
+" NeoBundle 'othree/yajs.vim'
+" ReactJS
+NeoBundle 'mxw/vim-jsx'
+let g:jsx_ext_required = 0
 
 NeoBundle 'haya14busa/incsearch.vim'
 autocmd VimEnter * :map /  <Plug>(incsearch-forward)
@@ -296,7 +297,9 @@ NeoBundle 'scrooloose/syntastic'
 let g:syntastic_mode_map = {
   \ 'mode':              'active',
   \ 'active_filetypes':  ['ruby', 'javascript', 'json', 'xml', 'xslt', 'html', 'xhtml', 'sh', 'less', 'yaml'],
-  \ 'passive_filetypes': ['python'] }
+  \ 'passive_filetypes': ['python'],
+  \ }
+let g:syntastic_javascript_checkers = ['eslint']
 
 "{{{ Python
 NeoBundleLazy 'klen/python-mode'
@@ -333,8 +336,9 @@ if has('python')
   let g:UltiSnipsJumpBackwardTrigger = '<C-K>'
 
   autocmd BufNewFile,BufRead *.snippets setf snippets
-
   " }}}
+
+  NeoBundle "honza/vim-snippets"
 
   " YouCompleteMe {{{
   NeoBundle 'Valloric/YouCompleteMe'
@@ -384,13 +388,6 @@ if has('python')
 
   NeoBundle 'gcmt/breeze.vim'
 
-  " {{{ psearch
-  NeoBundle 'Aaron2Ti/psearch.vim'
-
-  noremap <leader>d :PSearch<CR>
-  noremap <leader>dd :PSearchw<CR>
-  let g:pse_max_height=30
-  " }}}
 endif
 "}}}
 
@@ -643,41 +640,11 @@ autocmd FileType clojure NeoBundleSource vim-fireplace
 autocmd FileType clojure NeoBundleSource vim-typedclojure
 " }}}
 
-" {{{ lusty
-NeoBundle 'sjbach/lusty'
-
-" let g:LustyJugglerShowKeys='alpha'
-" let g:LustyJugglerShowKeys = 'a'
-" let g:LustyJugglerSuppressRubyWarning = 1
-
-noremap <leader>f :LustyFilesystemExplorerFromHere<CR>
-" noremap <leader>b :LustyBufferExplorer<CR>
-" nmap <silent> <Leader>j :LustyJuggler<CR>
-" }}}
-
-" {{{ command-t
-NeoBundle 'wincent/Command-T.git'
-
-let g:CommandTMatchWindowReverse=1
-
-let g:CommandTMaxHeight=20
-
-let g:CommandTCursorLeftMap='<C-b>'
-let g:CommandTBackspaceMap='<C-h>'
-let g:CommandTDeleteMap='<C-d>'
-let g:CommandTCancelMap='<Esc>'
-
-noremap <leader>b :CommandTBuffer<CR>
-noremap <leader>t :CommandT .<CR>
-
-" <D-...>   command-key (Macintosh only)
-" noremap <D-b> :CommandTBuffer<CR>
-
-let g:CommandTWildIgnore=&wildignore . ",**/tmp/cache/*"
-
-" map <leader>g :CommandTTag<CR>
-" map <leader>s :CommandTJump<CR>
-" }}}
+NeoBundle 'junegunn/fzf'
+noremap <leader>t :FZF! --extended --no-mouse .<CR>
+noremap <leader>b :FZFMru<CR>
+noremap <leader>ff :FZF! --extended --no-mouse %:p:h<CR>
+noremap <leader>fd :FZFLines<CR>
 
 "{{{ scala
 NeoBundleLazy 'derekwyatt/vim-scala'
