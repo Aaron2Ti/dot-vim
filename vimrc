@@ -639,27 +639,55 @@ autocmd FileType clojure NeoBundleSource vim-fireplace
 autocmd FileType clojure NeoBundleSource vim-typedclojure
 " }}}
 
-" {{{ lusty
-NeoBundle 'sjbach/lusty'
+NeoBundle 'Shougo/unite.vim'
 
-" let g:LustyJugglerShowKeys='alpha'
-" let g:LustyJugglerShowKeys = 'a'
-" let g:LustyJugglerSuppressRubyWarning = 1
+let g:unite_winheight = 10
+let g:unite_source_rec_async_command = 'ag --follow --nocolor --nogroup --hidden -g ""'
+let g:unite_source_alias_aliases = {
+      \   'b': 'buffer',
+      \   'l': 'line',
+      \   'f': 'file',
+      \   'g': 'grep',
+      \   'ff': 'file_rec/async',
+      \   'k': 'bookmark',
+      \ }
 
-noremap <leader>ff :LustyFilesystemExplorerFromHere<CR>
-" noremap <leader>b :LustyBufferExplorer<CR>
-" nmap <silent> <Leader>j :LustyJuggler<CR>
-" }}}
+noremap <leader>b :Unite <CR>
 
-"{{{ fzf
-NeoBundle 'junegunn/fzf'
+" nnoremap <silent> ,a :<C-u>Unite grep -no-quit -keep-focus -prompt-direction="below" -buffer-name=search-buffer<CR>
 
-noremap <leader>t :FZF! --extended --no-mouse .<CR>
-noremap <leader>b :FZFBuff<CR>
-noremap <leader>fu :FZFMru<CR>
-" noremap <leader>ff :FZF! --extended --no-mouse %:p:h<CR>
-noremap <leader>fd :FZFLines<CR>
-"}}}
+let g:unite_source_grep_command = 'ag'
+let g:unite_source_grep_default_opts =
+\ '-i --line-numbers --nocolor --nogroup --hidden --ignore ' .
+\  '''.hg'' --ignore ''.svn'' --ignore ''.git'' --ignore ''.bzr'''
+let g:unite_source_grep_recursive_opt = ''
+
+let g:unite_source_grep_encoding = 'utf-8'
+let g:unite_source_grep_max_candidates = 200
+
+" if executable('ag')
+"   " Use ag in unite grep source.
+"   let g:unite_source_grep_command = 'ag'
+"   let g:unite_source_grep_default_opts =
+"   \ '-i --line-numbers --nocolor --nogroup --hidden --ignore ' .
+"   \  '''.hg'' --ignore ''.svn'' --ignore ''.git'' --ignore ''.bzr'''
+"   let g:unite_source_grep_recursive_opt = ''
+" elseif executable('pt')
+"   " Use pt in unite grep source.
+"   " https://github.com/monochromegane/the_platinum_searcher
+"   let g:unite_source_grep_command = 'pt'
+"   let g:unite_source_grep_default_opts = '--nogroup --nocolor'
+"   let g:unite_source_grep_recursive_opt = ''
+" endif
+
+" " nmap <leader>ap :Ag! -G '\.py'<Space>
+" if executable('pt')
+"   let g:unite_source_grep_command = 'pt'
+"   let g:unite_source_grep_default_opts = '--nogroup --nocolor'
+"   let g:unite_source_grep_recursive_opt = ''
+"   let g:unite_source_grep_encoding = 'utf-8'
+" endif
+
 
 "{{{ scala
 NeoBundleLazy 'derekwyatt/vim-scala'
@@ -788,6 +816,18 @@ NeoBundle 'Indent-Guides'
 filetype plugin indent on
 
 call neobundle#end()
+
+call unite#custom#profile('default', 'context', {
+\   'start_insert': 1,
+\   'winheight':    10,
+\   'direction':    'botright',
+\ })
+
+" call unite#custom#profile('grep', 'context', {
+" \   'no-quit' : 1,
+" \   'keep-focus' : 1,
+" \ })
+
 
 NeoBundleCheck
 " }}}
