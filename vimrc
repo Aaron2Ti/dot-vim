@@ -13,7 +13,6 @@ syntax on
 
 set synmaxcol=200
 
-
 set encoding=utf-8 fileencoding=utf-8 termencoding=utf-8
 set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
 scriptencoding utf-8
@@ -252,16 +251,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " A collection of language packs for Vim
 " https://github.com/sheerun/vim-polyglot
 
-" Shougo/vimproc.vim {{{
-NeoBundle 'Shougo/vimproc.vim', {
-      \ 'build' : {
-      \     'windows': 'make -f make_mingw32.mak',
-      \     'cygwin':  'make -f make_cygwin.mak',
-      \     'mac':     'make -f make_mac.mak',
-      \     'unix':    'make -f make_unix.mak',
-      \    },
-      \ }
-"}}}
 
 " Auto detect CJK and Unicode file encodings
 " Install https://github.com/adah1972/tellenc
@@ -378,7 +367,6 @@ if has('python')
         \ 'tagbar':  1,
         \ 'qf':      1,
         \ 'notes':   1,
-        \ 'unite':   1,
         \ 'text':    1,
         \ 'vimwiki': 1,
         \ 'pandoc':  1,
@@ -396,8 +384,6 @@ NeoBundleLazy 'pangloss/vim-javascript'
 
 autocmd FileType javascript NeoBundleSource vim-javascript
 "}}}
-
-NeoBundle 'Shougo/vimshell.vim'
 
 NeoBundle 'elixir-lang/vim-elixir'
 
@@ -598,7 +584,7 @@ NeoBundle 'Peeja/vim-cdo'
 " Ag {{{
 NeoBundle 'rking/ag.vim'
 
-nmap <leader>a  :Ag!<Space>
+" nmap <leader>a  :Ag!<Space>
 nmap <leader>ap :Ag! -G '\.py'<Space>
 " }}}
 
@@ -608,14 +594,6 @@ autocmd FileType clojure let b:delimitMate_quotes = "\""
 autocmd FileType clojure let b:delimitMate_matchpairs = "(:),[:],{:}"
 autocmd FileType ruby    let b:delimitMate_matchpairs = "(:),[:],{:}"
 autocmd FileType r       let b:delimitMate_matchpairs = "(:),[:],{:}"
-" }}}
-
-" {{{ YankRing.vim
-NeoBundle 'YankRing.vim'
-let g:yankring_replace_n_pkey = '<m-p>'
-let g:yankring_replace_n_nkey = '<m-n>'
-let g:yankring_history_dir = '~/.tmp'
-nnoremap <silent> <C-p> :YRShow<CR>
 " }}}
 
 "{{{ slim
@@ -639,27 +617,49 @@ autocmd FileType clojure NeoBundleSource vim-fireplace
 autocmd FileType clojure NeoBundleSource vim-typedclojure
 " }}}
 
-NeoBundle 'Shougo/unite.vim'
+" {{{ lusty
+NeoBundle 'sjbach/lusty'
 
+noremap <leader>fe :LustyFilesystemExplorerFromHere<CR>
+" }}}
+
+NeoBundle 'tsukkee/unite-tag'
+" Shougo/vimproc.vim {{{
+NeoBundle 'Shougo/vimproc.vim', {
+      \ 'build' : {
+      \     'windows': 'make -f make_mingw32.mak',
+      \     'cygwin':  'make -f make_cygwin.mak',
+      \     'mac':     'make -f make_mac.mak',
+      \     'unix':    'make -f make_unix.mak',
+      \    },
+      \ }
+"}}}
+NeoBundle 'Shougo/vimshell.vim'
+NeoBundle 'Shougo/unite.vim'
 let g:unite_winheight = 10
 let g:unite_source_rec_async_command = 'ag --follow --nocolor --nogroup --hidden -g ""'
-let g:unite_source_alias_aliases = {
-      \   'b': 'buffer',
-      \   'l': 'line',
-      \   'f': 'file',
-      \   'g': 'grep',
-      \   'ff': 'file_rec/async',
-      \   'k': 'bookmark',
-      \ }
 
-noremap <leader>b :Unite <CR>
+let g:unite_prompt='» '
+let g:unite_candidate_icon = '-'
+let g:unite_cursor_line_highlight = 'InsertCursor'
+let g:unite_marked_icon = '+'
 
-" nnoremap <silent> ,a :<C-u>Unite grep -no-quit -keep-focus -prompt-direction="below" -buffer-name=search-buffer<CR>
+let g:unite_source_history_yank_enable = 1
+
+noremap <leader>fy :Unite history/yank  -start-insert                         <CR>
+noremap <leader>fh :Unite history/unite -start-insert                         <CR>
+noremap <leader>f  :Unite file_rec/async -start-insert                        <CR>
+noremap <leader>ff :Unite directory file file/new directory/new -start-insert <CR>
+noremap <leader>fb :Unite buffer         -start-insert                        <CR>
+noremap <leader>fl :Unite line           -start-insert                        <CR>
+noremap <leader>fk :Unite bookmark       -start-insert                        <CR>
+noremap <leader>fa :UniteWithInput grep -no-quit -keep-focus                  <CR>
+noremap <leader>b :UniteResume                                                <CR>
 
 let g:unite_source_grep_command = 'ag'
 let g:unite_source_grep_default_opts =
-\ '-i --line-numbers --nocolor --nogroup --hidden --ignore ' .
-\  '''.hg'' --ignore ''.svn'' --ignore ''.git'' --ignore ''.bzr'''
+\ '--line-numbers --nocolor --nogroup --hidden --ignore ''.hg'' ' .
+\  '--ignore ''.svn'' --ignore ''.git'' --ignore ''.bzr'''
 let g:unite_source_grep_recursive_opt = ''
 
 let g:unite_source_grep_encoding = 'utf-8'
@@ -818,10 +818,11 @@ filetype plugin indent on
 call neobundle#end()
 
 call unite#custom#profile('default', 'context', {
-\   'start_insert': 1,
+\   'start_insert': 0,
 \   'winheight':    10,
 \   'direction':    'botright',
 \ })
+call unite#filters#sorter_default#use('sorter_rank')
 
 " call unite#custom#profile('grep', 'context', {
 " \   'no-quit' : 1,
