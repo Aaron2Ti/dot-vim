@@ -135,6 +135,11 @@ call <SID>hi('EasyMotionTarget',     'red', '', s:_b)
 
 delfunction <SID>hi
 
+
+" #!/bin/sh
+hi PreProc              guifg=#bb4182 gui=bold guibg=grey25
+hi link pythonRun PreProc
+
 hi SpellErrors          guifg=#101010  guibg=#f44490
 
 
@@ -161,8 +166,6 @@ hi rubyConstant         guifg=#b1d3ff gui=bold      "SomeClass,SomeModule
 
 hi Define               guifg=#7796ff gui=bold,italic   "module,class,def,end
 
-
-hi PreProc              guifg=#bb4182 gui=bold guibg=grey25  "#!/bin/sh
 
 hi WarningMsg           guifg=White guibg=#f44490 gui=bold
 
