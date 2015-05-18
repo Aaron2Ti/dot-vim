@@ -259,6 +259,8 @@ NeoBundle 'mbbill/fencview'
 
 NeoBundle 'idanarye/vim-vebugger'
 
+NeoBundle 'zefei/vim-colortuner'
+
 NeoBundle 'hwartig/vim-seeing-is-believing'
 autocmd FileType ruby nmap <buffer> <F6> <Plug>(seeing-is-believing-mark)
 autocmd FileType ruby nmap <buffer> <F7> <Plug>(seeing-is-believing-run)
