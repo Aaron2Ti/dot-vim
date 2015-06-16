@@ -76,7 +76,6 @@ function RemoveUselessMenus()
 
   aunmenu Tools.
   aunmenu Syntax.
-  aunmenu Plugin.
   aunmenu DrChip.
   aunmenu Window.
   aunmenu Help.

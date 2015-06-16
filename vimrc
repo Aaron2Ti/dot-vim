@@ -1,6 +1,11 @@
 ﻿" {{{ Basic Setting
 set nocompatible
 
+" set noimdisable
+" autocmd! InsertLeave * set imdisable | set iminsert=0
+" autocmd! InsertEnter * set noimdisable | set iminsert=0
+
+
 set shell=/bin/sh
 
 set background=dark
@@ -147,6 +152,7 @@ set wildignore+=*.jpg,*.jpeg,*.png,*.gif,.DS_Store,.gitignore,.git,tags
 set wildignore+=*.swp,*.dex,*.apk,*.d,*.cache,*.ap_,.env
 set wildignore+=target/*
 set wildignore+=classes/*
+set wildignore+=node_modules/*
 set wildignore+=.lein-deps-sum,.lein-repl-history,.lein-plugins,.lein-failures
 set wildignore+=.eunit,deps,*.o,*.beam,*.plt,erl_crash.dump
 set wildignore+=.keep
@@ -257,20 +263,16 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " FencView
 NeoBundle 'mbbill/fencview'
 
-NeoBundle 'idanarye/vim-vebugger'
+NeoBundle 'junegunn/limelight.vim'
+
+" NeoBundle 'idanarye/vim-vebugger'
 
 NeoBundle 'zefei/vim-colortuner'
 
-NeoBundle 'hwartig/vim-seeing-is-believing'
-autocmd FileType ruby nmap <buffer> <F6> <Plug>(seeing-is-believing-mark)
-autocmd FileType ruby nmap <buffer> <F7> <Plug>(seeing-is-believing-run)
+" NeoBundle 'hwartig/vim-seeing-is-believing'
+" autocmd FileType ruby nmap <buffer> <F6> <Plug>(seeing-is-believing-mark)
+" autocmd FileType ruby nmap <buffer> <F7> <Plug>(seeing-is-believing-run)
 
-
-NeoBundle 'pangloss/vim-javascript'
-" NeoBundle 'othree/yajs.vim'
-" ReactJS
-NeoBundle 'mxw/vim-jsx'
-let g:jsx_ext_required = 0
 
 NeoBundle 'haya14busa/incsearch.vim'
 autocmd VimEnter * :map /  <Plug>(incsearch-forward)
@@ -284,11 +286,16 @@ autocmd FileType tex,latex,plaintex NeoBundleSource LaTeX-Box
 " autocmd FileType tex,latex,plaintex NeoBundleSource vim-latex-suite
 "}}}
 
+NeoBundle '907th/vim-auto-save'
+let g:auto_save_in_insert_mode = 0
+let g:auto_save_no_updatetime = 1
+let g:auto_save_silent = 1
+
 NeoBundle 'scrooloose/syntastic'
 let g:syntastic_mode_map = {
   \ 'mode':              'active',
-  \ 'active_filetypes':  ['ruby', 'javascript', 'json', 'xml', 'xslt', 'html', 'xhtml', 'sh', 'less', 'yaml'],
-  \ 'passive_filetypes': ['python'],
+  \ 'active_filetypes':  ['ruby', 'javascript', 'json', 'xml', 'xslt', 'html', 'xhtml', 'sh', 'yaml'],
+  \ 'passive_filetypes': ['python', 'less'],
   \ }
 let g:syntastic_javascript_checkers = ['eslint']
 
@@ -296,8 +303,8 @@ let g:syntastic_javascript_checkers = ['eslint']
 NeoBundleLazy 'klen/python-mode'
 let g:pymode_options           = 0
 let g:pymode_lint_signs        = 0
-let g:pymode_lint_checkers     = ['pep8']
-" let g:pymode_lint_checkers   = []
+" let g:pymode_lint_checkers     = ['pep8']
+let g:pymode_lint_checkers   = []
 let g:pymode_lint_options_pep8 = { 'max_line_length': 119 }
 let g:pymode_breakpoint_bind   = ''
 
@@ -385,11 +392,13 @@ endif
 NeoBundleLazy 'pangloss/vim-javascript'
 
 autocmd FileType javascript NeoBundleSource vim-javascript
+
+" ReactJS
+NeoBundle 'mxw/vim-jsx'
+let g:jsx_ext_required = 0
 "}}}
 
 NeoBundle 'elixir-lang/vim-elixir'
-
-NeoBundle 'vim-scripts/SyntaxRange'
 
 "{{{ markdown
 NeoBundleLazy 'tpope/vim-markdown'
@@ -419,6 +428,7 @@ NeoBundle 'tpope/vim-eunuch'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-projectionist'
 NeoBundle 'tpope/vim-dispatch'
+NeoBundle 'tpope/vim-commentary'
 
 " {{{ surround
 NeoBundle 'tpope/vim-surround'
@@ -506,7 +516,6 @@ NeoBundleLazy 'R.vim'
 autocmd FileType r NeoBundleSource R.vim
 "}}}
 
-
 " {{{ julia
 " NeoBundleLazy 'JuliaLang/julia-vim'
 
@@ -570,10 +579,6 @@ NeoBundle 'tpope/vim-rails'
 
 NeoBundle 'kablamo/vim-git-log'
 
-"{{{
-NeoBundle 'tpope/vim-commentary'
-"}}}
-
 "{{{ coffee-script
 NeoBundleLazy 'kchmck/vim-coffee-script'
 
@@ -584,10 +589,10 @@ autocmd FileType coffee NeoBundleSource vim-coffee-script
 NeoBundle 'Peeja/vim-cdo'
 
 " Ag {{{
-NeoBundle 'rking/ag.vim'
+" NeoBundle 'rking/ag.vim'
 
 " nmap <leader>a  :Ag!<Space>
-nmap <leader>ap :Ag! -G '\.py'<Space>
+" nmap <leader>ap :Ag! -G '\.py'<Space>
 " }}}
 
 " {{{ delimitMate
@@ -639,7 +644,7 @@ NeoBundle 'Shougo/vimproc.vim', {
 NeoBundle 'Shougo/vimshell.vim'
 NeoBundle 'Shougo/unite.vim'
 let g:unite_winheight = 10
-let g:unite_source_rec_async_command = 'ag --follow --nocolor --nogroup --hidden -g ""'
+let g:unite_source_rec_async_command = 'ag --follow --nocolor --nogroup --ignore --hidden -g ""'
 
 let g:unite_prompt='» '
 let g:unite_candidate_icon = '-'
@@ -830,6 +835,8 @@ call unite#filters#sorter_default#use('sorter_rank')
 " \   'no-quit' : 1,
 " \   'keep-focus' : 1,
 " \ })
+
+" call unite#custom#source('file_rec/async', 'ignore_globs', split(&wildignore, ','))
 
 
 NeoBundleCheck

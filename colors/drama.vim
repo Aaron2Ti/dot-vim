@@ -134,6 +134,7 @@ call <SID>hi('EasyMotionTarget',     'red', '', s:_b)
 
 
 delfunction <SID>hi
+hi link lessCssAttribute Normal
 
 
 " #!/bin/sh
