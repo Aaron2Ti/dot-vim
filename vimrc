@@ -582,7 +582,11 @@ NeoBundle 'kablamo/vim-git-log'
 "{{{ coffee-script
 NeoBundleLazy 'kchmck/vim-coffee-script'
 
+NeoBundleLazy 'mtscout6/vim-cjsx'
+
 autocmd FileType coffee NeoBundleSource vim-coffee-script
+autocmd FileType coffee NeoBundleSource vim-cjsx
+autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab foldmethod=indent nofoldenable
 "}}}
 
 " NeoBundle 'henrik/vim-qargs'
