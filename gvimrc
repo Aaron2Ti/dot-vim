@@ -5,7 +5,9 @@ if has('gui_macvim')
   set guioptions=egmtc
   " set guifont=Courier:h16
   " set guifont=Monaco:h16
-  set guifont=DejaVu\ Sans\ Mono:h14
+  " set guifont=DejaVu\ Sans\ Mono:h14
+  set guifont=Monoid:h18
+  " set guifont=NanumGothic_Coding:h13
   " set guifont=Menlo:h18
 
   " set guifontwide=Hei:h16

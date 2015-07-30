@@ -264,6 +264,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'mbbill/fencview'
 
 NeoBundle 'junegunn/limelight.vim'
+let g:limelight_conceal_ctermfg = 240
 
 " NeoBundle 'idanarye/vim-vebugger'
 
@@ -294,8 +295,8 @@ let g:auto_save_silent = 1
 NeoBundle 'scrooloose/syntastic'
 let g:syntastic_mode_map = {
   \ 'mode':              'active',
-  \ 'active_filetypes':  ['ruby', 'javascript', 'json', 'xml', 'xslt', 'html', 'xhtml', 'sh', 'yaml'],
-  \ 'passive_filetypes': ['python', 'less'],
+  \ 'active_filetypes':  ['ruby', 'json', 'xml', 'xslt', 'html', 'xhtml', 'sh', 'yaml'],
+  \ 'passive_filetypes': ['python','javascript',  'less'],
   \ }
 let g:syntastic_javascript_checkers = ['eslint']
 
@@ -303,8 +304,8 @@ let g:syntastic_javascript_checkers = ['eslint']
 NeoBundleLazy 'klen/python-mode'
 let g:pymode_options           = 0
 let g:pymode_lint_signs        = 0
-" let g:pymode_lint_checkers     = ['pep8']
-let g:pymode_lint_checkers   = []
+let g:pymode_lint_checkers     = ['pep8']
+" let g:pymode_lint_checkers   = []
 let g:pymode_lint_options_pep8 = { 'max_line_length': 119 }
 let g:pymode_breakpoint_bind   = ''
 
@@ -645,7 +646,10 @@ NeoBundle 'Shougo/vimproc.vim', {
       \    },
       \ }
 "}}}
+
 NeoBundle 'Shougo/vimshell.vim'
+
+" Shougo/unite.vim {{{
 NeoBundle 'Shougo/unite.vim'
 let g:unite_winheight = 10
 let g:unite_source_rec_async_command = 'ag --follow --nocolor --nogroup --ignore --hidden -g ""'
@@ -698,7 +702,7 @@ let g:unite_source_grep_max_candidates = 200
 "   let g:unite_source_grep_recursive_opt = ''
 "   let g:unite_source_grep_encoding = 'utf-8'
 " endif
-
+"}}}
 
 "{{{ scala
 NeoBundleLazy 'derekwyatt/vim-scala'
@@ -852,6 +856,10 @@ autocmd BufRead,BufNewFile *.treetop     setfiletype treetop
 autocmd BufRead,BufNewFile *.coffee      setfiletype coffee
 autocmd BufRead,BufNewFile *.slim        setfiletype slim
 " }}}
+
+map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
 autocmd FileType ruby  UltiSnipsAddFiletypes ruby
 autocmd FileType eruby UltiSnipsAddFiletypes eruby.ruby
