@@ -277,6 +277,7 @@ NeoBundle 'zefei/vim-colortuner'
 
 NeoBundle 'haya14busa/incsearch.vim'
 autocmd VimEnter * :map /  <Plug>(incsearch-forward)
+autocmd VimEnter * :map ?  <Plug>(incsearch-backward)
 
 "{{{ latex
 " NeoBundleLazy 'http://git.code.sf.net/p/vim-latex/vim-latex',
@@ -749,24 +750,36 @@ let g:smalls_auto_jump_min_input_length = 1
 
 if !has('gui')
   let g:smalls_highlight = {
-  \ 'SmallsCandidate':  [['none',      'none', '33',   ], [ 'bold', '', '']],
-  \ 'SmallsJumpTarget': [['none',      'none', '160',  ], [ 'bold', '', '']],
-  \ 'SmallsCurrent':    [['reverse',   '3',    '160',  ], [ 'none', '', '']],
-  \ 'SmallsPos':        [['underline', '3',    '160',  ], [ 'bold', '', '']],
-  \ 'SmallsShade':      [['none',      'none', '241',  ], [ 'none', '', '']],
-  \ 'SmallsCli':        [['none',      'none', 'grey', ], [ 'none', '', '']],
-  \ 'SmallsCliCursor':  [['none',      'none', 'grey', ], [ 'none', '', '']],
+  \ 'SmallsCandidate':  [['none',      'none', '33'],  ['none', 'none', 'none']],
+  \ 'SmallsJumpTarget': [['none',      '241',  '11'],  ['none', 'none', 'none']],
+  \ 'SmallsCurrent':    [['reverse',   '3',    '160'], ['none', 'none', 'none']],
+  \ 'SmallsPos':        [['underline', '3',    '160'], ['none', 'none', 'none']],
+  \ 'SmallsShade':      [['none',      'none', '241'], ['none', 'none', 'none']],
   \ }
 endif
 " }}}
 
 " {{{ easymotion
-NeoBundle 'Lokaltog/vim-easymotion'
+NeoBundle 'easymotion/vim-easymotion'
+let g:EasyMotion_smartcase = 1
+
 " let g:EasyMotion_mapping_F = '<C-h>'
 " let g:EasyMotion_mapping_f = '<C-l>'
 let g:EasyMotion_mapping_j = '<C-l>'
 let g:EasyMotion_mapping_k = '<C-h>'
-let g:EasyMotion_keys = 'abcdefghijklmnopqrstuvwxyZABCDEFGHIJKLMNOPQRSTUVWXYz'
+let g:EasyMotion_keys = 'sdfjklhgawoeiqpnmvbcxAJKFDHGSL;z'
+
+" map  / <Plug>(easymotion-sn)
+" omap / <Plug>(easymotion-tn)
+" nmap s <Plug>(easymotion-s)
+" vmap s <Plug>(easymotion-s)
+" nmap t <Plug>(easymotion-t2)
+" nmap s <Plug>(easymotion-sn)
+
+" map <Leader>l <Plug>(easymotion-lineforward)
+" map <Leader>j <Plug>(easymotion-j)
+" map <Leader>k <Plug>(easymotion-k)
+" map <Leader>h <Plug>(easymotion-linebackward)
 " }}}
 
 NeoBundle 'aliva/vim-fish'
