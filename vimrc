@@ -297,7 +297,7 @@ NeoBundle 'scrooloose/syntastic'
 let g:syntastic_mode_map = {
   \ 'mode':              'active',
   \ 'active_filetypes':  ['ruby', 'json', 'xml', 'xslt', 'html', 'xhtml', 'sh', 'yaml'],
-  \ 'passive_filetypes': ['python','javascript',  'less'],
+  \ 'passive_filetypes': ['python','javascript',  'less', 'coffee'],
   \ }
 let g:syntastic_javascript_checkers = ['eslint']
 
@@ -451,6 +451,15 @@ let g:surround_custom_mapping.ruby = {
 "{{{ typescript
 NeoBundleLazy 'leafgarland/typescript-vim'
 
+NeoBundleLazy 'Quramy/tsuquyomi'
+let g:tsuquyomi_disable_quickfix = 1
+
+NeoBundle 'Quramy/vison'
+
+" autocmd BufRead,BufNewFile package.json Vison
+
+NeoBundle 'jason0x43/vim-js-indent'
+
 " clausreinke/typescript-tools {{{
 " NeoBundleLazy 'clausreinke/typescript-tools', {
 "       \ 'build' : {
@@ -463,6 +472,7 @@ NeoBundleLazy 'leafgarland/typescript-vim'
 "}}}
 
 autocmd FileType typescript NeoBundleSource typescript-vim
+autocmd FileType typescript NeoBundleSource tsuquyomi
 " autocmd FileType typescript NeoBundleSource typescript-tools
 "}}}
 
@@ -588,7 +598,7 @@ NeoBundleLazy 'mtscout6/vim-cjsx'
 
 autocmd FileType coffee NeoBundleSource vim-coffee-script
 autocmd FileType coffee NeoBundleSource vim-cjsx
-autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab foldmethod=indent nofoldenable
+autocmd FileType coffee setlocal shiftwidth=4 softtabstop=4 tabstop=8 expandtab foldmethod=indent nofoldenable
 "}}}
 
 " NeoBundle 'henrik/vim-qargs'
@@ -608,6 +618,14 @@ autocmd FileType clojure let b:delimitMate_matchpairs = "(:),[:],{:}"
 autocmd FileType ruby    let b:delimitMate_matchpairs = "(:),[:],{:}"
 autocmd FileType r       let b:delimitMate_matchpairs = "(:),[:],{:}"
 " }}}
+
+
+"{{{ jade
+NeoBundleLazy 'digitaltoad/vim-jade'
+
+autocmd FileType jade NeoBundleSource vim-jade
+autocmd FileType jade setlocal shiftwidth=4 softtabstop=4 tabstop=8
+"}}}
 
 "{{{ slim
 NeoBundleLazy 'slim-template/vim-slim'
@@ -650,7 +668,18 @@ NeoBundle 'Shougo/vimproc.vim', {
 
 NeoBundle 'Shougo/vimshell.vim'
 
+" junegunn/fzf {{{
+NeoBundle 'junegunn/fzf'
+" https://github.com/D630/fzf-contrib
+
+if !has('gui_macvim')
+  noremap <leader>f :FZF! --extended --no-mouse .<CR>
+endif
+" }}}
+
 " Shougo/unite.vim {{{
+NeoBundle 'majkinetor/unite-cmdmatch'
+
 NeoBundle 'Shougo/unite.vim'
 let g:unite_winheight = 10
 let g:unite_source_rec_async_command = 'ag --follow --nocolor --nogroup --ignore --hidden -g ""'
