@@ -92,10 +92,9 @@ call <SID>hi('Title',         s:yellow,   '',            s:_b)
 
 " call <SID>hi('Keyword',        s:string_fg,   '',            '')
 
-call <SID>hi('Operator',     s:blue_bright,   '',            '')
+call <SID>hi('Operator',     s:yellow,   '',            s:_n)
 
-call <SID>hi('Structure',     '#9E6CFF', '', s:_b)
-
+call <SID>hi('Structure',     '#9E6CFF', '', '')
 
 call <SID>hi('ColorColumn',   '',            s:cursor_line,  '')
 call <SID>hi('SignColumn',   s:cyan,         'grey25',  '')
@@ -132,13 +131,22 @@ call <SID>hi('FoldColumn', 'grey55', 'grey25', '')
 
 call <SID>hi('EasyMotionTarget',     'red', '', s:_b)
 
+" #!/bin/sh
+call <SID>hi('PreProc', '#bb4182', 'grey25', '')
+
+" Mod::Deffed, Classdeffed
+call <SID>hi('Type', '#ffe799', '', '')
+call <SID>hi('Special', '#f65020', '', '')
+" @@var,@var,|var|
+call <SID>hi('Identifier', '#e6a029', '', '')
+
+" TODO
+call <SID>hi('Todo', 'orangered', 'yellow3', 'bold')
 
 delfunction <SID>hi
+
 hi link lessCssAttribute Normal
 
-
-" #!/bin/sh
-hi PreProc              guifg=#bb4182 gui=bold guibg=grey25
 hi link pythonRun PreProc
 
 hi SpellErrors          guifg=#101010  guibg=#f44490
@@ -154,18 +162,12 @@ hi ShowMarksHLl guibg=grey25 guifg=#f65020 gui=bold
 hi ShowMarksHLu guibg=grey25 guifg=#f65020 gui=bold
 hi ShowMarksHLm guibg=grey25 guifg=#f65020 gui=bold
 
-hi Identifier guifg=#e6a029 gui=bold "@@var,@var,|var|
-hi Special    guifg=#f65020 gui=bold
-
-
-hi Type                 guifg=#ffe799   "Mod::Deffed, Classdeffed
-
 hi rubySymbol guifg=#63b5d4 ":aa
 hi rubyInterpolation    guifg=#9ce590 " "#{asdfasd}"
-hi rubyPseudoVariable   guifg=#f0f045 gui=bold   "self
-hi rubyConstant         guifg=#b1d3ff gui=bold      "SomeClass,SomeModule
+hi rubyPseudoVariable   guifg=#f0f045 " self
+hi rubyConstant         guifg=#b1d3ff " SomeClass,SomeModule
 
-hi Define               guifg=#7796ff gui=bold,italic   "module,class,def,end
+hi Define               guifg=#7796ff gui=italic   "module,class,def,end
 
 
 hi WarningMsg           guifg=White guibg=#f44490 gui=bold
@@ -182,18 +184,15 @@ hi Ignore    guifg=grey40
 
 hi Underlined gui=underline
 
-" TODO
-hi Todo guifg=orangered guibg=yellow3 gui=bold
-
 hi DiffAdd guibg=DarkBlue
 hi DiffChange guibg=DarkMagenta
-hi DiffDelete gui=bold guifg=Blue guibg=DarkCyan
-hi DiffText gui=bold guibg=Red
+hi DiffDelete guifg=Blue guibg=DarkCyan
+hi DiffText guibg=Red
 
 hi Question gui=bold guifg=Green
-hi VisualNOS gui=underline,bold
+hi VisualNOS gui=underline
 hi WildMenu guibg=Yellow guifg=Black
 
 " Clojure colors
 hi clojureKeyword guifg=#63b5fe gui=italic
-hi clojureCharacter guifg=#2aa198 gui=bold
+hi clojureCharacter guifg=#2aa198
