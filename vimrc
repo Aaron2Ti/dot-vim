@@ -699,7 +699,7 @@ noremap <leader>fb :Unite buffer         -start-insert                        <C
 noremap <leader>fl :Unite line           -start-insert                        <CR>
 noremap <leader>fk :Unite bookmark       -start-insert                        <CR>
 noremap <leader>fa :UniteWithInput grep -no-quit -keep-focus                  <CR>
-noremap <leader>b :UniteResume                                                <CR>
+noremap <leader>b  :UniteResume                                               <CR>
 
 let g:unite_source_grep_command = 'ag'
 let g:unite_source_grep_default_opts =
@@ -733,6 +733,14 @@ let g:unite_source_grep_max_candidates = 200
 "   let g:unite_source_grep_encoding = 'utf-8'
 " endif
 "}}}
+
+" bufexplorer {{{
+NeoBundle 'bufexplorer.zip'
+let g:bufExplorerShowRelativePath=1
+map <leader>bb :BufExplorer<CR>
+" }}}
+
+
 
 "{{{ scala
 NeoBundleLazy 'derekwyatt/vim-scala'
@@ -777,15 +785,13 @@ let g:smalls_auto_jump                  = 1
 let g:smalls_auto_jump_timeout          = 1
 let g:smalls_auto_jump_min_input_length = 1
 
-if !has('gui')
-  let g:smalls_highlight = {
-  \ 'SmallsCandidate':  [['none',      'none', '33'],  ['none', 'none', 'none']],
-  \ 'SmallsJumpTarget': [['none',      '241',  '11'],  ['none', 'none', 'none']],
-  \ 'SmallsCurrent':    [['reverse',   '3',    '160'], ['none', 'none', 'none']],
-  \ 'SmallsPos':        [['underline', '3',    '160'], ['none', 'none', 'none']],
-  \ 'SmallsShade':      [['none',      'none', '241'], ['none', 'none', 'none']],
+let g:smalls_highlight = {
+  \ 'SmallsCandidate':  [['NONE',      'NONE', '33'],  ['NONE', '#403d3d', '#66daef']],
+  \ 'SmallsCurrent':    [['reverse',   'NONE', '33'],  ['NONE', '#403d3d', '#66daef']],
+  \ 'SmallsJumpTarget': [['NONE',      '241',  '11'],  ['NONE', 'NONE',    '#f92573']],
+  \ 'SmallsPos':        [['underline', '3',    '160'], ['NONE', '#7efc00', '#000000']],
+  \ 'SmallsShade':      [['NONE',      'NONE', '241'], ['NONE', 'NONE',    '#777777']],
   \ }
-endif
 " }}}
 
 " {{{ easymotion

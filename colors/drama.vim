@@ -68,7 +68,8 @@ let s:magenta_bright = '#F294FB'
 let s:cyan           = '#1B9FA9'
 let s:cyan_bright    = '#94E2FF'
 let s:white          = '#C7C7C7'
-let s:white_bright   = '#FFFFFF'
+let s:white_bright   = '#FEFEFE'
+let s:purple         = '#9E6CFF'
 
 
 let s:string_fg   = '#de7e7e'
@@ -94,7 +95,7 @@ call <SID>hi('Title',         s:yellow,   '',            s:_b)
 
 call <SID>hi('Operator',     s:yellow,   '',            s:_n)
 
-call <SID>hi('Structure',     '#9E6CFF', '', '')
+call <SID>hi('Structure',     s:purple, '', '')
 
 call <SID>hi('ColorColumn',   '',            s:cursor_line,  '')
 call <SID>hi('SignColumn',   s:cyan,         'grey25',  '')
