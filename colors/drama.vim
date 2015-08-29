@@ -123,7 +123,7 @@ hi Search               guibg=#553910 guifg=#ff2b00 gui=none
 
 "    <SID>hi('Group',      gui_fg,   gui_bg,        gui)
 call <SID>hi('Pmenu',      '',       s:non_text_bg, '')
-call <SID>hi('PmenuSel',   'orange', s:black,       'bold')
+call <SID>hi('PmenuSel',   'orange', s:black,       '')
 call <SID>hi('PmenuThumb', '',       '',            '')
 
 "    <SID>hi('Group',      gui_fg,   gui_bg,   gui)

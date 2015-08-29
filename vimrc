@@ -156,7 +156,6 @@ set wildignore+=node_modules/*
 set wildignore+=.lein-deps-sum,.lein-repl-history,.lein-plugins,.lein-failures
 set wildignore+=.eunit,deps,*.o,*.beam,*.plt,erl_crash.dump
 set wildignore+=.keep
-
 " }}} wildignore
 
 " {{{ Core Maps
@@ -208,7 +207,8 @@ vnoremap k gk
 
 nmap <leader>w :w<CR>
 
-nmap <leader>g :Gblame<CR>
+nmap <leader>g  :Gblame<CR>
+nmap <leader>gg :Gstatus<CR>
 
 " Paste and select
 noremap <leader>p p'[v']$
@@ -654,7 +654,6 @@ NeoBundle 'sjbach/lusty'
 noremap <leader>fe :LustyFilesystemExplorerFromHere<CR>
 " }}}
 
-NeoBundle 'tsukkee/unite-tag'
 " Shougo/vimproc.vim {{{
 NeoBundle 'Shougo/vimproc.vim', {
       \ 'build' : {
@@ -669,16 +668,17 @@ NeoBundle 'Shougo/vimproc.vim', {
 NeoBundle 'Shougo/vimshell.vim'
 
 " junegunn/fzf {{{
-NeoBundle 'junegunn/fzf'
+" NeoBundle 'junegunn/fzf'
 " https://github.com/D630/fzf-contrib
 
-if !has('gui_macvim')
-  noremap <leader>f :FZF! --extended --no-mouse .<CR>
-endif
+" if !has('gui_macvim')
+"   noremap <leader>f :FZF! --extended --no-mouse .<CR>
+" endif
 " }}}
 
 " Shougo/unite.vim {{{
 NeoBundle 'majkinetor/unite-cmdmatch'
+NeoBundle 'tsukkee/unite-tag'
 
 NeoBundle 'Shougo/unite.vim'
 let g:unite_winheight = 10
@@ -691,14 +691,14 @@ let g:unite_marked_icon = '+'
 
 let g:unite_source_history_yank_enable = 1
 
-noremap <leader>fy :Unite history/yank  -start-insert                         <CR>
-noremap <leader>fh :Unite history/unite -start-insert                         <CR>
 noremap <leader>f  :Unite file_rec/async -start-insert                        <CR>
-noremap <leader>ff :Unite directory file file/new directory/new -start-insert <CR>
+noremap <leader>ff :Unite file file/new directory/new -start-insert           <CR>
 noremap <leader>fb :Unite buffer         -start-insert                        <CR>
 noremap <leader>fl :Unite line           -start-insert                        <CR>
 noremap <leader>fk :Unite bookmark       -start-insert                        <CR>
 noremap <leader>fa :UniteWithInput grep -no-quit -keep-focus                  <CR>
+noremap <leader>fy :Unite history/yank  -start-insert                         <CR>
+noremap <leader>fh :Unite history/unite -start-insert                         <CR>
 noremap <leader>b  :UniteResume                                               <CR>
 
 let g:unite_source_grep_command = 'ag'
