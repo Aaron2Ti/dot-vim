@@ -6,7 +6,7 @@ if has('gui_macvim')
   " set guifont=Courier:h16
   " set guifont=Monaco:h16
   " set guifont=DejaVu\ Sans\ Mono:h14
-  set guifont=Monoid\ HalfTight:h18
+  set guifont=Monoid\ HalfTight:h14
   " set guifont=NanumGothic_Coding:h13
   " set guifont=Menlo:h18
 
@@ -14,7 +14,7 @@ if has('gui_macvim')
 
   set formatprg=par\ -w70p0s0r
 
-  set guicursor=a:blinkwait700-blinkon800-blinkoff500
+  set guicursor=a:blinkwait900-blinkon1200-blinkoff800
 
   set antialias
 

@@ -45,6 +45,7 @@ let s:LightCyan    = '14'
 let s:White        = '15'
 
 let s:CursorLineBG = s:Grey1
+let s:CommentFG = s:Grey14
 
 let s:Golden = '208'
 let s:NormalFG = '187'
@@ -85,14 +86,13 @@ call <SID>hi('ErrorMsg', '196', s:Black, 'bold')
 
 call <SID>hi('Folded',     s:Grey11, s:Grey6,        'none')
 call <SID>hi('FoldColumn', s:Grey9,  s:CursorLineBG, 'none')
-
+call <SID>hi('MatchParen', '',  '239', 'none')
 
 " call <SID>hi("Exception",     s:gui08, "", s:cterm08, "", "")
 " call <SID>hi("FoldColumn",    "", s:gui01, "", s:cterm01, "")
 " call <SID>hi("Folded",        s:gui03, s:gui01, s:cterm03, s:cterm01, "")
 " call <SID>hi("Italic",        "", "", "", "", "italic")
 " call <SID>hi("Macro",         s:gui08, "", s:cterm08, "", "")
-" call <SID>hi("MatchParen",    s:gui03, s:gui00, s:cterm03, s:cterm00,  "reverse")
 " call <SID>hi("ModeMsg",       s:gui0B, "", s:cterm0B, "", "")
 " call <SID>hi("MoreMsg",       s:gui0B, "", s:cterm0B, "", "")
 " call <SID>hi("Question",      s:gui0A, "", s:cterm0A, "", "")
@@ -163,7 +163,8 @@ call <SID>hi('Boolean', s:Golden, '', '')
 
 call <SID>hi('SpecialKey', s:Grey9, '', '')
 
-call <SID>hi('Comment', s:Grey9, '', 'italic')
+" call <SID>hi('Comment', s:Grey9, '', 'italic')
+call <SID>hi('Comment', s:CommentFG, '', '')
 call <SID>hi('String', s:LightRed, '', '')
 " call <SID>hi("String",       s:gui0B, "", s:cterm0B, "", "")
 
