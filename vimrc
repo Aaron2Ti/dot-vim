@@ -681,16 +681,26 @@ NeoBundle 'Shougo/vimshell.vim'
 NeoBundle 'majkinetor/unite-cmdmatch'
 NeoBundle 'tsukkee/unite-tag'
 
-NeoBundle 'Shougo/unite.vim'
-let g:unite_winheight = 10
 let g:unite_source_rec_async_command = 'ag --follow --nocolor --nogroup --ignore --hidden -g ""'
+let g:unite_winheight = 10
 
 let g:unite_prompt='» '
 let g:unite_candidate_icon = '-'
 let g:unite_cursor_line_highlight = 'InsertCursor'
 let g:unite_marked_icon = '+'
-
 let g:unite_source_history_yank_enable = 1
+
+let g:unite_source_grep_command = 'ag'
+let g:unite_source_grep_default_opts =
+\ '--line-numbers --nocolor --nogroup --hidden --ignore ''.hg'' ' .
+\  '--ignore ''.svn'' --ignore ''.git'' --ignore ''.bzr'''
+let g:unite_source_grep_recursive_opt = ''
+
+let g:unite_source_grep_encoding = 'utf-8'
+let g:unite_source_grep_max_candidates = 200
+
+NeoBundle 'Shougo/unite.vim'
+
 
 noremap <leader>f  :Unite file_rec/async -start-insert                        <CR>
 noremap <leader>ff :Unite file file/new directory/new -start-insert           <CR>
@@ -701,15 +711,6 @@ noremap <leader>fa :UniteWithInput grep -no-quit -keep-focus                  <C
 noremap <leader>fy :Unite history/yank  -start-insert                         <CR>
 noremap <leader>fh :Unite history/unite -start-insert                         <CR>
 noremap <leader>b  :UniteResume                                               <CR>
-
-let g:unite_source_grep_command = 'ag'
-let g:unite_source_grep_default_opts =
-\ '--line-numbers --nocolor --nogroup --hidden --ignore ''.hg'' ' .
-\  '--ignore ''.svn'' --ignore ''.git'' --ignore ''.bzr'''
-let g:unite_source_grep_recursive_opt = ''
-
-let g:unite_source_grep_encoding = 'utf-8'
-let g:unite_source_grep_max_candidates = 200
 
 " if executable('ag')
 "   " Use ag in unite grep source.
