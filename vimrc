@@ -617,6 +617,7 @@ autocmd FileType clojure let b:delimitMate_quotes = "\""
 autocmd FileType clojure let b:delimitMate_matchpairs = "(:),[:],{:}"
 autocmd FileType ruby    let b:delimitMate_matchpairs = "(:),[:],{:}"
 autocmd FileType r       let b:delimitMate_matchpairs = "(:),[:],{:}"
+autocmd FileType haskell let b:delimitMate_matchpairs = "(:),[:],{:}"
 " }}}
 
 
@@ -788,7 +789,7 @@ let g:smalls_auto_jump_min_input_length = 1
 let g:smalls_highlight = {
   \ 'SmallsCandidate':  [['NONE',      'NONE', '33'],  ['NONE', '#403d3d', '#66daef']],
   \ 'SmallsCurrent':    [['reverse',   'NONE', '33'],  ['NONE', '#403d3d', '#66daef']],
-  \ 'SmallsJumpTarget': [['NONE',      '241',  '11'],  ['NONE', 'NONE',    '#f92573']],
+  \ 'SmallsJumpTarget': [['NONE',      'NONE',  '1'],  ['NONE', 'NONE',    '#f92573']],
   \ 'SmallsPos':        [['underline', '3',    '160'], ['NONE', '#7efc00', '#000000']],
   \ 'SmallsShade':      [['NONE',      'NONE', '241'], ['NONE', 'NONE',    '#777777']],
   \ }
