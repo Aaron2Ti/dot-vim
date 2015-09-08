@@ -681,6 +681,15 @@ NeoBundle 'Shougo/vimshell.vim'
 NeoBundle 'majkinetor/unite-cmdmatch'
 NeoBundle 'tsukkee/unite-tag'
 
+NeoBundle 'Shougo/vimfiler.vim'
+let g:vimfiler_enable_clipboard = 0
+let g:vimfiler_tree_leaf_icon = ' '
+let g:vimfiler_tree_opened_icon = '▾'
+let g:vimfiler_tree_closed_icon = '▸'
+let g:vimfiler_file_icon = ' '
+let g:vimfiler_readonly_file_icon = '✗'
+let g:vimfiler_marked_file_icon = '✓'
+
 let g:unite_source_rec_async_command = 'ag --follow --nocolor --nogroup --ignore --hidden -g ""'
 let g:unite_winheight = 10
 
@@ -704,6 +713,7 @@ NeoBundle 'Shougo/unite.vim'
 
 noremap <leader>f  :Unite file_rec/async -start-insert                        <CR>
 noremap <leader>ff :Unite file file/new directory/new -start-insert           <CR>
+noremap <leader>fd :VimFiler                                                  <CR>
 noremap <leader>fb :Unite buffer         -start-insert                        <CR>
 noremap <leader>fl :Unite line           -start-insert                        <CR>
 noremap <leader>fk :Unite bookmark       -start-insert                        <CR>
@@ -882,12 +892,20 @@ filetype plugin indent on
 
 call neobundle#end()
 
+" Start configurations
+
 call unite#custom#profile('default', 'context', {
 \   'start_insert': 0,
 \   'winheight':    10,
 \   'direction':    'botright',
 \ })
 call unite#filters#sorter_default#use('sorter_rank')
+call unite#custom#default_action('directory', 'narrow')
+
+call vimfiler#custom#profile('default', 'context', {
+\ 'safe' : 1,
+\ })
+
 
 " call unite#custom#profile('grep', 'context', {
 " \   'no-quit' : 1,
