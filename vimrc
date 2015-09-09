@@ -690,7 +690,6 @@ let g:vimfiler_file_icon = ' '
 let g:vimfiler_readonly_file_icon = '✗'
 let g:vimfiler_marked_file_icon = '✓'
 
-let g:unite_source_rec_async_command = 'ag --follow --nocolor --nogroup --ignore --hidden -g ""'
 let g:unite_winheight = 10
 
 let g:unite_prompt='» '
@@ -698,6 +697,7 @@ let g:unite_candidate_icon = '-'
 let g:unite_cursor_line_highlight = 'InsertCursor'
 let g:unite_marked_icon = '+'
 let g:unite_source_history_yank_enable = 1
+let g:unite_source_rec_async_command = ['ag', '--follow', '--nocolor', '--nogroup', '--hidden', '-g', '']
 
 let g:unite_source_grep_command = 'ag'
 let g:unite_source_grep_default_opts =
