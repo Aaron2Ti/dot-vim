@@ -303,6 +303,7 @@ let g:syntastic_javascript_checkers = ['eslint']
 
 "{{{ Python
 NeoBundleLazy 'klen/python-mode'
+let g:pymode_rope              = 0
 let g:pymode_options           = 0
 let g:pymode_lint_signs        = 0
 let g:pymode_lint_checkers     = ['pep8']
@@ -510,15 +511,16 @@ NeoBundle 'pbrisbin/vim-syntax-shakespeare'
 
 NeoBundle 'travitch/hasksyn'
 
-NeoBundleLazy 'eagletmt/ghcmod-vim'
-NeoBundleLazy 'eagletmt/neco-ghc'
+" NeoBundleLazy 'eagletmt/ghcmod-vim'
+" NeoBundleLazy 'eagletmt/neco-ghc'
 
 NeoBundleLazy 'Twinside/vim-haskellFold'
 
-autocmd FileType haskell setlocal shiftwidth=4 softtabstop=4 tabstop=8 omnifunc=necoghc#omnifunc
+autocmd FileType haskell setlocal shiftwidth=4 softtabstop=4 tabstop=8
+" autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
 
-autocmd FileType haskell NeoBundleSource ghcmod-vim
-autocmd FileType haskell NeoBundleSource neco-ghc
+" autocmd FileType haskell NeoBundleSource ghcmod-vim
+" autocmd FileType haskell NeoBundleSource neco-ghc
 autocmd FileType haskell NeoBundleSource vim-haskellFold
 "}}}
 
@@ -618,6 +620,7 @@ autocmd FileType clojure let b:delimitMate_matchpairs = "(:),[:],{:}"
 autocmd FileType ruby    let b:delimitMate_matchpairs = "(:),[:],{:}"
 autocmd FileType r       let b:delimitMate_matchpairs = "(:),[:],{:}"
 autocmd FileType haskell let b:delimitMate_matchpairs = "(:),[:],{:}"
+autocmd FileType python  let b:delimitMate_matchpairs = "(:),[:],{:}"
 " }}}
 
 
