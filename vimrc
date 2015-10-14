@@ -257,6 +257,98 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " A collection of language packs for Vim
 " https://github.com/sheerun/vim-polyglot
 
+set laststatus=2
+NeoBundle 'itchyny/lightline.vim'
+
+let g:lightline = {
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ], ['filename' ]],
+      \   'right': [ [ 'lineinfo' ], ['percent'], [ 'fileformat', 'fileencoding', 'filetype' ] ]
+      \ },
+      \ 'component_function': {
+      \   'filename': 'LightLineFilename',
+      \   'fileformat': 'LightLineFileformat',
+      \   'filetype': 'LightLineFiletype',
+      \   'fileencoding': 'LightLineFileencoding',
+      \   'mode': 'LightLineMode',
+      \ },
+      \ 'component_expand': {
+      \   'syntastic': 'SyntasticStatuslineFlag',
+      \ },
+      \ 'component_type': {
+      \   'syntastic': 'error',
+      \ },
+      \ 'subseparator': { 'left': '|', 'right': '|' }
+      \ }
+
+let g:lightline.mode_map = {
+    \ 'n':      ' NORMAL',
+    \ 'i':      ' INSERT',
+    \ 'R':      'REPLACE',
+    \ 'v':      ' VISUAL',
+    \ 'V':      ' V-LINE',
+    \ 'c':      'COMMAND',
+    \ "\<C-v>": 'V-BLOCK',
+    \ 's':      ' SELECT',
+    \ 'S':      ' S-LINE',
+    \ "\<C-s>": 'S-BLOCK',
+    \ '?':      '       ' }
+
+function! LightLineModified()
+  return &ft =~ 'help' ? '' : &modified ? '+' : &modifiable ? '' : '-'
+endfunction
+
+function! LightLineReadonly()
+  return &ft !~? 'help' && &readonly ? 'RO' : ''
+endfunction
+
+function! LightLineFilename()
+  let fname = expand('%:t')
+  return  &ft == 'vimfiler' ? vimfiler#get_status_string() :
+        \ &ft == 'unite' ? unite#get_status_string() :
+        \ &ft == 'vimshell' ? vimshell#get_status_string() :
+        \ ('' != LightLineReadonly() ? LightLineReadonly() . ' ' : '') .
+        \ ('' != fname ? fname : '[No Name]') .
+        \ ('' != LightLineModified() ? ' ' . LightLineModified() : '')
+endfunction
+
+function! LightLineFileformat()
+  return winwidth(0) > 70 ? &fileformat : ''
+endfunction
+
+function! LightLineFiletype()
+  return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype : 'no ft') : ''
+endfunction
+
+function! LightLineFileencoding()
+  return winwidth(0) > 70 ? (strlen(&fenc) ? &fenc : &enc) : ''
+endfunction
+
+function! LightLineMode()
+  let fname = expand('%:t')
+  return  &ft == 'unite' ? 'Unite' :
+        \ &ft == 'vimfiler' ? 'VimFiler' :
+        \ &ft == 'vimshell' ? 'VimShell' :
+        \ winwidth(0) > 60 ? lightline#mode() : ''
+endfunction
+
+let g:unite_force_overwrite_statusline = 0
+let g:vimfiler_force_overwrite_statusline = 0
+let g:vimshell_force_overwrite_statusline = 0
+
+
+" NeoBundle 'bling/vim-airline'
+" let g:airline_powerline_fonts = 1
+" let g:lightline = {
+"       \ 'colorscheme': 'wombat',
+"       \ 'component': {
+"       \   'readonly': '%{&readonly?"⭤":""}',
+"       \ },
+"       \ 'separator': { 'left': '⮀', 'right': '⮂' },
+"       \ 'subseparator': { 'left': '⮁', 'right': '⮃' }
+"       \ }
+
+
 
 " Auto detect CJK and Unicode file encodings
 " Install https://github.com/adah1972/tellenc
