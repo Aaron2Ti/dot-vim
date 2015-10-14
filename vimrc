@@ -612,16 +612,16 @@ NeoBundle 'pbrisbin/vim-syntax-shakespeare'
 
 NeoBundle 'travitch/hasksyn'
 
-" NeoBundleLazy 'eagletmt/ghcmod-vim'
-" NeoBundleLazy 'eagletmt/neco-ghc'
+NeoBundleLazy 'eagletmt/ghcmod-vim'
+NeoBundleLazy 'eagletmt/neco-ghc'
 
 NeoBundleLazy 'Twinside/vim-haskellFold'
 
 autocmd FileType haskell setlocal shiftwidth=4 softtabstop=4 tabstop=8
-" autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
+autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
 
-" autocmd FileType haskell NeoBundleSource ghcmod-vim
-" autocmd FileType haskell NeoBundleSource neco-ghc
+autocmd FileType haskell NeoBundleSource ghcmod-vim
+autocmd FileType haskell NeoBundleSource neco-ghc
 autocmd FileType haskell NeoBundleSource vim-haskellFold
 "}}}
 
@@ -701,7 +701,7 @@ NeoBundleLazy 'mtscout6/vim-cjsx'
 
 autocmd FileType coffee NeoBundleSource vim-coffee-script
 autocmd FileType coffee NeoBundleSource vim-cjsx
-autocmd FileType coffee setlocal shiftwidth=4 softtabstop=4 tabstop=8 expandtab foldmethod=indent nofoldenable
+autocmd FileType coffee setlocal shiftwidth=4 softtabstop=4 tabstop=8 expandtab foldmethod=indent foldlevel=1
 "}}}
 
 " NeoBundle 'henrik/vim-qargs'
