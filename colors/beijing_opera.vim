@@ -245,7 +245,7 @@ call <SID>hi('IndentGuidesOdd', '', '', '')
 " call <SID>hi("rubyRegexp",                  s:gui0C, "", s:cterm0C, "", "")
 call <SID>hi('rubySymbol',                 '32',          '', '')
 call <SID>hi('rubyConstant',               s:LightYellow, '', 'bold')
-call <SID>hi('rubyInterpolationDelimiter', '202',         '', 'bold')
+call <SID>hi('rubyInterpolationDelimiter', '177',         '', 'bold')
 call <SID>hi('rubyStringDelimiter',        '205',         '', 'bold')
 call <SID>hi('rubyPseudoVariable',         s:Golden,         '', 'bold')
 

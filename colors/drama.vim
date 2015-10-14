@@ -93,9 +93,9 @@ call <SID>hi('Title',         s:yellow,   '',            s:_b)
 
 " call <SID>hi('Keyword',        s:string_fg,   '',            '')
 
-call <SID>hi('Operator',     s:yellow,   '',            s:_n)
+call <SID>hi('Operator',     s:purple,   '',            s:_n)
 
-call <SID>hi('Structure',     s:purple, '', '')
+call <SID>hi('Structure',     s:cyan_bright, '', '')
 
 call <SID>hi('ColorColumn',   '',            s:cursor_line,  '')
 call <SID>hi('SignColumn',   s:cyan,         'grey25',  '')
