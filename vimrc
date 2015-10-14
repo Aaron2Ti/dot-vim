@@ -394,7 +394,7 @@ let g:syntastic_mode_map = {
 let g:syntastic_javascript_checkers = ['eslint']
 
 "{{{ Python
-NeoBundleLazy 'klen/python-mode'
+NeoBundle 'klen/python-mode'
 let g:pymode_rope              = 0
 let g:pymode_options           = 0
 let g:pymode_lint_signs        = 0
@@ -413,8 +413,6 @@ autocmd FileType python setlocal commentstring=#%s
 autocmd FileType python setlocal define=^\s*\\(def\\\\|class\\)
 autocmd FileType python setlocal complete+=t
 autocmd FileType python setlocal formatoptions-=t
-
-autocmd FileType python NeoBundleSource python-mode
 "}}}
 
 "{{{ ultisnips, YouCompleteMe etc
