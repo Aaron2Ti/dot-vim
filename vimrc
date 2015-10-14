@@ -389,7 +389,7 @@ NeoBundle 'scrooloose/syntastic'
 let g:syntastic_mode_map = {
   \ 'mode':              'active',
   \ 'active_filetypes':  ['ruby', 'json', 'xml', 'xslt', 'html', 'xhtml', 'sh', 'yaml'],
-  \ 'passive_filetypes': ['python','javascript',  'less', 'coffee'],
+  \ 'passive_filetypes': ['python','javascript',  'less', 'coffee', 'haskell', 'typescript', 'json'],
   \ }
 let g:syntastic_javascript_checkers = ['eslint']
 
