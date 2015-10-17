@@ -817,6 +817,7 @@ NeoBundle 'Shougo/unite.vim'
 
 noremap <leader>f  :Unite file_rec/async -start-insert                        <CR>
 noremap <leader>ff :Unite file file/new directory/new -start-insert           <CR>
+noremap <leader>ft :Unite tag -start-insert                                   <CR>
 noremap <leader>fd :VimFiler                                                  <CR>
 noremap <leader>fb :Unite buffer         -start-insert                        <CR>
 noremap <leader>fl :Unite line           -start-insert                        <CR>
@@ -1033,10 +1034,11 @@ map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans
 \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
 \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
-autocmd FileType ruby  UltiSnipsAddFiletypes ruby
-autocmd FileType eruby UltiSnipsAddFiletypes eruby.ruby
-autocmd FileType haml  UltiSnipsAddFiletypes haml.ruby
-autocmd FileType slim  UltiSnipsAddFiletypes slim.ruby
+autocmd FileType ruby   UltiSnipsAddFiletypes ruby
+autocmd FileType eruby  UltiSnipsAddFiletypes eruby.ruby
+autocmd FileType haml   UltiSnipsAddFiletypes haml.ruby
+autocmd FileType slim   UltiSnipsAddFiletypes slim.ruby
+autocmd FileType python UltiSnipsAddFiletypes python
 
 " {{{
 " vim: foldmethod=marker
