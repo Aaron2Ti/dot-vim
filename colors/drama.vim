@@ -75,8 +75,8 @@ let s:purple         = '#9E6CFF'
 let s:string_fg   = '#de7e7e'
 let s:comment_fg  = 'grey55'
 let s:cursor_line = '#0F0F0F'
-let s:error_bg    = '#f44490'
-let s:error_fg    = 'white'
+let s:error_bg    = '#B44480'
+let s:error_fg    = '#EFEFEF'
 let s:non_text_fg = 'grey35'
 let s:non_text_bg = 'grey15'
 
@@ -109,7 +109,8 @@ call <SID>hi('CursorLineNr',  s:cursor_line, s:cursor_line, '')
 call <SID>hi('LineNr',        s:comment_fg,  s:cursor_line, s:_b_i)
 call <SID>hi('Comment',       s:comment_fg,  '',            s:_i)
 call <SID>hi('Error',         s:error_fg,    s:error_bg,    s:_b)
-call <SID>hi('ErrorMsg',      s:error_fg,    s:error_bg,    s:_b)
+call <SID>hi('ErrorMsg',      s:error_fg,    s:error_bg,    s:_i)
+call <SID>hi('WarningMsg',    s:error_fg,    '#4481b4',     s:_i)
 call <SID>hi('NonText',       s:non_text_fg, s:non_text_bg, '')
 
 call <SID>hi('Directory',    s:cyan, '', '')
@@ -142,7 +143,7 @@ call <SID>hi('Special', '#f65020', '', '')
 call <SID>hi('Identifier', '#e6a029', '', '')
 
 " TODO
-call <SID>hi('Todo', 'orangered', 'yellow3', 'bold')
+call <SID>hi('Todo', 'orangered', 'yellow3', s:_b)
 
 delfunction <SID>hi
 
@@ -170,8 +171,6 @@ hi rubyConstant         guifg=#b1d3ff " SomeClass,SomeModule
 
 hi Define               guifg=#7796ff gui=italic   "module,class,def,end
 
-
-hi WarningMsg           guifg=White guibg=#f44490 gui=bold
 
 hi VertSplit            gui=reverse guibg=#c2bfa5 guifg=grey30
 
