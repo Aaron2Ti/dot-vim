@@ -165,6 +165,7 @@ call <SID>hi('SpecialKey', s:Grey9, '', '')
 
 " call <SID>hi('Comment', s:Grey9, '', 'italic')
 call <SID>hi('Comment', s:CommentFG, '', '')
+call <SID>hi('VertSplit', s:Grey7, s:Grey7, 'none')
 call <SID>hi('String', s:LightRed, '', '')
 " call <SID>hi("String",       s:gui0B, "", s:cterm0B, "", "")
 
