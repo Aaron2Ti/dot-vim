@@ -762,6 +762,7 @@ autocmd FileType clojure NeoBundleSource vim-typedclojure
 NeoBundle 'sjbach/lusty'
 
 noremap <leader>fe :LustyFilesystemExplorerFromHere<CR>
+let g:LustyJugglerSuppressRubyWarning = 1
 " }}}
 
 " Shougo/vimproc.vim {{{
