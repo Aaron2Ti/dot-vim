@@ -511,6 +511,8 @@ autocmd FileType liquid NeoBundleSource vim-liquid
 NeoBundleLazy 'tpope/vim-haml'
 
 autocmd FileType haml NeoBundleSource vim-haml
+autocmd FileType sass NeoBundleSource vim-haml
+autocmd FileType scss NeoBundleSource vim-haml
 "}}}
 
 NeoBundle 'tpope/vim-repeat'
@@ -519,10 +521,13 @@ NeoBundle 'tpope/vim-unimpaired'
 NeoBundle 'tpope/vim-abolish'
 NeoBundle 'tpope/vim-rsi'
 NeoBundle 'tpope/vim-eunuch'
-NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-projectionist'
 NeoBundle 'tpope/vim-dispatch'
 NeoBundle 'tpope/vim-commentary'
+
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'jreybert/vimagit'
+let g:magit_show_help = 0
 
 " {{{ surround
 NeoBundle 'tpope/vim-surround'
@@ -819,6 +824,7 @@ noremap <leader>f  :Unite file_rec/async -start-insert                        <C
 noremap <leader>ff :Unite file file/new directory/new -start-insert           <CR>
 noremap <leader>ft :Unite tag -start-insert                                   <CR>
 noremap <leader>fd :VimFiler                                                  <CR>
+noremap <leader>fc :VimFilerCurrentDir                                        <CR>
 noremap <leader>fb :Unite buffer         -start-insert                        <CR>
 noremap <leader>fl :Unite line           -start-insert                        <CR>
 noremap <leader>fk :Unite bookmark       -start-insert                        <CR>
