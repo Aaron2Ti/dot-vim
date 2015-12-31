@@ -510,11 +510,9 @@ autocmd FileType liquid NeoBundleSource vim-liquid
 "}}}
 
 "{{{ haml
-NeoBundleLazy 'tpope/vim-haml'
+NeoBundle 'tpope/vim-haml'
 
-autocmd FileType haml NeoBundleSource vim-haml
-autocmd FileType sass NeoBundleSource vim-haml
-autocmd FileType scss NeoBundleSource vim-haml
+autocmd FileType sass setlocal shiftwidth=4 softtabstop=4 tabstop=8 expandtab foldmethod=indent foldlevel=1
 "}}}
 
 NeoBundle 'tpope/vim-repeat'
