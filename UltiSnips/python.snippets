@@ -7,6 +7,14 @@ def ${1:function_name}(${2:*args}):
     $0
 endsnippet
 
-snippet d "debugger" !
+snippet di "ipdb" !
+import ipdb; ipdb.set_trace()
+endsnippet
+
+snippet d "pudb" !
 import pudb; pudb.set_trace()
+endsnippet
+
+snippet bp "bpython.embed" !
+import bpython; bpython.embed(locals())
 endsnippet
