@@ -388,22 +388,24 @@ let g:auto_save_silent = 1
 NeoBundle 'scrooloose/syntastic'
 let g:syntastic_mode_map = {
   \ 'mode':              'active',
-  \ 'active_filetypes':  ['ruby', 'json', 'xml', 'xslt', 'html', 'xhtml', 'sh', 'yaml'],
-  \ 'passive_filetypes': ['python','javascript',  'less', 'coffee', 'haskell', 'typescript', 'json'],
+  \ 'active_filetypes':  ['python', 'ruby', 'json', 'xml', 'xslt', 'html', 'xhtml', 'sh', 'yaml'],
+  \ 'passive_filetypes': ['javascript',  'less', 'coffee', 'haskell', 'typescript', 'json'],
   \ }
 let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_python_pylint_quiet_messages = { 'level': 'warnings', 'type': 'style', 'regex': 'F0401' }
 
 "{{{ Python
 NeoBundle 'klen/python-mode'
 let g:pymode_rope              = 0
 let g:pymode_options           = 0
 let g:pymode_lint_signs        = 0
-let g:pymode_lint_checkers     = ['pep8']
-" let g:pymode_lint_checkers   = []
+let g:pymode_lint_write        = 0
+" let g:pymode_lint_checkers     = ['pep8']
+let g:pymode_lint_checkers     = []
 let g:pymode_lint_options_pep8 = { 'max_line_length': 119 }
 let g:pymode_breakpoint_bind   = ''
 
-" let g:pymode_lint_ignore       = 'E302'
+let g:pymode_lint_ignore       = 'E702'
 
 let g:pymode_rope_complete_on_dot = 0
 let g:pymode_rope_goto_definition_cmd = 'e'
