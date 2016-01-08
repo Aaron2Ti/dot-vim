@@ -97,7 +97,7 @@ call <SID>hi('MatchParen', '',  '239', 'none')
 " call <SID>hi("MoreMsg",       s:gui0B, "", s:cterm0B, "", "")
 " call <SID>hi("Question",      s:gui0A, "", s:cterm0A, "", "")
 " call <SID>hi("Search",        s:gui0A, s:gui01, s:cterm0A, s:cterm01,  "reverse")
-call <SID>hi('Search',           '160', s:Yellow, '')
+call <SID>hi('Search',           '160', 228, 'bold')
 call <SID>hi('IncSearch',        '160', s:Yellow, 'reverse')
 
 " call <SID>hi("SpecialKey",    s:gui03, "", s:cterm03, "", "")
