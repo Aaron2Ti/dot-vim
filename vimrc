@@ -395,7 +395,7 @@ let g:syntastic_mode_map = {
   \ 'passive_filetypes': ['javascript',  'less', 'coffee', 'haskell', 'typescript', 'json'],
   \ }
 let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_python_pylint_quiet_messages = { 'level': 'warnings', 'type': 'style', 'regex': 'F0401' }
+let g:syntastic_python_pylint_quiet_messages = { 'level': 'warnings', 'type': 'style', 'regex': 'F0401\|E0611' }
 
 "{{{ Python
 NeoBundle 'klen/python-mode'
