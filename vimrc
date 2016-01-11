@@ -257,7 +257,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " A collection of language packs for Vim
 " https://github.com/sheerun/vim-polyglot
 
-NeoBundle 'ConradIrwin/vim-bracketed-paste'
+" NeoBundle 'ConradIrwin/vim-bracketed-paste'
 NeoBundle 'AndrewRadev/splitjoin.vim'
 
 set laststatus=2
