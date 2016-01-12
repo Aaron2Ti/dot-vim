@@ -383,10 +383,10 @@ autocmd FileType tex,latex,plaintex NeoBundleSource LaTeX-Box
 " autocmd FileType tex,latex,plaintex NeoBundleSource vim-latex-suite
 "}}}
 
-NeoBundle '907th/vim-auto-save'
-let g:auto_save_in_insert_mode = 0
-let g:auto_save_no_updatetime = 1
-let g:auto_save_silent = 1
+" NeoBundle '907th/vim-auto-save'
+" let g:auto_save_in_insert_mode = 0
+" let g:auto_save_no_updatetime = 1
+" let g:auto_save_silent = 1
 
 NeoBundle 'scrooloose/syntastic'
 let g:syntastic_mode_map = {
