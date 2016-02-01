@@ -244,8 +244,6 @@ noremap <leader>bd :bufdo bd<CR>
 
 " }}}
 
-" plugins {{{
-
 if has('vim_starting')
   set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
@@ -254,12 +252,14 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 
 NeoBundleFetch 'Shougo/neobundle.vim'
 
+" plugins {{{
 " A collection of language packs for Vim
 " https://github.com/sheerun/vim-polyglot
 
 " NeoBundle 'ConradIrwin/vim-bracketed-paste'
 NeoBundle 'AndrewRadev/splitjoin.vim'
 
+" {{{ lightline & laststatus
 set laststatus=2
 NeoBundle 'itchyny/lightline.vim'
 
@@ -338,28 +338,28 @@ endfunction
 let g:unite_force_overwrite_statusline = 0
 let g:vimfiler_force_overwrite_statusline = 0
 let g:vimshell_force_overwrite_statusline = 0
-
-
-" NeoBundle 'bling/vim-airline'
-" let g:airline_powerline_fonts = 1
-" let g:lightline = {
-"       \ 'colorscheme': 'wombat',
-"       \ 'component': {
-"       \   'readonly': '%{&readonly?"⭤":""}',
-"       \ },
-"       \ 'separator': { 'left': '⮀', 'right': '⮂' },
-"       \ 'subseparator': { 'left': '⮁', 'right': '⮃' }
-"       \ }
-
-
+" }}}
 
 " Auto detect CJK and Unicode file encodings
 " Install https://github.com/adah1972/tellenc
 " FencView
 NeoBundle 'mbbill/fencview'
 
-NeoBundle 'junegunn/limelight.vim'
-let g:limelight_conceal_ctermfg = 240
+" NeoBundle 'rstacruz/sparkup'
+NeoBundle 'mattn/emmet-vim'
+let g:user_emmet_settings = {
+\    'html' : {
+\        'quote_char': "'",
+\    },
+\    'coffee': {
+\        'extends': 'html',
+\        'attribute_name': {'class': 'className'},
+\        'empty_element_suffix': ' />',
+\        'indentation' : '    '
+\    },
+\}
+
+NeoBundle 'othree/html5.vim'
 
 " NeoBundle 'idanarye/vim-vebugger'
 
@@ -972,6 +972,16 @@ let g:SignatureMarkTextHL  = "'Operator'"
 " }}}
 
 NeoBundle 'junegunn/vim-emoji'
+NeoBundle 'junegunn/goyo.vim'
+let g:goyo_width = 50
+" NeoBundle 'amix/vim-zenroom2'
+NeoBundle 'junegunn/limelight.vim'
+let g:limelight_conceal_ctermfg = 240
+let g:limelight_conceal_guifg = '#777777'
+" let g:limelight_conceal_guifg = 'DarkGray'
+let g:limelight_default_coefficient = 0.6
+
+
 
 " {{{ vim-easy-align
 NeoBundle 'junegunn/vim-easy-align'
