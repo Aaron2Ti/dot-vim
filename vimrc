@@ -983,6 +983,9 @@ let g:limelight_default_coefficient = 0.6
 command! WritingOnly Goyo | Limelight
 
 
+NeoBundleLazy 'rhysd/vim-crystal'
+autocmd FileType crystal NeoBundleSource vim-crystal
+
 
 " {{{ vim-easy-align
 NeoBundle 'junegunn/vim-easy-align'
