@@ -483,7 +483,6 @@ if has('python')
   let g:ycm_filetype_specific_completion_to_disable = {
       \ 'ruby':       1,
       \ 'javascript': 1,
-      \ 'typescript': 1,
       \}
 
   let g:ycm_filetype_blacklist = {
@@ -567,14 +566,8 @@ let g:surround_custom_mapping.ruby = {
 autocmd BufNewFile,BufRead *.tsx setfiletype typescript
 NeoBundleLazy 'leafgarland/typescript-vim'
 
-NeoBundle 'Quramy/tsuquyomi'
-let g:tsuquyomi_disable_default_mappings = 1
-let g:tsuquyomi_disable_quickfix = 1
-autocmd FileType typescript map <buffer> <C-]> <Plug>(TsuquyomiDefinition)
-autocmd FileType typescript map <buffer> <C-[> <Plug>(TsuquyomiGoBack)
-autocmd FileType typescript map <buffer> <C-p> <Plug>(TsuquyomiReferences)
-" <C-^>			<Plug>(TsuquyomiReferences)
-" noremap <C-]> <Plug>(TsuquyomiReferences)<CR>
+autocmd FileType typescript NeoBundleSource typescript-vim
+autocmd FileType typescript setlocal shiftwidth=4 softtabstop=4 tabstop=8
 
 " for json validation
 NeoBundle 'Quramy/vison'
@@ -582,20 +575,6 @@ NeoBundle 'Quramy/vison'
 " autocmd BufRead,BufNewFile package.json Vison
 
 NeoBundle 'jason0x43/vim-js-indent'
-
-" clausreinke/typescript-tools {{{
-" NeoBundleLazy 'clausreinke/typescript-tools', {
-"       \ 'build' : {
-"       \     'windows': 'npm install -g',
-"       \     'cygwin':  'npm install -g',
-"       \     'mac':     'npm install -g',
-"       \     'unix':    'npm install -g',
-"       \    },
-"       \ }
-"}}}
-
-autocmd FileType typescript NeoBundleSource typescript-vim
-autocmd FileType typescript setlocal shiftwidth=4 softtabstop=4 tabstop=8
 
 " autocmd FileType typescript map <buffer> <C-s> <Plug>(TsuquyomiReferences)
 " autocmd FileType typescript NeoBundleSource typescript-tools
