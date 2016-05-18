@@ -380,9 +380,9 @@ autocmd VimEnter * :map ?  <Plug>(incsearch-backward)
 "{{{ latex
 " NeoBundleLazy 'http://git.code.sf.net/p/vim-latex/vim-latex',
 "               \ {'name': 'vim-latex-suite', 'type': 'git'}
-NeoBundleLazy 'LaTeX-Box-Team/LaTeX-Box'
+NeoBundleLazy 'lervag/vimtex'
 
-autocmd FileType tex,latex,plaintex NeoBundleSource LaTeX-Box
+autocmd FileType tex,latex,plaintex NeoBundleSource vimtex
 " autocmd FileType tex,latex,plaintex NeoBundleSource vim-latex-suite
 "}}}
 
