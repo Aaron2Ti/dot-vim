@@ -397,8 +397,8 @@ let g:sql_type_default = 'pgsql'
 NeoBundle 'scrooloose/syntastic'
 let g:syntastic_mode_map = {
   \ 'mode':              'active',
-  \ 'active_filetypes':  ['python', 'ruby', 'json', 'xml', 'xslt', 'html', 'xhtml', 'sh', 'yaml'],
-  \ 'passive_filetypes': ['javascript',  'less', 'coffee', 'haskell', 'typescript', 'json'],
+  \ 'active_filetypes':  ['python', 'ruby', 'json', 'xml', 'xslt', 'html', 'xhtml', 'sh', 'yaml', 'typescript', 'json'],
+  \ 'passive_filetypes': ['javascript',  'less', 'coffee', 'haskell'],
   \ }
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_python_pylint_quiet_messages = { 'level': 'warnings', 'type': 'style', 'regex': 'F0401\|E0611' }
@@ -463,13 +463,14 @@ if has('python')
   let g:ycm_autoclose_preview_window_after_insertion      = 1
   let g:ycm_add_preview_to_completeopt                    = 1
 
-  nnoremap <leader>yc :YcmCompleter GetDoc<CR>
+  nnoremap <leader>y :YcmCompleter<Space>
+  nnoremap <leader>yK :YcmCompleter GetDoc<CR>
   nnoremap <leader>yt :YcmCompleter GetType<CR>
-  nnoremap <leader>yd :YcmCompleter GoToDefinition<CR>
   nnoremap <leader>yr :YcmCompleter GoToReferences<CR>
   nnoremap <leader>ye :YcmCompleter GoToType<CR>
-  nnoremap <leader>y :YcmCompleter<Space>
   nnoremap <leader>yf :YcmCompleter RefactorRename<Space>
+  nnoremap <leader>yg :YcmCompleter GoTo<CR>
+  autocmd FileType typescript nnoremap <leader>yg :YcmCompleter GoToDefinition<CR>
 
   let g:ycm_semantic_triggers =  {
       \  'c':          ['->', '.'],
