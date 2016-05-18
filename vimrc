@@ -259,6 +259,9 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " NeoBundle 'ConradIrwin/vim-bracketed-paste'
 NeoBundle 'AndrewRadev/splitjoin.vim'
 
+NeoBundle 'motus/pig.vim'
+au BufRead,BufNewFile *.pig set filetype=pig syntax=pig
+
 " {{{ lightline & laststatus
 set laststatus=2
 NeoBundle 'itchyny/lightline.vim'
@@ -387,6 +390,9 @@ autocmd FileType tex,latex,plaintex NeoBundleSource LaTeX-Box
 " let g:auto_save_in_insert_mode = 0
 " let g:auto_save_no_updatetime = 1
 " let g:auto_save_silent = 1
+
+NeoBundle 'lifepillar/pgsql.vim'
+let g:sql_type_default = 'pgsql'
 
 NeoBundle 'scrooloose/syntastic'
 let g:syntastic_mode_map = {
