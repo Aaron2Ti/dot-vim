@@ -31,7 +31,7 @@ function <SID>StripTrailingWhitespace()
 endfunction
 autocmd BufWritePre * :call <SID>StripTrailingWhitespace()
 
-" autocmd FileType markdown let b:noStripTrailingWhitespace=1
+autocmd FileType python let b:noStripTrailingWhitespace=1
 
 
 function ToggleLineNumber()
