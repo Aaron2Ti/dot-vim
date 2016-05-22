@@ -284,8 +284,10 @@ let g:lightline = {
       \ 'component_type': {
       \   'syntastic': 'error',
       \ },
-      \ 'subseparator': { 'left': '|', 'right': '|' }
+      \ 'separator':    { 'left': '', 'right': '' },
+      \ 'subseparator': { 'left': '', 'right': '' }
       \ }
+      " unicode chars in http://be5invis.github.io/Iosevka/specimen.html
 
 let g:lightline.mode_map = {
     \ 'n':      ' NORMAL',
@@ -305,7 +307,7 @@ function! LightLineModified()
 endfunction
 
 function! LightLineReadonly()
-  return &ft !~? 'help' && &readonly ? 'RO' : ''
+  return &ft !~? 'help' && &readonly ? '' : ''
 endfunction
 
 function! LightLineFilename()
