@@ -785,12 +785,13 @@ NeoBundle 'Shougo/vimproc.vim', {
 NeoBundle 'Shougo/vimshell.vim'
 
 " junegunn/fzf {{{
-" NeoBundle 'junegunn/fzf'
+NeoBundle 'junegunn/fzf'
+NeoBundle 'junegunn/fzf.vim'
 " https://github.com/D630/fzf-contrib
 
-" if !has('gui_macvim')
-"   noremap <leader>f :FZF! --extended --no-mouse .<CR>
-" endif
+if !has('gui_macvim')
+  noremap <leader>f :FZF .<CR>
+endif
 " }}}
 
 " Shougo/unite.vim {{{
@@ -826,8 +827,7 @@ let g:unite_source_grep_max_candidates = 200
 
 NeoBundle 'Shougo/unite.vim'
 
-
-noremap <leader>f  :Unite file_rec/async -start-insert                        <CR>
+" noremap <leader>f  :Unite file_rec/async -start-insert                        <CR>
 noremap <leader>ff :Unite file file/new directory/new -start-insert           <CR>
 noremap <leader>ft :Unite tag -start-insert                                   <CR>
 noremap <leader>fd :VimFiler                                                  <CR>
