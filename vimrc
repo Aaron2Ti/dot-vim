@@ -472,6 +472,7 @@ if has('python')
   nnoremap <leader>yf :YcmCompleter RefactorRename<Space>
   nnoremap <leader>yg :YcmCompleter GoTo<CR>
   autocmd FileType typescript nnoremap <leader>yg :YcmCompleter GoToDefinition<CR>
+  autocmd FileType python nnoremap <C-[> :YcmCompleter GoToDeclaration<CR>
 
   let g:ycm_semantic_triggers =  {
       \  'c':          ['->', '.'],
