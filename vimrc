@@ -5,7 +5,6 @@ set nocompatible
 " autocmd! InsertLeave * set imdisable | set iminsert=0
 " autocmd! InsertEnter * set noimdisable | set iminsert=0
 
-
 set shell=/bin/sh
 
 set background=dark
@@ -416,7 +415,7 @@ let g:syntastic_style_warning_symbol = '💩'
 
 "{{{ Python
 NeoBundle 'klen/python-mode'
-let g:pymode_rope              = 1
+let g:pymode_rope              = 0
 let g:pymode_options           = 0
 let g:pymode_lint_signs        = 0
 let g:pymode_lint_write        = 0
@@ -735,7 +734,6 @@ autocmd FileType haskell let b:delimitMate_matchpairs = "(:),[:],{:}"
 autocmd FileType python  let b:delimitMate_matchpairs = "(:),[:],{:}"
 " }}}
 
-
 "{{{ jade
 NeoBundleLazy 'digitaltoad/vim-jade'
 
@@ -866,8 +864,6 @@ NeoBundle 'bufexplorer.zip'
 let g:bufExplorerShowRelativePath=1
 map <leader>bb :BufExplorer<CR>
 " }}}
-
-
 
 "{{{ scala
 NeoBundleLazy 'derekwyatt/vim-scala'
