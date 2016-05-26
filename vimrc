@@ -790,8 +790,11 @@ NeoBundle 'junegunn/fzf.vim'
 " https://github.com/D630/fzf-contrib
 
 if !has('gui_macvim')
-  noremap <leader>f :FZF .<CR>
+  noremap <leader>f  :FZF .    <CR>
   noremap <leader>fg :GitFiles <CR>
+  noremap <leader>fb :Buffers  <CR>
+  noremap <leader>fl :BLines   <CR>
+  noremap <leader>fa :Ag<Space>
 endif
 " }}}
 
@@ -829,17 +832,10 @@ let g:unite_source_grep_max_candidates = 200
 NeoBundle 'Shougo/unite.vim'
 
 " noremap <leader>f  :Unite file_rec/async -start-insert                        <CR>
-noremap <leader>ff :Unite file file/new directory/new -start-insert           <CR>
-noremap <leader>ft :Unite tag -start-insert                                   <CR>
-noremap <leader>fd :VimFiler                                                  <CR>
-noremap <leader>fc :VimFilerCurrentDir                                        <CR>
-noremap <leader>fb :Unite buffer         -start-insert                        <CR>
-noremap <leader>fl :Unite line           -start-insert                        <CR>
-noremap <leader>fk :Unite bookmark       -start-insert                        <CR>
-noremap <leader>fa :UniteWithInput grep -no-quit -keep-focus                  <CR>
-noremap <leader>fy :Unite history/yank  -start-insert                         <CR>
-noremap <leader>fh :Unite history/unite -start-insert                         <CR>
-noremap <leader>b  :UniteResume                                               <CR>
+noremap <leader>fd :VimFiler                           <CR>
+noremap <leader>fk :Unite bookmark       -start-insert <CR>
+" noremap <leader>fc :VimFilerCurrentDir                                        <CR>
+" noremap <leader>fa :UniteWithInput grep -no-quit -keep-focus                  <CR>
 
 " if executable('ag')
 "   " Use ag in unite grep source.
