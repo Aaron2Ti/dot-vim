@@ -394,6 +394,7 @@ autocmd FileType tex,latex,plaintex NeoBundleSource vimtex
 
 NeoBundle 'lifepillar/pgsql.vim'
 let g:sql_type_default = 'pgsql'
+autocmd FileType sql setlocal commentstring=--%s
 
 NeoBundle 'scrooloose/syntastic'
 let g:syntastic_mode_map = {
