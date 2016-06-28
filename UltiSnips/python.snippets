@@ -7,14 +7,18 @@ def ${1:function_name}(${2:*args}):
     $0
 endsnippet
 
-snippet di "ipdb" !
-import ipdb; ipdb.set_trace()
+snippet d "ptpdb" !
+import ptpdb; ptpdb.set_trace()
 endsnippet
 
-snippet d "pudb" !
+snippet pudb "pudb" !
 import pudb; pudb.set_trace()
 endsnippet
 
 snippet bp "bpython.embed" !
 import bpython; bpython.embed(locals())
+endsnippet
+
+snippet __future__ "from __future__ import ..." !
+from __future__ import print_function, absolute_import, unicode_literals, division
 endsnippet

@@ -575,6 +575,8 @@ let g:surround_custom_mapping.ruby = {
 
 "{{{ typescript
 autocmd BufNewFile,BufRead *.tsx setfiletype typescript
+
+" NeoBundleLazy 'HerringtonDarkholme/yats.vim'
 NeoBundleLazy 'leafgarland/typescript-vim'
 
 autocmd FileType typescript NeoBundleSource typescript-vim
