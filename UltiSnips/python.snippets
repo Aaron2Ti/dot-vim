@@ -20,7 +20,10 @@ import bpython; bpython.embed(locals())
 endsnippet
 
 snippet __future__ "from __future__ import ..." !
-from __future__ import print_function, absolute_import, unicode_literals, division
+from __future__ import absolute_import
+from __future__ import division
+from __future__ import print_function
+from __future__ import unicode_literals
 endsnippet
 
 snippet utf8 "# -*- coding: utf-8 -*-" !
@@ -31,5 +34,17 @@ snippet fu "encoding and future" !
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from __future__ import print_function, absolute_import, unicode_literals, division
+from __future__ import absolute_import
+from __future__ import division
+from __future__ import print_function
+from __future__ import unicode_literals
+endsnippet
+
+snippet ifmain "if __name__ == '__main__':" !
+def main():
+    $0
+
+
+if __name__ == '__main__':
+    main()
 endsnippet
