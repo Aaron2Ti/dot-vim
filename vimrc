@@ -367,7 +367,15 @@ NeoBundle 'othree/html5.vim'
 
 " NeoBundle 'idanarye/vim-vebugger'
 
+"{{{ vim-gitgutter
 NeoBundle 'airblade/vim-gitgutter'
+
+let g:gitgutter_sign_added = '✚'
+let g:gitgutter_sign_modified = '～'
+let g:gitgutter_sign_removed = '═'
+" nmap [c <Plug>GitGutterPrevHunk
+" nmap ]c <Plug>GitGutterNextHunk
+"}}}
 
 NeoBundle 'zefei/vim-colortuner'
 
@@ -965,7 +973,7 @@ let g:tagbar_width = 30
 " {{{ vim-signature
 NeoBundle 'kshenoy/vim-signature'
 let g:SignatureDisableMenu = 1
-let g:SignatureMarkTextHL  = "'Operator'"
+let g:SignatureMarkTextHL  = "'SignatureMarkTextHL'"
 " let g:SignatureDefaultMappings=0
 
 " noremap m<Space> :call signature#PurgeMarks()<CR>

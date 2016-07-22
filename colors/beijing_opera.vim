@@ -22,7 +22,8 @@ let s:Grey19 = '251'
 let s:Grey20 = '252'
 let s:Grey21 = '253'
 let s:Grey22 = '254'
-let s:Grey23 = '255'"}}}
+let s:Grey23 = '255'
+"}}}
 
 "{{{ default colors
 let s:Black        = '0'
@@ -81,13 +82,19 @@ call <SID>hi("Bold",          "", "", "bold")
 
 " call <SID>hi("Debug",         s:gui08, "", s:cterm08, "", "")
 " call <SID>hi("Directory",     s:gui0D, "", s:cterm0D, "", "")
-
 call <SID>hi('ErrorMsg', '196', s:Black, 'bold')
 
 call <SID>hi('Folded',     s:Grey11, s:Grey6,        'none')
 call <SID>hi('FoldColumn', s:Grey9,  s:CursorLineBG, 'none')
 call <SID>hi('MatchParen', '',  '239', 'none')
-call <SID>hi('SignColumn', '14', '239', 'none')
+
+call <SID>hi('SignColumn', '14', s:CursorLineBG, 'none')
+
+call <SID>hi('SignatureMarkTextHL', '141', s:CursorLineBG, 'none')
+
+call <SID>hi('GitGutterAdd',    '22', s:CursorLineBG, 'none')
+call <SID>hi('GitGutterDelete', '88', s:CursorLineBG, 'none')
+call <SID>hi('GitGutterChange', '94',   s:CursorLineBG, 'none')
 
 " call <SID>hi("Exception",     s:gui08, "", s:cterm08, "", "")
 " call <SID>hi("FoldColumn",    "", s:gui01, "", s:cterm01, "")
@@ -121,8 +128,8 @@ if &background == "dark"
 
   call <SID>hi('CursorColumn', '',      s:CursorLineBG, 'none')
   call <SID>hi('CursorLine',   '',      s:CursorLineBG, 'none')
-  call <SID>hi('CursorLineNr', s:Grey2, s:CursorLineBG, 'none')
   call <SID>hi('ColorColumn',  '',      '234',        'none')
+  call <SID>hi('CursorLineNr', s:Grey2, s:CursorLineBG, 'none')
 
   call <SID>hi('LineNr',       s:Grey9, s:CursorLineBG, 'bold')
 
