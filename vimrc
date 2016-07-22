@@ -367,6 +367,8 @@ NeoBundle 'othree/html5.vim'
 
 " NeoBundle 'idanarye/vim-vebugger'
 
+NeoBundle 'airblade/vim-gitgutter'
+
 NeoBundle 'zefei/vim-colortuner'
 
 " NeoBundle 'hwartig/vim-seeing-is-believing'
