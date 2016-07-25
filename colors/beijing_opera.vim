@@ -95,6 +95,7 @@ call <SID>hi('SignatureMarkTextHL', '141', s:CursorLineBG, 'none')
 call <SID>hi('GitGutterAdd',    '22', s:CursorLineBG, 'none')
 call <SID>hi('GitGutterDelete', '88', s:CursorLineBG, 'none')
 call <SID>hi('GitGutterChange', '94',   s:CursorLineBG, 'none')
+call <SID>hi('GitGutterChangeDelete', '94',   s:CursorLineBG, 'none')
 
 " call <SID>hi("Exception",     s:gui08, "", s:cterm08, "", "")
 " call <SID>hi("FoldColumn",    "", s:gui01, "", s:cterm01, "")
