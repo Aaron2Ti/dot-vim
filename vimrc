@@ -157,6 +157,13 @@ set wildignore+=.eunit,deps,*.o,*.beam,*.plt,erl_crash.dump
 set wildignore+=.keep
 " }}} wildignore
 
+
+" {{{ tab setting
+autocmd FileType javascript setlocal shiftwidth=4 softtabstop=4 tabstop=8
+autocmd FileType html setlocal shiftwidth=4 softtabstop=4 tabstop=8
+" }}}
+
+
 " {{{ Core Maps
 " inoremap ' "
 " inoremap " '
@@ -421,8 +428,8 @@ autocmd FileType sql setlocal commentstring=--%s
 NeoBundle 'scrooloose/syntastic'
 let g:syntastic_mode_map = {
   \ 'mode':              'active',
-  \ 'active_filetypes':  ['python', 'ruby', 'json', 'xml', 'xslt', 'html', 'xhtml', 'sh', 'yaml', 'typescript', 'json'],
-  \ 'passive_filetypes': ['javascript',  'less', 'coffee', 'haskell'],
+  \ 'active_filetypes':  ['python', 'ruby', 'json', 'xml', 'xslt', 'html', 'xhtml', 'sh', 'yaml', 'json'],
+  \ 'passive_filetypes': ['javascript',  'less', 'coffee', 'haskell', 'typescript'],
   \ }
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_python_pylint_quiet_messages = { 'level': 'warnings', 'type': 'style', 'regex': 'F0401\|E0611' }
