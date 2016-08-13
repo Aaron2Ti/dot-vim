@@ -157,24 +157,20 @@ set wildignore+=.eunit,deps,*.o,*.beam,*.plt,erl_crash.dump
 set wildignore+=.keep
 " }}} wildignore
 
-
 " {{{ tab setting
 autocmd FileType javascript setlocal shiftwidth=4 softtabstop=4 tabstop=8
 autocmd FileType html setlocal shiftwidth=4 softtabstop=4 tabstop=8
 " }}}
 
-
 " {{{ Core Maps
 " inoremap ' "
 " inoremap " '
 
-iabbrev teh the
-iabbrev accross across
+nnoremap Q @q
+vnoremap Q :normal @q<CR>
 
 vnoremap zy "+y
 nnoremap zp "+p
-
-vnoremap Q gq
 
 " use , as leader character
 nnoremap - ,
