@@ -538,6 +538,11 @@ endif
 "}}}
 
 "{{{ javascript
+NeoBundleLazy 'flowtype/vim-flow', {
+    \ 'autoload': {
+    \     'filetypes': 'javascript'
+    \ }}
+
 NeoBundleLazy 'pangloss/vim-javascript'
 
 autocmd FileType javascript NeoBundleSource vim-javascript
