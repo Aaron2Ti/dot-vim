@@ -45,10 +45,10 @@ set switchbuf=useopen
 set expandtab
 set nojoinspaces
 set shiftround
-set shiftwidth=2
 set smarttab
-set softtabstop=2
-set tabstop=2
+set shiftwidth=4
+set softtabstop=4
+set tabstop=8
 
 set virtualedit=all
 
@@ -722,6 +722,7 @@ NeoBundle 'b4winckler/vim-angry'
 NeoBundle 'ajf/puppet-vim'
 
 NeoBundle 'vim-ruby/vim-ruby'
+autocmd FileType ruby setlocal shiftwidth=2 softtabstop=2 tabstop=4
 
 " {{{ vim-rails
 NeoBundle 'tpope/vim-rails'
