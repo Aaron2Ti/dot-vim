@@ -499,7 +499,7 @@ if has('python')
   nnoremap <leader>yg :YcmCompleter GoTo<CR>
   autocmd FileType typescript nnoremap <leader>yg :YcmCompleter GoToDefinition<CR>
   " autocmd FileType python nnoremap <C-[> :YcmCompleter GoToDeclaration<CR>
-  " autocmd FileType python nnoremap <leader>yg :YcmCompleter GoToDefinition<CR>
+  autocmd FileType python nnoremap <leader>yG :YcmCompleter GoToDefinition<CR>
 
   let g:ycm_semantic_triggers =  {
       \  'c':          ['->', '.'],
@@ -542,6 +542,7 @@ NeoBundleLazy 'flowtype/vim-flow', {
     \ 'autoload': {
     \     'filetypes': 'javascript'
     \ }}
+let g:flow#enable = 0
 
 NeoBundleLazy 'pangloss/vim-javascript'
 
