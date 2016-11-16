@@ -262,6 +262,8 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " NeoBundle 'ConradIrwin/vim-bracketed-paste'
 NeoBundle 'AndrewRadev/splitjoin.vim'
 
+NeoBundle 'metakirby5/codi.vim'
+
 NeoBundle 'motus/pig.vim'
 au BufRead,BufNewFile *.pig set filetype=pig syntax=pig
 
