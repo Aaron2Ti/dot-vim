@@ -64,6 +64,7 @@ set cursorline
 set mouse=
 
 set modeline
+set foldlevel=1
 
 set grepformat=%f:%l:%m
 
@@ -207,13 +208,13 @@ nmap gV `[v`]
 vnoremap j gj
 vnoremap k gk
 
-nmap <leader>w :w<CR>
+nmap <Leader>w :w<CR>
 
-nmap <leader>g  :Gblame<CR>
-nmap <leader>gg :Gstatus<CR>
+nmap <Leader>g  :Gblame<CR>
+nmap <Leader>gg :Gstatus<CR>
 
 " Paste and select
-noremap <leader>p p'[v']$
+noremap <Leader>p p'[v']$
 
 
 " by default the K would run the "man" command
@@ -222,27 +223,27 @@ noremap <leader>p p'[v']$
 " 'keywordprg' (kp) option (default is "man").  The
 noremap K k
 
-" nmap <silent> <leader>/ :let @/=""<CR>
+" nmap <silent> <Leader>/ :let @/=""<CR>
 " clears the search buffer, nohl
 
 " clean the search highlighting
 nmap <silent> <ESC><ESC>  :nohlsearch <CR>
 
 " replace " with '
-noremap <leader>sq :%s/"/'/gc<CR>
+noremap <Leader>sq :%s/"/'/gc<CR>
 
 " Delete all the buffers
-noremap <leader>bd :bufdo bd<CR>
+noremap <Leader>bd :bufdo bd<CR>
 
 " Switch to last buffer
-" nnoremap <leader><leader> <C-^>
+" nnoremap <Leader><Leader> <C-^>
 
 
 " mkview & loadview
 " autocmd BufWinLeave *.* mkview
 " autocmd BufWinEnter *.* silent loadview
-" noremap <leader>ej  :mkview<CR>
-" noremap <leader>je  :loadview<CR>
+" noremap <Leader>ej  :mkview<CR>
+" noremap <Leader>je  :loadview<CR>
 
 " }}}
 
@@ -349,6 +350,11 @@ let g:vimfiler_force_overwrite_statusline = 0
 let g:vimshell_force_overwrite_statusline = 0
 " }}}
 
+NeoBundle 'wincent/terminus'
+let g:TerminusMouse          = 0
+let g:TerminusFocusReporting = 0
+let g:TerminusAssumeITerm    = 1
+
 " Auto detect CJK and Unicode file encodings
 " Install https://github.com/adah1972/tellenc
 " FencView
@@ -402,8 +408,15 @@ NeoBundle 'zefei/vim-colortuner'
 
 
 NeoBundle 'haya14busa/incsearch.vim'
-autocmd VimEnter * :map /  <Plug>(incsearch-forward)
-autocmd VimEnter * :map ?  <Plug>(incsearch-backward)
+NeoBundle 'haya14busa/incsearch-fuzzy.vim'
+map /  <Plug>(incsearch-forward)
+map ?  <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
+
+map z/ <Plug>(incsearch-fuzzy-/)
+map z? <Plug>(incsearch-fuzzy-?)
+map zg/ <Plug>(incsearch-fuzzy-stay)
+
 
 "{{{ latex
 " NeoBundleLazy 'http://git.code.sf.net/p/vim-latex/vim-latex',
@@ -483,6 +496,8 @@ if has('python')
   " YouCompleteMe {{{
   NeoBundle 'Valloric/YouCompleteMe'
 
+  let g:ycm_python_binary_path = 'python'
+
   let g:ycm_key_list_select_completion                    = ['<TAB>']
   let g:ycm_key_list_previous_completion                  = ['<S-TAB>']
   let g:ycm_allow_changing_updatetime                     = 0
@@ -492,16 +507,16 @@ if has('python')
   let g:ycm_autoclose_preview_window_after_insertion      = 1
   let g:ycm_add_preview_to_completeopt                    = 1
 
-  nnoremap <leader>y :YcmCompleter<Space>
-  nnoremap <leader>yK :YcmCompleter GetDoc<CR>
-  nnoremap <leader>yt :YcmCompleter GetType<CR>
-  nnoremap <leader>yr :YcmCompleter GoToReferences<CR>
-  nnoremap <leader>ye :YcmCompleter GoToType<CR>
-  nnoremap <leader>yf :YcmCompleter RefactorRename<Space>
-  nnoremap <leader>yg :YcmCompleter GoTo<CR>
-  autocmd FileType typescript nnoremap <leader>yg :YcmCompleter GoToDefinition<CR>
-  autocmd FileType python nnoremap <leader>yg :YcmCompleter GoToDefinition<CR>
-  autocmd FileType python nnoremap <leader>yG :YcmCompleter GoToDeclaration<CR>
+  nnoremap <Leader>y :YcmCompleter<Space>
+  nnoremap <Leader>yK :YcmCompleter GetDoc<CR>
+  nnoremap <Leader>yt :YcmCompleter GetType<CR>
+  nnoremap <Leader>yr :YcmCompleter GoToReferences<CR>
+  nnoremap <Leader>ye :YcmCompleter GoToType<CR>
+  nnoremap <Leader>yf :YcmCompleter RefactorRename<Space>
+  nnoremap <Leader>yg :YcmCompleter GoTo<CR>
+  autocmd FileType typescript nnoremap <Leader>yg :YcmCompleter GoToDefinition<CR>
+  autocmd FileType python nnoremap <Leader>yg :YcmCompleter GoToDefinition<CR>
+  autocmd FileType python nnoremap <Leader>yG :YcmCompleter GoToDeclaration<CR>
 
   let g:ycm_semantic_triggers =  {
       \  'c':          ['->', '.'],
@@ -701,10 +716,10 @@ NeoBundle 'vim-scripts/VisIncr'
 " {{{ switch.vim
 NeoBundle 'AndrewRadev/switch.vim'
 
-noremap <leader>sw :Switch<CR>
+noremap <Leader>sw :Switch<CR>
 
 " convert :foo => 'bar' to foo: 'bar'
-noremap <leader>st f:xepldf>
+noremap <Leader>st f:xepldf>
 
 " autocmd FileType ruby let b:switch_definitions =
 "   \ [
@@ -729,16 +744,16 @@ autocmd FileType ruby setlocal shiftwidth=2 softtabstop=2 tabstop=4
 
 " {{{ vim-rails
 NeoBundle 'tpope/vim-rails'
-" noremap <leader>r   :R<Space>
-" noremap <leader>rr  :R config/routes.rb<CR>
-" noremap <leader>rm  :Rmodel<Space>
-" noremap <leader>rc  :Rcontroller<Space>
-" noremap <leader>rl  :Rlayout<Space>
-" noremap <leader>rv  :Rview<Space>
-" noremap <leader>rh  :Rhelper<Space>
-" noremap <leader>ri  :Rinitializer<Space>
-" noremap <leader>rj  :Rjavascript<Space>
-" noremap <leader>rs  :Rstylesheet<Space>
+" noremap <Leader>r   :R<Space>
+" noremap <Leader>rr  :R config/routes.rb<CR>
+" noremap <Leader>rm  :Rmodel<Space>
+" noremap <Leader>rc  :Rcontroller<Space>
+" noremap <Leader>rl  :Rlayout<Space>
+" noremap <Leader>rv  :Rview<Space>
+" noremap <Leader>rh  :Rhelper<Space>
+" noremap <Leader>ri  :Rinitializer<Space>
+" noremap <Leader>rj  :Rjavascript<Space>
+" noremap <Leader>rs  :Rstylesheet<Space>
 " }}}
 
 NeoBundle 'kablamo/vim-git-log'
@@ -756,11 +771,11 @@ autocmd FileType coffee setlocal shiftwidth=4 softtabstop=4 tabstop=8 expandtab 
 " NeoBundle 'henrik/vim-qargs'
 NeoBundle 'Peeja/vim-cdo'
 
-" Ag {{{
-" NeoBundle 'rking/ag.vim'
+" Ack {{{
+NeoBundle 'mileszs/ack.vim'
+let g:ackprg = 'rg --vimgrep '
 
-" nmap <leader>a  :Ag!<Space>
-" nmap <leader>ap :Ag! -G '\.py'<Space>
+nmap <Leader>fa  :Ack -tpy<Space>
 " }}}
 
 " {{{ delimitMate
@@ -804,7 +819,7 @@ autocmd FileType clojure NeoBundleSource vim-typedclojure
 " {{{ lusty
 NeoBundle 'sjbach/lusty'
 
-noremap <leader>fe :LustyFilesystemExplorerFromHere<CR>
+noremap <Leader>fe :LustyFilesystemExplorerFromHere<CR>
 let g:LustyJugglerSuppressRubyWarning = 1
 " }}}
 
@@ -827,11 +842,10 @@ NeoBundle 'junegunn/fzf.vim'
 " https://github.com/D630/fzf-contrib
 
 if !has('gui_macvim')
-  noremap <leader>f  :FZF .    <CR>
-  noremap <leader>fg :GitFiles <CR>
+  noremap <Leader>f  :FZF .    <CR>
+  noremap <Leader>fg :GitFiles <CR>
   noremap <leader>fb :Buffers  <CR>
-  noremap <leader>fl :BLines   <CR>
-  noremap <leader>fa :Ag<Space>
+  noremap <Leader>fl :BLines   <CR>
 endif
 " }}}
 
@@ -855,53 +869,17 @@ let g:unite_candidate_icon = '-'
 let g:unite_cursor_line_highlight = 'InsertCursor'
 let g:unite_marked_icon = '+'
 let g:unite_source_history_yank_enable = 1
-let g:unite_source_rec_async_command = ['ag', '--follow', '--nocolor', '--nogroup', '--hidden', '-g', '']
-
-let g:unite_source_grep_command = 'ag'
-let g:unite_source_grep_default_opts =
-  \ '-i --vimgrep --hidden --ignore ' .
-  \ '''.hg'' --ignore ''.svn'' --ignore ''.git'' --ignore ''.bzr'''
-let g:unite_source_grep_recursive_opt = ''
-
-let g:unite_source_grep_encoding = 'utf-8'
-let g:unite_source_grep_max_candidates = 200
 
 NeoBundle 'Shougo/unite.vim'
 
-" noremap <leader>f  :Unite file_rec/async -start-insert                        <CR>
-noremap <leader>fd :VimFiler                           <CR>
-noremap <leader>fk :Unite bookmark       -start-insert <CR>
-" noremap <leader>fc :VimFilerCurrentDir                                        <CR>
-" noremap <leader>fa :UniteWithInput grep -no-quit -keep-focus                  <CR>
-
-" if executable('ag')
-"   " Use ag in unite grep source.
-"   let g:unite_source_grep_command = 'ag'
-"   let g:unite_source_grep_default_opts =
-"   \ '-i --line-numbers --nocolor --nogroup --hidden --ignore ' .
-"   \  '''.hg'' --ignore ''.svn'' --ignore ''.git'' --ignore ''.bzr'''
-"   let g:unite_source_grep_recursive_opt = ''
-" elseif executable('pt')
-"   " Use pt in unite grep source.
-"   " https://github.com/monochromegane/the_platinum_searcher
-"   let g:unite_source_grep_command = 'pt'
-"   let g:unite_source_grep_default_opts = '--nogroup --nocolor'
-"   let g:unite_source_grep_recursive_opt = ''
-" endif
-
-" " nmap <leader>ap :Ag! -G '\.py'<Space>
-" if executable('pt')
-"   let g:unite_source_grep_command = 'pt'
-"   let g:unite_source_grep_default_opts = '--nogroup --nocolor'
-"   let g:unite_source_grep_recursive_opt = ''
-"   let g:unite_source_grep_encoding = 'utf-8'
-" endif
+noremap <Leader>fd :VimFiler                           <CR>
+noremap <Leader>fk :Unite bookmark       -start-insert <CR>
 "}}}
 
 " bufexplorer {{{
 NeoBundle 'bufexplorer.zip'
 let g:bufExplorerShowRelativePath=1
-map <leader>bb :BufExplorer<CR>
+map <Leader>bb :BufExplorer<CR>
 " }}}
 
 "{{{ scala
@@ -913,7 +891,7 @@ autocmd FileType scala NeoBundleSource vim-scala
 " kana/vim-smartinput # auto close " ' ( [ etc
 
 NeoBundle 'vim-scripts/scratch.vim'
-noremap <leader>so :Scratch<CR>
+noremap <Leader>so :Scratch<CR>
 
 NeoBundle 'kana/vim-textobj-user'
 NeoBundle 'kana/vim-textobj-line'
@@ -936,29 +914,14 @@ NeoBundle 'rhysd/vim-textobj-ruby'
 " xmap - <Plug>VSneakPrevious
 
 
-" {{{ vim-smalls cursor movement
-NeoBundle 't9md/vim-smalls'
-
-nmap s <Plug>(smalls)
-omap s <Plug>(smalls)
-xmap s <Plug>(smalls)
-
-let g:smalls_auto_jump                  = 1
-let g:smalls_auto_jump_timeout          = 1
-let g:smalls_auto_jump_min_input_length = 1
-
-let g:smalls_highlight = {
-  \ 'SmallsCandidate':  [['NONE',      'NONE', '33'],  ['NONE', '#403d3d', '#66daef']],
-  \ 'SmallsCurrent':    [['reverse',   'NONE', '33'],  ['NONE', '#403d3d', '#66daef']],
-  \ 'SmallsJumpTarget': [['NONE',      'NONE',  '1'],  ['NONE', 'NONE',    '#f92573']],
-  \ 'SmallsPos':        [['underline', '3',    '160'], ['NONE', '#7efc00', '#000000']],
-  \ 'SmallsShade':      [['NONE',      'NONE', '241'], ['NONE', 'NONE',    '#777777']],
-  \ }
-" }}}
-
 " {{{ easymotion
 NeoBundle 'easymotion/vim-easymotion'
 let g:EasyMotion_smartcase = 1
+
+NeoBundle 'easymotion/vim-easymotion'
+nmap s <Plug>(easymotion-s2)
+omap s <Plug>(easymotion-s2)
+xmap s <Plug>(easymotion-s2)
 
 " let g:EasyMotion_mapping_F = '<C-h>'
 " let g:EasyMotion_mapping_f = '<C-l>'
