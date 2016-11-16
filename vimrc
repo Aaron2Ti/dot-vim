@@ -759,11 +759,11 @@ autocmd FileType coffee setlocal shiftwidth=4 softtabstop=4 tabstop=8 expandtab 
 " NeoBundle 'henrik/vim-qargs'
 NeoBundle 'Peeja/vim-cdo'
 
-" Ag {{{
-" NeoBundle 'rking/ag.vim'
+" Ack {{{
+NeoBundle 'mileszs/ack.vim'
+let g:ackprg = 'rg --vimgrep '
 
-" nmap <leader>a  :Ag!<Space>
-" nmap <leader>ap :Ag! -G '\.py'<Space>
+nmap <leader>fa  :Ack -tpy<Space>
 " }}}
 
 " {{{ delimitMate
@@ -832,9 +832,7 @@ NeoBundle 'junegunn/fzf.vim'
 if !has('gui_macvim')
   noremap <leader>f  :FZF .    <CR>
   noremap <leader>fg :GitFiles <CR>
-  noremap <leader>fb :Buffers  <CR>
   noremap <leader>fl :BLines   <CR>
-  noremap <leader>fa :Ag<Space>
 endif
 " }}}
 
