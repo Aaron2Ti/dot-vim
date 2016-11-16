@@ -494,6 +494,8 @@ if has('python')
   " YouCompleteMe {{{
   NeoBundle 'Valloric/YouCompleteMe'
 
+  let g:ycm_python_binary_path = 'python'
+
   let g:ycm_key_list_select_completion                    = ['<TAB>']
   let g:ycm_key_list_previous_completion                  = ['<S-TAB>']
   let g:ycm_allow_changing_updatetime                     = 0
