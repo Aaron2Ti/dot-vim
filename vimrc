@@ -354,6 +354,7 @@ NeoBundle 'wincent/terminus'
 let g:TerminusMouse          = 0
 let g:TerminusFocusReporting = 0
 let g:TerminusAssumeITerm    = 1
+let g:TerminusBracketedPaste = 0
 
 " Auto detect CJK and Unicode file encodings
 " Install https://github.com/adah1972/tellenc
