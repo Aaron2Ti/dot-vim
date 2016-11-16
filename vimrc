@@ -844,6 +844,7 @@ NeoBundle 'junegunn/fzf.vim'
 if !has('gui_macvim')
   noremap <Leader>f  :FZF .    <CR>
   noremap <Leader>fg :GitFiles <CR>
+  noremap <leader>fb :Buffers  <CR>
   noremap <Leader>fl :BLines   <CR>
 endif
 " }}}
