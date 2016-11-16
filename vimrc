@@ -64,6 +64,7 @@ set cursorline
 set mouse=
 
 set modeline
+set foldlevel=1
 
 set grepformat=%f:%l:%m
 
