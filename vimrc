@@ -405,8 +405,15 @@ NeoBundle 'zefei/vim-colortuner'
 
 
 NeoBundle 'haya14busa/incsearch.vim'
-autocmd VimEnter * :map /  <Plug>(incsearch-forward)
-autocmd VimEnter * :map ?  <Plug>(incsearch-backward)
+NeoBundle 'haya14busa/incsearch-fuzzy.vim'
+map /  <Plug>(incsearch-forward)
+map ?  <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
+
+map z/ <Plug>(incsearch-fuzzy-/)
+map z? <Plug>(incsearch-fuzzy-?)
+map zg/ <Plug>(incsearch-fuzzy-stay)
+
 
 "{{{ latex
 " NeoBundleLazy 'http://git.code.sf.net/p/vim-latex/vim-latex',
@@ -901,29 +908,14 @@ NeoBundle 'rhysd/vim-textobj-ruby'
 " xmap - <Plug>VSneakPrevious
 
 
-" {{{ vim-smalls cursor movement
-NeoBundle 't9md/vim-smalls'
-
-nmap s <Plug>(smalls)
-omap s <Plug>(smalls)
-xmap s <Plug>(smalls)
-
-let g:smalls_auto_jump                  = 1
-let g:smalls_auto_jump_timeout          = 1
-let g:smalls_auto_jump_min_input_length = 1
-
-let g:smalls_highlight = {
-  \ 'SmallsCandidate':  [['NONE',      'NONE', '33'],  ['NONE', '#403d3d', '#66daef']],
-  \ 'SmallsCurrent':    [['reverse',   'NONE', '33'],  ['NONE', '#403d3d', '#66daef']],
-  \ 'SmallsJumpTarget': [['NONE',      'NONE',  '1'],  ['NONE', 'NONE',    '#f92573']],
-  \ 'SmallsPos':        [['underline', '3',    '160'], ['NONE', '#7efc00', '#000000']],
-  \ 'SmallsShade':      [['NONE',      'NONE', '241'], ['NONE', 'NONE',    '#777777']],
-  \ }
-" }}}
-
 " {{{ easymotion
 NeoBundle 'easymotion/vim-easymotion'
 let g:EasyMotion_smartcase = 1
+
+NeoBundle 'easymotion/vim-easymotion'
+nmap s <Plug>(easymotion-s2)
+omap s <Plug>(easymotion-s2)
+xmap s <Plug>(easymotion-s2)
 
 " let g:EasyMotion_mapping_F = '<C-h>'
 " let g:EasyMotion_mapping_f = '<C-l>'
