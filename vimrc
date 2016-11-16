@@ -856,47 +856,11 @@ let g:unite_candidate_icon = '-'
 let g:unite_cursor_line_highlight = 'InsertCursor'
 let g:unite_marked_icon = '+'
 let g:unite_source_history_yank_enable = 1
-let g:unite_source_rec_async_command = ['ag', '--follow', '--nocolor', '--nogroup', '--hidden', '-g', '']
-
-let g:unite_source_grep_command = 'ag'
-let g:unite_source_grep_default_opts =
-  \ '-i --vimgrep --hidden --ignore ' .
-  \ '''.hg'' --ignore ''.svn'' --ignore ''.git'' --ignore ''.bzr'''
-let g:unite_source_grep_recursive_opt = ''
-
-let g:unite_source_grep_encoding = 'utf-8'
-let g:unite_source_grep_max_candidates = 200
 
 NeoBundle 'Shougo/unite.vim'
 
-" noremap <Leader>f  :Unite file_rec/async -start-insert                        <CR>
 noremap <Leader>fd :VimFiler                           <CR>
 noremap <Leader>fk :Unite bookmark       -start-insert <CR>
-" noremap <Leader>fc :VimFilerCurrentDir                                        <CR>
-" noremap <Leader>fa :UniteWithInput grep -no-quit -keep-focus                  <CR>
-
-" if executable('ag')
-"   " Use ag in unite grep source.
-"   let g:unite_source_grep_command = 'ag'
-"   let g:unite_source_grep_default_opts =
-"   \ '-i --line-numbers --nocolor --nogroup --hidden --ignore ' .
-"   \  '''.hg'' --ignore ''.svn'' --ignore ''.git'' --ignore ''.bzr'''
-"   let g:unite_source_grep_recursive_opt = ''
-" elseif executable('pt')
-"   " Use pt in unite grep source.
-"   " https://github.com/monochromegane/the_platinum_searcher
-"   let g:unite_source_grep_command = 'pt'
-"   let g:unite_source_grep_default_opts = '--nogroup --nocolor'
-"   let g:unite_source_grep_recursive_opt = ''
-" endif
-
-" " nmap <Leader>ap :Ag! -G '\.py'<Space>
-" if executable('pt')
-"   let g:unite_source_grep_command = 'pt'
-"   let g:unite_source_grep_default_opts = '--nogroup --nocolor'
-"   let g:unite_source_grep_recursive_opt = ''
-"   let g:unite_source_grep_encoding = 'utf-8'
-" endif
 "}}}
 
 " bufexplorer {{{
