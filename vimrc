@@ -350,6 +350,8 @@ let g:vimfiler_force_overwrite_statusline = 0
 let g:vimshell_force_overwrite_statusline = 0
 " }}}
 
+NeoBundle 'editorconfig/editorconfig-vim'
+
 NeoBundle 'wincent/terminus'
 let g:TerminusMouse          = 0
 let g:TerminusFocusReporting = 0

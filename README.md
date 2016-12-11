@@ -10,4 +10,6 @@ cd ~/.vim/bundle/vimproc.vim && make
 ~/.vim/bundle/neobundle.vim/bin/neoinstall
 
 ~/.vim/bundle/YouCompleteMe/install.py
+
+ln -s ~/.vim/editorconfig.rc .editorconfig
 ```
