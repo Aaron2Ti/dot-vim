@@ -969,6 +969,10 @@ let g:tagbar_width = 30
 NeoBundle 'kshenoy/vim-signature'
 let g:SignatureDisableMenu = 1
 let g:SignatureMarkTextHL  = "'SignatureMarkTextHL'"
+
+sign define dummy
+autocmd BufWinEnter * execute 'sign place 9999 line=1 name=dummy buffer=' . bufnr('')
+
 " let g:SignatureDefaultMappings=0
 
 " noremap m<Space> :call signature#PurgeMarks()<CR>
