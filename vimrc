@@ -447,31 +447,36 @@ let g:syntastic_mode_map = {
   \ }
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_python_pylint_quiet_messages = { 'level': 'warnings', 'type': 'style', 'regex': 'F0401\|E0611' }
+
 let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_check_on_open = 1
+
 highlight link SyntasticErrorSign SignColumn
 highlight link SyntasticWarningSign SignColumn
 highlight link SyntasticStyleErrorSign SignColumn
 highlight link SyntasticStyleWarningSign SignColumn
-let g:syntastic_error_symbol = '❌'
+let g:syntastic_error_symbol = '🎈 '
+
 let g:syntastic_style_error_symbol = '⁉️'
-let g:syntastic_warning_symbol = '⚠️'
+let g:syntastic_warning_symbol = '🍭'
 let g:syntastic_style_warning_symbol = '💩'
 
 "{{{ Python
-NeoBundle 'klen/python-mode'
-let g:pymode_rope              = 0
-let g:pymode_options           = 0
-let g:pymode_lint_signs        = 0
-let g:pymode_lint_write        = 0
+" NeoBundle 'klen/python-mode'
+" let g:pymode_rope              = 0
+" let g:pymode_options           = 0
+" let g:pymode_lint_signs        = 0
+" let g:pymode_lint_write        = 0
 " let g:pymode_lint_checkers     = ['pep8']
-let g:pymode_lint_checkers     = []
-let g:pymode_lint_options_pep8 = { 'max_line_length': 119 }
-let g:pymode_breakpoint_bind   = ''
+" let g:pymode_lint_checkers     = []
+" let g:pymode_lint_options_pep8 = { 'max_line_length': 119 }
+" let g:pymode_breakpoint_bind   = ''
 
-let g:pymode_lint_ignore       = 'E702'
+" let g:pymode_lint_ignore       = 'E702'
 
-let g:pymode_rope_complete_on_dot = 0
-let g:pymode_rope_goto_definition_cmd = 'e'
+" let g:pymode_rope_complete_on_dot = 0
+" let g:pymode_rope_goto_definition_cmd = 'e'
 
 autocmd FileType python setlocal shiftwidth=4 softtabstop=4 tabstop=8
 autocmd FileType python setlocal commentstring=#%s
