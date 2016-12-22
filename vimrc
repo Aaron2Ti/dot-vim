@@ -1,4 +1,4 @@
-﻿" {{{ Basic Setting
+" {{{ Basic Setting
 set nocompatible
 
 " set noimdisable
@@ -430,10 +430,9 @@ autocmd FileType tex,latex,plaintex NeoBundleSource vimtex
 " autocmd FileType tex,latex,plaintex NeoBundleSource vim-latex-suite
 "}}}
 
-" NeoBundle '907th/vim-auto-save'
-" let g:auto_save_in_insert_mode = 0
-" let g:auto_save_no_updatetime = 1
-" let g:auto_save_silent = 1
+NeoBundle '907th/vim-auto-save'
+let g:auto_save = 1
+let g:auto_save_silent = 1
 
 NeoBundle 'lifepillar/pgsql.vim'
 let g:sql_type_default = 'pgsql'
@@ -477,6 +476,8 @@ let g:syntastic_style_warning_symbol = '💩'
 
 " let g:pymode_rope_complete_on_dot = 0
 " let g:pymode_rope_goto_definition_cmd = 'e'
+"
+" NeoBundle 'mitsuhiko/vim-python-combined'
 
 autocmd FileType python setlocal shiftwidth=4 softtabstop=4 tabstop=8
 autocmd FileType python setlocal commentstring=#%s
@@ -522,9 +523,8 @@ if has('python')
   nnoremap <Leader>ye :YcmCompleter GoToType<CR>
   nnoremap <Leader>yf :YcmCompleter RefactorRename<Space>
   nnoremap <Leader>yg :YcmCompleter GoTo<CR>
-  autocmd FileType typescript nnoremap <Leader>yg :YcmCompleter GoToDefinition<CR>
-  autocmd FileType python nnoremap <Leader>yg :YcmCompleter GoToDefinition<CR>
-  autocmd FileType python nnoremap <Leader>yG :YcmCompleter GoToDeclaration<CR>
+  autocmd FileType typescript nnoremap <C-p> :YcmCompleter GoToDefinition<CR>
+  autocmd FileType python     nnoremap <C-p> :YcmCompleter GoToDeclaration<CR>
 
   let g:ycm_semantic_triggers =  {
       \  'c':          ['->', '.'],
