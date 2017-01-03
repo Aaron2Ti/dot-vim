@@ -478,6 +478,8 @@ let g:syntastic_style_warning_symbol = '💩'
 " let g:pymode_rope_goto_definition_cmd = 'e'
 "
 " NeoBundle 'mitsuhiko/vim-python-combined'
+"
+NeoBundle 'hynek/vim-python-pep8-indent'
 
 autocmd FileType python setlocal shiftwidth=4 softtabstop=4 tabstop=8
 autocmd FileType python setlocal commentstring=#%s
