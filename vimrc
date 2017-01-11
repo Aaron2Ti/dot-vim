@@ -379,12 +379,13 @@ let g:user_emmet_settings = {
 
 NeoBundle 'othree/html5.vim'
 
-" NeoBundleLazy 'facebook/vim-flow', {
-"   \ 'autoload': {
-"   \     'filetypes': 'javascript'
-"   \ }}
-" let g:flow#enable = 0
-" let g:flow#omnifunc = 1
+NeoBundleLazy 'facebook/vim-flow', {
+  \ 'autoload': {
+  \     'filetypes': 'javascript'
+  \ }}
+let g:flow#enable = 1
+let g:flow#omnifunc = 1
+autocmd FileType javascript nnoremap <C-p> :FlowJumpToDef<CR>
 
 
 " NeoBundle 'idanarye/vim-vebugger'
