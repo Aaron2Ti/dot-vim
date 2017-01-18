@@ -77,7 +77,7 @@ set whichwrap=<,>,h,l,~,[,]
 
 set ruler showmode showcmd
 
-set norelativenumber
+set relativenumber
 set nonumber
 
 set scrolloff=3
@@ -351,6 +351,9 @@ let g:vimshell_force_overwrite_statusline = 0
 " }}}
 
 NeoBundle 'editorconfig/editorconfig-vim'
+
+NeoBundle 'Valloric/vim-operator-highlight'
+let g:ophigh_color = 246
 
 NeoBundle 'wincent/terminus'
 let g:TerminusMouse          = 0
