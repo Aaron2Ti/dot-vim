@@ -209,9 +209,11 @@ call <SID>hi('pythonLambdaExpr', '35', '', '')
 " call <SID>hi("Todo",         s:gui0A, s:gui01, s:cterm0A, s:cterm01, "")
 call <SID>hi('Type', s:LightYellow, '', 'bold')
 call <SID>hi('Todo', '124', '11', '')
+call <SID>hi('pythonDoctestValue', s:CommentFG, '', '')
 
+call <SID>hi('pythonBuiltin',     s:LightYellow, '', '')
 call <SID>hi('pythonBuiltinType', s:LightYellow, '', '')
-call <SID>hi('pythonBuiltinObj', s:LightYellow, '', '')
+call <SID>hi('pythonBuiltinObj',  s:LightYellow, '', '')
 
 " call <SID>hi("Type",         s:gui09, "", s:cterm09, "", "none")
 " call <SID>hi("Typedef",      s:gui0A, "", s:cterm0A, "", "")
