@@ -262,10 +262,10 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " NeoBundle 'ConradIrwin/vim-bracketed-paste'
 NeoBundle 'AndrewRadev/splitjoin.vim'
 
-NeoBundle 'metakirby5/codi.vim'
+" NeoBundle 'metakirby5/codi.vim'
 
-NeoBundle 'motus/pig.vim'
-au BufRead,BufNewFile *.pig set filetype=pig syntax=pig
+" NeoBundle 'motus/pig.vim'
+" au BufRead,BufNewFile *.pig set filetype=pig syntax=pig
 
 " {{{ lightline & laststatus
 set laststatus=2
@@ -319,7 +319,6 @@ function! LightLineFilename()
   let fname = expand('%:t')
   return  &ft == 'vimfiler' ? vimfiler#get_status_string() :
         \ &ft == 'unite' ? unite#get_status_string() :
-        \ &ft == 'vimshell' ? vimshell#get_status_string() :
         \ ('' != LightLineReadonly() ? LightLineReadonly() . ' ' : '') .
         \ ('' != fname ? fname : '[No Name]') .
         \ ('' != LightLineModified() ? ' ' . LightLineModified() : '')
@@ -341,7 +340,6 @@ function! LightLineMode()
   let fname = expand('%:t')
   return  &ft == 'unite' ? 'Unite' :
         \ &ft == 'vimfiler' ? 'VimFiler' :
-        \ &ft == 'vimshell' ? 'VimShell' :
         \ winwidth(0) > 60 ? lightline#mode() : ''
 endfunction
 
@@ -382,37 +380,7 @@ let g:user_emmet_settings = {
 
 NeoBundle 'othree/html5.vim'
 
-NeoBundleLazy 'facebook/vim-flow', {
-  \ 'autoload': {
-  \     'filetypes': 'javascript'
-  \ }}
-let g:flow#enable = 1
-let g:flow#omnifunc = 1
-autocmd FileType javascript nnoremap <C-p> :FlowJumpToDef<CR>
-
-
-" NeoBundle 'idanarye/vim-vebugger'
-
-"{{{ vim-gitgutter
-" NeoBundle 'airblade/vim-gitgutter'
-
-" let g:gitgutter_highlight_lines = 0
-" let g:gitgutter_eager = 0
-" let g:gitgutter_map_keys = 0
-" let g:gitgutter_sign_added = '✚'
-" let g:gitgutter_sign_modified = '~'
-" let g:gitgutter_sign_removed = '═'
-
-" nmap [c <Plug>GitGutterPrevHunk
-" nmap ]c <Plug>GitGutterNextHunk
-"}}}
-
 NeoBundle 'zefei/vim-colortuner'
-
-" NeoBundle 'hwartig/vim-seeing-is-believing'
-" autocmd FileType ruby nmap <buffer> <F6> <Plug>(seeing-is-believing-mark)
-" autocmd FileType ruby nmap <buffer> <F7> <Plug>(seeing-is-believing-run)
-
 
 NeoBundle 'haya14busa/incsearch.vim'
 NeoBundle 'haya14busa/incsearch-fuzzy.vim'
@@ -428,9 +396,9 @@ map zg/ <Plug>(incsearch-fuzzy-stay)
 "{{{ latex
 " NeoBundleLazy 'http://git.code.sf.net/p/vim-latex/vim-latex',
 "               \ {'name': 'vim-latex-suite', 'type': 'git'}
-NeoBundleLazy 'lervag/vimtex'
+" NeoBundleLazy 'lervag/vimtex'
 
-autocmd FileType tex,latex,plaintex NeoBundleSource vimtex
+" autocmd FileType tex,latex,plaintex NeoBundleSource vimtex
 " autocmd FileType tex,latex,plaintex NeoBundleSource vim-latex-suite
 "}}}
 
@@ -563,8 +531,8 @@ if has('python')
         \}
   " }}}
 
-  NeoBundle 'gcmt/breeze.vim'
-
+  " https://github.com/gcmt/breeze.vim
+  " NeoBundle 'gcmt/breeze.vim'
 endif
 "}}}
 
@@ -574,6 +542,9 @@ NeoBundleLazy 'flowtype/vim-flow', {
     \     'filetypes': 'javascript'
     \ }}
 let g:flow#enable = 0
+let g:flow#omnifunc = 1
+
+autocmd FileType javascript nnoremap <C-p> :FlowJumpToDef<CR>
 
 NeoBundleLazy 'pangloss/vim-javascript'
 
@@ -584,25 +555,11 @@ NeoBundle 'mxw/vim-jsx'
 let g:jsx_ext_required = 0
 "}}}
 
-NeoBundle 'elixir-lang/vim-elixir'
-
 "{{{ markdown
 NeoBundleLazy 'tpope/vim-markdown'
 
 autocmd FileType markdown setlocal spell
 autocmd FileType markdown NeoBundleSource vim-markdown
-"}}}
-
-"{{{ liquid
-NeoBundleLazy 'tpope/vim-liquid'
-
-autocmd FileType liquid NeoBundleSource vim-liquid
-"}}}
-
-"{{{ haml
-NeoBundle 'tpope/vim-haml'
-
-autocmd FileType sass setlocal shiftwidth=4 softtabstop=4 tabstop=8 expandtab foldmethod=indent foldlevel=1
 "}}}
 
 NeoBundle 'tpope/vim-repeat'
@@ -611,7 +568,6 @@ NeoBundle 'tpope/vim-unimpaired'
 NeoBundle 'tpope/vim-abolish'
 NeoBundle 'tpope/vim-rsi'
 NeoBundle 'tpope/vim-eunuch'
-NeoBundle 'tpope/vim-projectionist'
 NeoBundle 'tpope/vim-dispatch'
 NeoBundle 'tpope/vim-commentary'
 
@@ -655,64 +611,46 @@ NeoBundle 'jason0x43/vim-js-indent'
 " autocmd FileType typescript NeoBundleSource typescript-tools
 "}}}
 
-"{{{ idris
-NeoBundle 'idris-hackers/idris-vim'
-autocmd FileType idris setlocal shiftwidth=4 softtabstop=4 tabstop=8
-autocmd FileType idris setlocal commentstring=--\ %s
-"}}}
-
 "{{{ erlang
-NeoBundleLazy 'jimenezrick/vimerl'
-
-let erlang_show_errors = 0
-let erlang_completion_cache = 1
-
-autocmd FileType erlang setlocal shiftwidth=4 softtabstop=4 tabstop=8
-autocmd FileType erlang let g:ycm_cache_omnifunc=0
-
-NeoBundleLazy 'edkolev/erlang-motions.vim'
-
-autocmd FileType erlang NeoBundleSource vimerl
-autocmd FileType erlang NeoBundleSource erlang-motions.vim
+" NeoBundleLazy 'jimenezrick/vimerl'
+"
+" let erlang_show_errors = 0
+" let erlang_completion_cache = 1
+"
+" autocmd FileType erlang setlocal shiftwidth=4 softtabstop=4 tabstop=8
+" autocmd FileType erlang let g:ycm_cache_omnifunc=0
+"
+" NeoBundleLazy 'edkolev/erlang-motions.vim'
+"
+" autocmd FileType erlang NeoBundleSource vimerl
+" autocmd FileType erlang NeoBundleSource erlang-motions.vim
 "}}}
 
 " NeoBundle 'chrisbra/unicode.vim'
 
 "{{{ fsharp
-autocmd FileType fsharp setlocal shiftwidth=4 softtabstop=4 tabstop=8
+" autocmd FileType fsharp setlocal shiftwidth=4 softtabstop=4 tabstop=8
 
-NeoBundle 'kongo2002/fsharp-vim'
+" NeoBundle 'kongo2002/fsharp-vim'
 "}}}
 
 "{{{ Haskell
-NeoBundle 'pbrisbin/vim-syntax-shakespeare'
+" NeoBundle 'pbrisbin/vim-syntax-shakespeare'
 
-NeoBundle 'travitch/hasksyn'
+" NeoBundle 'travitch/hasksyn'
 
-NeoBundleLazy 'eagletmt/ghcmod-vim'
-NeoBundleLazy 'eagletmt/neco-ghc'
+" NeoBundleLazy 'eagletmt/ghcmod-vim'
+" NeoBundleLazy 'eagletmt/neco-ghc'
 
-NeoBundleLazy 'Twinside/vim-haskellFold'
+" NeoBundleLazy 'Twinside/vim-haskellFold'
 
-autocmd FileType haskell setlocal shiftwidth=4 softtabstop=4 tabstop=8
-autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
+" autocmd FileType haskell setlocal shiftwidth=4 softtabstop=4 tabstop=8
+" autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
 
-autocmd FileType haskell NeoBundleSource ghcmod-vim
-autocmd FileType haskell NeoBundleSource neco-ghc
-autocmd FileType haskell NeoBundleSource vim-haskellFold
+" autocmd FileType haskell NeoBundleSource ghcmod-vim
+" autocmd FileType haskell NeoBundleSource neco-ghc
+" autocmd FileType haskell NeoBundleSource vim-haskellFold
 "}}}
-
-"{{{ R
-NeoBundleLazy 'R.vim'
-
-autocmd FileType r NeoBundleSource R.vim
-"}}}
-
-" {{{ julia
-" NeoBundleLazy 'JuliaLang/julia-vim'
-
-" autocmd FileType julia NeoBundleSource julia-vim
-" }}}
 
 " XtermColorTable
 NeoBundle 'guns/xterm-color-table.vim'
@@ -751,13 +689,11 @@ NeoBundle 'vim-scripts/indent-motion'
 
 NeoBundle 'b4winckler/vim-angry'
 
-NeoBundle 'ajf/puppet-vim'
-
 NeoBundle 'vim-ruby/vim-ruby'
 autocmd FileType ruby setlocal shiftwidth=2 softtabstop=2 tabstop=4
 
 " {{{ vim-rails
-NeoBundle 'tpope/vim-rails'
+" NeoBundle 'tpope/vim-rails'
 " noremap <Leader>r   :R<Space>
 " noremap <Leader>rr  :R config/routes.rb<CR>
 " noremap <Leader>rm  :Rmodel<Space>
@@ -773,13 +709,11 @@ NeoBundle 'tpope/vim-rails'
 NeoBundle 'kablamo/vim-git-log'
 
 "{{{ coffee-script
-NeoBundleLazy 'kchmck/vim-coffee-script'
-
-NeoBundleLazy 'mtscout6/vim-cjsx'
-
-autocmd FileType coffee NeoBundleSource vim-coffee-script
-autocmd FileType coffee NeoBundleSource vim-cjsx
-autocmd FileType coffee setlocal shiftwidth=4 softtabstop=4 tabstop=8 expandtab foldmethod=indent foldlevel=1
+" NeoBundleLazy 'kchmck/vim-coffee-script'
+" NeoBundleLazy 'mtscout6/vim-cjsx'
+" autocmd FileType coffee NeoBundleSource vim-coffee-script
+" autocmd FileType coffee NeoBundleSource vim-cjsx
+" autocmd FileType coffee setlocal shiftwidth=4 softtabstop=4 tabstop=8 expandtab foldmethod=indent foldlevel=1
 "}}}
 
 " NeoBundle 'henrik/vim-qargs'
@@ -802,32 +736,18 @@ autocmd FileType haskell let b:delimitMate_matchpairs = "(:),[:],{:}"
 autocmd FileType python  let b:delimitMate_matchpairs = "(:),[:],{:}"
 " }}}
 
-"{{{ jade
-NeoBundleLazy 'digitaltoad/vim-jade'
-
-autocmd FileType jade NeoBundleSource vim-jade
-autocmd FileType jade setlocal shiftwidth=4 softtabstop=4 tabstop=8
-"}}}
-
-"{{{ slim
-NeoBundleLazy 'slim-template/vim-slim'
-
-autocmd FileType slim NeoBundleSource vim-slim
-"}}}
-
 " {{{ clojure
-NeoBundle 'tpope/vim-classpath'
+" NeoBundle 'tpope/vim-classpath'
 " NeoBundleLazy 'tpope/vim-leiningen'
 " https://github.com/clojure-emacs/cider-nrepl
-NeoBundleLazy 'tpope/vim-fireplace'
+" NeoBundleLazy 'tpope/vim-fireplace'
 
 NeoBundle 'guns/vim-clojure-static'
 NeoBundle 'guns/vim-clojure-highlight'
-NeoBundleLazy 'typedclojure/vim-typedclojure'
 
 " autocmd FileType clojure NeoBundleSource vim-leiningen
-autocmd FileType clojure NeoBundleSource vim-fireplace
-autocmd FileType clojure NeoBundleSource vim-typedclojure
+" autocmd FileType clojure NeoBundleSource vim-fireplace
+" autocmd FileType clojure NeoBundleSource vim-typedclojure
 " }}}
 
 " {{{ lusty
@@ -847,8 +767,6 @@ NeoBundle 'Shougo/vimproc.vim', {
       \    },
       \ }
 "}}}
-
-NeoBundle 'Shougo/vimshell.vim'
 
 " junegunn/fzf {{{
 NeoBundle 'junegunn/fzf'
@@ -890,17 +808,6 @@ noremap <Leader>fd :VimFiler                           <CR>
 noremap <Leader>fk :Unite bookmark       -start-insert <CR>
 "}}}
 
-" bufexplorer {{{
-NeoBundle 'bufexplorer.zip'
-let g:bufExplorerShowRelativePath=1
-map <Leader>bb :BufExplorer<CR>
-" }}}
-
-"{{{ scala
-NeoBundleLazy 'derekwyatt/vim-scala'
-
-autocmd FileType scala NeoBundleSource vim-scala
-"}}}
 
 " kana/vim-smartinput # auto close " ' ( [ etc
 
@@ -909,7 +816,6 @@ noremap <Leader>so :Scratch<CR>
 
 NeoBundle 'kana/vim-textobj-user'
 NeoBundle 'kana/vim-textobj-line'
-NeoBundle 'rhysd/vim-textobj-ruby'
 
 " NeoBundle 'nelstrom/vim-textobj-rubyblock'
 "
@@ -957,7 +863,6 @@ let g:EasyMotion_keys = 'sdfjklhgawoeiqpnmvbcxAJKFDHGSL;z'
 " }}}
 
 NeoBundle 'aliva/vim-fish'
-NeoBundle 'nginx.vim'
 NeoBundle 'SearchComplete'
 
 NeoBundle 'majutsushi/tagbar'
@@ -985,21 +890,6 @@ autocmd BufWinEnter * execute 'sign place 9999 line=1 name=dummy buffer=' . bufn
 " noremap m<Space> <Plug>SIG_PurgeMarks
 " nmap <Leader>x <Plug>ToggleAutoCloseMappings
 " }}}
-
-NeoBundle 'junegunn/vim-emoji'
-NeoBundle 'junegunn/goyo.vim'
-let g:goyo_width = 50
-" NeoBundle 'amix/vim-zenroom2'
-NeoBundle 'junegunn/limelight.vim'
-let g:limelight_conceal_ctermfg = 240
-let g:limelight_conceal_guifg = '#777777'
-" let g:limelight_conceal_guifg = 'DarkGray'
-let g:limelight_default_coefficient = 0.6
-command! WritingOnly Goyo | Limelight
-
-
-NeoBundleLazy 'rhysd/vim-crystal'
-autocmd FileType crystal NeoBundleSource vim-crystal
 
 
 " {{{ vim-easy-align
