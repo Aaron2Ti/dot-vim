@@ -744,13 +744,6 @@ NeoBundle 'guns/vim-clojure-highlight'
 " autocmd FileType clojure NeoBundleSource vim-typedclojure
 " }}}
 
-" {{{ lusty
-NeoBundle 'sjbach/lusty'
-
-noremap <Leader>fe :LustyFilesystemExplorerFromHere<CR>
-let g:LustyJugglerSuppressRubyWarning = 1
-" }}}
-
 " Shougo/vimproc.vim {{{
 NeoBundle 'Shougo/vimproc.vim', {
       \ 'build' : {
@@ -769,6 +762,7 @@ NeoBundle 'junegunn/fzf.vim'
 
 if !has('gui_macvim')
   noremap <Leader>f  :FZF .    <CR>
+  noremap <Leader>fe :execute 'VimFiler' expand('%:p:h')    <CR>
   noremap <Leader>fg :GitFiles <CR>
   noremap <leader>fb :Buffers  <CR>
   noremap <Leader>fl :BLines   <CR>
