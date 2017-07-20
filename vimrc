@@ -262,6 +262,8 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " NeoBundle 'ConradIrwin/vim-bracketed-paste'
 NeoBundle 'AndrewRadev/splitjoin.vim'
 
+NeoBundle 'jparise/vim-graphql'
+
 " NeoBundle 'metakirby5/codi.vim'
 
 " NeoBundle 'motus/pig.vim'
@@ -344,6 +346,8 @@ let g:vimshell_force_overwrite_statusline = 0
 
 NeoBundle 'editorconfig/editorconfig-vim'
 
+NeoBundle 'salsifis/vim-transpose'
+
 NeoBundle 'Valloric/vim-operator-highlight'
 let g:ophigh_color = 246
 
@@ -397,35 +401,62 @@ map zg/ <Plug>(incsearch-fuzzy-stay)
 "}}}
 
 NeoBundle '907th/vim-auto-save'
-let g:auto_save = 1
+let g:auto_save = 0
 let g:auto_save_silent = 1
 
 NeoBundle 'lifepillar/pgsql.vim'
 let g:sql_type_default = 'pgsql'
 autocmd FileType sql setlocal commentstring=--%s
 
-NeoBundle 'scrooloose/syntastic'
-let g:syntastic_mode_map = {
-  \ 'mode':              'active',
-  \ 'active_filetypes':  ['python', 'ruby', 'json', 'xml', 'xslt', 'html', 'xhtml', 'sh', 'yaml', 'json'],
-  \ 'passive_filetypes': ['javascript',  'less', 'coffee', 'haskell', 'typescript'],
-  \ }
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_python_pylint_quiet_messages = { 'level': 'warnings', 'type': 'style', 'regex': 'F0401\|E0611' }
+"{{{ ale
+NeoBundle 'w0rp/ale'
+" let g:ale_lint_on_insert_leave = 1
+let g:ale_linters = {
+\   'ruby':   [],
+\   'python': ['pylint'],
+\}
+let g:ale_python_pylint_options = ' -E  -d no-name-in-module -d no-member '
 
-let g:syntastic_always_populate_loc_list = 1
+highlight link ALEError         Normal
+highlight link ALEWarning       Normal
+highlight link ALEInfo          Normal
+highlight link ALEStyleError    Normal
+highlight link ALEStyleWarning  Normal
+highlight link ALEErrorSign        SignColumn
+highlight link ALEErrorSign        SignColumn
+highlight link ALEWarningSign      SignColumn
+highlight link ALEInfoSign         SignColumn
+highlight link ALEStyleErrorSign   SignColumn
+highlight link ALEStyleWarningSign SignColumn
+
+let g:ale_sign_error         = '🎈'
+let g:ale_sign_warning       = '🍭'
+let g:ale_sign_style_error   = '⁉️'
+let g:ale_sign_style_warning = '💩'
+"}}}
+
+" NeoBundle 'scrooloose/syntastic'
+" let g:syntastic_mode_map = {
+"   \ 'mode':              'active',
+"   \ 'active_filetypes':  ['python', 'ruby', 'json', 'xml', 'xslt', 'html', 'xhtml', 'sh', 'yaml', 'json'],
+"   \ 'passive_filetypes': ['javascript',  'less', 'coffee', 'haskell', 'typescript'],
+"   \ }
+" let g:syntastic_javascript_checkers = ['eslint']
+" let g:syntastic_python_pylint_quiet_messages = { 'level': 'warnings', 'type': 'style', 'regex': 'F0401\|E0611' }
+
+" let g:syntastic_always_populate_loc_list = 1
 " let g:syntastic_auto_loc_list = 1
 " let g:syntastic_check_on_open = 1
 
-highlight link SyntasticErrorSign SignColumn
-highlight link SyntasticWarningSign SignColumn
-highlight link SyntasticStyleErrorSign SignColumn
-highlight link SyntasticStyleWarningSign SignColumn
-let g:syntastic_error_symbol = '🎈 '
+" highlight link SyntasticErrorSign SignColumn
+" highlight link SyntasticWarningSign SignColumn
+" highlight link SyntasticStyleErrorSign SignColumn
+" highlight link SyntasticStyleWarningSign SignColumn
+" let g:syntastic_error_symbol = '🎈 '
 
-let g:syntastic_style_error_symbol = '⁉️'
-let g:syntastic_warning_symbol = '🍭'
-let g:syntastic_style_warning_symbol = '💩'
+" let g:syntastic_style_error_symbol = '⁉️'
+" let g:syntastic_warning_symbol = '🍭'
+" let g:syntastic_style_warning_symbol = '💩'
 
 "{{{ Python
 " NeoBundle 'klen/python-mode'
@@ -469,6 +500,8 @@ if has('python')
   " }}}
 
   NeoBundle "honza/vim-snippets"
+
+  NeoBundle 'tenfyzhong/CompleteParameter.vim'
 
   " YouCompleteMe {{{
   NeoBundle 'Valloric/YouCompleteMe'
@@ -540,9 +573,7 @@ let g:flow#omnifunc = 1
 
 autocmd FileType javascript nnoremap <C-p> :FlowJumpToDef<CR>
 
-NeoBundleLazy 'pangloss/vim-javascript'
-
-autocmd FileType javascript NeoBundleSource vim-javascript
+NeoBundle 'pangloss/vim-javascript'
 
 " ReactJS
 NeoBundle 'mxw/vim-jsx'
