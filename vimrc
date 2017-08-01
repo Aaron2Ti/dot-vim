@@ -107,6 +107,7 @@ set lazyredraw
 set dictionary+=~/.vim/dict/default
 
 set thesaurus+=~/.vim/thesaurus/default
+set thesaurus+=~/.vim/thesaurus/mthesaur.txt
 
 " * Keystrokes -- Insert Mode
 set backspace=start,indent,eol
@@ -261,6 +262,11 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 " NeoBundle 'ConradIrwin/vim-bracketed-paste'
 NeoBundle 'AndrewRadev/splitjoin.vim'
+
+NeoBundle 'ron89/thesaurus_query.vim'
+
+let g:tq_enabled_backends = ['mthesaur_txt', 'thesaurus_com']
+let g:tq_language = ['en']
 
 NeoBundle 'jparise/vim-graphql'
 
