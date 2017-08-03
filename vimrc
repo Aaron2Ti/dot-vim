@@ -245,6 +245,7 @@ noremap <Leader>bd :bufdo bd<CR>
 " noremap <Leader>ej  :mkview<CR>
 " noremap <Leader>je  :loadview<CR>
 
+vnoremap <Leader>a y:'<,'>!sort -t= -k2
 " }}}
 
 if has('vim_starting')
