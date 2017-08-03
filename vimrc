@@ -107,7 +107,6 @@ set lazyredraw
 set dictionary+=~/.vim/dict/default
 
 set thesaurus+=~/.vim/thesaurus/default
-set thesaurus+=~/.vim/thesaurus/mthesaur.txt
 
 " * Keystrokes -- Insert Mode
 set backspace=start,indent,eol
@@ -265,7 +264,7 @@ NeoBundle 'AndrewRadev/splitjoin.vim'
 
 NeoBundle 'ron89/thesaurus_query.vim'
 
-let g:tq_enabled_backends = ['mthesaur_txt', 'thesaurus_com']
+let g:tq_enabled_backends = ['thesaurus_com']
 let g:tq_language = ['en']
 
 NeoBundle 'jparise/vim-graphql'
@@ -481,7 +480,8 @@ let g:ale_sign_style_warning = '💩'
 " let g:pymode_rope_goto_definition_cmd = 'e'
 "
 " NeoBundle 'mitsuhiko/vim-python-combined'
-"
+
+NeoBundle 'hdima/python-syntax'
 NeoBundle 'hynek/vim-python-pep8-indent'
 
 autocmd FileType python setlocal shiftwidth=4 softtabstop=4 tabstop=8
@@ -904,7 +904,7 @@ let g:tagbar_width = 30
 " {{{ vim-signature
 NeoBundle 'kshenoy/vim-signature'
 let g:SignatureDisableMenu = 1
-let g:SignatureMarkTextHL  = "'SignatureMarkTextHL'"
+let g:SignatureMarkTextHL  = 'SignatureMarkTextHL'
 
 sign define dummy
 autocmd BufWinEnter * execute 'sign place 9999 line=1 name=dummy buffer=' . bufnr('')
