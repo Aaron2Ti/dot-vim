@@ -440,29 +440,6 @@ let g:ale_sign_style_error   = '⁉️'
 let g:ale_sign_style_warning = '💩'
 "}}}
 
-" NeoBundle 'scrooloose/syntastic'
-" let g:syntastic_mode_map = {
-"   \ 'mode':              'active',
-"   \ 'active_filetypes':  ['python', 'ruby', 'json', 'xml', 'xslt', 'html', 'xhtml', 'sh', 'yaml', 'json'],
-"   \ 'passive_filetypes': ['javascript',  'less', 'coffee', 'haskell', 'typescript'],
-"   \ }
-" let g:syntastic_javascript_checkers = ['eslint']
-" let g:syntastic_python_pylint_quiet_messages = { 'level': 'warnings', 'type': 'style', 'regex': 'F0401\|E0611' }
-
-" let g:syntastic_always_populate_loc_list = 1
-" let g:syntastic_auto_loc_list = 1
-" let g:syntastic_check_on_open = 1
-
-" highlight link SyntasticErrorSign SignColumn
-" highlight link SyntasticWarningSign SignColumn
-" highlight link SyntasticStyleErrorSign SignColumn
-" highlight link SyntasticStyleWarningSign SignColumn
-" let g:syntastic_error_symbol = '🎈 '
-
-" let g:syntastic_style_error_symbol = '⁉️'
-" let g:syntastic_warning_symbol = '🍭'
-" let g:syntastic_style_warning_symbol = '💩'
-
 "{{{ Python
 " NeoBundle 'klen/python-mode'
 " let g:pymode_rope              = 0
