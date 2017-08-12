@@ -660,9 +660,9 @@ NeoBundle 'jason0x43/vim-js-indent'
 " NeoBundle 'chrisbra/unicode.vim'
 
 "{{{ fsharp
-" autocmd FileType fsharp setlocal shiftwidth=4 softtabstop=4 tabstop=8
+autocmd FileType fsharp setlocal shiftwidth=4 softtabstop=4 tabstop=8
 
-" NeoBundle 'kongo2002/fsharp-vim'
+NeoBundle 'fsharp/vim-fsharp'
 "}}}
 
 "{{{ Haskell
