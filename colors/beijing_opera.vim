@@ -237,7 +237,9 @@ call <SID>hi('SpellCap', s:NormalFG, 22, '')
 " call <SID>hi("DiffLine",     s:gui0D, s:gui00, s:cterm0D, s:cterm00, "")
 " call <SID>hi("DiffRemoved",  s:gui08, s:gui00, s:cterm08, s:cterm00, "")
 
-call <SID>hi('EasyMotionTarget', 159, '', 'bold')
+call <SID>hi('EasyMotionTarget',        159, '', 'bold')
+call <SID>hi('EasyMotionTarget2First',  159, '', 'bold')
+call <SID>hi('EasyMotionTarget2Second', 159, '', 'bold')
 hi link EasyMotionShade  Comment
 
 
