@@ -260,14 +260,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " A collection of language packs for Vim
 " https://github.com/sheerun/vim-polyglot
 
-" Scala {{{
-NeoBundle 'derekwyatt/vim-sbt'
-NeoBundle 'derekwyatt/vim-scala'
-NeoBundle 'ensime/ensime-vim'
-
-autocmd FileType scala     nnoremap <C-p> :EnDeclaration<CR>
-" }}}
-
 
 " NeoBundle 'ConradIrwin/vim-bracketed-paste'
 
@@ -581,6 +573,16 @@ NeoBundleLazy 'tpope/vim-markdown'
 autocmd FileType markdown setlocal spell
 autocmd FileType markdown NeoBundleSource vim-markdown
 "}}}
+
+" Scala {{{
+NeoBundle 'derekwyatt/vim-sbt'
+NeoBundle 'derekwyatt/vim-scala'
+NeoBundle 'ensime/ensime-vim'
+
+autocmd FileType scala nnoremap <C-p> :EnDeclaration<CR>
+autocmd FileType scala nnoremap <Leader>yK :EnDocBrowse<CR>
+autocmd FileType scala nnoremap <Leader>yt :EnType<CR>
+" }}}
 
 NeoBundle 'tpope/vim-repeat'
 NeoBundle 'tpope/vim-endwise'
