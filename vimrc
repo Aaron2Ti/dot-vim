@@ -260,7 +260,18 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " A collection of language packs for Vim
 " https://github.com/sheerun/vim-polyglot
 
+" Scala {{{
+NeoBundle 'derekwyatt/vim-sbt'
+NeoBundle 'derekwyatt/vim-scala'
+NeoBundle 'ensime/ensime-vim'
+
+autocmd FileType scala     nnoremap <C-p> :EnDeclaration<CR>
+" }}}
+
+
 " NeoBundle 'ConradIrwin/vim-bracketed-paste'
+
+" TODO
 NeoBundle 'AndrewRadev/splitjoin.vim'
 
 NeoBundle 'ron89/thesaurus_query.vim'
@@ -732,7 +743,7 @@ NeoBundle 'Peeja/vim-cdo'
 NeoBundle 'mileszs/ack.vim'
 let g:ackprg = 'rg --vimgrep '
 
-nmap <Leader>fa  :Ack -tpy<Space>
+nmap <Leader>fa  :Ack -tscala<Space>
 " }}}
 
 " {{{ delimitMate
