@@ -424,6 +424,9 @@ let g:ale_linters = {
 \   'ruby':   [],
 \   'python': ['pylint'],
 \}
+
+let g:ale_linters.scala = ['scalac', 'scalastyle']
+
 let g:ale_python_pylint_options = ' -E  -d no-name-in-module -d no-member '
 
 highlight link ALEError         Normal
