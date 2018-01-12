@@ -294,7 +294,7 @@ let g:lightline = {
       \   'fileencoding': 'LightLineFileencoding',
       \   'mode': 'LightLineMode',
       \ },
-      \ 'separator':    { 'left': '', 'right': '' },
+      \ 'separator':    { 'left': '', 'right': '' },
       \ 'subseparator': { 'left': '', 'right': '' }
       \ }
       " unicode chars in http://be5invis.github.io/Iosevka/specimen.html
@@ -506,6 +506,8 @@ if has('python')
   " let g:ycm_autoclose_preview_window_after_completion     = 0
   let g:ycm_autoclose_preview_window_after_insertion      = 1
   let g:ycm_add_preview_to_completeopt                    = 1
+  let g:ycm_collect_identifiers_from_tags_files           = 1
+
 
   nnoremap <Leader>y :YcmCompleter<Space>
   nnoremap <Leader>yK :YcmCompleter GetDoc<CR>
