@@ -46,9 +46,9 @@ set expandtab
 set nojoinspaces
 set shiftround
 set smarttab
-set shiftwidth=4
-set softtabstop=4
-set tabstop=8
+set shiftwidth=2
+set softtabstop=2
+set tabstop=4
 
 set virtualedit=all
 
@@ -257,124 +257,238 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 " plugins {{{
-" A collection of language packs for Vim
-" https://github.com/sheerun/vim-polyglot
+NeoBundle 'Shougo/vimproc.vim', {
+      \ 'build' : {
+      \     'mac':     'make -f make_mac.mak',
+      \     'unix':    'make -f make_unix.mak',
+      \    },
+      \ }
+
+NeoBundle 'junegunn/fzf.vim'
+NeoBundle 'junegunn/fzf'
+"
+" call dein#add('junegunn/fzf.vim')
+" call dein#add('junegunn/fzf')
+
+call neobundle#end()
+" }}}
+
+"{{{
+set runtimepath+=$HOME/.vim/bundle/repos/github.com/Shougo/dein.vim
+
+" Required:
+if dein#load_state('$HOME/.vim/bundle')
+  call dein#begin('$HOME/.vim/bundle')
+
+  " Let dein manage dein
+  " Required:
+  call dein#add('$HOME/.vim/bundle/repos/github.com/Shougo/dein.vim')
+
+  " Add or remove your plugins here:
+  call dein#add('honza/vim-snippets')
+  call dein#add('907th/vim-auto-save')
+  call dein#add('AndrewRadev/splitjoin.vim')
+  call dein#add('AndrewRadev/switch.vim')
+  call dein#add('Peeja/vim-cdo')
+  call dein#add('Raimondi/delimitMate')
+  call dein#add('Shougo/unite.vim')
+  call dein#add('Shougo/vimfiler.vim')
+  call dein#add('SirVer/ultisnips')
+  call dein#add('Valloric/YouCompleteMe')
+  call dein#add('Valloric/vim-operator-highlight')
+  call dein#add('andymass/vim-matchup')
+  call dein#add('b4winckler/vim-angry')
+  call dein#add('bruno-/vim-vertical-move')
+  call dein#add('derekwyatt/vim-sbt')
+  call dein#add('derekwyatt/vim-scala')
+  call dein#add('easymotion/vim-easymotion')
+  call dein#add('editorconfig/editorconfig-vim')
+  call dein#add('ensime/ensime-vim')
+  call dein#add('guns/xterm-color-table.vim')
+  call dein#add('hdima/python-syntax')
+  call dein#add('hynek/vim-python-pep8-indent')
+  call dein#add('jparise/vim-graphql')
+  call dein#add('junegunn/vim-easy-align')
+  call dein#add('kana/vim-textobj-user')
+  call dein#add('kshenoy/vim-signature')
+  call dein#add('lifepillar/pgsql.vim')
+  call dein#add('majutsushi/tagbar')
+  call dein#add('mattn/emmet-vim')
+  call dein#add('mbbill/fencview')
+  call dein#add('mileszs/ack.vim')
+  call dein#add('othree/html5.vim')
+  call dein#add('ron89/thesaurus_query.vim')
+  call dein#add('salsifis/vim-transpose')
+  call dein#add('sheerun/vim-polyglot')
+  call dein#add('slim-template/vim-slim')
+  call dein#add('t9md/vim-surround_custom_mapping')
+  call dein#add('tenfyzhong/CompleteParameter.vim')
+  call dein#add('thinca/vim-visualstar')
+  call dein#add('tpope/vim-abolish')
+  call dein#add('tpope/vim-commentary')
+  call dein#add('tpope/vim-dispatch')
+  call dein#add('tpope/vim-endwise')
+  call dein#add('tpope/vim-eunuch')
+  call dein#add('tpope/vim-fugitive')
+  call dein#add('tpope/vim-markdown')
+  call dein#add('tpope/vim-repeat')
+  call dein#add('tpope/vim-rsi')
+  call dein#add('tpope/vim-surround')
+  call dein#add('tpope/vim-unimpaired')
+  call dein#add('tsukkee/unite-tag')
+  call dein#add('vim-ruby/vim-ruby')
+  call dein#add('vim-scripts/DrawIt')
+  call dein#add('vim-scripts/SearchComplete')
+  call dein#add('vim-scripts/VisIncr')
+  call dein#add('vim-scripts/indent-motion')
+  call dein#add('vim-scripts/scratch.vim')
+  call dein#add('w0rp/ale')
+  call dein#add('wincent/terminus')
+  " call dein#add('majkinetor/unite-cmdmatch')
+  " call dein#add('Shougo/deol.nvim', { 'rev': 'a1b5108fd' })
+
+  call dein#add('itchyny/lightline.vim')
+  call dein#add('flowtype/vim-flow', {'lazy': 1, 'on_ft': 'javascript'})
+  call dein#add('pangloss/vim-javascript', {'lazy': 1, 'on_ft': 'javascript'})
+  call dein#add('mxw/vim-jsx', {'lazy': 1, 'on_ft': 'javascript'})
+
+  " {{{ lightline & laststatus
+  set laststatus=2
+
+  let g:lightline = {
+        \ 'active': {
+        \   'left': [ [ 'mode', 'paste' ], ['filename' ]],
+        \   'right': [ [ 'lineinfo' ], ['percent'], [ 'fileformat', 'fileencoding', 'filetype' ] ]
+        \ },
+        \ 'component_function': {
+        \   'filename': 'LightLineFilename',
+        \   'fileformat': 'LightLineFileformat',
+        \   'filetype': 'LightLineFiletype',
+        \   'fileencoding': 'LightLineFileencoding',
+        \   'mode': 'LightLineMode',
+        \ },
+        \ 'separator':    { 'left': '', 'right': '' },
+        \ 'subseparator': { 'left': '', 'right': '' }
+        \ }
+        " unicode chars in http://be5invis.github.io/Iosevka/specimen.html
+
+  let g:lightline.mode_map = {
+      \ 'n':      ' NORMAL',
+      \ 'i':      ' INSERT',
+      \ 'R':      'REPLACE',
+      \ 'v':      ' VISUAL',
+      \ 'V':      ' V-LINE',
+      \ 'c':      'COMMAND',
+      \ "\<C-v>": 'V-BLOCK',
+      \ 's':      ' SELECT',
+      \ 'S':      ' S-LINE',
+      \ "\<C-s>": 'S-BLOCK',
+      \ '?':      '       ' }
+
+  function! LightLineModified()
+    return &ft =~ 'help' ? '' : &modified ? '+' : &modifiable ? '' : '-'
+  endfunction
+
+  function! LightLineReadonly()
+    return &ft !~? 'help' && &readonly ? '' : ''
+  endfunction
+
+  function! LightLineFilename()
+    let fname = expand('%:t')
+    return  &ft == 'vimfiler' ? vimfiler#get_status_string() :
+          \ &ft == 'unite' ? unite#get_status_string() :
+          \ ('' != LightLineReadonly() ? LightLineReadonly() . ' ' : '') .
+          \ ('' != fname ? fname : '[No Name]') .
+          \ ('' != LightLineModified() ? ' ' . LightLineModified() : '')
+  endfunction
+
+  function! LightLineFileformat()
+    return winwidth(0) > 70 ? &fileformat : ''
+  endfunction
+
+  function! LightLineFiletype()
+    return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype : 'no ft') : ''
+  endfunction
+
+  function! LightLineFileencoding()
+    return winwidth(0) > 70 ? (strlen(&fenc) ? &fenc : &enc) : ''
+  endfunction
+
+  function! LightLineMode()
+    let fname = expand('%:t')
+    return  &ft == 'unite' ? 'Unite' :
+          \ &ft == 'vimfiler' ? 'VimFiler' :
+          \ winwidth(0) > 60 ? lightline#mode() : ''
+  endfunction
+
+  let g:unite_force_overwrite_statusline = 0
+  let g:vimfiler_force_overwrite_statusline = 0
+  let g:vimshell_force_overwrite_statusline = 0
+  " }}}
+
+  "{{{ javascript
+  let g:flow#enable = 0
+  let g:flow#omnifunc = 1
+
+  autocmd FileType javascript nnoremap <C-p> :FlowJumpToDef<CR>
+  " ReactJS
+  let g:jsx_ext_required = 0
+  "}}}
 
 
-" NeoBundle 'ConradIrwin/vim-bracketed-paste'
+  "{{{
+  call dein#add('haya14busa/incsearch.vim')
+  call dein#add('haya14busa/incsearch-fuzzy.vim')
+  map /  <Plug>(incsearch-forward)
+  map ?  <Plug>(incsearch-backward)
+  map g/ <Plug>(incsearch-stay)
 
-NeoBundle 'slim-template/vim-slim'
+  map z/ <Plug>(incsearch-fuzzy-/)
+  map z? <Plug>(incsearch-fuzzy-?)
+  map zg/ <Plug>(incsearch-fuzzy-stay)
+  "}}}
 
-" TODO
-NeoBundle 'AndrewRadev/splitjoin.vim'
+  " Required:
+  call dein#end()
+  call dein#save_state()
+endif
 
-NeoBundle 'ron89/thesaurus_query.vim'
+" {{{ settings after plugin
+call unite#custom#profile('default', 'context', {
+\   'start_insert': 0,
+\   'winheight':    10,
+\   'direction':    'botright',
+\ })
+call unite#filters#sorter_default#use('sorter_rank')
+call unite#custom#default_action('directory', 'narrow')
+
+call vimfiler#custom#profile('default', 'context', {
+\ 'safe' : 1,
+\ })
+
+autocmd BufRead,BufNewFile *.ru,*.watchr setfiletype ruby
+autocmd BufRead,BufNewFile *.treetop     setfiletype treetop
+autocmd BufRead,BufNewFile *.coffee      setfiletype coffee
+autocmd BufRead,BufNewFile *.slim        setfiletype slim
+
+autocmd FileType ruby   UltiSnipsAddFiletypes ruby
+autocmd FileType eruby  UltiSnipsAddFiletypes eruby.ruby
+autocmd FileType haml   UltiSnipsAddFiletypes haml.ruby
+autocmd FileType slim   UltiSnipsAddFiletypes slim.ruby
+autocmd FileType python UltiSnipsAddFiletypes python
+
+autocmd FileType markdown setlocal spell
+autocmd FileType scala nnoremap <C-p> :EnDeclaration<CR>
+autocmd FileType scala nnoremap <Leader>yK :EnDocBrowse<CR>
+autocmd FileType scala nnoremap <Leader>yt :EnType<CR>
 
 let g:tq_enabled_backends = ['thesaurus_com']
 let g:tq_language = ['en']
-
-NeoBundle 'jparise/vim-graphql'
-
-" NeoBundle 'metakirby5/codi.vim'
-
-" NeoBundle 'motus/pig.vim'
-" au BufRead,BufNewFile *.pig set filetype=pig syntax=pig
-
-" {{{ lightline & laststatus
-set laststatus=2
-NeoBundle 'itchyny/lightline.vim'
-
-let g:lightline = {
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ], ['filename' ]],
-      \   'right': [ [ 'lineinfo' ], ['percent'], [ 'fileformat', 'fileencoding', 'filetype' ] ]
-      \ },
-      \ 'component_function': {
-      \   'filename': 'LightLineFilename',
-      \   'fileformat': 'LightLineFileformat',
-      \   'filetype': 'LightLineFiletype',
-      \   'fileencoding': 'LightLineFileencoding',
-      \   'mode': 'LightLineMode',
-      \ },
-      \ 'separator':    { 'left': '', 'right': '' },
-      \ 'subseparator': { 'left': '', 'right': '' }
-      \ }
-      " unicode chars in http://be5invis.github.io/Iosevka/specimen.html
-
-let g:lightline.mode_map = {
-    \ 'n':      ' NORMAL',
-    \ 'i':      ' INSERT',
-    \ 'R':      'REPLACE',
-    \ 'v':      ' VISUAL',
-    \ 'V':      ' V-LINE',
-    \ 'c':      'COMMAND',
-    \ "\<C-v>": 'V-BLOCK',
-    \ 's':      ' SELECT',
-    \ 'S':      ' S-LINE',
-    \ "\<C-s>": 'S-BLOCK',
-    \ '?':      '       ' }
-
-function! LightLineModified()
-  return &ft =~ 'help' ? '' : &modified ? '+' : &modifiable ? '' : '-'
-endfunction
-
-function! LightLineReadonly()
-  return &ft !~? 'help' && &readonly ? '' : ''
-endfunction
-
-function! LightLineFilename()
-  let fname = expand('%:t')
-  return  &ft == 'vimfiler' ? vimfiler#get_status_string() :
-        \ &ft == 'unite' ? unite#get_status_string() :
-        \ ('' != LightLineReadonly() ? LightLineReadonly() . ' ' : '') .
-        \ ('' != fname ? fname : '[No Name]') .
-        \ ('' != LightLineModified() ? ' ' . LightLineModified() : '')
-endfunction
-
-function! LightLineFileformat()
-  return winwidth(0) > 70 ? &fileformat : ''
-endfunction
-
-function! LightLineFiletype()
-  return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype : 'no ft') : ''
-endfunction
-
-function! LightLineFileencoding()
-  return winwidth(0) > 70 ? (strlen(&fenc) ? &fenc : &enc) : ''
-endfunction
-
-function! LightLineMode()
-  let fname = expand('%:t')
-  return  &ft == 'unite' ? 'Unite' :
-        \ &ft == 'vimfiler' ? 'VimFiler' :
-        \ winwidth(0) > 60 ? lightline#mode() : ''
-endfunction
-
-let g:unite_force_overwrite_statusline = 0
-let g:vimfiler_force_overwrite_statusline = 0
-let g:vimshell_force_overwrite_statusline = 0
-" }}}
-
-NeoBundle 'editorconfig/editorconfig-vim'
-
-NeoBundle 'salsifis/vim-transpose'
-
-NeoBundle 'Valloric/vim-operator-highlight'
 let g:ophigh_color = 246
-
-NeoBundle 'wincent/terminus'
 let g:TerminusMouse          = 0
 let g:TerminusFocusReporting = 0
 let g:TerminusAssumeITerm    = 1
 let g:TerminusBracketedPaste = 0
-
-" Auto detect CJK and Unicode file encodings
-" Install https://github.com/adah1972/tellenc
-" FencView
-NeoBundle 'mbbill/fencview'
-
-" NeoBundle 'rstacruz/sparkup'
-NeoBundle 'mattn/emmet-vim'
 let g:user_emmet_settings = {
 \    'html' : {
 \        'quote_char': "'",
@@ -386,41 +500,12 @@ let g:user_emmet_settings = {
 \        'indentation' : '    '
 \    },
 \}
-
-NeoBundle 'othree/html5.vim'
-
-NeoBundle 'zefei/vim-colortuner'
-
-NeoBundle 'haya14busa/incsearch.vim'
-NeoBundle 'haya14busa/incsearch-fuzzy.vim'
-map /  <Plug>(incsearch-forward)
-map ?  <Plug>(incsearch-backward)
-map g/ <Plug>(incsearch-stay)
-
-map z/ <Plug>(incsearch-fuzzy-/)
-map z? <Plug>(incsearch-fuzzy-?)
-map zg/ <Plug>(incsearch-fuzzy-stay)
-
-
-"{{{ latex
-" NeoBundleLazy 'http://git.code.sf.net/p/vim-latex/vim-latex',
-"               \ {'name': 'vim-latex-suite', 'type': 'git'}
-" NeoBundleLazy 'lervag/vimtex'
-
-" autocmd FileType tex,latex,plaintex NeoBundleSource vimtex
-" autocmd FileType tex,latex,plaintex NeoBundleSource vim-latex-suite
-"}}}
-
-NeoBundle '907th/vim-auto-save'
 let g:auto_save = 0
 let g:auto_save_silent = 1
 
-NeoBundle 'lifepillar/pgsql.vim'
 let g:sql_type_default = 'pgsql'
 autocmd FileType sql setlocal commentstring=--%s
 
-"{{{ ale
-NeoBundle 'w0rp/ale'
 " let g:ale_lint_on_insert_leave = 1
 let g:ale_linters = {
 \   'ruby':   [],
@@ -428,20 +513,19 @@ let g:ale_linters = {
 \}
 
 let g:ale_linters.scala = ['scalac', 'scalastyle']
-
 let g:ale_python_pylint_options = ' -E  -d no-name-in-module -d no-member '
 
-highlight link ALEError         Normal
-highlight link ALEWarning       Normal
-highlight link ALEInfo          Normal
-highlight link ALEStyleError    Normal
-highlight link ALEStyleWarning  Normal
-highlight link ALEErrorSign        SignColumn
-highlight link ALEErrorSign        SignColumn
-highlight link ALEWarningSign      SignColumn
-highlight link ALEInfoSign         SignColumn
-highlight link ALEStyleErrorSign   SignColumn
-highlight link ALEStyleWarningSign SignColumn
+highlight link ALEError             Normal
+highlight link ALEWarning           Normal
+highlight link ALEInfo              Normal
+highlight link ALEStyleError        Normal
+highlight link ALEStyleWarning      Normal
+highlight link ALEErrorSign         SignColumn
+highlight link ALEErrorSign         SignColumn
+highlight link ALEWarningSign       SignColumn
+highlight link ALEInfoSign          SignColumn
+highlight link ALEStyleErrorSign    SignColumn
+highlight link ALEStyleWarningSign  SignColumn
 
 let g:ale_sign_error         = '🎈'
 let g:ale_sign_warning       = '🍭'
@@ -449,165 +533,79 @@ let g:ale_sign_style_error   = '⁉️'
 let g:ale_sign_style_warning = '💩'
 "}}}
 
-"{{{ Python
-" NeoBundle 'klen/python-mode'
-" let g:pymode_rope              = 0
-" let g:pymode_options           = 0
-" let g:pymode_lint_signs        = 0
-" let g:pymode_lint_write        = 0
-" let g:pymode_lint_checkers     = ['pep8']
-" let g:pymode_lint_checkers     = []
-" let g:pymode_lint_options_pep8 = { 'max_line_length': 119 }
-" let g:pymode_breakpoint_bind   = ''
-
-" let g:pymode_lint_ignore       = 'E702'
-
-" let g:pymode_rope_complete_on_dot = 0
-" let g:pymode_rope_goto_definition_cmd = 'e'
-"
-" NeoBundle 'mitsuhiko/vim-python-combined'
-
-NeoBundle 'hdima/python-syntax'
-NeoBundle 'hynek/vim-python-pep8-indent'
-
 autocmd FileType python setlocal shiftwidth=4 softtabstop=4 tabstop=8
 autocmd FileType python setlocal commentstring=#%s
 autocmd FileType python setlocal define=^\s*\\(def\\\\|class\\)
 autocmd FileType python setlocal complete+=t
 autocmd FileType python setlocal formatoptions-=t
-"}}}
 
-"{{{ ultisnips, YouCompleteMe etc
-if has('python')
-  " {{{ ultisnips
-  NeoBundle 'SirVer/ultisnips'
+" {{{ ultisnips
+let g:UltiSnipsUsePythonVersion    = 2
+let g:UltiSnipsExpandTrigger       = '<C-s>'
+" let g:UltiSnipsListSnippets        = '<C-S-s>'
+let g:UltiSnipsJumpForwardTrigger  = '<C-J>'
+let g:UltiSnipsJumpBackwardTrigger = '<C-K>'
 
-  let g:UltiSnipsUsePythonVersion    = 2
-  let g:UltiSnipsExpandTrigger       = '<C-s>'
-  " let g:UltiSnipsListSnippets        = '<C-S-s>'
-  let g:UltiSnipsJumpForwardTrigger  = '<C-J>'
-  let g:UltiSnipsJumpBackwardTrigger = '<C-K>'
-
-  autocmd BufNewFile,BufRead *.snippets setf snippets
-  " }}}
-
-  NeoBundle "honza/vim-snippets"
-
-  NeoBundle 'tenfyzhong/CompleteParameter.vim'
-
-  " YouCompleteMe {{{
-  NeoBundle 'Valloric/YouCompleteMe'
-
-  let g:ycm_python_binary_path = 'python'
-
-  let g:ycm_key_list_select_completion                    = ['<TAB>']
-  let g:ycm_key_list_previous_completion                  = ['<S-TAB>']
-  let g:ycm_allow_changing_updatetime                     = 0
-  let g:ycm_complete_in_comments_and_strings              = 1
-  let g:ycm_collect_identifiers_from_comments_and_strings = 1
-  " let g:ycm_autoclose_preview_window_after_completion     = 0
-  let g:ycm_autoclose_preview_window_after_insertion      = 1
-  let g:ycm_add_preview_to_completeopt                    = 1
-  let g:ycm_collect_identifiers_from_tags_files           = 1
-
-
-  nnoremap <Leader>y :YcmCompleter<Space>
-  nnoremap <Leader>yK :YcmCompleter GetDoc<CR>
-  nnoremap <Leader>yt :YcmCompleter GetType<CR>
-  nnoremap <Leader>yr :YcmCompleter GoToReferences<CR>
-  nnoremap <Leader>ye :YcmCompleter GoToType<CR>
-  nnoremap <Leader>yf :YcmCompleter RefactorRename<Space>
-  nnoremap <Leader>yg :YcmCompleter GoTo<CR>
-  autocmd FileType typescript nnoremap <C-p> :YcmCompleter GoToDefinition<CR>
-  autocmd FileType python     nnoremap <C-p> :YcmCompleter GoToDeclaration<CR>
-
-  let g:ycm_semantic_triggers =  {
-      \  'c':          ['->', '.'],
-      \  'objc':       ['->', '.'],
-      \  'ocaml':      ['.', '#'],
-      \  'cpp,objcpp': ['->', '.', '::'],
-      \  'perl':       ['->'],
-      \  'php':        ['->', '::'],
-      \  'cs,java':    ['.'],
-      \  'ruby':       ['.', '::'],
-      \  'lua':        ['.', ':'],
-      \  'erlang':     [':'],
-      \  'haskell':    ['.'],
-      \  'typescript': ['.'],
-      \}
-
-  let g:ycm_filetype_specific_completion_to_disable = {
-      \ 'ruby':       1,
-      \ 'javascript': 1,
-      \}
-
-  let g:ycm_filetype_blacklist = {
-        \ 'tagbar':  1,
-        \ 'qf':      1,
-        \ 'notes':   1,
-        \ 'text':    1,
-        \ 'vimwiki': 1,
-        \ 'pandoc':  1,
-        \ 'mail':    1,
-        \}
-  " }}}
-
-  " https://github.com/gcmt/breeze.vim
-  " NeoBundle 'gcmt/breeze.vim'
-endif
-"}}}
-
-"{{{ javascript
-NeoBundleLazy 'flowtype/vim-flow', {
-    \ 'autoload': {
-    \     'filetypes': 'javascript'
-    \ }}
-let g:flow#enable = 0
-let g:flow#omnifunc = 1
-
-autocmd FileType javascript nnoremap <C-p> :FlowJumpToDef<CR>
-
-NeoBundle 'pangloss/vim-javascript'
-
-" ReactJS
-NeoBundle 'mxw/vim-jsx'
-let g:jsx_ext_required = 0
-"}}}
-
-"{{{ markdown
-NeoBundleLazy 'tpope/vim-markdown'
-
-autocmd FileType markdown setlocal spell
-autocmd FileType markdown NeoBundleSource vim-markdown
-"}}}
-
-" Scala {{{
-NeoBundle 'derekwyatt/vim-sbt'
-NeoBundle 'derekwyatt/vim-scala'
-NeoBundle 'ensime/ensime-vim'
-
-autocmd FileType scala nnoremap <C-p> :EnDeclaration<CR>
-autocmd FileType scala nnoremap <Leader>yK :EnDocBrowse<CR>
-autocmd FileType scala nnoremap <Leader>yt :EnType<CR>
+autocmd BufNewFile,BufRead *.snippets setf snippets
 " }}}
 
-NeoBundle 'tpope/vim-repeat'
-NeoBundle 'tpope/vim-endwise'
-NeoBundle 'tpope/vim-unimpaired'
-NeoBundle 'tpope/vim-abolish'
-NeoBundle 'tpope/vim-rsi'
-NeoBundle 'tpope/vim-eunuch'
-NeoBundle 'tpope/vim-dispatch'
-NeoBundle 'tpope/vim-commentary'
 
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'jreybert/vimagit'
-let g:magit_show_help = 0
+" YouCompleteMe {{{
+let g:ycm_python_binary_path = 'python'
+
+let g:ycm_key_list_select_completion                    = ['<TAB>']
+let g:ycm_key_list_previous_completion                  = ['<S-TAB>']
+let g:ycm_allow_changing_updatetime                     = 0
+let g:ycm_complete_in_comments_and_strings              = 1
+let g:ycm_collect_identifiers_from_comments_and_strings = 1
+" let g:ycm_autoclose_preview_window_after_completion     = 0
+let g:ycm_autoclose_preview_window_after_insertion      = 1
+let g:ycm_add_preview_to_completeopt                    = 1
+let g:ycm_collect_identifiers_from_tags_files           = 1
+
+
+nnoremap <Leader>y :YcmCompleter<Space>
+nnoremap <Leader>yK :YcmCompleter GetDoc<CR>
+nnoremap <Leader>yt :YcmCompleter GetType<CR>
+nnoremap <Leader>yr :YcmCompleter GoToReferences<CR>
+nnoremap <Leader>ye :YcmCompleter GoToType<CR>
+nnoremap <Leader>yf :YcmCompleter RefactorRename<Space>
+nnoremap <Leader>yg :YcmCompleter GoTo<CR>
+autocmd FileType typescript nnoremap <C-p> :YcmCompleter GoToDefinition<CR>
+autocmd FileType python     nnoremap <C-p> :YcmCompleter GoToDeclaration<CR>
+
+let g:ycm_semantic_triggers =  {
+    \  'c':          ['->', '.'],
+    \  'objc':       ['->', '.'],
+    \  'ocaml':      ['.', '#'],
+    \  'cpp,objcpp': ['->', '.', '::'],
+    \  'perl':       ['->'],
+    \  'php':        ['->', '::'],
+    \  'cs,java':    ['.'],
+    \  'ruby':       ['.', '::'],
+    \  'lua':        ['.', ':'],
+    \  'erlang':     [':'],
+    \  'haskell':    ['.'],
+    \  'typescript': ['.'],
+    \}
+
+let g:ycm_filetype_specific_completion_to_disable = {
+    \ 'ruby':       1,
+    \ 'javascript': 1,
+    \}
+
+let g:ycm_filetype_blacklist = {
+      \ 'tagbar':  1,
+      \ 'qf':      1,
+      \ 'notes':   1,
+      \ 'text':    1,
+      \ 'vimwiki': 1,
+      \ 'pandoc':  1,
+      \ 'mail':    1,
+      \}
+" }}}
 
 " {{{ surround
-NeoBundle 'tpope/vim-surround'
-
-NeoBundle 't9md/vim-surround_custom_mapping'
 let g:surround_custom_mapping = {}
 let g:surround_custom_mapping.ruby = {
     \ '-':  "<% \r %>",
@@ -620,195 +618,26 @@ let g:surround_custom_mapping.ruby = {
     \ }
 " }}}
 
-"{{{ typescript
-autocmd BufNewFile,BufRead *.tsx setfiletype typescript
-
-" NeoBundleLazy 'HerringtonDarkholme/yats.vim'
-NeoBundleLazy 'leafgarland/typescript-vim'
-
-autocmd FileType typescript NeoBundleSource typescript-vim
-autocmd FileType typescript setlocal shiftwidth=4 softtabstop=4 tabstop=8
-
-" for json validation
-NeoBundle 'Quramy/vison'
-
-" autocmd BufRead,BufNewFile package.json Vison
-
-NeoBundle 'jason0x43/vim-js-indent'
-
-" autocmd FileType typescript map <buffer> <C-s> <Plug>(TsuquyomiReferences)
-" autocmd FileType typescript NeoBundleSource typescript-tools
-"}}}
-
-"{{{ erlang
-" NeoBundleLazy 'jimenezrick/vimerl'
-"
-" let erlang_show_errors = 0
-" let erlang_completion_cache = 1
-"
-" autocmd FileType erlang setlocal shiftwidth=4 softtabstop=4 tabstop=8
-" autocmd FileType erlang let g:ycm_cache_omnifunc=0
-"
-" NeoBundleLazy 'edkolev/erlang-motions.vim'
-"
-" autocmd FileType erlang NeoBundleSource vimerl
-" autocmd FileType erlang NeoBundleSource erlang-motions.vim
-"}}}
-
-" NeoBundle 'chrisbra/unicode.vim'
-
-"{{{ fsharp
-autocmd FileType fsharp setlocal shiftwidth=4 softtabstop=4 tabstop=8
-
-NeoBundle 'fsharp/vim-fsharp'
-"}}}
-
-"{{{ Haskell
-" NeoBundle 'pbrisbin/vim-syntax-shakespeare'
-
-" NeoBundle 'travitch/hasksyn'
-
-" NeoBundleLazy 'eagletmt/ghcmod-vim'
-" NeoBundleLazy 'eagletmt/neco-ghc'
-
-" NeoBundleLazy 'Twinside/vim-haskellFold'
-
-" autocmd FileType haskell setlocal shiftwidth=4 softtabstop=4 tabstop=8
-" autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
-
-" autocmd FileType haskell NeoBundleSource ghcmod-vim
-" autocmd FileType haskell NeoBundleSource neco-ghc
-" autocmd FileType haskell NeoBundleSource vim-haskellFold
-"}}}
-
-" XtermColorTable
-NeoBundle 'guns/xterm-color-table.vim'
-
-" Make gvim-only colorschemes work transparently in terminal vim
-NeoBundle 'godlygeek/csapprox'
-
-NeoBundle 'bruno-/vim-vertical-move'
-
-NeoBundle 'vim-scripts/DrawIt'
-NeoBundle 'vim-scripts/VisIncr'
-
-" NeoBundle 'justincampbell/vim-eighties'
-
-" {{{ switch.vim
-NeoBundle 'AndrewRadev/switch.vim'
-
 noremap <Leader>sw :Switch<CR>
-
-" convert :foo => 'bar' to foo: 'bar'
 noremap <Leader>st f:xepldf>
-
-" autocmd FileType ruby let b:switch_definitions =
-"   \ [
-"   \   g:switch_builtins.ruby_hash_style,
-"   \   g:switch_builtins.rspec_should,
-"   \   { 'my_own_pattern': 'my_own_replacement' },
-"   \ ]
-" }}}
-
-" NeoBundle 'yeti.vim'
-
-NeoBundle 'thinca/vim-visualstar'
-
-NeoBundle 'vim-scripts/indent-motion'
-
-NeoBundle 'b4winckler/vim-angry'
-
-NeoBundle 'vim-ruby/vim-ruby'
 autocmd FileType ruby setlocal shiftwidth=2 softtabstop=2 tabstop=4
 
-" {{{ vim-rails
-" NeoBundle 'tpope/vim-rails'
-" noremap <Leader>r   :R<Space>
-" noremap <Leader>rr  :R config/routes.rb<CR>
-" noremap <Leader>rm  :Rmodel<Space>
-" noremap <Leader>rc  :Rcontroller<Space>
-" noremap <Leader>rl  :Rlayout<Space>
-" noremap <Leader>rv  :Rview<Space>
-" noremap <Leader>rh  :Rhelper<Space>
-" noremap <Leader>ri  :Rinitializer<Space>
-" noremap <Leader>rj  :Rjavascript<Space>
-" noremap <Leader>rs  :Rstylesheet<Space>
-" }}}
-
-NeoBundle 'kablamo/vim-git-log'
-
-"{{{ coffee-script
-" NeoBundleLazy 'kchmck/vim-coffee-script'
-" NeoBundleLazy 'mtscout6/vim-cjsx'
-" autocmd FileType coffee NeoBundleSource vim-coffee-script
-" autocmd FileType coffee NeoBundleSource vim-cjsx
-" autocmd FileType coffee setlocal shiftwidth=4 softtabstop=4 tabstop=8 expandtab foldmethod=indent foldlevel=1
-"}}}
-
-" NeoBundle 'henrik/vim-qargs'
-NeoBundle 'Peeja/vim-cdo'
-
-" Ack {{{
-NeoBundle 'mileszs/ack.vim'
 let g:ackprg = 'rg --vimgrep '
-
 nmap <Leader>fa  :Ack -tscala<Space>
-" }}}
-
-" {{{ delimitMate
-NeoBundle 'Raimondi/delimitMate'
 autocmd FileType clojure let b:delimitMate_quotes = "\""
 autocmd FileType clojure let b:delimitMate_matchpairs = "(:),[:],{:}"
 autocmd FileType ruby    let b:delimitMate_matchpairs = "(:),[:],{:}"
 autocmd FileType r       let b:delimitMate_matchpairs = "(:),[:],{:}"
 autocmd FileType haskell let b:delimitMate_matchpairs = "(:),[:],{:}"
 autocmd FileType python  let b:delimitMate_matchpairs = "(:),[:],{:}"
-" }}}
 
-" {{{ clojure
-" NeoBundle 'tpope/vim-classpath'
-" NeoBundleLazy 'tpope/vim-leiningen'
-" https://github.com/clojure-emacs/cider-nrepl
-" NeoBundleLazy 'tpope/vim-fireplace'
-
-NeoBundle 'guns/vim-clojure-static'
-NeoBundle 'guns/vim-clojure-highlight'
-
-" autocmd FileType clojure NeoBundleSource vim-leiningen
-" autocmd FileType clojure NeoBundleSource vim-fireplace
-" autocmd FileType clojure NeoBundleSource vim-typedclojure
-" }}}
-
-" Shougo/vimproc.vim {{{
-NeoBundle 'Shougo/vimproc.vim', {
-      \ 'build' : {
-      \     'windows': 'make -f make_mingw32.mak',
-      \     'cygwin':  'make -f make_cygwin.mak',
-      \     'mac':     'make -f make_mac.mak',
-      \     'unix':    'make -f make_unix.mak',
-      \    },
-      \ }
-"}}}
-
-" junegunn/fzf {{{
-NeoBundle 'junegunn/fzf'
-NeoBundle 'junegunn/fzf.vim'
-" https://github.com/D630/fzf-contrib
-
-if !has('gui_macvim')
-  noremap <Leader>f  :FZF .    <CR>
-  noremap <Leader>fe :execute 'VimFiler' expand('%:p:h')    <CR>
-  noremap <Leader>fg :GitFiles <CR>
-  noremap <leader>fb :Buffers  <CR>
-  noremap <Leader>fl :BLines   <CR>
-endif
-" }}}
+noremap <Leader>f  :FZF .    <CR>
+noremap <Leader>fe :execute 'VimFiler' expand('%:p:h')    <CR>
+noremap <Leader>fg :GitFiles <CR>
+noremap <leader>fb :Buffers  <CR>
+noremap <Leader>fl :BLines   <CR>
 
 " Shougo/unite.vim {{{
-NeoBundle 'majkinetor/unite-cmdmatch'
-NeoBundle 'tsukkee/unite-tag'
-
-NeoBundle 'Shougo/vimfiler.vim'
 let g:vimfiler_enable_clipboard = 0
 let g:vimfiler_tree_leaf_icon = ' '
 let g:vimfiler_tree_opened_icon = '▾'
@@ -825,173 +654,67 @@ let g:unite_cursor_line_highlight = 'InsertCursor'
 let g:unite_marked_icon = '+'
 let g:unite_source_history_yank_enable = 1
 
-NeoBundle 'Shougo/unite.vim'
-
 noremap <Leader>fd :VimFiler                           <CR>
 noremap <Leader>fk :Unite bookmark       -start-insert <CR>
 "}}}
 
-
-" kana/vim-smartinput # auto close " ' ( [ etc
-
-NeoBundle 'vim-scripts/scratch.vim'
 noremap <Leader>so :Scratch<CR>
 
-NeoBundle 'kana/vim-textobj-user'
-NeoBundle 'kana/vim-textobj-line'
-
-" NeoBundle 'nelstrom/vim-textobj-rubyblock'
-"
-" {{{ kana
-" NeoBundle 'kana/vim-smartword'
-" map w  <Plug>(smartword-w)
-" map b  <Plug>(smartword-b)
-" map e  <Plug>(smartword-e)
-" map ge <Plug>(smartword-ge)
-
-" NeoBundle 'kana/vim-smarttill'
-" }}}
-
-" NeoBundle 'justinmk/vim-sneak'
-" nmap - <Plug>SneakPrevious
-" xmap - <Plug>VSneakPrevious
-
-
 " {{{ easymotion
-NeoBundle 'easymotion/vim-easymotion'
 let g:EasyMotion_smartcase = 1
 
-NeoBundle 'easymotion/vim-easymotion'
 nmap s <Plug>(easymotion-s2)
 omap s <Plug>(easymotion-s2)
 xmap s <Plug>(easymotion-s2)
 
-" let g:EasyMotion_mapping_F = '<C-h>'
-" let g:EasyMotion_mapping_f = '<C-l>'
 let g:EasyMotion_mapping_j = '<C-l>'
 let g:EasyMotion_mapping_k = '<C-h>'
 let g:EasyMotion_keys = 'sdfjklhgawoeiqpnmvbcxAJKFDHGSL;z'
-
-" map  / <Plug>(easymotion-sn)
-" omap / <Plug>(easymotion-tn)
-" nmap s <Plug>(easymotion-s)
-" vmap s <Plug>(easymotion-s)
-" nmap t <Plug>(easymotion-t2)
-" nmap s <Plug>(easymotion-sn)
-
-" map <Leader>l <Plug>(easymotion-lineforward)
-" map <Leader>j <Plug>(easymotion-j)
-" map <Leader>k <Plug>(easymotion-k)
-" map <Leader>h <Plug>(easymotion-linebackward)
 " }}}
 
-NeoBundle 'aliva/vim-fish'
-NeoBundle 'SearchComplete'
 
-NeoBundle 'majutsushi/tagbar'
 nnoremap <silent> <F9> :TagbarToggle<CR>
 let g:tagbar_width = 30
 
-" NeoBundle 'SQLComplete.vim'
-
-" NeoBundle 'genutils'
-" NeoBundle 'foldutil.vim'
-
-" NeoBundle 'sjl/clam.vim'
-
 " {{{ vim-signature
-NeoBundle 'kshenoy/vim-signature'
 let g:SignatureDisableMenu = 1
 let g:SignatureMarkTextHL  = 'SignatureMarkTextHL'
 
 sign define dummy
 autocmd BufWinEnter * execute 'sign place 9999 line=1 name=dummy buffer=' . bufnr('')
-
-" let g:SignatureDefaultMappings=0
-
-" noremap m<Space> :call signature#PurgeMarks()<CR>
-" noremap m<Space> <Plug>SIG_PurgeMarks
-" nmap <Leader>x <Plug>ToggleAutoCloseMappings
 " }}}
-
-
-" {{{ vim-easy-align
-NeoBundle 'junegunn/vim-easy-align'
 
 vnoremap <silent> <cr> :EasyAlign<cr>
 
 let g:easy_align_delimiters = {
-\ '>': { 'pattern': '=>\|->','left_margin': 1, 'right_margin': 1, 'stick_to_left': 0 },
-\ '}': { 'pattern': '}\|{',  'left_margin': 0, 'right_margin': 0, 'stick_to_left': 0 },
-\ '{': { 'pattern': '}\|{',  'left_margin': 1, 'right_margin': 1, 'stick_to_left': 0 },
-\ ']': { 'pattern': ']\|[',  'left_margin': 0, 'right_margin': 0, 'stick_to_left': 0 },
-\ '[': { 'pattern': ']\|[',  'left_margin': 1, 'right_margin': 1, 'stick_to_left': 0 },
-\ '|': { 'pattern': '||\||>\||',  'left_margin': 1, 'right_margin': 1, 'stick_to_left': 0 },
+\ '>': { 'pattern': '=>\|->',            'left_margin': 1, 'right_margin': 1, 'stick_to_left': 0 },
+\ '}': { 'pattern': '}\|{',              'left_margin': 0, 'right_margin': 0, 'stick_to_left': 0 },
+\ '{': { 'pattern': '}\|{',              'left_margin': 1, 'right_margin': 1, 'stick_to_left': 0 },
+\ ']': { 'pattern': ']\|[',              'left_margin': 0, 'right_margin': 0, 'stick_to_left': 0 },
+\ '[': { 'pattern': ']\|[',              'left_margin': 1, 'right_margin': 1, 'stick_to_left': 0 },
+\ '|': { 'pattern': '||\||>\||',         'left_margin': 1, 'right_margin': 1, 'stick_to_left': 0 },
 \ '&': { 'pattern': '&&\|\\\@<!&\|\\\\', 'left_margin': 1, 'right_margin': 1, 'stick_to_left': 0 },
 \ }
 
 let g:easy_align_ignore_groups = []
-" }}}
-
-NeoBundle 'andymass/vim-matchup'
-" let b:match_words = '<%=:%>,<%:%>'
-
-" Indent-Guides {{{
-NeoBundle 'Indent-Guides'
-  let g:indent_guides_auto_colors = 0
-  let g:indent_guides_start_level = 2
-" autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=grey13 ctermbg=3
-  autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=grey8  ctermbg=235
-
-  " autocmd FileType ruby,coffee,javascript,html IndentGuidesEnable
-" }}}
-
-filetype plugin indent on
-
-call neobundle#end()
-
-" Start configurations
-
-call unite#custom#profile('default', 'context', {
-\   'start_insert': 0,
-\   'winheight':    10,
-\   'direction':    'botright',
-\ })
-call unite#filters#sorter_default#use('sorter_rank')
-call unite#custom#default_action('directory', 'narrow')
-
-call vimfiler#custom#profile('default', 'context', {
-\ 'safe' : 1,
-\ })
-
-
-" call unite#custom#profile('grep', 'context', {
-" \   'no-quit' : 1,
-" \   'keep-focus' : 1,
-" \ })
-
-" call unite#custom#source('file_rec/async', 'ignore_globs', split(&wildignore, ','))
-
-
-NeoBundleCheck
-" }}}
-
-" {{{ filetypes
-autocmd BufRead,BufNewFile *.ru,*.watchr setfiletype ruby
-autocmd BufRead,BufNewFile *.treetop     setfiletype treetop
-autocmd BufRead,BufNewFile *.coffee      setfiletype coffee
-autocmd BufRead,BufNewFile *.slim        setfiletype slim
-" }}}
 
 map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
 \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
 \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
-autocmd FileType ruby   UltiSnipsAddFiletypes ruby
-autocmd FileType eruby  UltiSnipsAddFiletypes eruby.ruby
-autocmd FileType haml   UltiSnipsAddFiletypes haml.ruby
-autocmd FileType slim   UltiSnipsAddFiletypes slim.ruby
-autocmd FileType python UltiSnipsAddFiletypes python
+" }}}
+
+" Required:
+filetype plugin indent on
+syntax enable
+
+" If you want to install not installed plugins on startup.
+"if dein#check_install()
+"  call dein#install()
+"endif
+
+"End dein Scripts-------------------------
+"}}}
 
 " {{{
 " vim: foldmethod=marker
