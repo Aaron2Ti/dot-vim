@@ -263,6 +263,8 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 " NeoBundle 'ConradIrwin/vim-bracketed-paste'
 
+NeoBundle 'slim-template/vim-slim'
+
 " TODO
 NeoBundle 'AndrewRadev/splitjoin.vim'
 
@@ -931,7 +933,7 @@ let g:easy_align_delimiters = {
 let g:easy_align_ignore_groups = []
 " }}}
 
-NeoBundle 'matchit.zip'
+NeoBundle 'andymass/vim-matchup'
 " let b:match_words = '<%=:%>,<%:%>'
 
 " Indent-Guides {{{
