@@ -18,7 +18,7 @@ syntax on
 set synmaxcol=200
 
 set encoding=utf-8 fileencoding=utf-8 termencoding=utf-8
-set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
+set fileencodings=utf-8,cp936,gb18030,ucs-bom,big5,euc-jp,euc-kr,latin1
 scriptencoding utf-8
 
 set helplang=En
@@ -94,12 +94,10 @@ set wildmode=list:longest
 set wildmenu wildmode=list:longest,full
 
 set visualbell t_vb=
-
 set formatoptions-=t
 set formatoptions+=n
 
 set ttyfast
-set ttyscroll=3
 
 " not redraw while executing macros, registers and other commands
 set lazyredraw
@@ -682,6 +680,10 @@ map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans
 \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
 " }}}
+"
+if has('nvim')
+  colorscheme drama
+endif
 
 " Required:
 filetype plugin indent on
