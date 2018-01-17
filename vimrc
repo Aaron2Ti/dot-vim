@@ -256,20 +256,6 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 
 NeoBundleFetch 'Shougo/neobundle.vim'
 
-" plugins {{{
-NeoBundle 'Shougo/vimproc.vim', {
-      \ 'build' : {
-      \     'mac':     'make -f make_mac.mak',
-      \     'unix':    'make -f make_unix.mak',
-      \    },
-      \ }
-
-NeoBundle 'junegunn/fzf.vim'
-NeoBundle 'junegunn/fzf'
-"
-" call dein#add('junegunn/fzf.vim')
-" call dein#add('junegunn/fzf')
-
 call neobundle#end()
 " }}}
 
@@ -285,6 +271,8 @@ if dein#load_state('$HOME/.vim/bundle')
   call dein#add('$HOME/.vim/bundle/repos/github.com/Shougo/dein.vim')
 
   " Add or remove your plugins here:
+  call dein#add('junegunn/fzf', { 'build': './install --all', 'merged': 0 })
+  call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
   call dein#add('honza/vim-snippets')
   call dein#add('907th/vim-auto-save')
   call dein#add('AndrewRadev/splitjoin.vim')
