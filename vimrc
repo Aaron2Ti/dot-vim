@@ -248,17 +248,6 @@ noremap <Leader>bd :bufdo bd<CR>
 vnoremap <Leader>a y:'<,'>!sort -t= -k2
 " }}}
 
-if has('vim_starting')
-  set runtimepath+=~/.vim/bundle/neobundle.vim/
-endif
-
-call neobundle#begin(expand('~/.vim/bundle/'))
-
-NeoBundleFetch 'Shougo/neobundle.vim'
-
-call neobundle#end()
-" }}}
-
 "{{{
 set runtimepath+=$HOME/.vim/bundle/repos/github.com/Shougo/dein.vim
 
@@ -271,9 +260,8 @@ if dein#load_state('$HOME/.vim/bundle')
   call dein#add('$HOME/.vim/bundle/repos/github.com/Shougo/dein.vim')
 
   " Add or remove your plugins here:
-  call dein#add('junegunn/fzf', { 'build': './install --all', 'merged': 0 })
-  call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
-  call dein#add('honza/vim-snippets')
+  call dein#add('sheerun/vim-polyglot')
+
   call dein#add('907th/vim-auto-save')
   call dein#add('AndrewRadev/splitjoin.vim')
   call dein#add('AndrewRadev/switch.vim')
@@ -292,10 +280,15 @@ if dein#load_state('$HOME/.vim/bundle')
   call dein#add('easymotion/vim-easymotion')
   call dein#add('editorconfig/editorconfig-vim')
   call dein#add('ensime/ensime-vim')
+  call dein#add('flowtype/vim-flow', {'lazy': 1, 'on_ft': 'javascript'})
   call dein#add('guns/xterm-color-table.vim')
   call dein#add('hdima/python-syntax')
+  call dein#add('honza/vim-snippets')
   call dein#add('hynek/vim-python-pep8-indent')
+  call dein#add('itchyny/lightline.vim')
   call dein#add('jparise/vim-graphql')
+  call dein#add('junegunn/fzf', { 'build': './install --all', 'merged': 0 })
+  call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
   call dein#add('junegunn/vim-easy-align')
   call dein#add('kana/vim-textobj-user')
   call dein#add('kshenoy/vim-signature')
@@ -304,10 +297,11 @@ if dein#load_state('$HOME/.vim/bundle')
   call dein#add('mattn/emmet-vim')
   call dein#add('mbbill/fencview')
   call dein#add('mileszs/ack.vim')
+  call dein#add('mxw/vim-jsx', {'lazy': 1, 'on_ft': 'javascript'})
   call dein#add('othree/html5.vim')
+  call dein#add('pangloss/vim-javascript', {'lazy': 1, 'on_ft': 'javascript'})
   call dein#add('ron89/thesaurus_query.vim')
   call dein#add('salsifis/vim-transpose')
-  call dein#add('sheerun/vim-polyglot')
   call dein#add('slim-template/vim-slim')
   call dein#add('t9md/vim-surround_custom_mapping')
   call dein#add('tenfyzhong/CompleteParameter.vim')
@@ -332,13 +326,9 @@ if dein#load_state('$HOME/.vim/bundle')
   call dein#add('vim-scripts/scratch.vim')
   call dein#add('w0rp/ale')
   call dein#add('wincent/terminus')
-  " call dein#add('majkinetor/unite-cmdmatch')
-  " call dein#add('Shougo/deol.nvim', { 'rev': 'a1b5108fd' })
 
-  call dein#add('itchyny/lightline.vim')
-  call dein#add('flowtype/vim-flow', {'lazy': 1, 'on_ft': 'javascript'})
-  call dein#add('pangloss/vim-javascript', {'lazy': 1, 'on_ft': 'javascript'})
-  call dein#add('mxw/vim-jsx', {'lazy': 1, 'on_ft': 'javascript'})
+  call dein#add('majkinetor/unite-cmdmatch')
+  " call dein#add('Shougo/deol.nvim', { 'rev': 'a1b5108fd' })
 
   " {{{ lightline & laststatus
   set laststatus=2
