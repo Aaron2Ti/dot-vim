@@ -57,6 +57,8 @@ syntax reset
 let g:colors_name = "beijing_opera"
 
 fun! <SID>hi(group, ctermfg, ctermbg, attr) "{{{
+  exec "hi " . a:group . " term=none"
+
   if a:ctermfg != ""
     exec "hi " . a:group . " ctermfg=" . a:ctermfg
   endif
@@ -64,8 +66,6 @@ fun! <SID>hi(group, ctermfg, ctermbg, attr) "{{{
   if a:ctermbg != ""
     exec "hi " . a:group . " ctermbg=" . a:ctermbg
   endif
-
-exec "hi " . a:group . " term=none"
 
   if a:attr != ""
     exec "hi " . a:group . " term=none" . " cterm=" . a:attr
@@ -76,7 +76,6 @@ endfun
 call <SID>hi("clojureParen",        "60",  '', '')
 call <SID>hi("clojureKeyword",      "183", '', '')
 
-
 " Vim Editor Colors
 call <SID>hi("Bold",          "", "", "bold")
 
@@ -86,7 +85,7 @@ call <SID>hi('ErrorMsg', '196', s:Black, 'bold')
 
 call <SID>hi('Folded',     s:Grey11, s:Grey6,        'none')
 call <SID>hi('FoldColumn', s:Grey9,  s:CursorLineBG, 'none')
-call <SID>hi('MatchParen', '',  '239', 'none')
+call <SID>hi('MatchParen', '',  '237', 'none')
 
 call <SID>hi('SignColumn', '14', s:CursorLineBG, 'none')
 
@@ -288,30 +287,9 @@ call <SID>hi('rubyPseudoVariable',         s:Golden,         '', 'bold')
 " call <SID>hi("javaScriptBraces",  s:gui05, "", s:cterm05, "", "")
 " call <SID>hi("javaScriptNumber",  s:gui09, "", s:cterm09, "", "")
 
-" Markdown Highlighting
-" call <SID>hi("markdownCode",              s:gui0B, "", s:cterm0B, "", "")
-" call <SID>hi("markdownCodeBlock",         s:gui0B, "", s:cterm0B, "", "")
-" call <SID>hi("markdownHeadingDelimiter",  s:gui0D, "", s:cterm0D, "", "")
-
 " Git Highlighting
 " call <SID>hi("gitCommitOverflow",  s:gui08, "", s:cterm08, "", "")
 " call <SID>hi("gitCommitSummary",   s:gui0B, "", s:cterm0B, "", "")
-
-" GitGutter Highlighting
-if &background == "dark"
-  " call <SID>hi("GitGutterAdd",     s:gui0B, s:gui01, s:cterm0B, s:cterm01, "")
-  " call <SID>hi("GitGutterChange",  s:gui0D, s:gui01, s:cterm0D, s:cterm01, "")
-  " call <SID>hi("GitGutterDelete",  s:gui08, s:gui01, s:cterm08, s:cterm01, "")
-else
-  " call <SID>hi("GitGutterAdd",     s:gui0B, s:gui06, s:cterm0B, s:cterm06, "")
-  " call <SID>hi("GitGutterChange",  s:gui0D, s:gui06, s:cterm0D, s:cterm06, "")
-  " call <SID>hi("GitGutterDelete",  s:gui08, s:gui06, s:cterm08, s:cterm06, "")
-endif
-
-
-" GitGutter Highlighting
-" call <SID>hi("NERDTreeDirSlash",  s:gui0D, "", s:cterm0D, "", "")
-" call <SID>hi("NERDTreeExecFile",  s:gui05, "", s:cterm05, "", "")
 
 " remove highlighting function
 delf <sid>hi

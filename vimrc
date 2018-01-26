@@ -649,7 +649,6 @@ let g:EasyMotion_mapping_k = '<C-h>'
 let g:EasyMotion_keys = 'sdfjklhgawoeiqpnmvbcxAJKFDHGSL;z'
 " }}}
 
-
 nnoremap <silent> <F9> :TagbarToggle<CR>
 let g:tagbar_width = 30
 
@@ -682,7 +681,7 @@ map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans
 " }}}
 "
 if has('nvim')
-  colorscheme drama
+  colorscheme one
 endif
 
 " Required:
