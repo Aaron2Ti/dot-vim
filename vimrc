@@ -317,7 +317,7 @@ if dein#load_state('$HOME/.vim/bundle')
   call dein#add('othree/html5.vim',             {'lazy': 1, 'on_ft': 'html'})
   call dein#add('derekwyatt/vim-sbt',           {'lazy': 1, 'on_ft': 'scala'})
   call dein#add('derekwyatt/vim-scala',         {'lazy': 0, 'on_ft': 'scala'})
-  call dein#add('ensime/ensime-vim',            {'lazy': 1, 'on_ft': 'scala'})
+  " call dein#add('ensime/ensime-vim',            {'lazy': 1, 'on_ft': 'scala'})
   call dein#add('hdima/python-syntax',          {'lazy': 1, 'on_ft': 'python'})
   call dein#add('hynek/vim-python-pep8-indent', {'lazy': 1, 'on_ft': 'python'})
   call dein#add('flowtype/vim-flow',            {'lazy': 1, 'on_ft': 'javascript'})
@@ -525,7 +525,6 @@ let g:UltiSnipsJumpBackwardTrigger = '<C-K>'
 
 autocmd BufNewFile,BufRead *.snippets setf snippets
 " }}}
-
 
 " YouCompleteMe {{{
 let g:ycm_python_binary_path = 'python'
