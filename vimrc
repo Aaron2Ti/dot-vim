@@ -34,8 +34,6 @@ set showbreak=↳
 set linebreak
     " #add8e6"
 
-set colorcolumn=119
-
 set autoindent
 set smartindent
 set copyindent
@@ -59,7 +57,9 @@ set complete=.,w,b,u,t,k,i,d
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 
-" set cursorcolumn
+set colorcolumn=140
+
+set cursorcolumn
 set cursorline
 set mouse=
 
@@ -180,14 +180,11 @@ let mapleader = ','
 noremap <Space>   15<C-E>
 noremap <S-Space> 15<C-Y>
 
-
 nnoremap ' `
 nnoremap ` '
 
-
 vnoremap g_ $
 vnoremap $  g_
-
 
 " move current line up or down
 nmap <C-k> [e
@@ -279,8 +276,8 @@ if dein#load_state('$HOME/.vim/bundle')
   call dein#add('honza/vim-snippets')
   call dein#add('hynek/vim-python-pep8-indent',           {'lazy': 1, 'on_ft': 'python'})
   call dein#add('itchyny/lightline.vim')
-  call dein#add('junegunn/fzf',                           { 'build': './install --all', 'merged': 0 })
-  call dein#add('junegunn/fzf.vim',                       { 'depends': 'fzf' })
+  call dein#add('junegunn/fzf',                           {'build': './install --all', 'merged': 0})
+  call dein#add('junegunn/fzf.vim',                       {'depends': 'fzf'})
   call dein#add('junegunn/vim-easy-align')
   call dein#add('kana/vim-textobj-user')
   call dein#add('kshenoy/vim-signature')
@@ -452,9 +449,13 @@ autocmd FileType slim   UltiSnipsAddFiletypes slim.ruby
 autocmd FileType python UltiSnipsAddFiletypes python
 
 autocmd FileType markdown setlocal spell
+
 autocmd FileType scala nnoremap <C-p> :EnDeclaration<CR>
 autocmd FileType scala nnoremap <Leader>yK :EnDocBrowse<CR>
 autocmd FileType scala nnoremap <Leader>yt :EnType<CR>
+
+autocmd FileType sbt.scala setlocal commentstring=//%s
+autocmd FileType scala setlocal commentstring=//%s
 
 let g:tq_enabled_backends = ['thesaurus_com']
 let g:tq_language = ['en']
@@ -486,7 +487,8 @@ let g:ale_linters = {
 \   'python': ['pylint'],
 \}
 
-let g:ale_linters.scala = ['scalac', 'scalastyle']
+" let g:ale_linters.scala = ['scalac', 'scalastyle']
+let g:ale_linters.scala = []
 let g:ale_python_pylint_options = ' -E  -d no-name-in-module -d no-member '
 
 highlight link ALEError             Normal
