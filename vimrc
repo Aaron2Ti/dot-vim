@@ -537,7 +537,7 @@ let g:ycm_collect_identifiers_from_comments_and_strings = 1
 let g:ycm_autoclose_preview_window_after_insertion      = 1
 let g:ycm_add_preview_to_completeopt                    = 1
 let g:ycm_collect_identifiers_from_tags_files           = 1
-
+let g:ycm_log_level                                     = 'warning'
 
 nnoremap <Leader>y :YcmCompleter<Space>
 nnoremap <Leader>yK :YcmCompleter GetDoc<CR>
@@ -565,7 +565,9 @@ let g:ycm_semantic_triggers =  {
     \}
 
 let g:ycm_filetype_specific_completion_to_disable = {
+    \ 'scala':      1,
     \ 'ruby':       1,
+    \ 'vim':       1,
     \ 'javascript': 1,
     \}
 
