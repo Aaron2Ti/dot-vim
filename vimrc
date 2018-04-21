@@ -284,8 +284,8 @@ if dein#load_state('$HOME/.vim/bundle')
 
   call dein#add('zchee/deoplete-jedi')
   let g:python3_host_prog = '/usr/local/bin/python3'
-  " TODO
-  " call dein#add('nixprime/cpsm')
+
+  call dein#add('nixprime/cpsm', {'merged': 0})
 
   let g:deoplete#enable_at_startup = 1
   call deoplete#custom#option({
@@ -293,6 +293,9 @@ if dein#load_state('$HOME/.vim/bundle')
   \ 'num_processes':        6,
   \ 'max_list':             30,
   \ })
+
+  call deoplete#custom#source('_', 'matchers', ['matcher_cpsm'])
+  call deoplete#custom#source('_', 'sorters', [])
 
   call deoplete#custom#option('sources', {
   \  '_':      ['member', 'buffer', 'tag', 'file', 'dictionary', 'look', 'ultisnips', 'syntax'],
@@ -310,11 +313,6 @@ if dein#load_state('$HOME/.vim/bundle')
   call deoplete#custom#source('_',    'min_pattern_length', 2)
   call deoplete#custom#source('look', 'min_pattern_length', 3)
 
-  call deoplete#custom#source('_', 'sorters', ['sorter_rank', 'sorter_word'])
-  call deoplete#custom#source('_',
-  \ 'matchers',
-  \ ['matcher_full_fuzzy', 'matcher_length']
-  \ )
   call deoplete#custom#source('ultisnips',
   \ 'matchers',
   \ ['matcher_head', 'matcher_length']
