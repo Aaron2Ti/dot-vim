@@ -296,6 +296,9 @@ if dein#load_state('$HOME/.vim/bundle')
 
   call deoplete#custom#source('_', 'matchers', ['matcher_cpsm'])
   call deoplete#custom#source('_', 'sorters', [])
+  call deoplete#custom#source('look', 'matchers', ['matcher_full_fuzzy'])
+  " call deoplete#custom#source('_', 'sorters',  ['sorter_rank', 'sorter_word'])
+  " call deoplete#custom#source('_', 'matchers', ['matcher_full_fuzzy', 'matcher_length'])
 
   call deoplete#custom#option('sources', {
   \  '_':      ['member', 'buffer', 'tag', 'file', 'dictionary', 'look', 'ultisnips', 'syntax'],
@@ -327,7 +330,7 @@ if dein#load_state('$HOME/.vim/bundle')
   return !col || getline('.')[col - 1]  =~ '\s'
   endfunction
   " }}}
-  " call deoplete#enable()
+  call deoplete#enable()
 
   call dein#add('Valloric/vim-operator-highlight')
   call dein#add('andymass/vim-matchup')
@@ -755,6 +758,7 @@ filetype plugin indent on
 syntax enable
 
 " If you want to install not installed plugins on startup.
+" call dein#recache_runtimepath()
 "if dein#check_install()
 "  call dein#install()
 "endif
