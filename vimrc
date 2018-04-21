@@ -75,7 +75,8 @@ set magic hidden
 set wrap
 set whichwrap=<,>,h,l,~,[,]
 
-set ruler showmode showcmd
+set ruler showcmd
+set noshowmode
 
 set relativenumber
 set nonumber
@@ -89,7 +90,9 @@ set titlestring=%f%m
 set title
 " title titleold=OSX
 
-set shortmess=atI
+set completeopt=menu,menuone
+
+set shortmess=atIc
 set wildmode=list:longest
 set wildmenu wildmode=list:longest,full
 
@@ -103,6 +106,7 @@ set ttyfast
 set lazyredraw
 
 set dictionary+=~/.vim/dict/default
+autocmd BufWinEnter * setlocal dictionary+=~/.vim/dict/default
 
 set thesaurus+=~/.vim/thesaurus/default
 
@@ -262,7 +266,71 @@ if dein#load_state('$HOME/.vim/bundle')
   call dein#add('Shougo/unite.vim')
   call dein#add('Shougo/vimfiler.vim')
   call dein#add('SirVer/ultisnips')
-  call dein#add('Valloric/YouCompleteMe')
+  " call dein#add('Valloric/YouCompleteMe')
+
+  call dein#add('roxma/nvim-yarp')
+  call dein#add('roxma/vim-hug-neovim-rpc')
+
+
+  call dein#add('Shougo/deoplete.nvim')
+  call dein#add('ujihisa/neco-look')
+  call dein#add('Shougo/neco-syntax')
+  call dein#add('Shougo/echodoc.vim')
+  let g:echodoc_enable_at_startup = 1
+
+  " call dein#add('Shougo/context_filetype.vim')
+  " call dein#add('Shougo/neopairs.vim')
+  " let g:neopairs#enable = 1
+
+  call dein#add('zchee/deoplete-jedi')
+  let g:python3_host_prog = '/usr/local/bin/python3'
+  " TODO
+  " call dein#add('nixprime/cpsm')
+
+  let g:deoplete#enable_at_startup = 1
+  call deoplete#custom#option({
+  \ 'smart_case':           v:true,
+  \ 'num_processes':        6,
+  \ 'max_list':             30,
+  \ })
+
+  call deoplete#custom#option('sources', {
+  \  '_':      ['member', 'buffer', 'tag', 'file', 'dictionary', 'look', 'ultisnips', 'syntax'],
+  \  'python': ['member', 'buffer', 'tag', 'file', 'dictionary', 'look', 'ultisnips', 'syntax', 'jedi'],
+  \ })
+  call deoplete#custom#source('jedi',       'rank', 250)
+  call deoplete#custom#source('member',     'rank', 220)
+  call deoplete#custom#source('buffer',     'rank', 210)
+  call deoplete#custom#source('tag',        'rank', 200)
+  call deoplete#custom#source('file',       'rank', 190)
+  call deoplete#custom#source('ultisnips',  'rank', 190)
+  call deoplete#custom#source('dictionary', 'rank', 180)
+  call deoplete#custom#source('look',       'rank', 170)
+
+  call deoplete#custom#source('_',    'min_pattern_length', 2)
+  call deoplete#custom#source('look', 'min_pattern_length', 3)
+
+  call deoplete#custom#source('_', 'sorters', ['sorter_rank', 'sorter_word'])
+  call deoplete#custom#source('_',
+  \ 'matchers',
+  \ ['matcher_full_fuzzy', 'matcher_length']
+  \ )
+  call deoplete#custom#source('ultisnips',
+  \ 'matchers',
+  \ ['matcher_head', 'matcher_length']
+  \ )
+  inoremap <silent><expr> <TAB>
+  \ pumvisible() ? "\<C-n>" :
+  \ <SID>check_back_space() ? "\<TAB>" :
+  \ deoplete#mappings#manual_complete()
+  " {{{
+  function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~ '\s'
+  endfunction
+  " }}}
+  " call deoplete#enable()
+
   call dein#add('Valloric/vim-operator-highlight')
   call dein#add('andymass/vim-matchup')
   call dein#add('b4winckler/vim-angry')
@@ -516,7 +584,7 @@ autocmd FileType python setlocal complete+=t
 autocmd FileType python setlocal formatoptions-=t
 
 " {{{ ultisnips
-let g:UltiSnipsUsePythonVersion    = 2
+let g:UltiSnipsUsePythonVersion    = 3
 let g:UltiSnipsExpandTrigger       = '<C-s>'
 " let g:UltiSnipsListSnippets        = '<C-S-s>'
 let g:UltiSnipsJumpForwardTrigger  = '<C-J>'
