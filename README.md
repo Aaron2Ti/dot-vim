@@ -3,10 +3,9 @@
 ```
 git clone https://github.com/Aaron2Ti/dot-vim.git ~/.vim
 
-mkdir -p ~/.vim/bundle
-curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > ~/.vim/bundle/install.sh
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-sh ~/.vim/bundle/install.sh ~/.vim/bundle
+mkdir -p ~/.vim/bundle
 
 ln -s ~/.vim/editorconfig.rc .editorconfig
 ```

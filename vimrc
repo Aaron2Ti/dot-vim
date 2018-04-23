@@ -248,150 +248,98 @@ vnoremap <Leader>a y:'<,'>!sort -t= -k2
 " }}}
 
 "{{{
-set runtimepath+=$HOME/.vim/bundle/repos/github.com/Shougo/dein.vim
-
-" Required:
-if dein#load_state('$HOME/.vim/bundle')
-  call dein#begin('$HOME/.vim/bundle')
-
-  " Let dein manage dein
-  " Required:
-  call dein#add('$HOME/.vim/bundle/repos/github.com/Shougo/dein.vim')
+call plug#begin('$HOME/.vim/bundle')
 
   " Add or remove your plugins here:
-  call dein#add('907th/vim-auto-save')
-  call dein#add('AndrewRadev/splitjoin.vim')
-  call dein#add('AndrewRadev/switch.vim')
-  call dein#add('Raimondi/delimitMate')
-  call dein#add('Shougo/unite.vim')
-  call dein#add('Shougo/vimfiler.vim')
-  call dein#add('SirVer/ultisnips')
-  " call dein#add('Valloric/YouCompleteMe')
+  Plug '907th/vim-auto-save'
+  Plug 'AndrewRadev/splitjoin.vim'
+  Plug 'AndrewRadev/switch.vim'
+  Plug 'Raimondi/delimitMate'
+  Plug 'Shougo/unite.vim'
+  Plug 'Shougo/vimfiler.vim'
+  Plug 'SirVer/ultisnips'
+  " Plug 'Valloric/YouCompleteMe'
 
-  call dein#add('roxma/nvim-yarp')
-  call dein#add('roxma/vim-hug-neovim-rpc')
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
 
 
-  call dein#add('Shougo/deoplete.nvim')
-  call dein#add('ujihisa/neco-look')
-  call dein#add('Shougo/neco-syntax')
-  call dein#add('Shougo/echodoc.vim')
+  Plug 'Shougo/deoplete.nvim'
+  let g:deoplete#enable_at_startup = 1
+
+  Plug 'ujihisa/neco-look'
+  Plug 'Shougo/neco-syntax'
+  Plug 'Shougo/echodoc.vim'
   let g:echodoc_enable_at_startup = 1
 
-  " call dein#add('Shougo/context_filetype.vim')
-  " call dein#add('Shougo/neopairs.vim')
+  " Plug 'Shougo/context_filetype.vim'
+  " Plug 'Shougo/neopairs.vim'
   " let g:neopairs#enable = 1
 
-  call dein#add('zchee/deoplete-jedi')
+  Plug 'zchee/deoplete-jedi'
   let g:python3_host_prog = '/usr/local/bin/python3'
 
-  call dein#add('nixprime/cpsm', {'merged': 0})
+  Plug 'nixprime/cpsm'
 
-  let g:deoplete#enable_at_startup = 1
-  call deoplete#custom#option({
-  \ 'smart_case':           v:true,
-  \ 'num_processes':        6,
-  \ 'max_list':             30,
-  \ })
+  Plug 'Valloric/vim-operator-highlight'
+  Plug 'andymass/vim-matchup'
+  Plug 'b4winckler/vim-angry'
+  Plug 'bruno-/vim-vertical-move'
+  Plug 'derekwyatt/vim-sbt',                     {'for': 'scala'}
+  Plug 'derekwyatt/vim-scala',                   {'for': 'scala'}
+  Plug 'easymotion/vim-easymotion'
+  Plug 'editorconfig/editorconfig-vim'
+  Plug 'hdima/python-syntax',                    {'for': 'python'}
+  Plug 'honza/vim-snippets'
+  Plug 'hynek/vim-python-pep8-indent',           {'for': 'python'}
+  Plug 'itchyny/lightline.vim'
+  Plug 'junegunn/fzf',                           {'dir': '~/.fzf', 'do': './install --all'}
+  Plug 'junegunn/fzf.vim'
+  Plug 'junegunn/vim-easy-align'
+  Plug 'kana/vim-textobj-user'
+  Plug 'kshenoy/vim-signature'
+  " Plug 'lifepillar/pgsql.vim'
+  Plug 'majkinetor/unite-cmdmatch'
+  Plug 'majutsushi/tagbar'
+  Plug 'mattn/emmet-vim'
+  Plug 'mbbill/fencview'
+  Plug 'mileszs/ack.vim'
+  Plug 'mxw/vim-jsx',                            {'for': 'javascript'}
+  Plug 'othree/html5.vim',                       {'for': 'html'}
+  Plug 'pangloss/vim-javascript',                {'for': 'javascript'}
+  Plug 'ron89/thesaurus_query.vim'
+  Plug 'sheerun/vim-polyglot'
+  Plug 'slim-template/vim-slim',                 {'for': 'slim'}
+  Plug 't9md/vim-surround_custom_mapping'
+  Plug 'tenfyzhong/CompleteParameter.vim'
+  Plug 'thinca/vim-visualstar'
+  Plug 'tpope/vim-abolish'
+  Plug 'tpope/vim-commentary'
+  Plug 'tpope/vim-dispatch'
+  Plug 'tpope/vim-endwise'
+  Plug 'tpope/vim-eunuch'
+  Plug 'tpope/vim-fugitive'
+  Plug 'tpope/vim-markdown'
+  Plug 'tpope/vim-repeat'
+  Plug 'tpope/vim-rsi'
+  Plug 'tpope/vim-surround'
+  Plug 'tpope/vim-unimpaired'
+  Plug 'tsukkee/unite-tag'
+  Plug 'vim-ruby/vim-ruby',                      {'for': 'ruby'}
+  Plug 'vim-scripts/DrawIt'
+  Plug 'vim-scripts/SearchComplete'
+  Plug 'vim-scripts/VisIncr'
+  Plug 'vim-scripts/indent-motion'
+  Plug 'vim-scripts/scratch.vim'
+  Plug 'w0rp/ale'
+  Plug 'wincent/terminus'
 
-  call deoplete#custom#source('_', 'matchers', ['matcher_cpsm'])
-  call deoplete#custom#source('_', 'sorters', [])
-  call deoplete#custom#source('look', 'matchers', ['matcher_full_fuzzy'])
-  " call deoplete#custom#source('_', 'sorters',  ['sorter_rank', 'sorter_word'])
-  " call deoplete#custom#source('_', 'matchers', ['matcher_full_fuzzy', 'matcher_length'])
-
-  call deoplete#custom#option('sources', {
-  \  '_':      ['member', 'buffer', 'tag', 'file', 'dictionary', 'look', 'ultisnips', 'syntax'],
-  \  'python': ['member', 'buffer', 'tag', 'file', 'dictionary', 'look', 'ultisnips', 'syntax', 'jedi'],
-  \ })
-  call deoplete#custom#source('jedi',       'rank', 250)
-  call deoplete#custom#source('member',     'rank', 220)
-  call deoplete#custom#source('buffer',     'rank', 210)
-  call deoplete#custom#source('tag',        'rank', 200)
-  call deoplete#custom#source('file',       'rank', 190)
-  call deoplete#custom#source('ultisnips',  'rank', 190)
-  call deoplete#custom#source('dictionary', 'rank', 180)
-  call deoplete#custom#source('look',       'rank', 170)
-
-  call deoplete#custom#source('_',    'min_pattern_length', 2)
-  call deoplete#custom#source('look', 'min_pattern_length', 3)
-
-  call deoplete#custom#source('ultisnips',
-  \ 'matchers',
-  \ ['matcher_head', 'matcher_length']
-  \ )
-  inoremap <silent><expr> <TAB>
-  \ pumvisible() ? "\<C-n>" :
-  \ <SID>check_back_space() ? "\<TAB>" :
-  \ deoplete#mappings#manual_complete()
-  " {{{
-  function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~ '\s'
-  endfunction
-  " }}}
-  call deoplete#enable()
-
-  call dein#add('Valloric/vim-operator-highlight')
-  call dein#add('andymass/vim-matchup')
-  call dein#add('b4winckler/vim-angry')
-  call dein#add('bruno-/vim-vertical-move')
-  call dein#add('derekwyatt/vim-sbt',                     {'lazy': 1, 'on_ft': 'scala'})
-  call dein#add('derekwyatt/vim-scala',                   {'lazy': 0, 'on_ft': 'scala'})
-  call dein#add('easymotion/vim-easymotion')
-  call dein#add('editorconfig/editorconfig-vim')
-  call dein#add('flowtype/vim-flow',                      {'lazy': 1, 'on_ft': 'javascript'})
-  call dein#add('hdima/python-syntax',                    {'lazy': 1, 'on_ft': 'python'})
-  call dein#add('honza/vim-snippets')
-  call dein#add('hynek/vim-python-pep8-indent',           {'lazy': 1, 'on_ft': 'python'})
-  call dein#add('itchyny/lightline.vim')
-  call dein#add('junegunn/fzf',                           {'build': './install --all', 'merged': 0})
-  call dein#add('junegunn/fzf.vim',                       {'depends': 'fzf'})
-  call dein#add('junegunn/vim-easy-align')
-  call dein#add('kana/vim-textobj-user')
-  call dein#add('kshenoy/vim-signature')
-  call dein#add('lifepillar/pgsql.vim',                   {'lazy': 1, 'on_ft': 'sql'})
-  call dein#add('majkinetor/unite-cmdmatch')
-  call dein#add('majutsushi/tagbar')
-  call dein#add('mattn/emmet-vim')
-  call dein#add('mbbill/fencview')
-  call dein#add('mileszs/ack.vim')
-  call dein#add('mxw/vim-jsx',                            {'lazy': 1, 'on_ft': 'javascript'})
-  call dein#add('othree/html5.vim',                       {'lazy': 1, 'on_ft': 'html'})
-  call dein#add('pangloss/vim-javascript',                {'lazy': 1, 'on_ft': 'javascript'})
-  call dein#add('ron89/thesaurus_query.vim')
-  call dein#add('sheerun/vim-polyglot')
-  call dein#add('slim-template/vim-slim',                 {'lazy': 1, 'on_ft': 'slim'})
-  call dein#add('t9md/vim-surround_custom_mapping')
-  call dein#add('tenfyzhong/CompleteParameter.vim')
-  call dein#add('thinca/vim-visualstar')
-  call dein#add('tpope/vim-abolish')
-  call dein#add('tpope/vim-commentary')
-  call dein#add('tpope/vim-dispatch')
-  call dein#add('tpope/vim-endwise')
-  call dein#add('tpope/vim-eunuch')
-  call dein#add('tpope/vim-fugitive')
-  call dein#add('tpope/vim-markdown')
-  call dein#add('tpope/vim-repeat')
-  call dein#add('tpope/vim-rsi')
-  call dein#add('tpope/vim-surround')
-  call dein#add('tpope/vim-unimpaired')
-  call dein#add('tsukkee/unite-tag')
-  call dein#add('vim-ruby/vim-ruby',                      {'lazy': 1, 'on_ft': 'ruby'})
-  call dein#add('vim-scripts/DrawIt')
-  call dein#add('vim-scripts/SearchComplete')
-  call dein#add('vim-scripts/VisIncr')
-  call dein#add('vim-scripts/indent-motion')
-  call dein#add('vim-scripts/scratch.vim')
-  call dein#add('w0rp/ale')
-  call dein#add('wincent/terminus')
-
-  " call dein#add('Shougo/deol.nvim', { 'rev': 'a1b5108fd' })
-  " call dein#add('jparise/vim-graphql')
-  " call dein#add('ensime/ensime-vim',            {'lazy': 1, 'on_ft': 'scala'})
-  " call dein#add('Peeja/vim-cdo')
-  " call dein#add('guns/xterm-color-table.vim')
-  " call dein#add('salsifis/vim-transpose')
+  " Plug 'Shougo/deol.nvim', { 'rev': 'a1b5108fd' }
+  " Plug 'jparise/vim-graphql'
+  " Plug 'ensime/ensime-vim',            {'lazy': 1, 'on_ft': 'scala'}
+  " Plug 'Peeja/vim-cdo'
+  " Plug 'guns/xterm-color-table.vim'
+  " Plug 'salsifis/vim-transpose'
 
   " {{{ lightline & laststatus
   set laststatus=2
@@ -477,8 +425,8 @@ if dein#load_state('$HOME/.vim/bundle')
   "}}}
 
   "{{{
-  call dein#add('haya14busa/incsearch.vim')
-  call dein#add('haya14busa/incsearch-fuzzy.vim')
+  Plug 'haya14busa/incsearch.vim'
+  Plug 'haya14busa/incsearch-fuzzy.vim'
   map /  <Plug>(incsearch-forward)
   map ?  <Plug>(incsearch-backward)
   map g/ <Plug>(incsearch-stay)
@@ -488,10 +436,56 @@ if dein#load_state('$HOME/.vim/bundle')
   map zg/ <Plug>(incsearch-fuzzy-stay)
   "}}}
 
-  " Required:
-  call dein#end()
-  call dein#save_state()
-endif
+call plug#end()
+"}}}
+
+"{{{ deoplete#enable
+call deoplete#enable()
+call deoplete#custom#option({
+\ 'smart_case':           v:true,
+\ 'num_processes':        6,
+\ 'max_list':             30,
+\ })
+
+call deoplete#custom#source('_', 'matchers', ['matcher_cpsm'])
+call deoplete#custom#source('_', 'sorters', [])
+call deoplete#custom#source('look', 'matchers', ['matcher_full_fuzzy'])
+" call deoplete#custom#source('_', 'sorters',  ['sorter_rank', 'sorter_word'])
+" call deoplete#custom#source('_', 'matchers', ['matcher_full_fuzzy', 'matcher_length'])
+
+call deoplete#custom#option('sources', {
+\  '_':      ['member', 'buffer', 'tag', 'file', 'dictionary', 'look', 'ultisnips', 'syntax'],
+\  'python': ['member', 'buffer', 'tag', 'file', 'dictionary', 'look', 'ultisnips', 'syntax', 'jedi'],
+\ })
+call deoplete#custom#source('jedi',       'rank', 250)
+call deoplete#custom#source('member',     'rank', 220)
+call deoplete#custom#source('buffer',     'rank', 210)
+call deoplete#custom#source('tag',        'rank', 200)
+call deoplete#custom#source('file',       'rank', 190)
+call deoplete#custom#source('ultisnips',  'rank', 190)
+call deoplete#custom#source('dictionary', 'rank', 180)
+call deoplete#custom#source('look',       'rank', 170)
+
+call deoplete#custom#source('_',    'min_pattern_length', 2)
+call deoplete#custom#source('look', 'min_pattern_length', 3)
+
+call deoplete#custom#source('ultisnips',
+\ 'matchers',
+\ ['matcher_head', 'matcher_length']
+\ )
+inoremap <silent><expr> <TAB>
+\ pumvisible() ? "\<C-n>" :
+\ <SID>check_back_space() ? "\<TAB>" :
+\ deoplete#mappings#manual_complete()
+
+" {{{
+function! s:check_back_space() abort
+let col = col('.') - 1
+return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
+" }}}
+"}}}
+
 
 " {{{ settings after plugin
 call unite#custom#profile('default', 'context', {
@@ -756,15 +750,6 @@ endif
 " Required:
 filetype plugin indent on
 syntax enable
-
-" If you want to install not installed plugins on startup.
-" call dein#recache_runtimepath()
-"if dein#check_install()
-"  call dein#install()
-"endif
-
-"End dein Scripts-------------------------
-"}}}
 
 " {{{
 " vim: foldmethod=marker
