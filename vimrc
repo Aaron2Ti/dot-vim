@@ -443,15 +443,15 @@ call plug#end()
 call deoplete#enable()
 call deoplete#custom#option({
 \ 'smart_case':           v:true,
-\ 'num_processes':        6,
-\ 'max_list':             30,
+\ 'num_processes':        8,
+\ 'max_list':             40,
 \ })
 
 call deoplete#custom#source('_', 'matchers', ['matcher_cpsm'])
 call deoplete#custom#source('_', 'sorters', [])
-call deoplete#custom#source('look', 'matchers', ['matcher_full_fuzzy'])
-" call deoplete#custom#source('_', 'sorters',  ['sorter_rank', 'sorter_word'])
-" call deoplete#custom#source('_', 'matchers', ['matcher_full_fuzzy', 'matcher_length'])
+
+call deoplete#custom#source('look', 'matchers', ['matcher_full_fuzzy', 'matcher_length'])
+call deoplete#custom#source('look', 'sorters',  ['sorter_rank', 'sorter_word'])
 
 call deoplete#custom#option('sources', {
 \  '_':      ['member', 'buffer', 'tag', 'file', 'dictionary', 'look', 'ultisnips', 'syntax'],
@@ -464,10 +464,10 @@ call deoplete#custom#source('tag',        'rank', 200)
 call deoplete#custom#source('file',       'rank', 190)
 call deoplete#custom#source('ultisnips',  'rank', 190)
 call deoplete#custom#source('dictionary', 'rank', 180)
-call deoplete#custom#source('look',       'rank', 170)
+call deoplete#custom#source('look',       'rank', 100)
 
 call deoplete#custom#source('_',    'min_pattern_length', 2)
-call deoplete#custom#source('look', 'min_pattern_length', 3)
+call deoplete#custom#source('look', 'min_pattern_length', 4)
 
 call deoplete#custom#source('ultisnips',
 \ 'matchers',
