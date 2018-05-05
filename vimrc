@@ -415,25 +415,16 @@ call plug#begin('$HOME/.vim/bundle')
   let g:vimshell_force_overwrite_statusline = 0
   " }}}
 
-  "{{{ javascript
-  let g:flow#enable = 0
-  let g:flow#omnifunc = 1
-
-  autocmd FileType javascript nnoremap <C-p> :FlowJumpToDef<CR>
-  " ReactJS
-  let g:jsx_ext_required = 0
-  "}}}
-
   "{{{
   Plug 'haya14busa/incsearch.vim'
   Plug 'haya14busa/incsearch-fuzzy.vim'
   map /  <Plug>(incsearch-forward)
   map ?  <Plug>(incsearch-backward)
-  map g/ <Plug>(incsearch-stay)
+  " map g/ <Plug>(incsearch-stay)
 
   map z/ <Plug>(incsearch-fuzzy-/)
   map z? <Plug>(incsearch-fuzzy-?)
-  map zg/ <Plug>(incsearch-fuzzy-stay)
+  " map zg/ <Plug>(incsearch-fuzzy-stay)
   "}}}
 
 call plug#end()
@@ -486,7 +477,16 @@ endfunction
 " }}}
 "}}}
 
-" {{{ settings after plugin
+"{{{ settings after plugin
+"{{{ javascript
+let g:flow#enable = 0
+let g:flow#omnifunc = 1
+
+autocmd FileType javascript nnoremap <C-p> :FlowJumpToDef<CR>
+" ReactJS
+let g:jsx_ext_required = 0
+"}}}
+
 call unite#custom#profile('default', 'context', {
 \   'start_insert': 0,
 \   'winheight':    10,
