@@ -486,7 +486,6 @@ endfunction
 " }}}
 "}}}
 
-
 " {{{ settings after plugin
 call unite#custom#profile('default', 'context', {
 \   'start_insert': 0,
@@ -586,63 +585,6 @@ let g:UltiSnipsJumpForwardTrigger  = '<C-J>'
 let g:UltiSnipsJumpBackwardTrigger = '<C-K>'
 
 autocmd BufNewFile,BufRead *.snippets setf snippets
-" }}}
-
-" YouCompleteMe {{{
-let g:ycm_python_binary_path = 'python'
-
-let g:ycm_key_list_select_completion                    = ['<TAB>']
-let g:ycm_key_list_previous_completion                  = ['<S-TAB>']
-let g:ycm_allow_changing_updatetime                     = 0
-let g:ycm_complete_in_comments_and_strings              = 1
-let g:ycm_collect_identifiers_from_comments_and_strings = 1
-" let g:ycm_autoclose_preview_window_after_completion     = 0
-let g:ycm_autoclose_preview_window_after_insertion      = 1
-let g:ycm_add_preview_to_completeopt                    = 1
-let g:ycm_collect_identifiers_from_tags_files           = 1
-let g:ycm_log_level                                     = 'warning'
-
-nnoremap <Leader>y :YcmCompleter<Space>
-nnoremap <Leader>yK :YcmCompleter GetDoc<CR>
-nnoremap <Leader>yt :YcmCompleter GetType<CR>
-nnoremap <Leader>yr :YcmCompleter GoToReferences<CR>
-nnoremap <Leader>ye :YcmCompleter GoToType<CR>
-nnoremap <Leader>yf :YcmCompleter RefactorRename<Space>
-nnoremap <Leader>yg :YcmCompleter GoTo<CR>
-autocmd FileType typescript nnoremap <C-p> :YcmCompleter GoToDefinition<CR>
-autocmd FileType python     nnoremap <C-p> :YcmCompleter GoToDeclaration<CR>
-
-let g:ycm_semantic_triggers =  {
-    \  'c':          ['->', '.'],
-    \  'objc':       ['->', '.'],
-    \  'ocaml':      ['.', '#'],
-    \  'cpp,objcpp': ['->', '.', '::'],
-    \  'perl':       ['->'],
-    \  'php':        ['->', '::'],
-    \  'cs,java':    ['.'],
-    \  'ruby':       ['.', '::'],
-    \  'lua':        ['.', ':'],
-    \  'erlang':     [':'],
-    \  'haskell':    ['.'],
-    \  'typescript': ['.'],
-    \}
-
-let g:ycm_filetype_specific_completion_to_disable = {
-    \ 'scala':      1,
-    \ 'ruby':       1,
-    \ 'vim':       1,
-    \ 'javascript': 1,
-    \}
-
-let g:ycm_filetype_blacklist = {
-      \ 'tagbar':  1,
-      \ 'qf':      1,
-      \ 'notes':   1,
-      \ 'text':    1,
-      \ 'vimwiki': 1,
-      \ 'pandoc':  1,
-      \ 'mail':    1,
-      \}
 " }}}
 
 " {{{ surround
