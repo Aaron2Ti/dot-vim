@@ -737,6 +737,12 @@ let g:easy_align_delimiters = {
 
 let g:easy_align_ignore_groups = []
 
+" disable for vim-operator-highlight
+let g:ophigh_filetypes_to_ignore = {}
+let g:ophigh_filetypes_to_ignore.ruby = 1
+let g:ophigh_filetypes_to_ignore.eruby = 1
+let g:ophigh_filetypes_to_ignore.markdown = 1
+
 map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
 \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
 \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
