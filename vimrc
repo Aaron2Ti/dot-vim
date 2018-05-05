@@ -569,7 +569,6 @@ let g:ale_sign_error         = '🎈'
 let g:ale_sign_warning       = '🍭'
 let g:ale_sign_style_error   = '⁉️'
 let g:ale_sign_style_warning = '💩'
-"}}}
 
 autocmd FileType python setlocal shiftwidth=4 softtabstop=4 tabstop=8
 autocmd FileType python setlocal commentstring=#%s
@@ -681,8 +680,8 @@ let g:easy_align_ignore_groups = []
 
 " disable for vim-operator-highlight
 let g:ophigh_filetypes_to_ignore = {}
-let g:ophigh_filetypes_to_ignore.ruby = 1
-let g:ophigh_filetypes_to_ignore.eruby = 1
+let g:ophigh_filetypes_to_ignore.ruby     = 1
+let g:ophigh_filetypes_to_ignore.eruby    = 1
 let g:ophigh_filetypes_to_ignore.markdown = 1
 
 map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
@@ -690,7 +689,7 @@ map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans
 \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
 " }}}
-"
+
 if has('nvim')
   colorscheme one
 endif
