@@ -251,6 +251,12 @@ vnoremap <Leader>a y:'<,'>!sort -t= -k2
 call plug#begin('$HOME/.vim/bundle')
 
   " Add or remove your plugins here:
+
+  Plug 'echuraev/translate-shell.vim'
+  let g:trans_default_direction = ":zh"
+  let g:trans_advanced_options = "-brief -engine bing"
+  " brew install translate-shell
+
   Plug '907th/vim-auto-save'
   Plug 'AndrewRadev/splitjoin.vim'
   Plug 'AndrewRadev/switch.vim'
