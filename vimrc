@@ -57,7 +57,7 @@ set complete=.,w,b,u,t,k,i,d
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 
-set colorcolumn=140
+set colorcolumn=160
 
 set cursorcolumn
 set cursorline
@@ -251,6 +251,9 @@ vnoremap <Leader>a y:'<,'>!sort -t= -k2
 call plug#begin('$HOME/.vim/bundle')
 
   " Add or remove your plugins here:
+
+  Plug 'RRethy/vim-illuminate'
+  Plug 'markonm/traces.vim'
 
   Plug 'echuraev/translate-shell.vim'
   let g:trans_default_direction = ":zh"
@@ -611,6 +614,7 @@ autocmd FileType ruby setlocal shiftwidth=2 softtabstop=2 tabstop=4
 
 let g:ackprg = 'rg --vimgrep '
 nmap <Leader>fa  :Ack -tscala<Space>
+
 autocmd FileType clojure let b:delimitMate_quotes = "\""
 autocmd FileType clojure let b:delimitMate_matchpairs = "(:),[:],{:}"
 autocmd FileType ruby    let b:delimitMate_matchpairs = "(:),[:],{:}"
