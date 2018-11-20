@@ -253,7 +253,7 @@ call plug#begin('$HOME/.vim/bundle')
   " Add or remove your plugins here:
 
   Plug 'RRethy/vim-illuminate'
-  Plug 'markonm/traces.vim'
+  Plug 'markonm/traces.vim'           " Live preview for Ex commands
 
   Plug 'echuraev/translate-shell.vim'
   let g:trans_default_direction = ":zh"
@@ -264,31 +264,35 @@ call plug#begin('$HOME/.vim/bundle')
   Plug 'AndrewRadev/splitjoin.vim'
   Plug 'AndrewRadev/switch.vim'
   Plug 'Raimondi/delimitMate'
-  Plug 'Shougo/unite.vim'
-  Plug 'Shougo/vimfiler.vim'
   Plug 'SirVer/ultisnips'
-  " Plug 'Valloric/YouCompleteMe'
 
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
+  "{{{ incsearch
+  Plug 'haya14busa/incsearch.vim'
+  Plug 'haya14busa/incsearch-fuzzy.vim'
+  map /  <Plug>(incsearch-forward)
+  map ?  <Plug>(incsearch-backward)
+  " map g/ <Plug>(incsearch-stay)
 
+  " map z/ <Plug>(incsearch-fuzzy-/)
+  " map z? <Plug>(incsearch-fuzzy-?)
+  " map zg/ <Plug>(incsearch-fuzzy-stay)
+  "}}}
 
-  Plug 'Shougo/deoplete.nvim'
+  Plug 'Shougo/unite.vim'
+  Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
+  Plug 'Shougo/defx.nvim',   { 'do': ':UpdateRemotePlugins' }
+
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   let g:deoplete#enable_at_startup = 1
 
   Plug 'ujihisa/neco-look'
+  Plug 'zchee/deoplete-jedi'
+
   Plug 'Shougo/neco-syntax'
   Plug 'Shougo/echodoc.vim'
   let g:echodoc_enable_at_startup = 1
 
-  " Plug 'Shougo/context_filetype.vim'
-  " Plug 'Shougo/neopairs.vim'
-  " let g:neopairs#enable = 1
-
-  Plug 'zchee/deoplete-jedi'
-  let g:python3_host_prog = '/usr/local/bin/python3'
-
-  Plug 'nixprime/cpsm'
+  Plug 'Shougo/context_filetype.vim'
 
   Plug 'Valloric/vim-operator-highlight'
   Plug 'andymass/vim-matchup'
@@ -307,12 +311,12 @@ call plug#begin('$HOME/.vim/bundle')
   Plug 'junegunn/vim-easy-align'
   Plug 'kana/vim-textobj-user'
   Plug 'kshenoy/vim-signature'
-  " Plug 'lifepillar/pgsql.vim'
-  Plug 'majkinetor/unite-cmdmatch'
   Plug 'majutsushi/tagbar'
   Plug 'mattn/emmet-vim'
   Plug 'mbbill/fencview'
-  Plug 'mileszs/ack.vim'
+
+  Plug 'mhinz/vim-grepper'
+
   Plug 'mxw/vim-jsx',                            {'for': 'javascript'}
   Plug 'othree/html5.vim',                       {'for': 'html'}
   Plug 'pangloss/vim-javascript',                {'for': 'javascript'}
@@ -322,18 +326,15 @@ call plug#begin('$HOME/.vim/bundle')
   Plug 't9md/vim-surround_custom_mapping'
   Plug 'tenfyzhong/CompleteParameter.vim'
   Plug 'thinca/vim-visualstar'
-  Plug 'tpope/vim-abolish'
   Plug 'tpope/vim-commentary'
-  Plug 'tpope/vim-dispatch'
   Plug 'tpope/vim-endwise'
   Plug 'tpope/vim-eunuch'
   Plug 'tpope/vim-fugitive'
-  Plug 'tpope/vim-markdown'
+  " Plug 'tpope/vim-markdown'
   Plug 'tpope/vim-repeat'
   Plug 'tpope/vim-rsi'
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-unimpaired'
-  Plug 'tsukkee/unite-tag'
   Plug 'vim-ruby/vim-ruby',                      {'for': 'ruby'}
   Plug 'vim-scripts/DrawIt'
   Plug 'vim-scripts/SearchComplete'
@@ -341,14 +342,7 @@ call plug#begin('$HOME/.vim/bundle')
   Plug 'vim-scripts/indent-motion'
   Plug 'vim-scripts/scratch.vim'
   Plug 'w0rp/ale'
-  Plug 'wincent/terminus'
-
-  " Plug 'Shougo/deol.nvim', { 'rev': 'a1b5108fd' }
-  " Plug 'jparise/vim-graphql'
-  " Plug 'ensime/ensime-vim',            {'lazy': 1, 'on_ft': 'scala'}
-  " Plug 'Peeja/vim-cdo'
-  " Plug 'guns/xterm-color-table.vim'
-  " Plug 'salsifis/vim-transpose'
+  " Plug 'wincent/terminus'
 
   " {{{ lightline & laststatus
   set laststatus=2
@@ -393,9 +387,7 @@ call plug#begin('$HOME/.vim/bundle')
 
   function! LightLineFilename()
     let fname = expand('%:t')
-    return  &ft == 'vimfiler' ? vimfiler#get_status_string() :
-          \ &ft == 'unite' ? unite#get_status_string() :
-          \ ('' != LightLineReadonly() ? LightLineReadonly() . ' ' : '') .
+    return  ('' != LightLineReadonly() ? LightLineReadonly() . ' ' : '') .
           \ ('' != fname ? fname : '[No Name]') .
           \ ('' != LightLineModified() ? ' ' . LightLineModified() : '')
   endfunction
@@ -414,40 +406,82 @@ call plug#begin('$HOME/.vim/bundle')
 
   function! LightLineMode()
     let fname = expand('%:t')
-    return  &ft == 'unite' ? 'Unite' :
-          \ &ft == 'vimfiler' ? 'VimFiler' :
-          \ winwidth(0) > 60 ? lightline#mode() : ''
+    return winwidth(0) > 60 ? lightline#mode() : ''
   endfunction
 
-  let g:unite_force_overwrite_statusline = 0
-  let g:vimfiler_force_overwrite_statusline = 0
   let g:vimshell_force_overwrite_statusline = 0
   " }}}
-
-  "{{{
-  Plug 'haya14busa/incsearch.vim'
-  Plug 'haya14busa/incsearch-fuzzy.vim'
-  map /  <Plug>(incsearch-forward)
-  map ?  <Plug>(incsearch-backward)
-  " map g/ <Plug>(incsearch-stay)
-
-  map z/ <Plug>(incsearch-fuzzy-/)
-  map z? <Plug>(incsearch-fuzzy-?)
-  " map zg/ <Plug>(incsearch-fuzzy-stay)
-  "}}}
-
 call plug#end()
 "}}}
+
+" Shougo/unite.vim {{{
+autocmd FileType defx call s:defx_settings()
+function! s:defx_settings() abort
+  " Define mappings
+  nnoremap <silent><buffer><expr> <CR>
+  \ defx#do_action('open')
+  nnoremap <silent><buffer><expr> c
+  \ defx#do_action('copy')
+  nnoremap <silent><buffer><expr> m
+  \ defx#do_action('move')
+  nnoremap <silent><buffer><expr> p
+  \ defx#do_action('paste')
+  nnoremap <silent><buffer><expr> l
+  \ defx#do_action('open')
+  nnoremap <silent><buffer><expr> K
+  \ defx#do_action('new_directory')
+  nnoremap <silent><buffer><expr> N
+  \ defx#do_action('new_file')
+  nnoremap <silent><buffer><expr> d
+  \ defx#do_action('remove')
+  nnoremap <silent><buffer><expr> yy
+  \ defx#do_action('yank_path')
+  nnoremap <silent><buffer><expr> .
+  \ defx#do_action('toggle_ignored_files')
+  nnoremap <silent><buffer><expr> h
+  \ defx#do_action('cd', ['..'])
+  nnoremap <silent><buffer><expr> ~
+  \ defx#do_action('cd')
+  nnoremap <silent><buffer><expr> q
+  \ defx#do_action('quit')
+  nnoremap <silent><buffer><expr> <Space>
+  \ defx#do_action('toggle_select') . 'j'
+  nnoremap <silent><buffer><expr> *
+  \ defx#do_action('toggle_select_all')
+  nnoremap <silent><buffer><expr> j
+  \ line('.') == line('$') ? 'gg' : 'j'
+  nnoremap <silent><buffer><expr> k
+  \ line('.') == 1 ? 'G' : 'k'
+  nnoremap <silent><buffer><expr> <C-l>
+  \ defx#do_action('redraw')
+  nnoremap <silent><buffer><expr> <C-g>
+  \ defx#do_action('print')
+  nnoremap <silent><buffer><expr> cd
+  \ defx#do_action('change_vim_cwd')
+endfunction
+
+let g:unite_prompt='» '
+let g:unite_cursor_line_highlight = 'InsertCursor'
+call unite#custom#profile('default', 'context', {
+\   'start_insert': 0,
+\   'winheight':    10,
+\   'direction':    'botright',
+\ })
+
+noremap <Leader>fd :Defx                           <CR>
+noremap <Leader>fk :Unite bookmark       -start-insert <CR>
+"}}}
+
 
 "{{{ deoplete#enable
 call deoplete#enable()
 call deoplete#custom#option({
 \ 'smart_case':           v:true,
-\ 'num_processes':        8,
+\ 'num_processes':        6,
 \ 'max_list':             40,
 \ })
 
-call deoplete#custom#source('_', 'matchers', ['matcher_cpsm'])
+" call deoplete#custom#source('_', 'matchers', ['matcher_cpsm'])
 call deoplete#custom#source('_', 'sorters', [])
 
 call deoplete#custom#source('look', 'matchers', ['matcher_full_fuzzy', 'matcher_length'])
@@ -473,6 +507,7 @@ call deoplete#custom#source('ultisnips',
 \ 'matchers',
 \ ['matcher_head', 'matcher_length']
 \ )
+
 inoremap <silent><expr> <TAB>
 \ pumvisible() ? "\<C-n>" :
 \ <SID>check_back_space() ? "\<TAB>" :
@@ -495,18 +530,6 @@ autocmd FileType javascript nnoremap <C-p> :FlowJumpToDef<CR>
 " ReactJS
 let g:jsx_ext_required = 0
 "}}}
-
-call unite#custom#profile('default', 'context', {
-\   'start_insert': 0,
-\   'winheight':    10,
-\   'direction':    'botright',
-\ })
-call unite#filters#sorter_default#use('sorter_rank')
-call unite#custom#default_action('directory', 'narrow')
-
-call vimfiler#custom#profile('default', 'context', {
-\ 'safe' : 1,
-\ })
 
 autocmd BufRead,BufNewFile *.ru,*.watchr setfiletype ruby
 autocmd BufRead,BufNewFile *.treetop     setfiletype treetop
@@ -612,8 +635,7 @@ noremap <Leader>sw :Switch<CR>
 noremap <Leader>st f:xepldf>
 autocmd FileType ruby setlocal shiftwidth=2 softtabstop=2 tabstop=4
 
-let g:ackprg = 'rg --vimgrep '
-nmap <Leader>fa  :Ack -tscala<Space>
+nmap <Leader>fa  :Grepper -grepprg rg -H --no-heading --vimgrep
 
 autocmd FileType clojure let b:delimitMate_quotes = "\""
 autocmd FileType clojure let b:delimitMate_matchpairs = "(:),[:],{:}"
@@ -623,31 +645,10 @@ autocmd FileType haskell let b:delimitMate_matchpairs = "(:),[:],{:}"
 autocmd FileType python  let b:delimitMate_matchpairs = "(:),[:],{:}"
 
 noremap <Leader>f  :FZF .    <CR>
-noremap <Leader>fe :execute 'VimFiler' expand('%:p:h')    <CR>
+noremap <Leader>fe :execute 'Defx' expand('%:p:h')    <CR>
 noremap <Leader>fg :GitFiles <CR>
 noremap <leader>fb :Buffers  <CR>
 noremap <Leader>fl :BLines   <CR>
-
-" Shougo/unite.vim {{{
-let g:vimfiler_enable_clipboard = 0
-let g:vimfiler_tree_leaf_icon = ' '
-let g:vimfiler_tree_opened_icon = '▾'
-let g:vimfiler_tree_closed_icon = '▸'
-let g:vimfiler_file_icon = ' '
-let g:vimfiler_readonly_file_icon = '✗'
-let g:vimfiler_marked_file_icon = '✓'
-
-let g:unite_winheight = 10
-
-let g:unite_prompt='» '
-let g:unite_candidate_icon = '-'
-let g:unite_cursor_line_highlight = 'InsertCursor'
-let g:unite_marked_icon = '+'
-let g:unite_source_history_yank_enable = 1
-
-noremap <Leader>fd :VimFiler                           <CR>
-noremap <Leader>fk :Unite bookmark       -start-insert <CR>
-"}}}
 
 noremap <Leader>so :Scratch<CR>
 
