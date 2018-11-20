@@ -41,6 +41,8 @@ function ToggleLineNumber()
 endfunction
 nnoremap <leader>n :call ToggleLineNumber()<CR>
 
+" add hat to char
+" a^Vu0302^[
 
 function RemoveUselessMenus()
   aunmenu File.Open\.\.\.
