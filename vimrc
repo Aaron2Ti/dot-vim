@@ -207,14 +207,6 @@ nmap gV `[v`]
 vnoremap j gj
 vnoremap k gk
 
-nmap <Leader>w :w<CR>
-
-nmap <Leader>g  :Gblame<CR>
-nmap <Leader>gg :Gstatus<CR>
-
-" Paste and select
-noremap <Leader>p p'[v']$
-
 
 " by default the K would run the "man" command
 " Run a program to lookup the keyword under the
@@ -222,34 +214,12 @@ noremap <Leader>p p'[v']$
 " 'keywordprg' (kp) option (default is "man").  The
 noremap K k
 
-" nmap <silent> <Leader>/ :let @/=""<CR>
-" clears the search buffer, nohl
-
 " clean the search highlighting
 nmap <silent> <ESC><ESC>  :nohlsearch <CR>
-
-" replace " with '
-noremap <Leader>sq :%s/"/'/gc<CR>
-
-" Delete all the buffers
-noremap <Leader>bd :bufdo bd<CR>
-
-" Switch to last buffer
-" nnoremap <Leader><Leader> <C-^>
-
-
-" mkview & loadview
-" autocmd BufWinLeave *.* mkview
-" autocmd BufWinEnter *.* silent loadview
-" noremap <Leader>ej  :mkview<CR>
-" noremap <Leader>je  :loadview<CR>
-
-vnoremap <Leader>a y:'<,'>!sort -t= -k2
 " }}}
 
 "{{{
 call plug#begin('$HOME/.vim/bundle')
-
   " Add or remove your plugins here:
 
   Plug 'RRethy/vim-illuminate'
@@ -306,8 +276,10 @@ call plug#begin('$HOME/.vim/bundle')
   Plug 'honza/vim-snippets'
   Plug 'hynek/vim-python-pep8-indent',           {'for': 'python'}
   Plug 'itchyny/lightline.vim'
+
   Plug 'junegunn/fzf',                           {'dir': '~/.fzf', 'do': './install --all'}
   Plug 'junegunn/fzf.vim'
+
   Plug 'junegunn/vim-easy-align'
   Plug 'kana/vim-textobj-user'
   Plug 'kshenoy/vim-signature'
@@ -468,8 +440,6 @@ call unite#custom#profile('default', 'context', {
 \   'direction':    'botright',
 \ })
 
-noremap <Leader>fd :Defx                           <CR>
-noremap <Leader>fk :Unite bookmark       -start-insert <CR>
 "}}}
 
 
@@ -543,10 +513,6 @@ autocmd FileType slim   UltiSnipsAddFiletypes slim.ruby
 autocmd FileType python UltiSnipsAddFiletypes python
 
 autocmd FileType markdown setlocal spell
-
-autocmd FileType scala nnoremap <C-p> :EnDeclaration<CR>
-autocmd FileType scala nnoremap <Leader>yK :EnDocBrowse<CR>
-autocmd FileType scala nnoremap <Leader>yt :EnType<CR>
 
 autocmd FileType sbt.scala setlocal commentstring=//%s
 autocmd FileType scala setlocal commentstring=//%s
@@ -631,11 +597,7 @@ let g:surround_custom_mapping.ruby = {
     \ }
 " }}}
 
-noremap <Leader>sw :Switch<CR>
-noremap <Leader>st f:xepldf>
 autocmd FileType ruby setlocal shiftwidth=2 softtabstop=2 tabstop=4
-
-nmap <Leader>fa  :Grepper -grepprg rg -H --no-heading --vimgrep
 
 autocmd FileType clojure let b:delimitMate_quotes = "\""
 autocmd FileType clojure let b:delimitMate_matchpairs = "(:),[:],{:}"
@@ -644,13 +606,70 @@ autocmd FileType r       let b:delimitMate_matchpairs = "(:),[:],{:}"
 autocmd FileType haskell let b:delimitMate_matchpairs = "(:),[:],{:}"
 autocmd FileType python  let b:delimitMate_matchpairs = "(:),[:],{:}"
 
-noremap <Leader>f  :FZF .    <CR>
-noremap <Leader>fe :execute 'Defx' expand('%:p:h')    <CR>
-noremap <Leader>fg :GitFiles <CR>
-noremap <leader>fb :Buffers  <CR>
-noremap <Leader>fl :BLines   <CR>
+
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always --smart-case ' . <q-args>,
+  \   1,
+  \   <bang>0 ? fzf#vim#with_preview('up:100%')
+  \           : fzf#vim#with_preview('up:60%:hidden', '?'),
+  \   <bang>0)
+
+
+function! s:call_command(m)
+  execute a:m
+  " call feedkeys(':' . a:m . '!' . '<CR> <Space> i' )
+endfunction
+
+command! HelpfulCommands call fzf#run({
+\  'sink'       : function('execute'),
+\  'source'     : [
+\     'BCommits',
+\     'Commands',
+\     'Commits',
+\     'Filetypes',
+\     'Gblame',
+\     'Helptags',
+\     'History',
+\     'History/',
+\     'History:',
+\     'Maps',
+\     'Marks',
+\     'Tags',
+\  ],
+\  'options': '--ansi -x --prompt "Helpful> "',
+\  'tmux_height': '20%',
+\ })
+
+" Leader key mappings
+noremap <Leader>fz :FZF                            <Space>.<CR>
+noremap <Leader>fb :Buffers                        <CR>
+noremap <Leader>fd :Defx                           <CR>
+noremap <Leader>fe :execute 'Defx' expand('%:p:h') <CR>
+noremap <Leader>fa :Grepper -grepprg rg -H --no-heading --vimgrep<Space>
+noremap <Leader>fg :Rg<Space>
+noremap <Leader>fh :HelpfulCommands                <CR>
+noremap <Leader>fk :Unite bookmark -start-insert   <CR>
+noremap <Leader>fl :BLines                         <CR>
 
 noremap <Leader>so :Scratch<CR>
+noremap <Leader>sw :Switch<CR>
+noremap <Leader>st f:xepldf>
+
+" Paste and select
+noremap <Leader>p p'[v']$
+
+" Write or save
+noremap <Leader>w :w<CR>
+
+" replace " with '
+noremap <Leader>sq :%s/"/'/gc<CR>
+
+" Delete all the buffers
+noremap <Leader>bd :bufdo bd<CR>
+
+" Sort with separator
+vnoremap <Leader>a y:'<,'>!sort -t= -k2
 
 " {{{ easymotion
 let g:EasyMotion_smartcase = 1
