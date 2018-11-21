@@ -8,7 +8,8 @@ set nocompatible
 set shell=/bin/sh
 
 set background=dark
-colorscheme beijing_opera
+" colorscheme beijing_opera
+colorscheme tokyo
 
 " Remove ALL autocommands for the current group.
 autocmd!
@@ -694,6 +695,8 @@ map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans
 if has('nvim')
   tnoremap            <Esc>           <C-\><C-n>
 endif
+
+let g:ophigh_highlight_link_group='Comment'
 
 " Required:
 filetype plugin indent on
