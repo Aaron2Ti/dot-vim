@@ -15,14 +15,13 @@ autocmd!
 
 syntax on
 
-set synmaxcol=200
+set synmaxcol=300
 
 set encoding=utf-8 fileencoding=utf-8 termencoding=utf-8
 set fileencodings=utf-8,cp936,gb18030,ucs-bom,big5,euc-jp,euc-kr,latin1
-scriptencoding utf-8
 
 set helplang=En
-set history=100
+set history=500
 
 " have % bounce between angled brackets, as well as t'other kinds:
 set matchpairs+=<:>
@@ -169,6 +168,7 @@ autocmd FileType html setlocal shiftwidth=4 softtabstop=4 tabstop=8
 " inoremap ' "
 " inoremap " '
 
+" replay macro
 nnoremap Q @q
 vnoremap Q :normal @q<CR>
 
@@ -248,7 +248,6 @@ call plug#begin('$HOME/.vim/bundle')
   " map zg/ <Plug>(incsearch-fuzzy-stay)
   "}}}
 
-  Plug 'Shougo/unite.vim'
   Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
   Plug 'Shougo/defx.nvim',   { 'do': ':UpdateRemotePlugins' }
 
@@ -287,7 +286,7 @@ call plug#begin('$HOME/.vim/bundle')
   Plug 'mattn/emmet-vim'
   Plug 'mbbill/fencview'
 
-  Plug 'mhinz/vim-grepper'
+  " Plug 'mhinz/vim-grepper'
 
   Plug 'mxw/vim-jsx',                            {'for': 'javascript'}
   Plug 'othree/html5.vim',                       {'for': 'html'}
@@ -296,13 +295,10 @@ call plug#begin('$HOME/.vim/bundle')
   Plug 'sheerun/vim-polyglot'
   Plug 'slim-template/vim-slim',                 {'for': 'slim'}
   Plug 't9md/vim-surround_custom_mapping'
-  Plug 'tenfyzhong/CompleteParameter.vim'
-  Plug 'thinca/vim-visualstar'
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-endwise'
   Plug 'tpope/vim-eunuch'
   Plug 'tpope/vim-fugitive'
-  " Plug 'tpope/vim-markdown'
   Plug 'tpope/vim-repeat'
   Plug 'tpope/vim-rsi'
   Plug 'tpope/vim-surround'
@@ -314,7 +310,6 @@ call plug#begin('$HOME/.vim/bundle')
   Plug 'vim-scripts/indent-motion'
   Plug 'vim-scripts/scratch.vim'
   Plug 'w0rp/ale'
-  " Plug 'wincent/terminus'
 
   " {{{ lightline & laststatus
   set laststatus=2
@@ -383,65 +378,37 @@ call plug#begin('$HOME/.vim/bundle')
 
   let g:vimshell_force_overwrite_statusline = 0
   " }}}
+
 call plug#end()
 "}}}
 
-" Shougo/unite.vim {{{
-autocmd FileType defx call s:defx_settings()
+" Shougo/denite.vim etc {{{
 function! s:defx_settings() abort
   " Define mappings
-  nnoremap <silent><buffer><expr> <CR>
-  \ defx#do_action('open')
-  nnoremap <silent><buffer><expr> c
-  \ defx#do_action('copy')
-  nnoremap <silent><buffer><expr> m
-  \ defx#do_action('move')
-  nnoremap <silent><buffer><expr> p
-  \ defx#do_action('paste')
-  nnoremap <silent><buffer><expr> l
-  \ defx#do_action('open')
-  nnoremap <silent><buffer><expr> K
-  \ defx#do_action('new_directory')
-  nnoremap <silent><buffer><expr> N
-  \ defx#do_action('new_file')
-  nnoremap <silent><buffer><expr> d
-  \ defx#do_action('remove')
-  nnoremap <silent><buffer><expr> yy
-  \ defx#do_action('yank_path')
-  nnoremap <silent><buffer><expr> .
-  \ defx#do_action('toggle_ignored_files')
-  nnoremap <silent><buffer><expr> h
-  \ defx#do_action('cd', ['..'])
-  nnoremap <silent><buffer><expr> ~
-  \ defx#do_action('cd')
-  nnoremap <silent><buffer><expr> q
-  \ defx#do_action('quit')
-  nnoremap <silent><buffer><expr> <Space>
-  \ defx#do_action('toggle_select') . 'j'
-  nnoremap <silent><buffer><expr> *
-  \ defx#do_action('toggle_select_all')
-  nnoremap <silent><buffer><expr> j
-  \ line('.') == line('$') ? 'gg' : 'j'
-  nnoremap <silent><buffer><expr> k
-  \ line('.') == 1 ? 'G' : 'k'
-  nnoremap <silent><buffer><expr> <C-l>
-  \ defx#do_action('redraw')
-  nnoremap <silent><buffer><expr> <C-g>
-  \ defx#do_action('print')
-  nnoremap <silent><buffer><expr> cd
-  \ defx#do_action('change_vim_cwd')
+  nnoremap <silent><buffer><expr>       <CR>              defx#do_action('open')
+  nnoremap <silent><buffer><expr>       c                 defx#do_action('copy')
+  nnoremap <silent><buffer><expr>       m                 defx#do_action('move')
+  nnoremap <silent><buffer><expr>       p                 defx#do_action('paste')
+  nnoremap <silent><buffer><expr>       l                 defx#do_action('open')
+  nnoremap <silent><buffer><expr>       K                 defx#do_action('new_directory')
+  nnoremap <silent><buffer><expr>       N                 defx#do_action('new_file')
+  nnoremap <silent><buffer><expr>       d                 defx#do_action('remove')
+  nnoremap <silent><buffer><expr>       yy                defx#do_action('yank_path')
+  nnoremap <silent><buffer><expr>       .                 defx#do_action('toggle_ignored_files')
+  nnoremap <silent><buffer><expr>       h                 defx#do_action('cd', ['..'])
+  nnoremap <silent><buffer><expr>       ~                 defx#do_action('cd')
+  nnoremap <silent><buffer><expr>       q                 defx#do_action('quit')
+  nnoremap <silent><buffer><expr>       <Space>           defx#do_action('toggle_select') . 'j'
+  nnoremap <silent><buffer><expr>       *                 defx#do_action('toggle_select_all')
+  nnoremap <silent><buffer><expr>       j                 line('.') == line('$') ? 'gg' : 'j'
+  nnoremap <silent><buffer><expr>       k                 line('.') == 1 ? 'G' : 'k'
+  nnoremap <silent><buffer><expr>       <C-l>             defx#do_action('redraw')
+  nnoremap <silent><buffer><expr>       <C-g>             defx#do_action('print')
+  nnoremap <silent><buffer><expr>       cd                defx#do_action('change_vim_cwd')
 endfunction
 
-let g:unite_prompt='» '
-let g:unite_cursor_line_highlight = 'InsertCursor'
-call unite#custom#profile('default', 'context', {
-\   'start_insert': 0,
-\   'winheight':    10,
-\   'direction':    'botright',
-\ })
-
+autocmd FileType defx call s:defx_settings()
 "}}}
-
 
 "{{{ deoplete#enable
 call deoplete#enable()
@@ -461,6 +428,7 @@ call deoplete#custom#option('sources', {
 \  '_':      ['member', 'buffer', 'tag', 'file', 'dictionary', 'look', 'ultisnips', 'syntax'],
 \  'python': ['member', 'buffer', 'tag', 'file', 'dictionary', 'look', 'ultisnips', 'syntax', 'jedi'],
 \ })
+
 call deoplete#custom#source('jedi',       'rank', 250)
 call deoplete#custom#source('member',     'rank', 220)
 call deoplete#custom#source('buffer',     'rank', 210)
@@ -483,13 +451,11 @@ inoremap <silent><expr> <TAB>
 \ <SID>check_back_space() ? "\<TAB>" :
 \ deoplete#mappings#manual_complete()
 
-" {{{
 function! s:check_back_space() abort
 let col = col('.') - 1
 return !col || getline('.')[col - 1]  =~ '\s'
 endfunction
 " }}}
-"}}}
 
 "{{{ settings after plugin
 "{{{ javascript
@@ -612,14 +578,9 @@ command! -bang -nargs=* Rg
   \   'rg --column --line-number --no-heading --color=always --smart-case ' . <q-args>,
   \   1,
   \   <bang>0 ? fzf#vim#with_preview('up:100%')
-  \           : fzf#vim#with_preview('up:60%:hidden', '?'),
+  \           : fzf#vim#with_preview('up:80%:hidden', '?'),
   \   <bang>0)
 
-
-function! s:call_command(m)
-  execute a:m
-  " call feedkeys(':' . a:m . '!' . '<CR> <Space> i' )
-endfunction
 
 command! HelpfulCommands call fzf#run({
 \  'sink'       : function('execute'),
@@ -641,16 +602,26 @@ command! HelpfulCommands call fzf#run({
 \  'tmux_height': '20%',
 \ })
 
+function! s:call_command(m)
+  call feedkeys(':edit ' . a:m . "\<CR>" )
+endfunction
+
+command! FZFBookmarks call fzf#run({
+\  'source': 'cat $FZFBOOKMARKS',
+\  'sink': function('s:call_command'),
+\  'tmux_height': '20%',
+\ })
+
 " Leader key mappings
-noremap <Leader>fz :FZF                            <Space>.<CR>
+noremap <Leader>f  :FZF                            <Space>.<CR>
 noremap <Leader>fb :Buffers                        <CR>
 noremap <Leader>fd :Defx                           <CR>
 noremap <Leader>fe :execute 'Defx' expand('%:p:h') <CR>
-noremap <Leader>fa :Grepper -grepprg rg -H --no-heading --vimgrep<Space>
 noremap <Leader>fg :Rg<Space>
 noremap <Leader>fh :HelpfulCommands                <CR>
-noremap <Leader>fk :Unite bookmark -start-insert   <CR>
+noremap <Leader>fk :FZFBookmarks                   <CR>
 noremap <Leader>fl :BLines                         <CR>
+" noremap <Leader>fa :Grepper -grepprg rg -H --no-heading --vimgrep<Space>
 
 noremap <Leader>so :Scratch<CR>
 noremap <Leader>sw :Switch<CR>
