@@ -383,25 +383,36 @@ def main():
         gui     = g_['gui']
 
         if group:
-            line = f'hi {group}'
+            line = f'hi {group:<30}'
             if ctermfg is not None:
-                line = line + f' ctermfg={ctermfg}'
+                p = f'ctermfg={ctermfg}'
+                line = line + f' {p:<16}'
+            else:
+                p = ' '
+                line = line + f' {p:<16}'
+
             if ctermbg is not None:
-                line = line + f' ctermbg={ctermbg}'
+                p = f'ctermbg={ctermbg}'
+                line = line + f' {p:<16}'
+            else:
+                p = ' '
+                line = line + f' {p:<16}'
 
-            line = line + f' cterm={cterm}'
+            p = f'cterm={cterm}'
+            line = line + f' {p:<16}'
 
-            if guifg is not None:
-                line = line + f' guifg={guifg}'
-            if guibg is not None:
-                line = line + f' guibg={guibg}'
+            # if guifg is not None:
+            #     p = f'guifg={guifg}'
+            #     line = line + f' {p:<16}'
 
-            # if group == 'ErrorMsg':
-            #     import pudb; pudb.set_trace()
+            # if guibg is not None:
+            #     p = f'guibg={guibg}'
+            #     line = line + f' {p:<16}'
 
-            line = line + f' gui={gui}'
+            # p = f'gui={gui}'
+            # line = line + f' {p:<16}'
 
-        lines.append(line)
+        lines.append(line.strip())
 
 
     f = io.StringIO()

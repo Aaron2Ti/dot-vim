@@ -223,6 +223,7 @@ nmap <silent> <ESC><ESC>  :nohlsearch <CR>
 call plug#begin('$HOME/.vim/bundle')
   " Add or remove your plugins here:
 
+  Plug 'thinca/vim-visualstar'
   Plug 'RRethy/vim-illuminate'
   Plug 'markonm/traces.vim'           " Live preview for Ex commands
 
@@ -251,6 +252,12 @@ call plug#begin('$HOME/.vim/bundle')
 
   Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
   Plug 'Shougo/defx.nvim',   { 'do': ':UpdateRemotePlugins' }
+
+  " LanguageClient
+  " Plug 'autozimu/LanguageClient-neovim', {
+  " \ 'branch': 'next',
+  " \ 'do':     'bash install.sh',
+  " \ }
 
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   let g:deoplete#enable_at_startup = 1
@@ -296,6 +303,8 @@ call plug#begin('$HOME/.vim/bundle')
   Plug 'sheerun/vim-polyglot'
   Plug 'slim-template/vim-slim',                 {'for': 'slim'}
   Plug 't9md/vim-surround_custom_mapping'
+
+  Plug 'tpope/vim-abolish'
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-endwise'
   Plug 'tpope/vim-eunuch'
@@ -304,6 +313,7 @@ call plug#begin('$HOME/.vim/bundle')
   Plug 'tpope/vim-rsi'
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-unimpaired'
+
   Plug 'vim-ruby/vim-ruby',                      {'for': 'ruby'}
   Plug 'vim-scripts/DrawIt'
   Plug 'vim-scripts/SearchComplete'
@@ -680,11 +690,20 @@ let g:easy_align_delimiters = {
 
 let g:easy_align_ignore_groups = []
 
-" disable for vim-operator-highlight
+" disable for vim-operator-highlight{{{
 let g:ophigh_filetypes_to_ignore = {}
 let g:ophigh_filetypes_to_ignore.ruby     = 1
 let g:ophigh_filetypes_to_ignore.eruby    = 1
 let g:ophigh_filetypes_to_ignore.markdown = 1
+
+function! s:OperatorCharsForRuby()
+  syntax match OperatorChars "?\|+\|-\|\*\|;\|,\|<\|>\|&\||\|!\|\~\|%\|=\|)\|(\|{\|}\|\.\|\[\|\]\|/\(/\|*\)\@!"
+endfunction
+
+let g:ophigh_highlight_link_group='Comment'
+hi link OperatorChars Comment
+autocmd BufRead,BufNewFile *.rb call s:OperatorCharsForRuby()
+"}}}
 
 map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
 \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
@@ -696,11 +715,10 @@ if has('nvim')
   tnoremap            <Esc>           <C-\><C-n>
 endif
 
-let g:ophigh_highlight_link_group='Comment'
-
 " Required:
 filetype plugin indent on
 syntax enable
+
 
 " {{{
 " vim: foldmethod=marker
