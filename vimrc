@@ -309,6 +309,7 @@ call plug#begin('$HOME/.vim/bundle')
   Plug 'tpope/vim-endwise'
   Plug 'tpope/vim-eunuch'
   Plug 'tpope/vim-fugitive'
+  Plug 'tpope/vim-rails'
   Plug 'tpope/vim-repeat'
   Plug 'tpope/vim-rsi'
   Plug 'tpope/vim-surround'
