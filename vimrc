@@ -700,7 +700,11 @@ let g:ophigh_filetypes_to_ignore.eruby    = 1
 let g:ophigh_filetypes_to_ignore.markdown = 1
 
 function! s:OperatorCharsForRuby()
-  syntax match OperatorChars "?\|+\|-\|\*\|;\|,\|<\|>\|&\||\|!\|\~\|%\|=\|)\|(\|{\|}\|\.\|\[\|\]\|/\(/\|*\)\@!"
+  " syntax match OperatorChars "?\|+\|-\|\*\|;\|,\|<\|>\|&\||\|!\|\~\|%\|=\|)\|(\|{\|}\|\.\|\[\|\]\|/\(/\|*\)\@!"
+  syn match rubyOperator "[;,~!^|*/%+-]\|&\.\@!\|<=>\|<=\|\%(<\|\<class\s\+\u\w*\s*\)\@<!<[^<]\@=\|===\|==\|=\~\|>>\|>=\|=\@1<!>\|\*\*\|\.\.\.\|\.\.\|::"
+  syn match rubyOperator "=\|->\|-=\|/=\|\*\*=\|\*=\|&&=\|&=\|&&\|||=\||=\|||\|%=\|+=\|!\~\|!=\|(\|)\|{\|}\|\.\|\[\|\]\|/\(/\|*\)"
+
+  hi link rubyOperator Comment
 endfunction
 
 let g:ophigh_highlight_link_group='Comment'
