@@ -522,6 +522,7 @@ autocmd FileType sql setlocal commentstring=--%s
 " let g:ale_lint_on_insert_leave = 1
 let g:ale_linters = {
 \   'ruby':   [],
+\   'scss':   [],
 \   'python': ['pylint'],
 \}
 
