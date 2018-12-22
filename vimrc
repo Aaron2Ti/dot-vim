@@ -623,6 +623,7 @@ command! FZFBookmarks call fzf#run({
 \  'sink': function('s:call_command'),
 \  'tmux_height': '20%',
 \ })
+let g:fzf_layout = { 'down': '15' }
 
 " Leader key mappings
 noremap <Leader>f  :FZF                            <Space>.<CR>
