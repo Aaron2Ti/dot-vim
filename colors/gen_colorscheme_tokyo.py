@@ -382,38 +382,34 @@ def main():
         guibg   = g_['guibg']
         gui     = g_['gui']
 
+        line = io.StringIO()
+
+        def append_(p):
+            line.write(f' {p:<16}')
+
         if group:
-            line = f'hi {group:<30}'
-            if ctermfg is not None:
-                p = f'ctermfg={ctermfg}'
-                line = line + f' {p:<16}'
-            else:
-                p = ' '
-                line = line + f' {p:<16}'
+            line.write(f'hi {group:<30}')
 
-            if ctermbg is not None:
-                p = f'ctermbg={ctermbg}'
-                line = line + f' {p:<16}'
-            else:
-                p = ' '
-                line = line + f' {p:<16}'
+            for x in [
+                'ctermfg',
+                'ctermbg',
+                'cterm',
+                'guifg',
+                'guibg',
+                'gui',
+            ]:
+                y = g_[x]
 
-            p = f'cterm={cterm}'
-            line = line + f' {p:<16}'
+                if y is not None:
+                    p = f'{x}={y}'
+                    append_(p)
 
-            # if guifg is not None:
-            #     p = f'guifg={guifg}'
-            #     line = line + f' {p:<16}'
+                else:
+                    p = ' '
+                    append_(p)
 
-            # if guibg is not None:
-            #     p = f'guibg={guibg}'
-            #     line = line + f' {p:<16}'
-
-            # p = f'gui={gui}'
-            # line = line + f' {p:<16}'
-
-        lines.append(line.strip())
-
+        line.seek(0)
+        lines.append(line.read().strip())
 
     f = io.StringIO()
     for block in [
@@ -427,6 +423,9 @@ def main():
 
         '''
         hi link EasyMotionShade  Comment
+
+        syntax match OperatorChars "?\|+\|-\|\*\|;\|:\|,\|<\|>\|&\||\|!\|\~\|%\|=\|)\|(\|{\|}\|\.\|\[\|\]\|/\(/\|*\)\@!"
+        hi link OperatorChars Comment
         ''',
     ]:
         for l in block.split('\n'):
