@@ -2,6 +2,7 @@ hi clear
 syntax reset
 let g:colors_name = "tokyo"
 
+hi Normal                         ctermfg=187      ctermbg=0        cterm=NONE       guifg=#D7D7AF    guibg=#1B1B1B    gui=NONE
 hi Boolean                        ctermfg=208                       cterm=NONE       guifg=#FF8700                     gui=NONE
 hi ColorColumn                                     ctermbg=234      cterm=NONE                        guibg=#1C1C1C    gui=NONE
 hi CommandTCharMatched            ctermfg=208                       cterm=NONE       guifg=#FF8700                     gui=NONE
@@ -33,7 +34,6 @@ hi MatchParen                                      ctermbg=237      cterm=NONE  
 hi ModeMsg                                                          cterm=NONE                                         gui=NONE
 hi MoreMsg                        ctermfg=121                       cterm=NONE       guifg=#87FFAF                     gui=NONE
 hi NonText                        ctermfg=237                       cterm=NONE       guifg=#3A3A3A                     gui=NONE
-hi Normal                         ctermfg=187      ctermbg=236      cterm=NONE       guifg=#D7D7AF    guibg=#303030    gui=NONE
 hi Number                         ctermfg=3                         cterm=NONE       guifg=#ECA938                     gui=NONE
 hi NvimInternalError              ctermfg=9        ctermbg=9        cterm=NONE       guifg=#DE7E7B    guibg=#DE7E7B    gui=NONE
 hi Operator                       ctermfg=141                       cterm=NONE       guifg=#AF87FF                     gui=NONE

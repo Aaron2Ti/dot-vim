@@ -3,6 +3,8 @@ import io
 
 
 GROUPS = [
+    {'group': 'Normal',                     'ctermfg': 187,  'ctermbg': 0,    'cterm': 'NONE'},
+
     {'group': 'Boolean',                    'ctermfg': 208,  'ctermbg': None, 'cterm': 'NONE'},
     {'group': 'ColorColumn',                'ctermfg': None, 'ctermbg': 234,  'cterm': 'NONE'},
     {'group': 'CommandTCharMatched',        'ctermfg': 208,  'ctermbg': None, 'cterm': 'NONE'},
@@ -34,7 +36,6 @@ GROUPS = [
     {'group': 'ModeMsg',                    'ctermfg': None, 'ctermbg': None, 'cterm': 'NONE'},
     {'group': 'MoreMsg',                    'ctermfg': 121,  'ctermbg': None, 'cterm': 'NONE'},
     {'group': 'NonText',                    'ctermfg': 237,  'ctermbg': None, 'cterm': 'NONE'},
-    {'group': 'Normal',                     'ctermfg': 187,  'ctermbg': 236,  'cterm': 'NONE'},
     {'group': 'Number',                     'ctermfg': 3,    'ctermbg': None, 'cterm': 'NONE'},
     {'group': 'NvimInternalError',          'ctermfg': 9,    'ctermbg': 9,    'cterm': 'NONE'},
     {'group': 'Operator',                   'ctermfg': 141,  'ctermbg': None, 'cterm': 'NONE'},
