@@ -8,8 +8,7 @@ set nocompatible
 set shell=/bin/sh
 
 set background=dark
-" colorscheme beijing_opera
-colorscheme tokyo
+colorscheme beijing_opera
 
 " Remove ALL autocommands for the current group.
 autocmd!

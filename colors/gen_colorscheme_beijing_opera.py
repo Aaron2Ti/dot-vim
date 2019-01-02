@@ -417,7 +417,7 @@ def main():
         '''
         hi clear
         syntax reset
-        let g:colors_name = "tokyo"
+        let g:colors_name = "beijing_opera"
         ''',
 
         '\n'.join(lines),
@@ -433,7 +433,7 @@ def main():
             print(l.lstrip(), file=f)
     f.seek(0)
 
-    with open('tokyo.vim', 'w') as g:
+    with open('beijing_opera.vim', 'w') as g:
         print(f.read().strip(), file=g)
 
 

@@ -1,158 +1,90 @@
-" colors 232-255 are a grayscale ramp, intentionally leaving out {{{
-let s:Grey0  = '232'
-let s:Grey1  = '233'
-let s:Grey2  = '234'
-let s:Grey3  = '235'
-let s:Grey4  = '236'
-let s:Grey5  = '237'
-let s:Grey6  = '238'
-let s:Grey7  = '239'
-let s:Grey8  = '240'
-let s:Grey9  = '241'
-let s:Grey10 = '242'
-let s:Grey11 = '243'
-let s:Grey12 = '244'
-let s:Grey13 = '245'
-let s:Grey14 = '246'
-let s:Grey15 = '247'
-let s:Grey16 = '248'
-let s:Grey17 = '249'
-let s:Grey18 = '250'
-let s:Grey19 = '251'
-let s:Grey20 = '252'
-let s:Grey21 = '253'
-let s:Grey22 = '254'
-let s:Grey23 = '255'
-"}}}
-
-"{{{ default colors
-let s:Black        = '0'
-let s:Red          = '1'
-let s:Green        = '2'
-let s:Yellow       = '3'
-let s:Blue         = '4'
-let s:Magenta      = '5'
-let s:Cyan         = '6'
-let s:Grey         = '7'
-"}}}
-
-let s:LightBlack   = '8'
-let s:LightRed     = '9'
-let s:LightGreen   = '10'
-let s:LightYellow  = '11'
-let s:LightBlue    = '12'
-let s:LightMagenta = '13'
-let s:LightCyan    = '14'
-let s:White        = '15'
-
-let s:CursorLineBG = s:Grey1
-let s:CommentFG = s:Grey14
-
-let s:Golden = '208'
-let s:NormalFG = '187'
-
-" Theme Setup
 hi clear
 syntax reset
 let g:colors_name = "beijing_opera"
 
-fun! <SID>hi(group, ctermfg, ctermbg, attr) "{{{
-  exec "hi " . a:group . " term=none"
+hi Normal                         ctermfg=187      ctermbg=0        cterm=NONE       guifg=#D7D7AF    guibg=#1B1B1B    gui=NONE
+hi Boolean                        ctermfg=208                       cterm=NONE       guifg=#FF8700                     gui=NONE
+hi ColorColumn                                     ctermbg=234      cterm=NONE                        guibg=#1C1C1C    gui=NONE
+hi CommandTCharMatched            ctermfg=208                       cterm=NONE       guifg=#FF8700                     gui=NONE
+hi Comment                        ctermfg=246                       cterm=NONE       guifg=#949494                     gui=NONE
+hi Conceal                        ctermfg=7        ctermbg=242      cterm=NONE       guifg=#E2E2E2    guibg=#6C6C6C    gui=NONE
+hi Constant                       ctermfg=13                        cterm=NONE       guifg=#F4ADFA                     gui=NONE
+hi CursorColumn                                    ctermbg=233      cterm=NONE                        guibg=#121212    gui=NONE
+hi CursorLine                                      ctermbg=233      cterm=NONE                        guibg=#121212    gui=NONE
+hi CursorLineNr                   ctermfg=234      ctermbg=233      cterm=NONE       guifg=#1C1C1C    guibg=#121212    gui=NONE
+hi Define                         ctermfg=33                        cterm=NONE       guifg=#0087FF                     gui=NONE
+hi DiffAdd                                         ctermbg=4        cterm=NONE                        guibg=#2883D6    gui=NONE
+hi DiffChange                                      ctermbg=5        cterm=NONE                        guibg=#C74B89    gui=NONE
+hi DiffDelete                     ctermfg=12       ctermbg=6        cterm=NONE       guifg=#9BB3FC    guibg=#2CADB7    gui=NONE
+hi DiffText                                        ctermbg=9        cterm=NONE                        guibg=#DE7E7B    gui=NONE
+hi Directory                      ctermfg=159                       cterm=NONE       guifg=#AFFFFF                     gui=NONE
+hi EasyMotionTarget               ctermfg=159                       cterm=NONE       guifg=#AFFFFF                     gui=NONE
+hi EasyMotionTarget2First         ctermfg=159                       cterm=NONE       guifg=#AFFFFF                     gui=NONE
+hi EasyMotionTarget2Second        ctermfg=159                       cterm=NONE       guifg=#AFFFFF                     gui=NONE
+hi Error                          ctermfg=15       ctermbg=9        cterm=NONE       guifg=#FFFFFF    guibg=#DE7E7B    gui=NONE
+hi ErrorMsg                       ctermfg=196      ctermbg=0        cterm=NONE       guifg=#FF0000    guibg=#1B1B1B    gui=NONE
+hi FoldColumn                     ctermfg=241      ctermbg=233      cterm=NONE       guifg=#626262    guibg=#121212    gui=NONE
+hi Folded                         ctermfg=243      ctermbg=238      cterm=NONE       guifg=#767676    guibg=#444444    gui=NONE
+hi Function                       ctermfg=35                        cterm=NONE       guifg=#00AF5F                     gui=NONE
+hi Identifier                     ctermfg=208                       cterm=NONE       guifg=#FF8700                     gui=NONE
+hi Ignore                         ctermfg=0                         cterm=NONE       guifg=#1B1B1B                     gui=NONE
+hi IncSearch                      ctermfg=160      ctermbg=3        cterm=NONE       guifg=#D70000    guibg=#ECA938    gui=NONE
+hi LineNr                         ctermfg=241      ctermbg=233      cterm=NONE       guifg=#626262    guibg=#121212    gui=NONE
+hi MatchParen                                      ctermbg=237      cterm=NONE                        guibg=#3A3A3A    gui=NONE
+hi ModeMsg                                                          cterm=NONE                                         gui=NONE
+hi MoreMsg                        ctermfg=121                       cterm=NONE       guifg=#87FFAF                     gui=NONE
+hi NonText                        ctermfg=237                       cterm=NONE       guifg=#3A3A3A                     gui=NONE
+hi Number                         ctermfg=3                         cterm=NONE       guifg=#ECA938                     gui=NONE
+hi NvimInternalError              ctermfg=9        ctermbg=9        cterm=NONE       guifg=#DE7E7B    guibg=#DE7E7B    gui=NONE
+hi Operator                       ctermfg=141                       cterm=NONE       guifg=#AF87FF                     gui=NONE
+hi Pmenu                          ctermfg=122      ctermbg=238      cterm=NONE       guifg=#87FFD7    guibg=#444444    gui=NONE
+hi PmenuSbar                                       ctermbg=248      cterm=NONE                        guibg=#A8A8A8    gui=NONE
+hi PmenuSel                       ctermfg=208      ctermbg=238      cterm=NONE       guifg=#FF8700    guibg=#444444    gui=NONE
+hi PmenuThumb                                      ctermbg=15       cterm=NONE                        guibg=#FFFFFF    gui=NONE
+hi PreProc                        ctermfg=81                        cterm=NONE       guifg=#5FD7FF                     gui=NONE
+hi Question                       ctermfg=121                       cterm=NONE       guifg=#87FFAF                     gui=NONE
+hi Search                         ctermfg=160      ctermbg=228      cterm=NONE       guifg=#D70000    guibg=#FFFF87    gui=NONE
+hi SignColumn                     ctermfg=14       ctermbg=233      cterm=NONE       guifg=#A6E8FE    guibg=#121212    gui=NONE
+hi SignatureMarkText              ctermfg=9        ctermbg=233      cterm=NONE       guifg=#DE7E7B    guibg=#121212    gui=NONE
+hi SignatureMarkTextHL            ctermfg=141      ctermbg=233      cterm=NONE       guifg=#AF87FF    guibg=#121212    gui=NONE
+hi SignatureMarkerText            ctermfg=10       ctermbg=233      cterm=NONE       guifg=#99E8AD    guibg=#121212    gui=NONE
+hi Special                        ctermfg=224                       cterm=NONE       guifg=#FFD7D7                     gui=NONE
+hi SpecialKey                     ctermfg=241                       cterm=NONE       guifg=#626262                     gui=NONE
+hi SpellBad                       ctermfg=187      ctermbg=52       cterm=NONE       guifg=#D7D7AF    guibg=#5F0000    gui=NONE
+hi SpellCap                       ctermfg=187      ctermbg=22       cterm=NONE       guifg=#D7D7AF    guibg=#005F00    gui=NONE
+hi SpellLocal                                      ctermbg=14       cterm=NONE                        guibg=#A6E8FE    gui=NONE
+hi SpellRare                                       ctermbg=13       cterm=NONE                        guibg=#F4ADFA    gui=NONE
+hi Statement                      ctermfg=35                        cterm=NONE       guifg=#00AF5F                     gui=NONE
+hi StatusLine                                                       cterm=reverse                                      gui=reverse
+hi StatusLineNC                                                     cterm=reverse                                      gui=reverse
+hi String                         ctermfg=210                       cterm=NONE       guifg=#FF8787                     gui=NONE
+hi TabLine                        ctermfg=15       ctermbg=242      cterm=underline  guifg=#FFFFFF    guibg=#6C6C6C    gui=underline
+hi TabLineFill                                                      cterm=reverse                                      gui=reverse
+hi TabLineSel                                                       cterm=NONE                                         gui=NONE
+hi TermCursor                                                       cterm=reverse                                      gui=reverse
+hi Title                          ctermfg=225                       cterm=NONE       guifg=#FFD7FF                     gui=NONE
+hi Todo                           ctermfg=124      ctermbg=11       cterm=NONE       guifg=#AF0000    guibg=#FDE49C    gui=NONE
+hi Type                           ctermfg=11                        cterm=NONE       guifg=#FDE49C                     gui=NONE
+hi Underlined                     ctermfg=81                        cterm=underline  guifg=#5FD7FF                     gui=underline
+hi VertSplit                      ctermfg=239      ctermbg=239      cterm=NONE       guifg=#4E4E4E    guibg=#4E4E4E    gui=NONE
+hi Visual                         ctermfg=219      ctermbg=239      cterm=NONE       guifg=#FFAFFF    guibg=#4E4E4E    gui=NONE
+hi WarningMsg                     ctermfg=224                       cterm=NONE       guifg=#FFD7D7                     gui=NONE
+hi WildMenu                       ctermfg=0        ctermbg=11       cterm=NONE       guifg=#1B1B1B    guibg=#FDE49C    gui=NONE
+hi clojureKeyword                 ctermfg=183                       cterm=NONE       guifg=#D7AFFF                     gui=NONE
+hi clojureParen                   ctermfg=60                        cterm=NONE       guifg=#5F5F87                     gui=NONE
+hi pythonBuiltin                  ctermfg=11                        cterm=NONE       guifg=#FDE49C                     gui=NONE
+hi pythonBuiltinObj               ctermfg=11                        cterm=NONE       guifg=#FDE49C                     gui=NONE
+hi pythonBuiltinType              ctermfg=11                        cterm=NONE       guifg=#FDE49C                     gui=NONE
+hi pythonDoctestValue             ctermfg=246                       cterm=NONE       guifg=#949494                     gui=NONE
+hi pythonLambdaExpr               ctermfg=35                        cterm=NONE       guifg=#00AF5F                     gui=NONE
+hi pythonSelf                     ctermfg=208                       cterm=NONE       guifg=#FF8700                     gui=NONE
+hi rubyConstant                   ctermfg=11                        cterm=NONE       guifg=#FDE49C                     gui=NONE
+hi rubyInterpolationDelimiter     ctermfg=177                       cterm=NONE       guifg=#D787FF                     gui=NONE
+hi rubyPseudoVariable             ctermfg=208                       cterm=NONE       guifg=#FF8700                     gui=NONE
+hi rubyStringDelimiter            ctermfg=205                       cterm=NONE       guifg=#FF5FAF                     gui=NONE
+hi rubySymbol                     ctermfg=32                        cterm=NONE       guifg=#0087D7                     gui=NONE
 
-  if a:ctermfg != ""
-    exec "hi " . a:group . " ctermfg=" . a:ctermfg
-  endif
-
-  if a:ctermbg != ""
-    exec "hi " . a:group . " ctermbg=" . a:ctermbg
-  endif
-
-  if a:attr != ""
-    exec "hi " . a:group . " term=none" . " cterm=" . a:attr
-  endif
-endfun
-"}}}
-
-call <SID>hi("clojureParen",        "60",  '', '')
-call <SID>hi("clojureKeyword",      "183", '', '')
-
-" Vim Editor Colors
-call <SID>hi("Bold",          "", "", "bold")
-call <SID>hi('ErrorMsg', '196', s:Black, 'bold')
-
-call <SID>hi('Folded',     s:Grey11, s:Grey6,        'none')
-call <SID>hi('FoldColumn', s:Grey9,  s:CursorLineBG, 'none')
-call <SID>hi('MatchParen', '',  '237', 'none')
-call <SID>hi('SignColumn', '14', s:CursorLineBG, 'none')
-call <SID>hi('SignatureMarkTextHL', '141', s:CursorLineBG, 'none')
-
-call <SID>hi('Search',           '160', 228, 'bold')
-call <SID>hi('IncSearch',        '160', s:Yellow, 'reverse')
-
-call <SID>hi("Visual",        "219", s:Grey7, '')
-
-call <SID>hi('Normal', s:NormalFG, '', '')
-call <SID>hi('NonText', '237', '', '')
-
-call <SID>hi('CursorColumn', '',      s:CursorLineBG, 'none')
-call <SID>hi('CursorLine',   '',      s:CursorLineBG, 'none')
-call <SID>hi('ColorColumn',  '',      '234',        'none')
-call <SID>hi('CursorLineNr', s:Grey2, s:CursorLineBG, 'none')
-
-call <SID>hi('LineNr',       s:Grey9, s:CursorLineBG, 'bold')
-
-call <SID>hi('PMenu',    '122',    s:Grey6, 'none')
-call <SID>hi('PMenuSel', s:Golden, s:Grey6, 'bold')
-call <SID>hi('CommandTCharMatched', s:Golden,   '',      'bold')
-call <SID>hi('Boolean', s:Golden, '', '')
-call <SID>hi('SpecialKey', s:Grey9, '', '')
-
-call <SID>hi('Comment', s:CommentFG, '', '')
-call <SID>hi('VertSplit', s:Grey7, s:Grey7, 'none')
-call <SID>hi('String', '210', '', '')
-
-call <SID>hi('Define', '33', '', 'bold')
-call <SID>hi('Function', '35', '', 'bold')
-call <SID>hi('Identifier', s:Golden, '', '')
-
-call <SID>hi('pythonSelf', s:Golden, '', '')
-
-call <SID>hi('Number', s:Yellow, '', '')
-call <SID>hi('Operator', 141, '', '')
-
-call <SID>hi('Statement', '35', '', 'bold')
-call <SID>hi('pythonLambdaExpr', '35', '', '')
-call <SID>hi('Type', s:LightYellow, '', 'bold')
-call <SID>hi('Todo', '124', '11', '')
-call <SID>hi('pythonDoctestValue', s:CommentFG, '', '')
-
-call <SID>hi('pythonBuiltin',     s:LightYellow, '', '')
-call <SID>hi('pythonBuiltinType', s:LightYellow, '', '')
-call <SID>hi('pythonBuiltinObj',  s:LightYellow, '', '')
-
-call <SID>hi('SpellBad', s:NormalFG, 52, '')
-call <SID>hi('SpellCap', s:NormalFG, 22, '')
-
-call <SID>hi('EasyMotionTarget',        159, '', 'bold')
-call <SID>hi('EasyMotionTarget2First',  159, '', 'bold')
-call <SID>hi('EasyMotionTarget2Second', 159, '', 'bold')
 hi link EasyMotionShade  Comment
 
-call <SID>hi('IndentGuidesOdd', '', '', '')
-call <SID>hi('IndentGuidesOdd', '', '', '')
-
-call <SID>hi('rubySymbol',                 '32',          '', '')
-call <SID>hi('rubyConstant',               s:LightYellow, '', 'bold')
-call <SID>hi('rubyInterpolationDelimiter', '177',         '', 'bold')
-call <SID>hi('rubyStringDelimiter',        '205',         '', 'bold')
-call <SID>hi('rubyPseudoVariable',         s:Golden,         '', 'bold')
-
-" remove highlighting function
-delf <sid>hi
-
-" Remove Colour Variables
-unlet s:Grey0 s:Grey1 s:Grey2 s:Grey3 s:Grey4 s:Grey5 s:Grey6 s:Grey7 s:Grey8
-unlet s:Grey9 s:Grey10 s:Grey11 s:Grey12 s:Grey13 s:Grey14 s:Grey15 s:Grey16
-unlet s:Grey17 s:Grey18 s:Grey19 s:Grey20 s:Grey21 s:Grey22 s:Grey23
-
-" vim: foldmethod=marker
+syntax match OperatorChars "?\|+\|-\|\*\|;\|:\|,\|<\|>\|&\||\|!\|\~\|%\|=\|)\|(\|{\|}\|\.\|\[\|\]\|/\(/\|*\)\@!"
+hi link OperatorChars Comment
