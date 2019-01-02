@@ -703,13 +703,15 @@ function! s:OperatorCharsForRuby()
   " syntax match OperatorChars "?\|+\|-\|\*\|;\|,\|<\|>\|&\||\|!\|\~\|%\|=\|)\|(\|{\|}\|\.\|\[\|\]\|/\(/\|*\)\@!"
   syn match rubyOperator "[;,~!^|*/+-]\|&\.\@!\|<=>\|<=\|\%(<\|\<class\s\+\u\w*\s*\)\@<!<[^<]\@=\|===\|==\|=\~\|>>\|>=\|=\@1<!>\|\*\*\|\.\.\.\|\.\.\|::"
   syn match rubyOperator "=>\|=\|->\|-=\|/=\|\*\*=\|\*=\|&&=\|&=\|&&\|||=\||=\|||\|%=\|+=\|!\~\|!=\|(\|)\|{\|}\|\.\|\[\|\]\|/\(/\|*\)"
-
-  hi link rubyOperator Comment
 endfunction
+
+let ruby_operators = 1
+hi link rubyOperator Comment
+autocmd BufRead,BufNewFile *.rb call s:OperatorCharsForRuby()
 
 let g:ophigh_highlight_link_group='Comment'
 hi link OperatorChars Comment
-autocmd BufRead,BufNewFile *.rb call s:OperatorCharsForRuby()
+
 "}}}
 
 map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
