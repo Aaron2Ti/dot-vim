@@ -393,8 +393,14 @@ call plug#begin('$HOME/.vim/bundle')
 call plug#end()
 "}}}
 
+call defx#custom#option('_', {
+\ 'columns': 'mark:filename:type:size',
+\ })
+
 " Shougo/denite.vim etc {{{
 function! s:defx_settings() abort
+
+
   " Define mappings
   nnoremap <silent><buffer><expr>       <CR>              defx#do_action('open')
   nnoremap <silent><buffer><expr>       c                 defx#do_action('copy')
@@ -416,6 +422,7 @@ function! s:defx_settings() abort
   nnoremap <silent><buffer><expr>       <C-l>             defx#do_action('redraw')
   nnoremap <silent><buffer><expr>       <C-g>             defx#do_action('print')
   nnoremap <silent><buffer><expr>       cd                defx#do_action('change_vim_cwd')
+  nnoremap <silent><buffer><expr>       S                 defx#do_action('toggle_sort', 'size')
 endfunction
 
 autocmd FileType defx call s:defx_settings()
