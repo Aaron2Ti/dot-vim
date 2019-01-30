@@ -592,14 +592,12 @@ autocmd FileType haskell let b:delimitMate_matchpairs = "(:),[:],{:}"
 autocmd FileType python  let b:delimitMate_matchpairs = "(:),[:],{:}"
 
 
-command! -bang -nargs=* Rg
-  \ call fzf#vim#grep(
-  \   'rg --column --line-number --no-heading --color=always --smart-case ' . <q-args>,
-  \   1,
-  \   <bang>0 ? fzf#vim#with_preview('up:100%')
-  \           : fzf#vim#with_preview('up:80%:hidden', '?'),
-  \   <bang>0)
-
+command! -bang -nargs=* Rg call fzf#vim#grep(
+\   'rg --column --line-number --no-heading --color=always --smart-case ' . <q-args>,
+\   1,
+\   fzf#vim#with_preview({'down': '100%'}, 'up:80%:hidden', '?'),
+\   <bang>0
+\ )
 
 command! HelpfulCommands call fzf#run({
 \  'sink'       : function('execute'),
