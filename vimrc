@@ -23,6 +23,10 @@ set fileencodings=utf-8,cp936,gb18030,ucs-bom,big5,euc-jp,euc-kr,latin1
 set helplang=En
 set history=500
 
+" TODO???
+set nopaste
+autocmd InsertLeave * set nopaste
+
 " have % bounce between angled brackets, as well as t'other kinds:
 set matchpairs+=<:>
 
@@ -63,7 +67,6 @@ set cursorline
 set mouse=
 
 set modeline
-set foldlevel=1
 
 set grepformat=%f:%l:%m
 
@@ -214,6 +217,11 @@ vnoremap k gk
 " 'keywordprg' (kp) option (default is "man").  The
 noremap K k
 
+set foldlevel=3
+set foldmethod=indent
+" noremap ]i  :set foldmethod=indent <CR>
+" noremap [i  :set foldmethod=manual <CR>
+
 " clean the search highlighting
 nmap <silent> <ESC><ESC>  :nohlsearch <CR>
 " }}}
@@ -269,6 +277,9 @@ call plug#begin('$HOME/.vim/bundle')
   let g:echodoc_enable_at_startup = 1
 
   Plug 'Shougo/context_filetype.vim'
+
+  Plug 'michaeljsmith/vim-indent-object'
+  Plug 'chaoren/vim-wordmotion'
 
   Plug 'Valloric/vim-operator-highlight'
   Plug 'andymass/vim-matchup'
@@ -443,17 +454,18 @@ call deoplete#custom#source('look', 'matchers', ['matcher_full_fuzzy', 'matcher_
 call deoplete#custom#source('look', 'sorters',  ['sorter_rank', 'sorter_word'])
 
 call deoplete#custom#option('sources', {
-\  '_':      ['member', 'buffer', 'tag', 'file', 'dictionary', 'look', 'ultisnips', 'syntax'],
-\  'python': ['member', 'buffer', 'tag', 'file', 'dictionary', 'look', 'ultisnips', 'syntax', 'jedi'],
+\  '_':      ['member', 'buffer', 'tag', 'file', 'syntax', 'dictionary', 'look', 'ultisnips'],
+\  'python': ['member', 'buffer', 'tag', 'file', 'syntax', 'dictionary', 'look', 'ultisnips', 'jedi'],
 \ })
 
-call deoplete#custom#source('jedi',       'rank', 250)
-call deoplete#custom#source('member',     'rank', 220)
-call deoplete#custom#source('buffer',     'rank', 210)
-call deoplete#custom#source('tag',        'rank', 200)
-call deoplete#custom#source('file',       'rank', 190)
-call deoplete#custom#source('ultisnips',  'rank', 190)
-call deoplete#custom#source('dictionary', 'rank', 180)
+call deoplete#custom#source('member',     'rank', 400)
+call deoplete#custom#source('buffer',     'rank', 350)
+call deoplete#custom#source('tag',        'rank', 300)
+call deoplete#custom#source('file',       'rank', 250)
+call deoplete#custom#source('syntax',     'rank', 250)
+call deoplete#custom#source('jedi',       'rank', 200)
+call deoplete#custom#source('ultisnips',  'rank', 180)
+call deoplete#custom#source('dictionary', 'rank', 150)
 call deoplete#custom#source('look',       'rank', 100)
 
 call deoplete#custom#source('_',    'min_pattern_length', 2)
