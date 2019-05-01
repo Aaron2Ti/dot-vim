@@ -570,6 +570,8 @@ autocmd FileType python setlocal commentstring=#%s
 autocmd FileType python setlocal define=^\s*\\(def\\\\|class\\)
 autocmd FileType python setlocal complete+=t
 autocmd FileType python setlocal formatoptions-=t
+" find a way to hi `self` for python only ?
+autocmd BufEnter * syntax keyword pythonSelf self
 
 " {{{ ultisnips
 let g:UltiSnipsUsePythonVersion    = 3

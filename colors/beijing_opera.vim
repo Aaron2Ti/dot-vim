@@ -77,7 +77,6 @@ hi pythonBuiltinObj               ctermfg=11                        cterm=NONE  
 hi pythonBuiltinType              ctermfg=11                        cterm=NONE       guifg=#FDE49C                     gui=NONE
 hi pythonDoctestValue             ctermfg=246                       cterm=NONE       guifg=#949494                     gui=NONE
 hi pythonLambdaExpr               ctermfg=35                        cterm=NONE       guifg=#00AF5F                     gui=NONE
-hi pythonSelf                     ctermfg=208                       cterm=NONE       guifg=#FF8700                     gui=NONE
 hi rubyConstant                   ctermfg=11                        cterm=NONE       guifg=#FDE49C                     gui=NONE
 hi rubyInterpolationDelimiter     ctermfg=177                       cterm=NONE       guifg=#D787FF                     gui=NONE
 hi rubyPseudoVariable             ctermfg=208                       cterm=NONE       guifg=#FF8700                     gui=NONE
@@ -85,6 +84,8 @@ hi rubyStringDelimiter            ctermfg=205                       cterm=NONE  
 hi rubySymbol                     ctermfg=32                        cterm=NONE       guifg=#0087D7                     gui=NONE
 
 hi link EasyMotionShade  Comment
+
+hi link pythonSelf  Comment
 
 syntax match OperatorChars "?\|+\|-\|\*\|;\|:\|,\|<\|>\|&\||\|!\|\~\|%\|=\|)\|(\|{\|}\|\.\|\[\|\]\|/\(/\|*\)\@!"
 hi link OperatorChars Comment

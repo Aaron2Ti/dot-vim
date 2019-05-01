@@ -79,7 +79,6 @@ GROUPS = [
     {'group': 'pythonBuiltinType',          'ctermfg': 11,   'ctermbg': None, 'cterm': 'NONE'},
     {'group': 'pythonDoctestValue',         'ctermfg': 246,  'ctermbg': None, 'cterm': 'NONE'},
     {'group': 'pythonLambdaExpr',           'ctermfg': 35,   'ctermbg': None, 'cterm': 'NONE'},
-    {'group': 'pythonSelf',                 'ctermfg': 208,  'ctermbg': None, 'cterm': 'NONE'},
     {'group': 'rubyConstant',               'ctermfg': 11,   'ctermbg': None, 'cterm': 'NONE'},
     {'group': 'rubyInterpolationDelimiter', 'ctermfg': 177,  'ctermbg': None, 'cterm': 'NONE'},
     {'group': 'rubyPseudoVariable',         'ctermfg': 208,  'ctermbg': None, 'cterm': 'NONE'},
@@ -424,6 +423,8 @@ def main():
 
         '''
         hi link EasyMotionShade  Comment
+
+        hi link pythonSelf  Comment
 
         syntax match OperatorChars "?\|+\|-\|\*\|;\|:\|,\|<\|>\|&\||\|!\|\~\|%\|=\|)\|(\|{\|}\|\.\|\[\|\]\|/\(/\|*\)\@!"
         hi link OperatorChars Comment
