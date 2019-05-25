@@ -279,7 +279,10 @@ call plug#begin('$HOME/.vim/bundle')
   Plug 'Shougo/context_filetype.vim'
 
   Plug 'michaeljsmith/vim-indent-object'
-  Plug 'chaoren/vim-wordmotion'
+
+  " Plug 'chaoren/vim-wordmotion'
+  " map dw de
+  " map cw ce
 
   Plug 'Valloric/vim-operator-highlight'
   Plug 'andymass/vim-matchup'
@@ -417,11 +420,11 @@ function! s:defx_settings() abort
   nnoremap <silent><buffer><expr>       c                 defx#do_action('copy')
   nnoremap <silent><buffer><expr>       m                 defx#do_action('move')
   nnoremap <silent><buffer><expr>       p                 defx#do_action('paste')
+  nnoremap <silent><buffer><expr>       r                 defx#do_action('rename')
   nnoremap <silent><buffer><expr>       l                 defx#do_action('open')
   nnoremap <silent><buffer><expr>       K                 defx#do_action('new_directory')
   nnoremap <silent><buffer><expr>       N                 defx#do_action('new_file')
   nnoremap <silent><buffer><expr>       d                 defx#do_action('remove')
-  nnoremap <silent><buffer><expr>       yy                defx#do_action('yank_path')
   nnoremap <silent><buffer><expr>       .                 defx#do_action('toggle_ignored_files')
   nnoremap <silent><buffer><expr>       h                 defx#do_action('cd', ['..'])
   nnoremap <silent><buffer><expr>       ~                 defx#do_action('cd')
