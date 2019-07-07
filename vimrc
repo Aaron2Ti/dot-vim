@@ -271,6 +271,8 @@ call plug#begin('$HOME/.vim/bundle')
 
   Plug 'ujihisa/neco-look'
   Plug 'zchee/deoplete-jedi'
+  Plug 'deoplete-plugins/deoplete-tag'
+  Plug 'deoplete-plugins/deoplete-dictionary'
 
   Plug 'Shougo/neco-syntax'
   Plug 'Shougo/echodoc.vim'
@@ -468,11 +470,12 @@ call deoplete#custom#source('file',       'rank', 250)
 call deoplete#custom#source('syntax',     'rank', 250)
 call deoplete#custom#source('jedi',       'rank', 200)
 call deoplete#custom#source('ultisnips',  'rank', 180)
-call deoplete#custom#source('dictionary', 'rank', 150)
+call deoplete#custom#source('dictionary', 'rank', 160)
 call deoplete#custom#source('look',       'rank', 100)
 
-call deoplete#custom#source('_',    'min_pattern_length', 2)
-call deoplete#custom#source('look', 'min_pattern_length', 4)
+call deoplete#custom#source('_',          'min_pattern_length', 2)
+call deoplete#custom#source('dictionary', 'min_pattern_length', 3)
+call deoplete#custom#source('look',       'min_pattern_length', 5)
 
 call deoplete#custom#source('ultisnips',
 \ 'matchers',
