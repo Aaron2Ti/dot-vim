@@ -5,4 +5,4 @@ neocomplcache
 view
 .netrwhist
 thesaurus/mthesaur.txt
-/autoload/plug.vim
+/autoload/plug.vim*
