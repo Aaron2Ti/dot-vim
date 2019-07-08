@@ -447,10 +447,26 @@ autocmd FileType defx call s:defx_settings()
 "{{{ deoplete#enable
 call deoplete#enable()
 call deoplete#custom#option({
-\ 'smart_case':           v:true,
-\ 'num_processes':        6,
-\ 'max_list':             40,
+\ 'smart_case':             v:true,
+\ 'num_processes':          6,
+\ 'max_list':               40,
 \ })
+
+call deoplete#custom#var('buffer', {
+\ 'require_same_filetype':  v:false,
+\})
+
+if !exists('g:context_filetype#same_filetypes')
+  let g:context_filetype#same_filetypes = {}
+endif
+" In c buffers, completes from cpp and d buffers.
+" let g:context_filetype#same_filetypes.c = 'cpp,d'
+" In cpp buffers, completes from c buffers.
+" let g:context_filetype#same_filetypes.cpp = 'c'
+" In gitconfig buffers, completes from all buffers.
+" let g:context_filetype#same_filetypes.gitconfig = '_'
+" In default, completes from all buffers.
+let g:context_filetype#same_filetypes._ = '_'
 
 " call deoplete#custom#source('_', 'matchers', ['matcher_cpsm'])
 call deoplete#custom#source('_', 'sorters', [])
