@@ -342,16 +342,19 @@ call plug#begin('$HOME/.vim/bundle')
   set laststatus=2
 
   let g:lightline = {
+        \ 'component': {
+        \   'lineinfo': ' %3l:%-2v',
+        \ },
         \ 'active': {
-        \   'left': [ [ 'mode', 'paste' ], ['filename' ]],
+        \   'left':  [ [ 'mode', 'paste' ], ['filename' ]],
         \   'right': [ [ 'lineinfo' ], ['percent'], [ 'fileformat', 'fileencoding', 'filetype' ] ]
         \ },
         \ 'component_function': {
-        \   'filename': 'LightLineFilename',
-        \   'fileformat': 'LightLineFileformat',
-        \   'filetype': 'LightLineFiletype',
+        \   'filename':     'LightLineFilename',
+        \   'fileformat':   'LightLineFileformat',
+        \   'filetype':     'LightLineFiletype',
         \   'fileencoding': 'LightLineFileencoding',
-        \   'mode': 'LightLineMode',
+        \   'mode':         'LightLineMode',
         \ },
         \ 'separator':    { 'left': '', 'right': '' },
         \ 'subseparator': { 'left': '', 'right': '' }
