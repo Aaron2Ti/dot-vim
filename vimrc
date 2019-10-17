@@ -229,6 +229,7 @@ nmap <silent> <ESC><ESC>  :nohlsearch <CR>
 "{{{
 call plug#begin('$HOME/.vim/bundle')
   " Add or remove your plugins here:
+  " Plug 'junegunn/vim-slash'
 
   Plug 'thinca/vim-visualstar'
   Plug 'RRethy/vim-illuminate'
@@ -311,6 +312,8 @@ call plug#begin('$HOME/.vim/bundle')
 
   " Plug 'mhinz/vim-grepper'
 
+  Plug 'adimit/prolog.vim'
+
   Plug 'mxw/vim-jsx',                            {'for': 'javascript'}
   Plug 'othree/html5.vim',                       {'for': 'html'}
   Plug 'pangloss/vim-javascript',                {'for': 'javascript'}
@@ -318,6 +321,8 @@ call plug#begin('$HOME/.vim/bundle')
   Plug 'sheerun/vim-polyglot'
   Plug 'slim-template/vim-slim',                 {'for': 'slim'}
   Plug 't9md/vim-surround_custom_mapping'
+
+  " Plug 'jiangmiao/auto-pairs'
 
   Plug 'tpope/vim-abolish'
   Plug 'tpope/vim-commentary'
@@ -347,7 +352,7 @@ call plug#begin('$HOME/.vim/bundle')
         \ },
         \ 'active': {
         \   'left':  [ [ 'mode', 'paste' ], ['filename' ]],
-        \   'right': [ [ 'lineinfo' ], ['percent'], [ 'fileformat', 'fileencoding', 'filetype' ] ]
+        \   'right': [ [ 'lineinfo' ], ['percent'], [ 'filetype' ] ]
         \ },
         \ 'component_function': {
         \   'filename':     'LightLineFilename',
@@ -357,8 +362,10 @@ call plug#begin('$HOME/.vim/bundle')
         \   'mode':         'LightLineMode',
         \ },
         \ 'separator':    { 'left': '', 'right': '' },
-        \ 'subseparator': { 'left': '', 'right': '' }
+        \ 'subseparator': { 'left': '', 'right': '' }
         \ }
+        " \ 'separator':    { 'left': '', 'right': '' },
+
         " unicode chars in http://be5invis.github.io/Iosevka/specimen.html
 
   let g:lightline.mode_map = {
