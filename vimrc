@@ -74,7 +74,7 @@ set hlsearch incsearch ignorecase showmatch infercase smartcase
 
 set magic hidden
 
-set wrap
+set nowrap
 set whichwrap=<,>,h,l,~,[,]
 
 set ruler showcmd

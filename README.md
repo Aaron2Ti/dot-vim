@@ -8,4 +8,12 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.c
 mkdir -p ~/.vim/bundle
 
 ln -s ~/.vim/editorconfig.rc .editorconfig
+
+pip install pynvim -U
+
+# open nvim and run commands
+#
+#   * PlugInstall
+#   * UpdateRemotePlugins
+#
 ```
