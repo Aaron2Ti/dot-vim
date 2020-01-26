@@ -7,6 +7,8 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.c
 
 mkdir -p ~/.vim/bundle
 
+mkdir -p ~/.config; ln -nfs ~/.vim ~/.config/nvim
+
 ln -s ~/.vim/editorconfig.rc .editorconfig
 
 pip install pynvim -U
