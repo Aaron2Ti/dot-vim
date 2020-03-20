@@ -231,6 +231,10 @@ call plug#begin('$HOME/.vim/bundle')
   " Add or remove your plugins here:
   " Plug 'junegunn/vim-slash'
 
+  Plug 'thalesmello/lkml.vim'
+
+  " Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+  " Plug 'fatih/vim-go'
   Plug 'thinca/vim-visualstar'
   Plug 'RRethy/vim-illuminate'
   Plug 'markonm/traces.vim'           " Live preview for Ex commands
