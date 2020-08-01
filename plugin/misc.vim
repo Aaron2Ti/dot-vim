@@ -34,7 +34,8 @@ autocmd BufWritePre * :call <SID>StripTrailingWhitespace()
 
 function ToggleLineNumber()
   if &relativenumber
-    setlocal number
+    setlocal nonumber
+    setlocal norelativenumber
   else
     setlocal relativenumber
   endif
