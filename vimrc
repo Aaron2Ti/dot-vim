@@ -164,7 +164,9 @@ set wildignore+=.keep
 
 " {{{ tab setting
 autocmd FileType javascript setlocal shiftwidth=4 softtabstop=4 tabstop=8
-autocmd FileType html setlocal shiftwidth=4 softtabstop=4 tabstop=8
+autocmd FileType html       setlocal shiftwidth=4 softtabstop=4 tabstop=8
+autocmd FileType python     setlocal shiftwidth=4 softtabstop=4 tabstop=8
+autocmd FileType ruby       setlocal shiftwidth=2 softtabstop=2 tabstop=4
 " }}}
 
 " {{{ Core Maps
@@ -278,6 +280,7 @@ call plug#begin('$HOME/.vim/bundle')
   Plug 'zchee/deoplete-jedi'
   Plug 'deoplete-plugins/deoplete-tag'
   Plug 'deoplete-plugins/deoplete-dictionary'
+  Plug 'Shougo/deoplete-nextword'
 
   Plug 'Shougo/neco-syntax'
   Plug 'Shougo/echodoc.vim'
@@ -326,7 +329,7 @@ call plug#begin('$HOME/.vim/bundle')
   Plug 'slim-template/vim-slim',                 {'for': 'slim'}
   Plug 't9md/vim-surround_custom_mapping'
 
-  " Plug 'jiangmiao/auto-pairs'
+  Plug 'jiangmiao/auto-pairs'
 
   Plug 'tpope/vim-abolish'
   Plug 'tpope/vim-commentary'
@@ -488,9 +491,14 @@ call deoplete#custom#source('_', 'sorters', [])
 call deoplete#custom#source('look', 'matchers', ['matcher_full_fuzzy', 'matcher_length'])
 call deoplete#custom#source('look', 'sorters',  ['sorter_rank', 'sorter_word'])
 
+" call deoplete#custom#option('sources', {
+" \  '_':      ['member', 'buffer', 'tag', 'file', 'syntax', 'dictionary', 'look', 'ultisnips'],
+" \  'python': ['member', 'buffer', 'tag', 'file', 'syntax', 'dictionary', 'look', 'ultisnips', 'jedi'],
+" \ })
+
 call deoplete#custom#option('sources', {
-\  '_':      ['member', 'buffer', 'tag', 'file', 'syntax', 'dictionary', 'look', 'ultisnips'],
-\  'python': ['member', 'buffer', 'tag', 'file', 'syntax', 'dictionary', 'look', 'ultisnips', 'jedi'],
+\  '_':      ['member', 'buffer', 'tag', 'file', 'syntax', 'nextword'],
+\  'python': ['member', 'buffer', 'tag', 'file', 'syntax', 'nextword'],
 \ })
 
 call deoplete#custom#source('member',     'rank', 400)
@@ -502,10 +510,12 @@ call deoplete#custom#source('jedi',       'rank', 200)
 call deoplete#custom#source('ultisnips',  'rank', 180)
 call deoplete#custom#source('dictionary', 'rank', 160)
 call deoplete#custom#source('look',       'rank', 100)
+call deoplete#custom#source('nextword',   'rank', 100)
 
 call deoplete#custom#source('_',          'min_pattern_length', 2)
 call deoplete#custom#source('dictionary', 'min_pattern_length', 3)
 call deoplete#custom#source('look',       'min_pattern_length', 5)
+call deoplete#custom#source('nextword',   'min_pattern_length', 3)
 
 call deoplete#custom#source('ultisnips',
 \ 'matchers',
@@ -601,7 +611,6 @@ let g:ale_sign_warning       = '🍭'
 let g:ale_sign_style_error   = '⁉️'
 let g:ale_sign_style_warning = '💩'
 
-autocmd FileType python setlocal shiftwidth=4 softtabstop=4 tabstop=8
 autocmd FileType python setlocal commentstring=#%s
 autocmd FileType python setlocal define=^\s*\\(def\\\\|class\\)
 autocmd FileType python setlocal complete+=t
@@ -631,8 +640,6 @@ let g:surround_custom_mapping.ruby = {
     \ 'E':  "<<EOS \r EOS",
     \ }
 " }}}
-
-autocmd FileType ruby setlocal shiftwidth=2 softtabstop=2 tabstop=4
 
 autocmd FileType clojure let b:delimitMate_quotes = "\""
 autocmd FileType clojure let b:delimitMate_matchpairs = "(:),[:],{:}"
@@ -747,25 +754,25 @@ let g:easy_align_delimiters = {
 
 let g:easy_align_ignore_groups = []
 
-" disable for vim-operator-highlight{{{
+" ruby-operator-highlight{{{
 let g:ophigh_filetypes_to_ignore = {}
 let g:ophigh_filetypes_to_ignore.ruby     = 1
 let g:ophigh_filetypes_to_ignore.eruby    = 1
 let g:ophigh_filetypes_to_ignore.markdown = 1
 
 function! s:OperatorCharsForRuby()
-  " syntax match OperatorChars "?\|+\|-\|\*\|;\|,\|<\|>\|&\||\|!\|\~\|%\|=\|)\|(\|{\|}\|\.\|\[\|\]\|/\(/\|*\)\@!"
-  syn match rubyOperator "[;,~!^|*/+-]\|&\.\@!\|<=>\|<=\|\%(<\|\<class\s\+\u\w*\s*\)\@<!<[^<]\@=\|===\|==\|=\~\|>>\|>=\|=\@1<!>\|\*\*\|\.\.\.\|\.\.\|::"
-  syn match rubyOperator "=>\|=\|->\|-=\|/=\|\*\*=\|\*=\|&&=\|&=\|&&\|||=\||=\|||\|%=\|+=\|!\~\|!=\|(\|)\|{\|}\|\.\|\[\|\]\|/\(/\|*\)"
+  syn match rubyOperator "\s\(->\|=>\|===\|<==\|<=>\)\s"
+  syn match rubyOperator "\s\(=\|+\|-\|*\|/\|+=\|-=\)\s"
+  syn match rubyOperator "\s\(&&\|||\|==\|!=\|<=\|>=\)\s"
+  syn match rubyOperator "\(::\)"
+  syn match rubyOperator "\."
 endfunction
-
-let ruby_operators = 1
+"
 hi link rubyOperator Comment
 autocmd BufRead,BufNewFile *.rb call s:OperatorCharsForRuby()
 
 let g:ophigh_highlight_link_group='Comment'
 hi link OperatorChars Comment
-
 "}}}
 
 map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
