@@ -219,6 +219,9 @@ vnoremap k gk
 " 'keywordprg' (kp) option (default is "man").  The
 noremap K k
 
+" for paste mode
+nmap yo ]op
+
 set foldlevel=3
 set foldmethod=indent
 " noremap ]i  :set foldmethod=indent <CR>
@@ -277,7 +280,7 @@ call plug#begin('$HOME/.vim/bundle')
   let g:deoplete#enable_at_startup = 1
 
   Plug 'ujihisa/neco-look'
-  Plug 'zchee/deoplete-jedi'
+  " Plug 'zchee/deoplete-jedi'
   Plug 'deoplete-plugins/deoplete-tag'
   Plug 'deoplete-plugins/deoplete-dictionary'
   Plug 'Shougo/deoplete-nextword'
@@ -341,6 +344,7 @@ call plug#begin('$HOME/.vim/bundle')
   Plug 'tpope/vim-rsi'
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-unimpaired'
+
 
   Plug 'vim-ruby/vim-ruby',                      {'for': 'ruby'}
   Plug 'vim-scripts/DrawIt'
@@ -506,7 +510,7 @@ call deoplete#custom#source('buffer',     'rank', 350)
 call deoplete#custom#source('tag',        'rank', 300)
 call deoplete#custom#source('file',       'rank', 250)
 call deoplete#custom#source('syntax',     'rank', 250)
-call deoplete#custom#source('jedi',       'rank', 200)
+" call deoplete#custom#source('jedi',       'rank', 200)
 call deoplete#custom#source('ultisnips',  'rank', 180)
 call deoplete#custom#source('dictionary', 'rank', 160)
 call deoplete#custom#source('look',       'rank', 100)
