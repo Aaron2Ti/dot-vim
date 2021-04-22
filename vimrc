@@ -53,6 +53,8 @@ set tabstop=4
 
 set virtualedit=all
 
+set textwidth=150
+
 set autoread
 
 set complete=.,w,b,u,t,k,i,d
@@ -339,12 +341,25 @@ call plug#begin('$HOME/.vim/bundle')
   Plug 'tpope/vim-endwise'
   Plug 'tpope/vim-eunuch'
   Plug 'tpope/vim-fugitive'
-  Plug 'tpope/vim-rails'
   Plug 'tpope/vim-repeat'
   Plug 'tpope/vim-rsi'
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-unimpaired'
 
+  " Plug 'tpope/vim-rails'
+
+  " noremap <leader>rr  :edit config/routes.rb<CR>
+  " noremap <leader>rg  :edit Gemfile<CR>
+  " noremap <leader>rj  :Ejavascript<Space>
+  " noremap <leader>rc  :Econtroller<Space>
+  " noremap <leader>rm  :Emodel<Space>
+  " noremap <leader>rl  :Elayout<Space>
+  " noremap <leader>rv  :Eview<Space>
+  " noremap <leader>rp  :Eview shared/_
+  " noremap <leader>rh  :Ehelper<Space>
+  " noremap <leader>ri  :Rinitializer<Space>
+  " noremap <leader>rs  :edit app/javascript/packs/application.scss<CR>
+  " noremap <leader>re  :Extract<Space>
 
   Plug 'vim-ruby/vim-ruby',                      {'for': 'ruby'}
   Plug 'vim-scripts/DrawIt'
@@ -469,8 +484,8 @@ autocmd FileType defx call s:defx_settings()
 call deoplete#enable()
 call deoplete#custom#option({
 \ 'smart_case':             v:true,
-\ 'num_processes':          6,
-\ 'max_list':               40,
+\ 'num_processes':          2,
+\ 'max_list':               20,
 \ })
 
 call deoplete#custom#var('buffer', {
