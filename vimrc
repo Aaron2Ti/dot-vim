@@ -23,7 +23,6 @@ set fileencodings=utf-8,cp936,gb18030,ucs-bom,big5,euc-jp,euc-kr,latin1
 set helplang=En
 set history=500
 
-" TODO???
 set nopaste
 autocmd InsertLeave * set nopaste
 
@@ -35,7 +34,6 @@ set list
 set listchars=tab:⇢\ ,nbsp:_,trail:·
 set showbreak=↳
 set linebreak
-    " #add8e6"
 
 set autoindent
 set smartindent
@@ -197,11 +195,9 @@ nnoremap ` '
 vnoremap g_ $
 vnoremap $  g_
 
-" move current line up or down
+" move lines up or down
 nmap <C-k> [e
 nmap <C-j> ]e
-
-" Bubble multiple lines
 vmap <C-k> [egv
 vmap <C-j> ]egv
 
@@ -213,7 +209,6 @@ nmap gV `[v`]
 " nnoremap k gk
 vnoremap j gj
 vnoremap k gk
-
 
 " by default the K would run the "man" command
 " Run a program to lookup the keyword under the
@@ -231,30 +226,26 @@ set foldmethod=indent
 
 " clean the search highlighting
 nmap <silent> <ESC><ESC>  :nohlsearch <CR>
+
+
+" nnoremap * *``
+
 " }}}
 
 "{{{
 call plug#begin('$HOME/.vim/bundle')
-  " Add or remove your plugins here:
-  " Plug 'junegunn/vim-slash'
-
-  Plug 'thalesmello/lkml.vim'
-
-  " Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-  " Plug 'fatih/vim-go'
+  Plug 'thalesmello/lkml.vim'             " LookML syntax for vim
+  Plug 'markonm/traces.vim'               " Live preview for Ex commands
+  Plug 'RRethy/vim-illuminate'            " highlight the current word
+  Plug 'vim-scripts/VisIncr'              " making a column of increasing or decreasing numbers, dates, or daynames.
+  Plug 'vim-scripts/scratch.vim'
   Plug 'thinca/vim-visualstar'
-  Plug 'RRethy/vim-illuminate'
-  Plug 'markonm/traces.vim'           " Live preview for Ex commands
-
-  Plug 'echuraev/translate-shell.vim'
-  let g:trans_default_direction = ":zh"
-  let g:trans_advanced_options = "-brief -engine bing"
-  " brew install translate-shell
 
   Plug '907th/vim-auto-save'
-  Plug 'AndrewRadev/splitjoin.vim'
   Plug 'AndrewRadev/switch.vim'
-  Plug 'Raimondi/delimitMate'
+
+  Plug 'jiangmiao/auto-pairs'
+
   Plug 'SirVer/ultisnips'
 
   "{{{ incsearch
@@ -262,54 +253,36 @@ call plug#begin('$HOME/.vim/bundle')
   Plug 'haya14busa/incsearch-fuzzy.vim'
   map /  <Plug>(incsearch-forward)
   map ?  <Plug>(incsearch-backward)
-  " map g/ <Plug>(incsearch-stay)
-
-  " map z/ <Plug>(incsearch-fuzzy-/)
-  " map z? <Plug>(incsearch-fuzzy-?)
-  " map zg/ <Plug>(incsearch-fuzzy-stay)
   "}}}
+  Plug 'easymotion/vim-easymotion'
 
   Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
   Plug 'Shougo/defx.nvim',   { 'do': ':UpdateRemotePlugins' }
-
-  " LanguageClient
-  " Plug 'autozimu/LanguageClient-neovim', {
-  " \ 'branch': 'next',
-  " \ 'do':     'bash install.sh',
-  " \ }
 
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   let g:deoplete#enable_at_startup = 1
 
   Plug 'ujihisa/neco-look'
-  " Plug 'zchee/deoplete-jedi'
   Plug 'deoplete-plugins/deoplete-tag'
   Plug 'deoplete-plugins/deoplete-dictionary'
   Plug 'Shougo/deoplete-nextword'
-
   Plug 'Shougo/neco-syntax'
+
   Plug 'Shougo/echodoc.vim'
   let g:echodoc_enable_at_startup = 1
 
   Plug 'Shougo/context_filetype.vim'
 
-  Plug 'michaeljsmith/vim-indent-object'
-
-  " Plug 'chaoren/vim-wordmotion'
-  " map dw de
-  " map cw ce
-
   Plug 'Valloric/vim-operator-highlight'
   Plug 'andymass/vim-matchup'
   Plug 'b4winckler/vim-angry'
-  Plug 'bruno-/vim-vertical-move'
+  Plug 'vim-utils/vim-vertical-move'
   Plug 'derekwyatt/vim-sbt',                     {'for': 'scala'}
   Plug 'derekwyatt/vim-scala',                   {'for': 'scala'}
-  Plug 'easymotion/vim-easymotion'
   Plug 'editorconfig/editorconfig-vim'
   Plug 'hdima/python-syntax',                    {'for': 'python'}
-  Plug 'honza/vim-snippets'
   Plug 'hynek/vim-python-pep8-indent',           {'for': 'python'}
+  Plug 'honza/vim-snippets'
   Plug 'itchyny/lightline.vim'
 
   Plug 'junegunn/fzf',                           {'dir': '~/.fzf', 'do': './install --all'}
@@ -319,10 +292,7 @@ call plug#begin('$HOME/.vim/bundle')
   Plug 'kana/vim-textobj-user'
   Plug 'kshenoy/vim-signature'
   Plug 'majutsushi/tagbar'
-  Plug 'mattn/emmet-vim'
   Plug 'mbbill/fencview'
-
-  " Plug 'mhinz/vim-grepper'
 
   Plug 'adimit/prolog.vim'
 
@@ -334,12 +304,9 @@ call plug#begin('$HOME/.vim/bundle')
   Plug 'slim-template/vim-slim',                 {'for': 'slim'}
   Plug 't9md/vim-surround_custom_mapping'
 
-  Plug 'jiangmiao/auto-pairs'
-
   Plug 'tpope/vim-abolish'
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-endwise'
-  Plug 'tpope/vim-eunuch'
   Plug 'tpope/vim-fugitive'
   Plug 'tpope/vim-repeat'
   Plug 'tpope/vim-rsi'
@@ -364,10 +331,7 @@ call plug#begin('$HOME/.vim/bundle')
   Plug 'vim-ruby/vim-ruby',                      {'for': 'ruby'}
   Plug 'vim-scripts/DrawIt'
   Plug 'vim-scripts/SearchComplete'
-  Plug 'vim-scripts/VisIncr'
-  Plug 'vim-scripts/indent-motion'
-  Plug 'vim-scripts/scratch.vim'
-  Plug 'w0rp/ale'
+  " Plug 'w0rp/ale'
 
   " {{{ lightline & laststatus
   set laststatus=2
@@ -451,8 +415,6 @@ call defx#custom#option('_', {
 
 " Shougo/denite.vim etc {{{
 function! s:defx_settings() abort
-
-
   " Define mappings
   nnoremap <silent><buffer><expr>       <CR>              defx#do_action('open')
   nnoremap <silent><buffer><expr>       c                 defx#do_action('copy')
@@ -495,13 +457,6 @@ call deoplete#custom#var('buffer', {
 if !exists('g:context_filetype#same_filetypes')
   let g:context_filetype#same_filetypes = {}
 endif
-" In c buffers, completes from cpp and d buffers.
-" let g:context_filetype#same_filetypes.c = 'cpp,d'
-" In cpp buffers, completes from c buffers.
-" let g:context_filetype#same_filetypes.cpp = 'c'
-" In gitconfig buffers, completes from all buffers.
-" let g:context_filetype#same_filetypes.gitconfig = '_'
-" In default, completes from all buffers.
 let g:context_filetype#same_filetypes._ = '_'
 
 " call deoplete#custom#source('_', 'matchers', ['matcher_cpsm'])
@@ -603,32 +558,32 @@ let g:sql_type_default = 'pgsql'
 autocmd FileType sql setlocal commentstring=--%s
 
 " let g:ale_lint_on_insert_leave = 1
-let g:ale_linters = {
-\   'ruby':   [],
-\   'scss':   [],
-\   'python': ['pylint'],
-\}
+" let g:ale_linters = {
+" \   'ruby':   [],
+" \   'scss':   [],
+" \   'python': ['pylint'],
+" \}
 
 " let g:ale_linters.scala = ['scalac', 'scalastyle']
-let g:ale_linters.scala = []
-let g:ale_python_pylint_options = ' -E  -d no-name-in-module -d no-member '
+" let g:ale_linters.scala = []
+" let g:ale_python_pylint_options = ' -E  -d no-name-in-module -d no-member '
 
-highlight link ALEError             Normal
-highlight link ALEWarning           Normal
-highlight link ALEInfo              Normal
-highlight link ALEStyleError        Normal
-highlight link ALEStyleWarning      Normal
-highlight link ALEErrorSign         SignColumn
-highlight link ALEErrorSign         SignColumn
-highlight link ALEWarningSign       SignColumn
-highlight link ALEInfoSign          SignColumn
-highlight link ALEStyleErrorSign    SignColumn
-highlight link ALEStyleWarningSign  SignColumn
+" highlight link ALEError             Normal
+" highlight link ALEWarning           Normal
+" highlight link ALEInfo              Normal
+" highlight link ALEStyleError        Normal
+" highlight link ALEStyleWarning      Normal
+" highlight link ALEErrorSign         SignColumn
+" highlight link ALEErrorSign         SignColumn
+" highlight link ALEWarningSign       SignColumn
+" highlight link ALEInfoSign          SignColumn
+" highlight link ALEStyleErrorSign    SignColumn
+" highlight link ALEStyleWarningSign  SignColumn
 
-let g:ale_sign_error         = '🎈'
-let g:ale_sign_warning       = '🍭'
-let g:ale_sign_style_error   = '⁉️'
-let g:ale_sign_style_warning = '💩'
+" let g:ale_sign_error         = '🎈'
+" let g:ale_sign_warning       = '🍭'
+" let g:ale_sign_style_error   = '⁉️'
+" let g:ale_sign_style_warning = '💩'
 
 autocmd FileType python setlocal commentstring=#%s
 autocmd FileType python setlocal define=^\s*\\(def\\\\|class\\)
@@ -726,6 +681,7 @@ noremap <Leader>p p'[v']$
 
 " Write or save
 noremap <Leader>w :w<CR>
+noremap <Leader>W :MkWrite<CR>
 
 " replace " with '
 noremap <Leader>sq :%s/"/'/gc<CR>
