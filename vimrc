@@ -74,7 +74,7 @@ set hlsearch incsearch ignorecase showmatch infercase smartcase
 
 set magic hidden
 
-set wrap
+set nowrap
 set whichwrap=<,>,h,l,~,[,]
 
 set ruler showcmd
@@ -185,10 +185,6 @@ nnoremap - ,
 vnoremap - ,
 let mapleader = ','
 
-" [<Space> by default is like l]
-noremap <Space>   15<C-E>
-noremap <S-Space> 15<C-Y>
-
 nnoremap ' `
 nnoremap ` '
 
@@ -240,6 +236,7 @@ call plug#begin('$HOME/.vim/bundle')
   Plug 'vim-scripts/VisIncr'              " making a column of increasing or decreasing numbers, dates, or daynames.
   Plug 'vim-scripts/scratch.vim'
   Plug 'thinca/vim-visualstar'
+  Plug 'karb94/neoscroll.nvim'
 
   Plug '907th/vim-auto-save'
   Plug 'AndrewRadev/switch.vim'
@@ -754,6 +751,19 @@ map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans
 \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
 \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
+lua << EOF
+require('neoscroll').setup({
+   mappings = {},
+   hide_cursor = false,
+   cursor_scrolls_alone = false
+})
+
+
+local t = {}
+t['<C-u>']   = {'scroll', {'-0.30', 'false', '80'}}  -- item2 S-Space to Send Hex Codes: 0x15
+t['<Space>'] = {'scroll', { '0.30', 'false', '80'}}
+require('neoscroll.config').set_mappings(t)
+EOF
 " }}}
 
 if has('nvim')

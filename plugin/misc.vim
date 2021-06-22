@@ -89,3 +89,8 @@ function <SID>MkSave()
   w
 endfunction
 command MkWrite :call <SID>MkSave()
+
+function <SID>ClearMarks()
+  delm! | delm A-Z0-9
+endfunction
+command ClearMarks :call <SID>ClearMarks()
