@@ -83,6 +83,9 @@ hi rubyPseudoVariable             ctermfg=208                       cterm=NONE  
 hi rubyStringDelimiter            ctermfg=205                       cterm=NONE       guifg=#FF5FAF                     gui=NONE
 hi rubySymbol                     ctermfg=32                        cterm=NONE       guifg=#0087D7                     gui=NONE
 
+hi WhichKeyFloat                  ctermfg=122      ctermbg=234      cterm=NONE       guifg=#87FFD7    guibg=#444444    gui=NONE
+
+
 hi link EasyMotionShade  Comment
 
 hi link pythonSelf  Comment

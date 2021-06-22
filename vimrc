@@ -185,8 +185,8 @@ nnoremap - ,
 vnoremap - ,
 let mapleader = ','
 
-nnoremap ' `
-nnoremap ` '
+" nnoremap ' `
+" nnoremap ` '
 
 vnoremap g_ $
 vnoremap $  g_
@@ -230,6 +230,10 @@ nmap <silent> <ESC><ESC>  :nohlsearch <CR>
 
 "{{{
 call plug#begin('$HOME/.vim/bundle')
+  Plug 'folke/which-key.nvim'
+
+  Plug 'phaazon/hop.nvim'
+
   Plug 'thalesmello/lkml.vim'             " LookML syntax for vim
   Plug 'markonm/traces.vim'               " Live preview for Ex commands
   Plug 'RRethy/vim-illuminate'            " highlight the current word
@@ -251,7 +255,7 @@ call plug#begin('$HOME/.vim/bundle')
   map /  <Plug>(incsearch-forward)
   map ?  <Plug>(incsearch-backward)
   "}}}
-  Plug 'easymotion/vim-easymotion'
+  " Plug 'easymotion/vim-easymotion'
 
   Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
   Plug 'Shougo/defx.nvim',   { 'do': ':UpdateRemotePlugins' }
@@ -690,15 +694,15 @@ noremap <Leader>bd :bufdo bd<CR>
 vnoremap <Leader>a y:'<,'>!sort -t= -k2
 
 " {{{ easymotion
-let g:EasyMotion_smartcase = 1
+" let g:EasyMotion_smartcase = 1
 
-nmap s <Plug>(easymotion-s2)
-omap s <Plug>(easymotion-s2)
-xmap s <Plug>(easymotion-s2)
+" nmap s <Plug>(easymotion-s2)
+" omap s <Plug>(easymotion-s2)
+" xmap s <Plug>(easymotion-s2)
 
-let g:EasyMotion_mapping_j = '<C-l>'
-let g:EasyMotion_mapping_k = '<C-h>'
-let g:EasyMotion_keys = 'sdfjklhgawoeiqpnmvbcxAJKFDHGSL;z'
+" let g:EasyMotion_mapping_j = '<C-l>'
+" let g:EasyMotion_mapping_k = '<C-h>'
+" let g:EasyMotion_keys = 'sdfjklhgawoeiqpnmvbcxAJKFDHGSL;z'
 " }}}
 
 nnoremap <silent> <F9> :TagbarToggle<CR>
@@ -758,11 +762,32 @@ require('neoscroll').setup({
    cursor_scrolls_alone = false
 })
 
-
 local t = {}
 t['<C-u>']   = {'scroll', {'-0.30', 'false', '80'}}  -- item2 S-Space to Send Hex Codes: 0x15
 t['<Space>'] = {'scroll', { '0.30', 'false', '80'}}
 require('neoscroll.config').set_mappings(t)
+EOF
+
+lua << EOF
+require('hop').setup({
+    keys = 'sdfjklhgawoeiqpnmvbcxAJKFDHGSL;z',
+    teasing = false
+})
+EOF
+nmap s :HopChar2<CR>
+xmap s <cmd>HopChar2<CR>
+
+nmap <C-l> :HopLineAC<CR>
+nmap <C-h> :HopLineBC<CR>
+vmap <C-l> <CMD>HopLineAC<CR>
+vmap <C-h> <CMD>HopLineBC<CR>
+
+lua << EOF
+  require('which-key').setup({
+    -- your configuration comes here
+    -- or leave it empty to use the default settings
+    -- refer to the configuration section below
+  })
 EOF
 " }}}
 

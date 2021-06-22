@@ -91,6 +91,15 @@ endfunction
 command MkWrite :call <SID>MkSave()
 
 function <SID>ClearMarks()
-  delm! | delm A-Z0-9
+  delmarks! | delmarks 0-9a-zA-Z
 endfunction
 command ClearMarks :call <SID>ClearMarks()
+
+
+function <SID>ClearRegisters()
+  let regs=split('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789/-"', '\zs')
+  for r in regs
+    call setreg(r, [])
+  endfor
+endfunction
+command ClearRegisters :call <SID>ClearRegisters()
